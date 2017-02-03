@@ -1,0 +1,196 @@
+                   ------------------------------ 
+                   GNU Image Manipulation Program
+                         2.4  Stable Branch
+                   ------------------------------
+
+This is the stable branch of GIMP. No new features are being added
+here, just bug-fixes.
+
+
+Changes in GIMP 2.4.6
+=====================
+
+- fixed handling of the "antialias" tool option (bug #521069)
+- when loading a TIFF image, always set a filename on it (bug #521436)
+- fixed initial state of curve type in Curves tool (bug #523873)
+- fixed potential crash in the Dicom load plug-in
+- respect the brush mask in the Heal tool (bug #521433)
+- plugged some minor memory leaks
+- fixed a glitch in the DND code (bug #317992)
+- gimp-image-convert() must not accept palettes with > 256 colors (bug #525471)
+- fixed parameter description in the Map Object plug-in (bug #526679)
+- fixed compilation of unit tests on Mac OS X (bug #528160)
+- fixed handling of "argc-lower-val-y" PDB parameter in Curve Bend plug-in
+- fixed overlap problem in Hue-Saturation tool (bug #528160)
+- fixed asymmetry in Unsharp Mask plug-in (bug #530077)
+- don't show non-existant color profiles in the selector (bug #528958)
+- fixed issues with default aspect ratio in the Crop tool (bug #532057)
+- fixed compilation of the PDF import plug-in with libpoppler 0.8
+- fixed bug in clipboard brush code (bug #532886)
+- corrected layer mask flag in PSD save plug-in (bug #526811)
+- fixed an issue with tablets and newer X.Org releases
+- keep the JPEG save plug-in from writing an empty EXIF tag (bug #529469)
+- fixed crash in Selective Gaussion Blur plug-in (bug #529280)
+- added new translations (Belarusian, Catalan, Norwegian Nynorsk)
+- translation fixes and updates
+  (ar, ca, de, el, es, fi, fr, hu, it, ko, pl, pt_BR, ro, sv)
+
+Contributors:
+
+   Sven Neumann, Michael Natterer, Martin Nordholts, Bill Skaggs,
+   Manish Singh, Kevin Cozens, Michael Deal
+
+
+Changes in GIMP 2.4.5
+=====================
+
+- fixed a regression introduced by the brush cursor optimization (bug #514309)
+- fixed bug in transform tool preview (bug #340965)
+- fixed PSD export of images with layer masks
+- fixed base64 encoding routine of the Mail plug-in
+- use the correct background color when creating a new image (bug #514082)
+- explicitly link libgimpthumb with GLib (bug #515566)
+- improved selection of the font sample string (bug #514021)
+- unified handling of "Enter" and "Space" keysyms (bug #516544)
+- fixed bug in the Glossy script when used with a pattern (bug #517285)
+- correctly record dimensions in Exif data when saving as JPEG (bug #517077)
+- fixed sensitivity of plug-in menu items (bug #517683)
+- fixed potential crashes in Wind, Warp, Small Tiles and Apply Canvas
+  plug-ins (bug #516369)
+- added default keyboard shortcut for "Paste As New Image" (Ctrl-Shift-V)
+- added default keyboard shortcut for "Copy Visible" (Ctrl-Shift-C)
+- fixed missing preview update in Curves tool (bug #518012)
+- fixed a bug in the Frosty Logo script (bug #472316)
+- fixed backward transformations using the PDB (bug #518910)
+- translation fixes and updates (de, eu, eo, fr, he, hu, it, ja, ko)
+
+
+Contributors:
+
+   Sven Neumann, Michael Natterer, Bill Skaggs, Kevin Cozens,
+   Ulf-D. Ehlert, Giuliano Pochini, LightningIsMyName
+
+
+
+Changes in GIMP 2.4.4
+=====================
+
+- fixed typo in stock icon name
+- fixed handling of PSD files with empty layer names (bug #504149)
+- merged TinyScheme bug-fixes
+- removed duplicate entry from Tango palette
+- corrected parameter range in Chip Away script (bug #506110)
+- reduced redraw priority and speed of the marching ants (bug #479875)
+- fixed out-of-bounds array access in Convolution Matrix plug-in
+- reduced rounding errors in Convolution Matrix plug-in (bug #508114)
+- fixed potential crash on missing CMYK color profile
+- fixed crash in Bumpmap plug-in when called from some scripts (bug #509608)
+- Equalize should not equalise the alpha channel (bug #510210)
+- increased the number of points the ImageMap plug-in can handle (bug #511072)
+- adjusted the priority of the projection renderer (bug #511214)
+- smooth the brush mask to get a simpler cursor boundary (bug #304798)
+- show the selection even if the image window is invisible (bug #505758)
+- allow to commit a pending rectangular selection using Enter (bug #511599)
+- fixed bug in image dirty state logic (bug #509822)
+- improved GIMPressionist preformance and reduced startup time (bug #512126)
+- fixed a crash in the Convert to Color Profile plug-in (bug #512529)
+- merged some other minor fixes from trunk
+- translation updates (de, it, lt, ru, sv, uk)
+
+
+Contributors:
+
+   Sven Neumann, Michael Natterer, Kevin Cozens, Hans Breuer, Bill Skaggs,
+   Ulf-D. Ehlert, Martin Nordholts
+
+
+
+Changes in GIMP 2.4.3
+=====================
+
+- avoid filename encoding problems in the WMF import plug-in (bug #499329)
+- fixed horizontal flipping of linked layers (bug #499161)
+- raised the priority of the display idle renderer to improve performance
+  on Win32 (bug #499150)
+- fixed a missing update in the Lighting plug-in UI (bug #500317)
+- fixed a potential crash in the projection code (bug #500178)
+- fixed a minor Makefile issue (bug #500826)
+- removed some pointless warnings from the JPEG and TIFF load plug-ins
+- fixed size calculation for the image size warning dialog (bug #329468)
+- fixed loading of tool options for the rectangle tools (bug #498948)
+- push/pop a context in the Fog filter
+- fixed potential crashes in the Python binding
+- corrected grid drawing with non-integer spacing (bug #502374)
+- fixed grid snapping for coordinates less than the grid offset
+- made the healing brush work properly when dragged (bug #492575)
+- update tool state when a device change happens (bug #493176)
+- improved validation of strings sent over the wire (bug #498207)
+- fixed integer check in Script-Fu (bug #498207)
+- fixed potential out-of-memory problem in Script-Fu
+- fixed compilation on msys/mingw (bug #503124)
+- fixed localisation of Python plug-ins on Win32 (bug #502506)
+- translation updates (ca, cs, de, gl, it, ko, lt, sv, uk)
+
+
+Contributors:
+
+   Jesper de Jong, Bill Skaggs, Michael Natterer, Sven Neumann,
+   Martin Nordholts, Kevin Cozens, Tor Lillqvist.
+
+
+
+Changes in GIMP 2.4.2
+=====================
+
+- removed broken and useless HSV Graph script (bug #491311)
+- update the histogram when a color correction tool is cancelled (bug #493639)
+- fixed a crash with certain plug-in or script descriptions (bug #492718)
+- corrected a tooltip (bug #495564)
+- fixed a crash when GIMP is run without any modules (bug #495863)
+- fixed error handling in the TIFF plug-in
+- fixed a problem with Sample points
+- fixed a crash when merging layers in indexed image (bug #495990)
+- update the histogram when painting (bug #494049)
+- fixed another problem with merge operations on indexed images (bug #496437)
+- fixed crash in TIFF plug-in when saving indexed images (bug #497103)
+- changed defaults so that a system monitor profile is only used when the
+  user explicitely enabled this feature (bug #496890)
+- fixed endless loop when running equalize on transparent areas (bug #497291)
+- fixed heap corruption in GimpColorScale widget that caused a crash in the
+  Compose plug-in (bug #399484)
+- fixed use of background color in Particle Trace script (bug #498282)
+- set the image menu insensitive when there's no image opened (bug #498511)
+- translation updates (ca, et, it, lt, pt, pt_BR, sr, sv)
+
+
+Contributors:
+
+   Kevin Cozens, Tor Lillqvist, Michael Natterer, Sven Neumann.
+
+
+
+Changes in GIMP 2.4.1
+=====================
+
+- fixed a minor display rendering problem
+- improved the workaround for broken graphics card drivers (bug #421466)
+- fixed a crash with broken scripts and plug-ins (bug #490055)
+- fixed potential syntax error in configure script (bug #490068)
+- fixed parsing of floating point numbers in Script-Fu (bug #490198)
+- fixed potential crash when converting an indexed image to RGB (bug #490048)
+- update the histogram while doing color corrections (bug #490182)
+- fixed another crash with broken plug-ins (bug #490617)
+- fixed problems on Win32 when GIMP is installed into a non-ASCII path
+- fixed handling of truncated ASCII PNM files (bug #490827)
+- make sure that there's always a cursor, even for small brushes (bug #491272)
+- fixed line-drawing with a tablet and the Shift key (bug #164240)
+- added code to use the system monitor profile on OS X (bug #488170)
+- show changes to the rounded corners in the Rectangle Select tool (bug #418284)
+- reduced rounding errors in the display render routines (bug #490785)
+- translation updates (ca, de, et, lt, mk, pa, sv)
+
+
+Contributors:
+
+   Hans Breuer, Simon Budig, Kevin Cozens, Tor Lillqvist,
+   Michael Natterer, Sven Neumann, Martin Nordholts, Manish Singh.
