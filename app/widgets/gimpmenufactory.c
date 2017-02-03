@@ -30,6 +30,7 @@
 #include "widgets-types.h"
 
 #include "core/gimp.h"
+#include "core/gimpinteraction-logger.h"
 
 #include "gimpactionfactory.h"
 #include "gimpmenufactory.h"
@@ -218,6 +219,7 @@ gimp_menu_factory_manager_new (GimpMenuFactory *factory,
 
                   gtk_action_set_accel_group (action, accel_group);
                   gtk_action_connect_accelerator (action);
+                  guilog_register_action (action);
                 }
 
               g_list_free (actions);

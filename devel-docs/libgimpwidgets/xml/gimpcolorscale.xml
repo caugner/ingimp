@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpColorScale">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpColorScale.top_of_page">GimpColorScale</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpColorScale</refname>
+<refpurpose>Fancy colored sliders.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpColorScale.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpColorScale-struct">GimpColorScale</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-color-scale-new">gimp_color_scale_new</link>                (<link linkend="GtkOrientation">GtkOrientation</link> orientation,
+                                                         <link linkend="GimpColorSelectorChannel">GimpColorSelectorChannel</link> channel);
+<link linkend="void">void</link>                <link linkend="gimp-color-scale-set-channel">gimp_color_scale_set_channel</link>        (<link linkend="GimpColorScale">GimpColorScale</link> *scale,
+                                                         <link linkend="GimpColorSelectorChannel">GimpColorSelectorChannel</link> channel);
+<link linkend="void">void</link>                <link linkend="gimp-color-scale-set-color">gimp_color_scale_set_color</link>          (<link linkend="GimpColorScale">GimpColorScale</link> *scale,
+                                                         const <link linkend="GimpRGB">GimpRGB</link> *rgb,
+                                                         const <link linkend="GimpHSV">GimpHSV</link> *hsv);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpColorScale.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkRange">GtkRange</link>
+                           +----<link linkend="GtkScale">GtkScale</link>
+                                 +----GimpColorScale
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpColorScale.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpColorScale implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpColorScale.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpColorScale.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpColorScale-struct" role="struct">
+<title>GimpColorScale</title>
+<indexterm zone="GimpColorScale-struct"><primary>GimpColorScale</primary></indexterm><programlisting>typedef struct _GimpColorScale GimpColorScale;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-color-scale-new" role="function">
+<title>gimp_color_scale_new ()</title>
+<indexterm zone="gimp-color-scale-new"><primary>gimp_color_scale_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_color_scale_new                (<link linkend="GtkOrientation">GtkOrientation</link> orientation,
+                                                         <link linkend="GimpColorSelectorChannel">GimpColorSelectorChannel</link> channel);</programlisting>
+<para>
+Creates a new <link linkend="GimpColorScale"><type>GimpColorScale</type></link> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>orientation</parameter>&nbsp;:</term>
+<listitem><simpara> the scale's orientation (horizontal or vertical)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel</parameter>&nbsp;:</term>
+<listitem><simpara> the scale's color channel
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpColorScale"><type>GimpColorScale</type></link> widget
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-scale-set-channel" role="function">
+<title>gimp_color_scale_set_channel ()</title>
+<indexterm zone="gimp-color-scale-set-channel"><primary>gimp_color_scale_set_channel</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_scale_set_channel        (<link linkend="GimpColorScale">GimpColorScale</link> *scale,
+                                                         <link linkend="GimpColorSelectorChannel">GimpColorSelectorChannel</link> channel);</programlisting>
+<para>
+Changes the color channel displayed by the <parameter>scale</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>scale</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpColorScale"><type>GimpColorScale</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel</parameter>&nbsp;:</term>
+<listitem><simpara> the new color channel
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-scale-set-color" role="function">
+<title>gimp_color_scale_set_color ()</title>
+<indexterm zone="gimp-color-scale-set-color"><primary>gimp_color_scale_set_color</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_scale_set_color          (<link linkend="GimpColorScale">GimpColorScale</link> *scale,
+                                                         const <link linkend="GimpRGB">GimpRGB</link> *rgb,
+                                                         const <link linkend="GimpHSV">GimpHSV</link> *hsv);</programlisting>
+<para>
+Changes the color value of the <parameter>scale</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>scale</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpColorScale"><type>GimpColorScale</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rgb</parameter>&nbsp;:</term>
+<listitem><simpara> the new color as <link linkend="GimpRGB"><type>GimpRGB</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>hsv</parameter>&nbsp;:</term>
+<listitem><simpara> the new color as <link linkend="GimpHSV"><type>GimpHSV</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

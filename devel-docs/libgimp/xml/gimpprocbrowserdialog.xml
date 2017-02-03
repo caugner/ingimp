@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpProcBrowserDialog">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpProcBrowserDialog.top_of_page">GimpProcBrowserDialog</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpProcBrowserDialog</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpProcBrowserDialog.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpProcBrowserDialog-struct">GimpProcBrowserDialog</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-proc-browser-dialog-new">gimp_proc_browser_dialog_new</link>        (const <link linkend="gchar">gchar</link> *title,
+                                                         const <link linkend="gchar">gchar</link> *role,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         ...);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-proc-browser-dialog-get-selected">gimp_proc_browser_dialog_get_selected</link>
+                                                        (<link linkend="GimpProcBrowserDialog">GimpProcBrowserDialog</link> *dialog);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpProcBrowserDialog.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkWindow">GtkWindow</link>
+                                       +----<link linkend="GtkDialog">GtkDialog</link>
+                                             +----<link linkend="GimpDialog">GimpDialog</link>
+                                                   +----GimpProcBrowserDialog
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpProcBrowserDialog.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpProcBrowserDialog implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpProcBrowserDialog.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpProcBrowserDialog-row-activated">row-activated</link>&quot;                                  : Run Last
+  &quot;<link linkend="GimpProcBrowserDialog-selection-changed">selection-changed</link>&quot;                              : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpProcBrowserDialog.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpProcBrowserDialog.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpProcBrowserDialog-struct" role="struct">
+<title>GimpProcBrowserDialog</title>
+<indexterm zone="GimpProcBrowserDialog-struct"><primary>GimpProcBrowserDialog</primary></indexterm><programlisting>typedef struct _GimpProcBrowserDialog GimpProcBrowserDialog;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-proc-browser-dialog-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_proc_browser_dialog_new ()</title>
+<indexterm zone="gimp-proc-browser-dialog-new" role="GIMP 2.4"><primary>gimp_proc_browser_dialog_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_proc_browser_dialog_new        (const <link linkend="gchar">gchar</link> *title,
+                                                         const <link linkend="gchar">gchar</link> *role,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         ...);</programlisting>
+<para>
+Create a new <link linkend="GimpProcBrowserDialog"><type>GimpProcBrowserDialog</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>     The dialog's title.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>role</parameter>&nbsp;:</term>
+<listitem><simpara>      The dialog's role, see <link linkend="gtk-window-set-role"><function>gtk_window_set_role()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_func</parameter>&nbsp;:</term>
+<listitem><simpara> The function which will be called if the user presses "F1".
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_id</parameter>&nbsp;:</term>
+<listitem><simpara>   The help_id which will be passed to <parameter>help_func</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>       A <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated list destribing the action_area buttons.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a newly created <link linkend="GimpProcBrowserDialog"><type>GimpProcBrowserDialog</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-proc-browser-dialog-get-selected" role="function" condition="since:GIMP 2.4">
+<title>gimp_proc_browser_dialog_get_selected ()</title>
+<indexterm zone="gimp-proc-browser-dialog-get-selected" role="GIMP 2.4"><primary>gimp_proc_browser_dialog_get_selected</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_proc_browser_dialog_get_selected
+                                                        (<link linkend="GimpProcBrowserDialog">GimpProcBrowserDialog</link> *dialog);</programlisting>
+<para>
+Retrieves the name of the currently selected procedure.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpProcBrowserDialog"><type>GimpProcBrowserDialog</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the selected procedure of <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no
+              procedure is selected.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpProcBrowserDialog.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpProcBrowserDialog-row-activated"><title>The <literal>&quot;row-activated&quot;</literal> signal</title>
+<indexterm zone="GimpProcBrowserDialog-row-activated"><primary>GimpProcBrowserDialog::row-activated</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpProcBrowserDialog">GimpProcBrowserDialog</link> *dialog,
+                                                        <link linkend="gpointer">gpointer</link>               user_data)      : Run Last</programlisting>
+<para>
+Emitted when one of the rows in the contained <link linkend="GtkTreeView"><type>GtkTreeView</type></link> is activated.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&nbsp;:</term>
+<listitem><simpara> the object that received the signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GimpProcBrowserDialog-selection-changed"><title>The <literal>&quot;selection-changed&quot;</literal> signal</title>
+<indexterm zone="GimpProcBrowserDialog-selection-changed"><primary>GimpProcBrowserDialog::selection-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpProcBrowserDialog">GimpProcBrowserDialog</link> *dialog,
+                                                        <link linkend="gpointer">gpointer</link>               user_data)      : Run Last</programlisting>
+<para>
+Emitted when the selection in the contained <link linkend="GtkTreeView"><type>GtkTreeView</type></link> changes.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&nbsp;:</term>
+<listitem><simpara> the object that received the signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

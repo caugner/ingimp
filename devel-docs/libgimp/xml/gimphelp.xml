@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimphelp">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimphelp.top_of_page">gimphelp</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimphelp</refname>
+<refpurpose>Loading help pages using gimp_help.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimphelp.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-help">gimp_help</link>                           (const <link linkend="gchar">gchar</link> *help_domain,
+                                                         const <link linkend="gchar">gchar</link> *help_id);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimphelp.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Loading help pages using gimp_help.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimphelp.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-help" role="function">
+<title>gimp_help ()</title>
+<indexterm zone="gimp-help"><primary>gimp_help</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_help                           (const <link linkend="gchar">gchar</link> *help_domain,
+                                                         const <link linkend="gchar">gchar</link> *help_id);</programlisting>
+<para>
+Load a help page.
+</para>
+<para>
+This procedure loads the specified help page into the helpbrowser or
+what ever is configured as help viewer. The help page is identified
+by its domain and ID: if help_domain is NULL, we use the help_domain
+which was registered using the <link linkend="gimp-plugin-help-register"><function>gimp_plugin_help_register()</function></link>
+procedure. If help_domain is NULL and no help domain was registered,
+the help domain of the main GIMP installation is used.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>help_domain</parameter>&nbsp;:</term>
+<listitem><simpara> The help domain in which help_id is registered.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_id</parameter>&nbsp;:</term>
+<listitem><simpara> The help page's ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

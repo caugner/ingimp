@@ -28,7 +28,7 @@ backend_sources = uri-backend-libcurl.c
 backend_cflags = $(URI_LIBCURL_CFLAGS)
 backend_libs = $(URI_LIBCURL_LIBS)
 else
-backend_sources = uri-backend-wget.c
+backend_sources = uri-backend-ingimp.c
 backend_cflags = 
 backend_libs = 
 endif

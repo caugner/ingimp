@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpCellRendererColor">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpCellRendererColor.top_of_page">GimpCellRendererColor</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpCellRendererColor</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpCellRendererColor.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpCellRendererColor-struct">GimpCellRendererColor</link>;
+<link linkend="GtkCellRenderer">GtkCellRenderer</link>*    <link linkend="gimp-cell-renderer-color-new">gimp_cell_renderer_color_new</link>        (void);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpCellRendererColor.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkCellRenderer">GtkCellRenderer</link>
+                     +----GimpCellRendererColor
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpCellRendererColor.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpCellRendererColor--color">color</link>&quot;                    <link linkend="GimpRGB">GimpRGB</link>*              : Read / Write
+  &quot;<link linkend="GimpCellRendererColor--icon-size">icon-size</link>&quot;                <link linkend="gint">gint</link>                  : Read / Write / Construct
+  &quot;<link linkend="GimpCellRendererColor--opaque">opaque</link>&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpCellRendererColor.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpCellRendererColor.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpCellRendererColor-struct" role="struct">
+<title>GimpCellRendererColor</title>
+<indexterm zone="GimpCellRendererColor-struct"><primary>GimpCellRendererColor</primary></indexterm><programlisting>typedef struct _GimpCellRendererColor GimpCellRendererColor;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-cell-renderer-color-new" role="function" condition="since:GIMP 2.2">
+<title>gimp_cell_renderer_color_new ()</title>
+<indexterm zone="gimp-cell-renderer-color-new" role="GIMP 2.2"><primary>gimp_cell_renderer_color_new</primary></indexterm><programlisting><link linkend="GtkCellRenderer">GtkCellRenderer</link>*    gimp_cell_renderer_color_new        (void);</programlisting>
+<para>
+Creates a <link linkend="GtkCellRenderer"><type>GtkCellRenderer</type></link> that displays a color.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpCellRendererColor"><type>GimpCellRendererColor</type></link>
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpCellRendererColor.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpCellRendererColor--color"><title>The <literal>&quot;color&quot;</literal> property</title>
+<indexterm zone="GimpCellRendererColor--color"><primary>GimpCellRendererColor:color</primary></indexterm><programlisting>  &quot;color&quot;                    <link linkend="GimpRGB">GimpRGB</link>*              : Read / Write</programlisting>
+<para></para></refsect2>
+<refsect2 id="GimpCellRendererColor--icon-size"><title>The <literal>&quot;icon-size&quot;</literal> property</title>
+<indexterm zone="GimpCellRendererColor--icon-size"><primary>GimpCellRendererColor:icon-size</primary></indexterm><programlisting>  &quot;icon-size&quot;                <link linkend="gint">gint</link>                  : Read / Write / Construct</programlisting>
+<para></para><para>Allowed values: &gt;= 0</para>
+<para>Default value: 1</para>
+</refsect2>
+<refsect2 id="GimpCellRendererColor--opaque"><title>The <literal>&quot;opaque&quot;</literal> property</title>
+<indexterm zone="GimpCellRendererColor--opaque"><primary>GimpCellRendererColor:opaque</primary></indexterm><programlisting>  &quot;opaque&quot;                   <link linkend="gboolean">gboolean</link>              : Read / Write / Construct</programlisting>
+<para></para><para>Default value: TRUE</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

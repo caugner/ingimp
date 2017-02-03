@@ -1,0 +1,80 @@
+'''
+ingimp -- Instrumented GIMP
+Copyright (C) 2007 Michael Terry and Terry Park
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+'''
+
+import Tkinter as tk
+import time
+import Utils
+
+class UploadDialog:
+    def __init__(self, window):
+        self.user_cancelled = False
+        self.done = False
+        self.cancel_time = 0
+        self._build_UI(window)
+    def _build_UI(self, window):
+        self.window = window
+        window.protocol('WM_DELETE_WINDOW', self._handle_cancel)
+        window.title("ingimp")
+        window.resizable(width=0, height=0)
+
+        self.logo_image = Utils.get_logo_image()
+        if self.logo_image:
+            logo = tk.Label(window, image=self.logo_image)
+        else:
+            logo = tk.Label(window, text="ingimp")
+
+        self.percent_done = 0
+        self.message_label = tk.Label(window, text="Use reporting 0% complete...")
+        self.cancel_button = tk.Button(window, command=self._handle_cancel, text="Cancel", padx=40)
+        
+        logo.grid(row=0, column=0, rowspan=3)
+        self.message_label.grid(row=1, column=1, sticky=tk.W)
+        self.cancel_button.grid(row=3, column=1, sticky=tk.E)
+        self.cancel_button.focus_set()
+    def show(self):
+        Utils.center_window(self.window)
+        self.window.after(1000, self._check_for_updates)
+        self.window.mainloop()
+        self.window.destroy()
+    def _check_for_updates(self):
+        if self.user_cancelled:
+            if (time.time() - self.cancel_time) > 5:
+                self.done = True
+        if not self.done:
+            self.window.after(1000, self._check_for_updates)
+            if not self.user_cancelled:
+                self.message_label.config(text="Use reporting %d%% complete" % self.percent_done)
+        else:
+            self.window.withdraw()
+            self.window.quit()
+    def _handle_cancel(self):
+        self.user_cancelled = True
+        self.message_label.config(text="Cancelling...")
+        self.cancel_button.config(state=tk.DISABLED)
+        self.cancel_time = time.time()
+    def set_current_file_num(self, cur_file_num, total_files):
+        if not self.user_cancelled:
+            self.percent_done = int(float(cur_file_num) / total_files * 100)
+    def close(self):
+        self.done = True
+
+if __name__ == '__main__':
+    dialog = UploadDialog(tk.Tk(), os.path.join('@datadir@', 'ingimp', 'ingimp_logo.gif'))
+    dialog.show()
+

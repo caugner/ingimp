@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="GIMP Module Library Reference Manual" link="index.html" author="" name="libgimpmodule">
+  <chapters>
+    <sub name="GIMP Module Library" link="libgimpmodule.html">
+      <sub name="GimpModule" link="GimpModule.html"/>
+      <sub name="GimpModuleDB" link="GimpModuleDB.html"/>
+    </sub>
+    <sub name="Index" link="libgimpmodule-index.html"/>
+    <sub name="Index of new symbols in GIMP 2.2" link="libgimpmodule-index-new-in-2-2.html"/>
+    <sub name="Index of new symbols in GIMP 2.4" link="libgimpmodule-index-new-in-2-4.html"/>
+    <sub name="Index of deprecated symbols" link="libgimpmodule-index-deprecated.html"/>
+  </chapters>
+  <functions>
+    <function name="GimpModule" link="GimpModule.html#GimpModule-struct"/>
+    <function name="GimpModuleInfo" link="GimpModule.html#GimpModuleInfo"/>
+    <function name="enum GimpModuleState" link="GimpModule.html#GimpModuleState"/>
+    <function name="GimpModuleQueryFunc ()" link="GimpModule.html#GimpModuleQueryFunc"/>
+    <function name="GimpModuleRegisterFunc ()" link="GimpModule.html#GimpModuleRegisterFunc"/>
+    <function name="GIMP_MODULE_ABI_VERSION" link="GimpModule.html#GIMP-MODULE-ABI-VERSION:CAPS"/>
+    <function name="GIMP_MODULE_PARAM_SERIALIZE" link="GimpModule.html#GIMP-MODULE-PARAM-SERIALIZE:CAPS"/>
+    <function name="gimp_module_new ()" link="GimpModule.html#gimp-module-new"/>
+    <function name="gimp_module_modified ()" link="GimpModule.html#gimp-module-modified"/>
+    <function name="gimp_module_query_module ()" link="GimpModule.html#gimp-module-query-module"/>
+    <function name="gimp_module_set_load_inhibit ()" link="GimpModule.html#gimp-module-set-load-inhibit"/>
+    <function name="gimp_module_state_name ()" link="GimpModule.html#gimp-module-state-name"/>
+    <function name="gimp_module_register_enum ()" link="GimpModule.html#gimp-module-register-enum"/>
+    <function name="gimp_module_info_new ()" link="GimpModule.html#gimp-module-info-new"/>
+    <function name="gimp_module_info_copy ()" link="GimpModule.html#gimp-module-info-copy"/>
+    <function name="gimp_module_info_free ()" link="GimpModule.html#gimp-module-info-free"/>
+    <function name="The &quot;modified&quot; signal" link="GimpModule.html#GimpModule-modified"/>
+    <function name="" link="GimpModule.html#id2617767"/>
+    <function name="" link="GimpModule.html#id2617768"/>
+    <function name="GimpModuleDB" link="GimpModuleDB.html#GimpModuleDB-struct"/>
+    <function name="gimp_module_db_new ()" link="GimpModuleDB.html#gimp-module-db-new"/>
+    <function name="gimp_module_db_set_load_inhibit ()" link="GimpModuleDB.html#gimp-module-db-set-load-inhibit"/>
+    <function name="gimp_module_db_get_load_inhibit ()" link="GimpModuleDB.html#gimp-module-db-get-load-inhibit"/>
+    <function name="gimp_module_db_load ()" link="GimpModuleDB.html#gimp-module-db-load"/>
+    <function name="gimp_module_db_refresh ()" link="GimpModuleDB.html#gimp-module-db-refresh"/>
+    <function name="The &quot;add&quot; signal" link="GimpModuleDB.html#GimpModuleDB-add"/>
+    <function name="The &quot;module-modified&quot; signal" link="GimpModuleDB.html#GimpModuleDB-module-modified"/>
+    <function name="The &quot;remove&quot; signal" link="GimpModuleDB.html#GimpModuleDB-remove"/>
+    <function name="" link="GimpModuleDB.html#id2618001"/>
+    <function name="" link="GimpModuleDB.html#id2618002"/>
+  </functions>
+</book>

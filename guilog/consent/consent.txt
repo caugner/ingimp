@@ -1,0 +1,81 @@
+ingimp Logging Consent Form
+University of Waterloo
+July 20, 2007
+
+Introduction
+This software, ingimp (Instrumented GIMP) is part of a research effort actively exploring new ways to contribute to the usability of open source software. This software is modified to automatically record how you use this application. This information will be automatically uploaded to a publicly accessible webserver to enable usability analyses. The purpose of this document is to gain your consent to do this data collection.
+
+ingimp automatically logs usage information such as the names of commands you use, general descriptions of the types of documents you edit, information about your platform (e.g., whether it is Windows, Linux, etc.), interaction events (when keys are pressed, when mouse buttons are pressed, but NOT the actual key or location of the mouse), and so on. These data are sent to a server and made publicly available for all to view and analyze. Our hope is that the data collected will help inform and focus future development and design efforts.
+
+Principal Investigator
+This study is being conducted by Professor Michael Terry in the School of Computer Science at the University of Waterloo. Questions should be directed to ingimp@cs.uwaterloo.ca.
+
+Study Description
+You must be 18 years or older to participate, or you must obtain the consent of your parent or legal guardian. Participation is completely voluntary and can be stopped at any time by removing this software or discontinuing its use.
+
+If you choose to participate, you may be asked to fill out a web-based questionnaire. The questionnaire is optional but will help us understand who is using this software.
+
+Once consent to use this software is given, ingimp will log your usage of the software. This version of the software logs the following information:
+
+* Your platform and its characteristics (e.g., Windows, Linux, CPU if available, the version of your operating system, if available...)
+
+* Your timezone
+
+* Any activity tags you enter at start-up to describe how you will use the software (more information below).
+
+* The names of commands that you use, but not the parameters used for those commands
+
+* The number of letters, digits, spaces, punctuation marks, and forward/backward slashes in your file names, but NOT the file names themselves
+
+* Characteristics of your document after each command has been applied, including:
+- the number of layers in the image
+- the sizes of the respective layers
+- pixel counts that indicate the relative frequency of dark and light pixels in the image (an image histogram), along with statistics for these pixel counts (count, max, mean, median, standard deviation)
+- layer visibility, opacity, and combination mode
+- the number of letters, digits, spaces, and punctuation marks in your layer names, but NOT the layer names themselves
+- the resolution of your image
+- whether a layer is linked, floating, or removed
+
+* Keyboard and mouse activity, but NOT the actual keys pressed or the location of the mouse button. The state of the modifier keys (Shift, Control, Alt, etc.) ARE recorded, but the actual key pressed is NOT recorded. Which mouse button is pressed/released is recorded (button 1, 2, 3), but NOT the location of the cursor
+
+* When and what tools (paintbrush, eraser, etc.) are selected
+
+* When foreground/background color, brush opacity, paint mode, pattern, gradient, palette, and fonts change, but NOT the details about what the new selection actually is (e.g., the new foreground color is NOT recorded when it is changed)
+
+* When a document window loses and gains focus (that is, when it is in front or pushed back)
+
+* When a document window is resized, maximized, minimized, iconified, deiconified, shown/hidden, and what its new size and location are
+
+* When documents are created, closed, saved, opened, duplicated -- essentially, whenever they come into and out of existence
+
+* The amount of time you spend looking at this consent agreement and (if shown) the illustrations describing how this software works. We also log use of the scroll bar when viewing the consent agreement and the accompanying illustrations (if shown)
+
+
+The above list is not exhaustive but representative of the types of information recorded.
+
+Our goal is to honor your privacy in the choice of data collected and how it is collected. However, there are ways that personal information could inadvertently be logged by ingimp:
+
+* If you create your own custom scripts, your script names will be recorded because ALL command names are recorded. Thus, if you named your script "john_smiths_acme_script", that script name would be recorded whenever you used it
+
+* When you first start ingimp, you will have the opportunity to enter "activity tags," or free-form descriptions of how you plan on using the software. These are purely optional. You are free to enter any text in the activity tag field, but should remember that these contents will be available for anyone to see in your log file. Thus, if you enter, "Removing Aunt Edna from John Smith's family photo" in the Activity Tags field, this text will be available for anyone to read in the uploaded log files
+
+Your privacy is important to us. Consequently, we want to emphasize that we do not intentionally collect any personal information and that our data collection is restricted to activity within this piece of software only. However, as a final assurance, you are free to download, compile, and inspect the source code for this software. The distribution is available at http://www.ingimp.org. You may also inspect a typical log file at: http://www.ingimp.org
+
+Periodically, the software will attempt to transmit the logging information to a central server where it will be stored indefinitely. The general public will have access to all usage data (including yours) via http://www.ingimp.org.
+
+Compensation
+You will not be compensated for participation in the study. However, the information you provide may lead to more usable software as well as an increased understanding of how users of open source software can contribute to usability efforts.
+
+Confidentiality and Data Retention
+All questionnaire data and logged data will be kept indefinitely by the researcher. All collected data will be made publicly available. You should be aware that the public availability of your log data means that we make no guarantees regarding confidentiality, even though we do not intentionally collect personal information.
+
+Questions
+We offer no support for this software. However, if you have any questions about participation in this study, during or after the study, please contact Dr. Michael Terry at ingimp@cs.uwaterloo.ca.
+
+Consent
+By selecting "I agree to participate in this study," you are indicating your consent to participate in this study and are acknowledging that you are at least 18 years old, or that you are a parent or legal guardian granting permission for your minor to participate in this study.
+
+Your consent indicates that you have read and understood this consent letter and have had the opportunity to receive any additional details about the study. Further, it indicates you understand that you may withdraw consent at any time by terminating your use of this software.
+
+This project has been reviewed by, and received ethics clearance through, the Office of Research Ethics at the University of Waterloo. By granting consent, you are indicating that you have been informed that if you have any comments or concerns resulting from participation in this study, you may contact the Director, Office of Research Ethics at +1 (519) 888-4567 ext. 36005, or via email at ssykes@uwaterloo.ca.
+

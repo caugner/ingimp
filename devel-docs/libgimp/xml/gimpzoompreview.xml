@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpZoomPreview">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpZoomPreview.top_of_page">GimpZoomPreview</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpZoomPreview</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpZoomPreview.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpZoomPreview-struct">GimpZoomPreview</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-zoom-preview-new">gimp_zoom_preview_new</link>               (<link linkend="GimpDrawable">GimpDrawable</link> *drawable);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-zoom-preview-new-with-model">gimp_zoom_preview_new_with_model</link>    (<link linkend="GimpDrawable">GimpDrawable</link> *drawable,
+                                                         <link linkend="GimpZoomModel">GimpZoomModel</link> *model);
+<link linkend="guchar">guchar</link>*             <link linkend="gimp-zoom-preview-get-source">gimp_zoom_preview_get_source</link>        (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp);
+<link linkend="GimpDrawable">GimpDrawable</link>*       <link linkend="gimp-zoom-preview-get-drawable">gimp_zoom_preview_get_drawable</link>      (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-zoom-preview-get-factor">gimp_zoom_preview_get_factor</link>        (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview);
+<link linkend="GimpZoomModel">GimpZoomModel</link>*      <link linkend="gimp-zoom-preview-get-model">gimp_zoom_preview_get_model</link>         (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpZoomPreview.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkVBox">GtkVBox</link>
+                                       +----<link linkend="GimpPreview">GimpPreview</link>
+                                             +----<link linkend="GimpScrolledPreview">GimpScrolledPreview</link>
+                                                   +----GimpZoomPreview
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpZoomPreview.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpZoomPreview implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpZoomPreview.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpZoomPreview--drawable">drawable</link>&quot;                 <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="GimpZoomPreview--model">model</link>&quot;                    <link linkend="GimpZoomModel">GimpZoomModel</link>*        : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpZoomPreview.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpZoomPreview.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpZoomPreview-struct" role="struct">
+<title>GimpZoomPreview</title>
+<indexterm zone="GimpZoomPreview-struct"><primary>GimpZoomPreview</primary></indexterm><programlisting>typedef struct _GimpZoomPreview GimpZoomPreview;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-zoom-preview-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_zoom_preview_new ()</title>
+<indexterm zone="gimp-zoom-preview-new" role="GIMP 2.4"><primary>gimp_zoom_preview_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_zoom_preview_new               (<link linkend="GimpDrawable">GimpDrawable</link> *drawable);</programlisting>
+<para>
+Creates a new <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> widget for <parameter>drawable</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>drawable</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpDrawable"><type>GimpDrawable</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-zoom-preview-new-with-model" role="function" condition="since:GIMP 2.4">
+<title>gimp_zoom_preview_new_with_model ()</title>
+<indexterm zone="gimp-zoom-preview-new-with-model" role="GIMP 2.4"><primary>gimp_zoom_preview_new_with_model</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_zoom_preview_new_with_model    (<link linkend="GimpDrawable">GimpDrawable</link> *drawable,
+                                                         <link linkend="GimpZoomModel">GimpZoomModel</link> *model);</programlisting>
+<para>
+Creates a new <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> widget for <parameter>drawable</parameter> using the
+given <parameter>model</parameter>.
+</para>
+<para>
+This variant of <link linkend="gimp-zoom-preview-new"><function>gimp_zoom_preview_new()</function></link> allows you to create a
+preview using an existing zoom model. This may be useful if for
+example you want to have two zoom previews that keep their zoom
+factor in sync.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>drawable</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpDrawable"><type>GimpDrawable</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>model</parameter>&nbsp;:</term>
+<listitem><simpara>    a <link linkend="GimpZoomModel"><type>GimpZoomModel</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-zoom-preview-get-source" role="function" condition="since:GIMP 2.4">
+<title>gimp_zoom_preview_get_source ()</title>
+<indexterm zone="gimp-zoom-preview-get-source" role="GIMP 2.4"><primary>gimp_zoom_preview_get_source</primary></indexterm><programlisting><link linkend="guchar">guchar</link>*             gimp_zoom_preview_get_source        (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp);</programlisting>
+<para>
+Returns the scaled image data of the part of the drawable the
+<link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> is currently showing, as a newly allocated array of guchar.
+This function also allow to get the current width, height and bpp of the
+<link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> a pointer to an int where the current width of the zoom widget
+        will be put.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> a pointer to an int where the current width of the zoom widget
+         will be put.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>bpp</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the number of bytes per pixel
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> newly allocated data that should be released using <link linkend="g-free"><function>g_free()</function></link>
+              when it is not any longer needed
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-zoom-preview-get-drawable" role="function" condition="since:GIMP 2.4">
+<title>gimp_zoom_preview_get_drawable ()</title>
+<indexterm zone="gimp-zoom-preview-get-drawable" role="GIMP 2.4"><primary>gimp_zoom_preview_get_drawable</primary></indexterm><programlisting><link linkend="GimpDrawable">GimpDrawable</link>*       gimp_zoom_preview_get_drawable      (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview);</programlisting>
+<para>
+Returns the <link linkend="GimpDrawable"><type>GimpDrawable</type></link> the <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> is attached to.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <link linkend="GimpDrawable"><type>GimpDrawable</type></link> that was passed to <link linkend="gimp-zoom-preview-new"><function>gimp_zoom_preview_new()</function></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-zoom-preview-get-factor" role="function" condition="since:GIMP 2.4">
+<title>gimp_zoom_preview_get_factor ()</title>
+<indexterm zone="gimp-zoom-preview-get-factor" role="GIMP 2.4"><primary>gimp_zoom_preview_get_factor</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_zoom_preview_get_factor        (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview);</programlisting>
+<para>
+Returns the zoom factor the preview is currently using.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the current zoom factor
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-zoom-preview-get-model" role="function" condition="since:GIMP 2.4">
+<title>gimp_zoom_preview_get_model ()</title>
+<indexterm zone="gimp-zoom-preview-get-model" role="GIMP 2.4"><primary>gimp_zoom_preview_get_model</primary></indexterm><programlisting><link linkend="GimpZoomModel">GimpZoomModel</link>*      gimp_zoom_preview_get_model         (<link linkend="GimpZoomPreview">GimpZoomPreview</link> *preview);</programlisting>
+<para>
+Returns the <link linkend="GimpZoomModel"><type>GimpZoomModel</type></link> the preview is using.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a pointer to the <link linkend="GimpZoomModel"><type>GimpZoomModel</type></link> owned by the <parameter>preview</parameter>
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpZoomPreview.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpZoomPreview--drawable"><title>The <literal>&quot;drawable&quot;</literal> property</title>
+<indexterm zone="GimpZoomPreview--drawable" role="GIMP 2.4"><primary>GimpZoomPreview:drawable</primary></indexterm><programlisting>  &quot;drawable&quot;                 <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>
+The drawable the <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link> is attached to.</para>
+<para>
+
+</para><para>Since  GIMP 2.4
+</para>
+</refsect2>
+<refsect2 id="GimpZoomPreview--model"><title>The <literal>&quot;model&quot;</literal> property</title>
+<indexterm zone="GimpZoomPreview--model" role="GIMP 2.4"><primary>GimpZoomPreview:model</primary></indexterm><programlisting>  &quot;model&quot;                    <link linkend="GimpZoomModel">GimpZoomModel</link>*        : Read / Write / Construct Only</programlisting>
+<para>
+The <link linkend="GimpZoomModel"><type>GimpZoomModel</type></link> used by this <link linkend="GimpZoomPreview"><type>GimpZoomPreview</type></link>.</para>
+<para>
+
+</para><para>Since  GIMP 2.4
+</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

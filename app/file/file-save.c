@@ -51,6 +51,7 @@
 #include "core/gimpdrawable.h"
 #include "core/gimpimage.h"
 #include "core/gimpimagefile.h"
+#include "core/gimpinteraction-logger.h"
 #include "core/gimpparamspecs.h"
 #include "core/gimpprogress.h"
 
@@ -194,6 +195,7 @@ file_save (GimpImage           *image,
                    gimp_plug_in_procedure_get_label (file_proc));
     }
 
+  guilog_save_image(image, uri, filename, save_a_copy, status);
   g_object_unref (image);
 
  out:

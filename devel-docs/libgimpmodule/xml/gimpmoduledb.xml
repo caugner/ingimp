@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpModuleDB">
+<refmeta>
+<refentrytitle role="top_of_page">GimpModuleDB</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPMODULE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpModuleDB</refname>
+<refpurpose>Keeps a list of <link linkend="GimpModule"><type>GimpModule</type></link>'s found in a given searchpath.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="GimpModuleDB-struct">GimpModuleDB</link>;
+<link linkend="GimpModuleDB">GimpModuleDB</link>*       <link linkend="gimp-module-db-new">gimp_module_db_new</link>                  (<link linkend="gboolean">gboolean</link> verbose);
+<link linkend="void">void</link>                <link linkend="gimp-module-db-set-load-inhibit">gimp_module_db_set_load_inhibit</link>     (<link linkend="GimpModuleDB">GimpModuleDB</link> *db,
+                                                         const <link linkend="gchar">gchar</link> *load_inhibit);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-module-db-get-load-inhibit">gimp_module_db_get_load_inhibit</link>     (<link linkend="GimpModuleDB">GimpModuleDB</link> *db);
+<link linkend="void">void</link>                <link linkend="gimp-module-db-load">gimp_module_db_load</link>                 (<link linkend="GimpModuleDB">GimpModuleDB</link> *db,
+                                                         const <link linkend="gchar">gchar</link> *module_path);
+<link linkend="void">void</link>                <link linkend="gimp-module-db-refresh">gimp_module_db_refresh</link>              (<link linkend="GimpModuleDB">GimpModuleDB</link> *db,
+                                                         const <link linkend="gchar">gchar</link> *module_path);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----GimpModuleDB
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="GimpModuleDB-add">add</link>&quot;                                            : Run First
+  &quot;<link linkend="GimpModuleDB-module-modified">module-modified</link>&quot;                                : Run First
+  &quot;<link linkend="GimpModuleDB-remove">remove</link>&quot;                                         : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+Keeps a list of <link linkend="GimpModule"><type>GimpModule</type></link>'s found in a given searchpath.
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="GimpModuleDB-struct" role="struct"/>GimpModuleDB</title>
+<indexterm><primary>GimpModuleDB</primary></indexterm><programlisting>typedef struct _GimpModuleDB GimpModuleDB;</programlisting>
+<para>
+The <link linkend="GimpModuleDB"><type>GimpModuleDB</type></link> struct contains no public members.
+</para></refsect2>
+<refsect2>
+<title><anchor id="gimp-module-db-new" role="function"/>gimp_module_db_new ()</title>
+<indexterm><primary>gimp_module_db_new</primary></indexterm><programlisting><link linkend="GimpModuleDB">GimpModuleDB</link>*       gimp_module_db_new                  (<link linkend="gboolean">gboolean</link> verbose);</programlisting>
+<para>
+Creates a new <link linkend="GimpModuleDB"><type>GimpModuleDB</type></link> instance. The <parameter>verbose</parameter> parameter will be
+passed to the created <link linkend="GimpModule"><type>GimpModule</type></link> instances using <link linkend="gimp-module-new"><function>gimp_module_new()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>verbose</parameter>&nbsp;:</term>
+<listitem><simpara> Pass <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable debugging output.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The new <link linkend="GimpModuleDB"><type>GimpModuleDB</type></link> instance.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-module-db-set-load-inhibit" role="function"/>gimp_module_db_set_load_inhibit ()</title>
+<indexterm><primary>gimp_module_db_set_load_inhibit</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_module_db_set_load_inhibit     (<link linkend="GimpModuleDB">GimpModuleDB</link> *db,
+                                                         const <link linkend="gchar">gchar</link> *load_inhibit);</programlisting>
+<para>
+Sets the <parameter>load_inhibit</parameter> flag for all <link linkend="GimpModule"><type>GimpModule</type></link>'s which are kept
+by <parameter>db</parameter> (using <link linkend="gimp-module-set-load-inhibit"><function>gimp_module_set_load_inhibit()</function></link>).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>db</parameter>&nbsp;:</term>
+<listitem><simpara>           A <link linkend="GimpModuleDB"><type>GimpModuleDB</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>load_inhibit</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="G-SEARCHPATH-SEPARATOR:CAPS"><type>G_SEARCHPATH_SEPARATOR</type></link> delimited list of module
+               filenames to exclude from auto-loading.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-module-db-get-load-inhibit" role="function"/>gimp_module_db_get_load_inhibit ()</title>
+<indexterm><primary>gimp_module_db_get_load_inhibit</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_module_db_get_load_inhibit     (<link linkend="GimpModuleDB">GimpModuleDB</link> *db);</programlisting>
+<para>
+Return the <link linkend="G-SEARCHPATH-SEPARATOR:CAPS"><type>G_SEARCHPATH_SEPARATOR</type></link> selimited list of module filenames
+which are excluded from auto-loading.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>db</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpModuleDB"><type>GimpModuleDB</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <parameter>db</parameter>'s <parameter>load_inhibit</parameter> string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-module-db-load" role="function"/>gimp_module_db_load ()</title>
+<indexterm><primary>gimp_module_db_load</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_module_db_load                 (<link linkend="GimpModuleDB">GimpModuleDB</link> *db,
+                                                         const <link linkend="gchar">gchar</link> *module_path);</programlisting>
+<para>
+Scans the directories contained in <parameter>module_path</parameter> using
+<link linkend="gimp-datafiles-read-directories"><function>gimp_datafiles_read_directories()</function></link> and creates a <link linkend="GimpModule"><type>GimpModule</type></link>
+instance for every loadable module contained in the directories.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>db</parameter>&nbsp;:</term>
+<listitem><simpara>          A <link linkend="GimpModuleDB"><type>GimpModuleDB</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>module_path</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="G-SEARCHPATH-SEPARATOR:CAPS"><type>G_SEARCHPATH_SEPARATOR</type></link> delimited list of directories
+              to load modules from.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-module-db-refresh" role="function"/>gimp_module_db_refresh ()</title>
+<indexterm><primary>gimp_module_db_refresh</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_module_db_refresh              (<link linkend="GimpModuleDB">GimpModuleDB</link> *db,
+                                                         const <link linkend="gchar">gchar</link> *module_path);</programlisting>
+<para>
+Does the same as <link linkend="gimp-module-db-load"><function>gimp_module_db_load()</function></link>, plus removes all <link linkend="GimpModule"><type>GimpModule</type></link>
+instances whose modules have been deleted from disk.
+</para>
+<para>
+Note that the <link linkend="GimpModule"><type>GimpModule</type></link>'s will just be removed from the internal
+list and not freed as this is not possible with <link linkend="GTypeModule"><type>GTypeModule</type></link>
+instances which actually implement types.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>db</parameter>&nbsp;:</term>
+<listitem><simpara>          A <link linkend="GimpModuleDB"><type>GimpModuleDB</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>module_path</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="G-SEARCHPATH-SEPARATOR:CAPS"><type>G_SEARCHPATH_SEPARATOR</type></link> delimited list of directories
+              to load modules from.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="GimpModuleDB-add"/>The <literal>&quot;add&quot;</literal> signal</title>
+<indexterm><primary>GimpModuleDB::add</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpModuleDB">GimpModuleDB</link> *gimpmoduledb,
+                                                        <link linkend="GimpModule">GimpModule</link>   *arg1,
+                                                        <link linkend="gpointer">gpointer</link>      user_data)         : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpmoduledb</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="GimpModuleDB-module-modified"/>The <literal>&quot;module-modified&quot;</literal> signal</title>
+<indexterm><primary>GimpModuleDB::module-modified</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpModuleDB">GimpModuleDB</link> *gimpmoduledb,
+                                                        <link linkend="GimpModule">GimpModule</link>   *arg1,
+                                                        <link linkend="gpointer">gpointer</link>      user_data)         : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpmoduledb</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="GimpModuleDB-remove"/>The <literal>&quot;remove&quot;</literal> signal</title>
+<indexterm><primary>GimpModuleDB::remove</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpModuleDB">GimpModuleDB</link> *gimpmoduledb,
+                                                        <link linkend="GimpModule">GimpModule</link>   *arg1,
+                                                        <link linkend="gpointer">gpointer</link>      user_data)         : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpmoduledb</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+
+<refsect1><refsect2 /><refsect2 /></refsect1>
+</refentry>

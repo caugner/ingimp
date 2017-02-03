@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpunit">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpunit.top_of_page">gimpunit</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpunit</refname>
+<refpurpose>Provides a collection of predefined units and functions for creating
+user-defined units.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpunit.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="GimpUnit">GimpUnit</link>;
+<link linkend="gint">gint</link>                <link linkend="gimp-unit-get-number-of-units">gimp_unit_get_number_of_units</link>       (void);
+<link linkend="gint">gint</link>                <link linkend="gimp-unit-get-number-of-built-in-units">gimp_unit_get_number_of_built_in_units</link>
+                                                        (void);
+<link linkend="GimpUnit">GimpUnit</link>            <link linkend="gimp-unit-new">gimp_unit_new</link>                       (<link linkend="gchar">gchar</link> *identifier,
+                                                         <link linkend="gdouble">gdouble</link> factor,
+                                                         <link linkend="gint">gint</link> digits,
+                                                         <link linkend="gchar">gchar</link> *symbol,
+                                                         <link linkend="gchar">gchar</link> *abbreviation,
+                                                         <link linkend="gchar">gchar</link> *singular,
+                                                         <link linkend="gchar">gchar</link> *plural);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-unit-get-deletion-flag">gimp_unit_get_deletion_flag</link>         (<link linkend="GimpUnit">GimpUnit</link> unit);
+<link linkend="void">void</link>                <link linkend="gimp-unit-set-deletion-flag">gimp_unit_set_deletion_flag</link>         (<link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gboolean">gboolean</link> deletion_flag);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-unit-get-factor">gimp_unit_get_factor</link>                (<link linkend="GimpUnit">GimpUnit</link> unit);
+<link linkend="gint">gint</link>                <link linkend="gimp-unit-get-digits">gimp_unit_get_digits</link>                (<link linkend="GimpUnit">GimpUnit</link> unit);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-unit-get-identifier">gimp_unit_get_identifier</link>            (<link linkend="GimpUnit">GimpUnit</link> unit);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-unit-get-symbol">gimp_unit_get_symbol</link>                (<link linkend="GimpUnit">GimpUnit</link> unit);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-unit-get-abbreviation">gimp_unit_get_abbreviation</link>          (<link linkend="GimpUnit">GimpUnit</link> unit);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-unit-get-singular">gimp_unit_get_singular</link>              (<link linkend="GimpUnit">GimpUnit</link> unit);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-unit-get-plural">gimp_unit_get_plural</link>                (<link linkend="GimpUnit">GimpUnit</link> unit);
+#define             <link linkend="GIMP-TYPE-UNIT:CAPS">GIMP_TYPE_UNIT</link>
+#define             <link linkend="GIMP-TYPE-PARAM-UNIT:CAPS">GIMP_TYPE_PARAM_UNIT</link>
+#define             <link linkend="GIMP-IS-PARAM-SPEC-UNIT:CAPS">GIMP_IS_PARAM_SPEC_UNIT</link>             (pspec)
+<link linkend="GParamSpec">GParamSpec</link>*         <link linkend="gimp-param-spec-unit">gimp_param_spec_unit</link>                (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *nick,
+                                                         const <link linkend="gchar">gchar</link> *blurb,
+                                                         <link linkend="gboolean">gboolean</link> allow_pixels,
+                                                         <link linkend="gboolean">gboolean</link> allow_percent,
+                                                         <link linkend="GimpUnit">GimpUnit</link> default_value,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);
+#define             <link linkend="GIMP-VALUE-HOLDS-UNIT:CAPS">GIMP_VALUE_HOLDS_UNIT</link>               (value)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpunit.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Provides a collection of predefined units and functions for creating
+user-defined units.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpunit.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpUnit" role="enum">
+<title>enum GimpUnit</title>
+<indexterm zone="GimpUnit"><primary>GimpUnit</primary></indexterm><programlisting>typedef enum /*&lt; skip &gt;*/
+{
+  GIMP_UNIT_PIXEL   = 0,
+
+  GIMP_UNIT_INCH    = 1,
+  GIMP_UNIT_MM      = 2,
+  GIMP_UNIT_POINT   = 3,
+  GIMP_UNIT_PICA    = 4,
+
+  GIMP_UNIT_END     = 5,
+
+  GIMP_UNIT_PERCENT = 65536 /*&lt; pdb-skip &gt;*/
+} GimpUnit;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-unit-get-number-of-units" role="function">
+<title>gimp_unit_get_number_of_units ()</title>
+<indexterm zone="gimp-unit-get-number-of-units"><primary>gimp_unit_get_number_of_units</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_unit_get_number_of_units       (void);</programlisting>
+<para>
+Returns the number of units which are known to the <link linkend="GimpUnit"><type>GimpUnit</type></link> system.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The number of defined units.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-number-of-built-in-units" role="function">
+<title>gimp_unit_get_number_of_built_in_units ()</title>
+<indexterm zone="gimp-unit-get-number-of-built-in-units"><primary>gimp_unit_get_number_of_built_in_units</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_unit_get_number_of_built_in_units
+                                                        (void);</programlisting>
+<para>
+Returns the number of <link linkend="GimpUnit"><type>GimpUnit</type></link>'s which are hardcoded in the unit system
+(UNIT_INCH, UNIT_MM, UNIT_POINT, UNIT_PICA and the two "pseudo unit"
+ UNIT_PIXEL).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The number of built-in units.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-new" role="function">
+<title>gimp_unit_new ()</title>
+<indexterm zone="gimp-unit-new"><primary>gimp_unit_new</primary></indexterm><programlisting><link linkend="GimpUnit">GimpUnit</link>            gimp_unit_new                       (<link linkend="gchar">gchar</link> *identifier,
+                                                         <link linkend="gdouble">gdouble</link> factor,
+                                                         <link linkend="gint">gint</link> digits,
+                                                         <link linkend="gchar">gchar</link> *symbol,
+                                                         <link linkend="gchar">gchar</link> *abbreviation,
+                                                         <link linkend="gchar">gchar</link> *singular,
+                                                         <link linkend="gchar">gchar</link> *plural);</programlisting>
+<para>
+Returns the integer ID of the new <link linkend="GimpUnit"><type>GimpUnit</type></link>.
+</para>
+<para>
+Note that a new unit is always created with it's deletion flag
+set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. You will have to set it to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> with
+<link linkend="gimp-unit-set-deletion-flag"><function>gimp_unit_set_deletion_flag()</function></link> to make the unit definition persistent.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>identifier</parameter>&nbsp;:</term>
+<listitem><simpara> The unit's identifier string.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>factor</parameter>&nbsp;:</term>
+<listitem><simpara> The unit's factor (how many units are in one inch).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>digits</parameter>&nbsp;:</term>
+<listitem><simpara> The unit's suggested number of digits (see <link linkend="gimp-unit-get-digits"><function>gimp_unit_get_digits()</function></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>symbol</parameter>&nbsp;:</term>
+<listitem><simpara> The symbol of the unit (e.g. "''" for inch).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>abbreviation</parameter>&nbsp;:</term>
+<listitem><simpara> The abbreviation of the unit.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>singular</parameter>&nbsp;:</term>
+<listitem><simpara> The singular form of the unit.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>plural</parameter>&nbsp;:</term>
+<listitem><simpara> The plural form of the unit.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The ID of the new unit.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-deletion-flag" role="function">
+<title>gimp_unit_get_deletion_flag ()</title>
+<indexterm zone="gimp-unit-get-deletion-flag"><primary>gimp_unit_get_deletion_flag</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_unit_get_deletion_flag         (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the <parameter>deletion_flag</parameter> of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit's <parameter>deletion_flag</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-set-deletion-flag" role="function">
+<title>gimp_unit_set_deletion_flag ()</title>
+<indexterm zone="gimp-unit-set-deletion-flag"><primary>gimp_unit_set_deletion_flag</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_unit_set_deletion_flag         (<link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gboolean">gboolean</link> deletion_flag);</programlisting>
+<para>
+Sets a <link linkend="GimpUnit"><type>GimpUnit</type></link>'s <parameter>deletion_flag</parameter>. If the <parameter>deletion_flag</parameter> of a unit is
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> when GIMP exits, this unit will not be saved in the users's
+"unitrc" file.
+</para>
+<para>
+Trying to change the <parameter>deletion_flag</parameter> of a built-in unit will be silently
+ignored.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to set the <parameter>deletion_flag</parameter> for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>deletion_flag</parameter>&nbsp;:</term>
+<listitem><simpara> The new deletion_flag.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-factor" role="function">
+<title>gimp_unit_get_factor ()</title>
+<indexterm zone="gimp-unit-get-factor"><primary>gimp_unit_get_factor</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_unit_get_factor                (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+A <link linkend="GimpUnit"><type>GimpUnit</type></link>'s <parameter>factor</parameter> is defined to be:
+</para>
+<para>
+distance_in_units == (<parameter>factor</parameter> * distance_in_inches)
+</para>
+<para>
+Returns 0 for <parameter>unit</parameter> == GIMP_UNIT_PIXEL.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the factor of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit's factor.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-digits" role="function">
+<title>gimp_unit_get_digits ()</title>
+<indexterm zone="gimp-unit-get-digits"><primary>gimp_unit_get_digits</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_unit_get_digits                (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+Returns the number of digits an entry field should provide to get
+approximately the same accuracy as an inch input field with two digits.
+</para>
+<para>
+Returns 0 for <parameter>unit</parameter> == GIMP_UNIT_PIXEL.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the digits.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The suggested number of digits.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-identifier" role="function">
+<title>gimp_unit_get_identifier ()</title>
+<indexterm zone="gimp-unit-get-identifier"><primary>gimp_unit_get_identifier</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_unit_get_identifier            (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+This is an unstranslated string and must not be changed or freed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the identifier of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit's identifier.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-symbol" role="function">
+<title>gimp_unit_get_symbol ()</title>
+<indexterm zone="gimp-unit-get-symbol"><primary>gimp_unit_get_symbol</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_unit_get_symbol                (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+This is e.g. "''" for UNIT_INCH.
+</para>
+<para>
+NOTE: This string must not be changed or freed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the symbol of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit's symbol.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-abbreviation" role="function">
+<title>gimp_unit_get_abbreviation ()</title>
+<indexterm zone="gimp-unit-get-abbreviation"><primary>gimp_unit_get_abbreviation</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_unit_get_abbreviation          (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+For built-in units, this function returns the translated abbreviation
+of the unit.
+</para>
+<para>
+NOTE: This string must not be changed or freed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the abbreviation of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit's abbreviation.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-singular" role="function">
+<title>gimp_unit_get_singular ()</title>
+<indexterm zone="gimp-unit-get-singular"><primary>gimp_unit_get_singular</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_unit_get_singular              (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+For built-in units, this function returns the translated singular form
+of the unit's name.
+</para>
+<para>
+NOTE: This string must not be changed or freed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the singular form of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit's singular form.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-get-plural" role="function">
+<title>gimp_unit_get_plural ()</title>
+<indexterm zone="gimp-unit-get-plural"><primary>gimp_unit_get_plural</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_unit_get_plural                (<link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+For built-in units, this function returns the translated plural form
+of the unit's name.
+</para>
+<para>
+NOTE: This string must not be changed or freed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The unit you want to know the plural form of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit's plural form.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-TYPE-UNIT:CAPS" role="macro">
+<title>GIMP_TYPE_UNIT</title>
+<indexterm zone="GIMP-TYPE-UNIT:CAPS"><primary>GIMP_TYPE_UNIT</primary></indexterm><programlisting>#define GIMP_TYPE_UNIT               (gimp_unit_get_type ())
+</programlisting>
+<para>
+<link linkend="GIMP-TYPE-UNIT:CAPS"><type>GIMP_TYPE_UNIT</type></link> is a <link linkend="GType"><type>GType</type></link> derived from <link linkend="G-TYPE-INT:CAPS"><type>G_TYPE_INT</type></link>.
+</para></refsect2>
+<refsect2 id="GIMP-TYPE-PARAM-UNIT:CAPS" role="macro">
+<title>GIMP_TYPE_PARAM_UNIT</title>
+<indexterm zone="GIMP-TYPE-PARAM-UNIT:CAPS"><primary>GIMP_TYPE_PARAM_UNIT</primary></indexterm><programlisting>#define GIMP_TYPE_PARAM_UNIT              (gimp_param_unit_get_type ())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-IS-PARAM-SPEC-UNIT:CAPS" role="macro">
+<title>GIMP_IS_PARAM_SPEC_UNIT()</title>
+<indexterm zone="GIMP-IS-PARAM-SPEC-UNIT:CAPS"><primary>GIMP_IS_PARAM_SPEC_UNIT</primary></indexterm><programlisting>#define GIMP_IS_PARAM_SPEC_UNIT(pspec)    (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), GIMP_TYPE_PARAM_UNIT))
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pspec</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-param-spec-unit" role="function" condition="since:GIMP 2.4">
+<title>gimp_param_spec_unit ()</title>
+<indexterm zone="gimp-param-spec-unit" role="GIMP 2.4"><primary>gimp_param_spec_unit</primary></indexterm><programlisting><link linkend="GParamSpec">GParamSpec</link>*         gimp_param_spec_unit                (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *nick,
+                                                         const <link linkend="gchar">gchar</link> *blurb,
+                                                         <link linkend="gboolean">gboolean</link> allow_pixels,
+                                                         <link linkend="gboolean">gboolean</link> allow_percent,
+                                                         <link linkend="GimpUnit">GimpUnit</link> default_value,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);</programlisting>
+<para>
+Creates a param spec to hold a units param.
+See <link linkend="g-param-spec-internal"><function>g_param_spec_internal()</function></link> for more information.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>          Canonical name of the param
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>nick</parameter>&nbsp;:</term>
+<listitem><simpara>          Nickname of the param
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>         Brief desciption of param.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>allow_pixels</parameter>&nbsp;:</term>
+<listitem><simpara>  Whether "pixels" is an allowed unit.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>allow_percent</parameter>&nbsp;:</term>
+<listitem><simpara> Whether "perecent" is an allowed unit.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default_value</parameter>&nbsp;:</term>
+<listitem><simpara> Unit to use if none is assigned.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>         a combination of <link linkend="GParamFlags"><type>GParamFlags</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a newly allocated <link linkend="GParamSpec"><type>GParamSpec</type></link> instance
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="GIMP-VALUE-HOLDS-UNIT:CAPS" role="macro">
+<title>GIMP_VALUE_HOLDS_UNIT()</title>
+<indexterm zone="GIMP-VALUE-HOLDS-UNIT:CAPS"><primary>GIMP_VALUE_HOLDS_UNIT</primary></indexterm><programlisting>#define GIMP_VALUE_HOLDS_UNIT(value) (G_TYPE_CHECK_VALUE_TYPE ((value), GIMP_TYPE_UNIT))
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libgimpbase-gimpunit.see-also">
+<title>See Also</title>
+<para>
+<link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>
+</para>
+<para>
+<link linkend="GimpSizeEntry"><type>GimpSizeEntry</type></link>
+</para>
+</refsect1>
+
+</refentry>

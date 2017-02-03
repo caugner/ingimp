@@ -1,0 +1,42 @@
+#!/bin/bash
+
+if [ ! -e guilog/ChangeLog.ingimp ] ; then
+	echo "You must run this script from inside the ingimp source directory."
+	exit 1
+fi
+
+ORIGDIR=`basename \`pwd\``
+COPYDIR=`basename \`mktemp -d -p ..\``
+DATE=`date +%Y%m%d`
+SRCDIR=$ORIGDIR.$DATE
+GIMPDIR=`echo $SRCDIR | perl -pe 's/ingimp-([0-9]+\.[0-9]+\.[0-9]+)\.[0-9]+/gimp-$1/'`
+
+pushd .. > /dev/null
+
+# Create a backup copy
+rmdir $COPYDIR
+mv $ORIGDIR $COPYDIR
+cp -pr $COPYDIR $SRCDIR
+
+# Clean-up the source directory
+pushd $SRCDIR > /dev/null
+rm -Rf guilog/compiling guilog/wininstall
+svn status | grep "^\?" | cut -d' ' -f 7 | xargs rm -rf
+find -name ".svn" -type d | xargs rm -rf
+popd > /dev/null
+
+# Create the tarballs
+rm -f $SRCDIR.tar.gz $SRCDIR.tar.bz2
+tar zcf $SRCDIR.tar.gz $SRCDIR
+tar jcf $SRCDIR.tar.bz2 $SRCDIR
+
+# Create the patch
+if [ -e $GIMPDIR ] ; then
+	diff -Nurd -x Makefile.in -x configure -x *.gif -x autom4te.cache $GIMPDIR/ $SRCDIR/ > $SRCDIR.diff
+fi 
+
+# Restore old source directory
+rm -rf $SRCDIR
+mv $COPYDIR $ORIGDIR
+
+popd > /dev/null

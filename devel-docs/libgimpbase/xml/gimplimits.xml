@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimplimits">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimplimits.top_of_page">gimplimits</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimplimits</refname>
+<refpurpose>Boundaries of some GIMP data types and some global constants.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimplimits.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="GIMP-MIN-IMAGE-SIZE:CAPS">GIMP_MIN_IMAGE_SIZE</link>
+#define             <link linkend="GIMP-MAX-IMAGE-SIZE:CAPS">GIMP_MAX_IMAGE_SIZE</link>
+#define             <link linkend="GIMP-MIN-RESOLUTION:CAPS">GIMP_MIN_RESOLUTION</link>
+#define             <link linkend="GIMP-MAX-RESOLUTION:CAPS">GIMP_MAX_RESOLUTION</link>
+#define             <link linkend="GIMP-MAX-MEMSIZE:CAPS">GIMP_MAX_MEMSIZE</link>
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimplimits.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Boundaries of some GIMP data types and some global constants.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimplimits.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GIMP-MIN-IMAGE-SIZE:CAPS" role="macro">
+<title>GIMP_MIN_IMAGE_SIZE</title>
+<indexterm zone="GIMP-MIN-IMAGE-SIZE:CAPS"><primary>GIMP_MIN_IMAGE_SIZE</primary></indexterm><programlisting>#define GIMP_MIN_IMAGE_SIZE  1
+</programlisting>
+<para>
+The minimum width and height of a GIMP image in pixels.
+</para></refsect2>
+<refsect2 id="GIMP-MAX-IMAGE-SIZE:CAPS" role="macro">
+<title>GIMP_MAX_IMAGE_SIZE</title>
+<indexterm zone="GIMP-MAX-IMAGE-SIZE:CAPS"><primary>GIMP_MAX_IMAGE_SIZE</primary></indexterm><programlisting>#define GIMP_MAX_IMAGE_SIZE  262144    /*  2^18  */
+</programlisting>
+<para>
+The maximum width and height of a GIMP image in pixels. This is a
+somewhat arbitray value that can be used when an upper value for pixel
+sizes is needed; for example to give a spin button an upper limit.
+</para></refsect2>
+<refsect2 id="GIMP-MIN-RESOLUTION:CAPS" role="macro">
+<title>GIMP_MIN_RESOLUTION</title>
+<indexterm zone="GIMP-MIN-RESOLUTION:CAPS"><primary>GIMP_MIN_RESOLUTION</primary></indexterm><programlisting>#define GIMP_MIN_RESOLUTION  5e-3      /*  shouldn't display as 0.000  */
+</programlisting>
+<para>
+The minimum resolution of a GIMP image in pixels per inch. This is a
+somewhat arbitray value that can be used to when a lower value for a
+resolution is needed. GIMP will not accept resolutions smaller than
+this value.
+</para></refsect2>
+<refsect2 id="GIMP-MAX-RESOLUTION:CAPS" role="macro">
+<title>GIMP_MAX_RESOLUTION</title>
+<indexterm zone="GIMP-MAX-RESOLUTION:CAPS"><primary>GIMP_MAX_RESOLUTION</primary></indexterm><programlisting>#define GIMP_MAX_RESOLUTION  65536.0
+</programlisting>
+<para>
+The maximum resolution of a GIMP image in pixels per inch. This is a
+somewhat arbitray value that can be used to when an upper value for a
+resolution is needed. GIMP will not accept resolutions larger than
+this value.
+</para></refsect2>
+<refsect2 id="GIMP-MAX-MEMSIZE:CAPS" role="macro">
+<title>GIMP_MAX_MEMSIZE</title>
+<indexterm zone="GIMP-MAX-MEMSIZE:CAPS"><primary>GIMP_MAX_MEMSIZE</primary></indexterm><programlisting>#define GIMP_MAX_MEMSIZE     ((guint64) 1 &lt;&lt; 42) /*  4 terabyte;
+</programlisting>
+<para>
+A large but arbitrary value that can be used when an upper limit for a
+memory size (in bytes) is needed. It is smaller than <link linkend="G-MAXDOUBLE:CAPS"><literal>G_MAXDOUBLE</literal></link> since
+the <link linkend="GimpMemsizeEntry"><type>GimpMemsizeEntry</type></link> doesn't handle larger values.
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

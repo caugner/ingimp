@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpScrolledPreview">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpScrolledPreview.top_of_page">GimpScrolledPreview</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpScrolledPreview</refname>
+<refpurpose>A widget providing a <link linkend="GimpPreview"><type>GimpPreview</type></link> enhanced by scrolling capabilities.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpScrolledPreview.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpScrolledPreview-struct">GimpScrolledPreview</link>;
+<link linkend="void">void</link>                <link linkend="gimp-scrolled-preview-set-position">gimp_scrolled_preview_set_position</link>  (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);
+<link linkend="void">void</link>                <link linkend="gimp-scrolled-preview-set-policy">gimp_scrolled_preview_set_policy</link>    (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview,
+                                                         <link linkend="GtkPolicyType">GtkPolicyType</link> hscrollbar_policy,
+                                                         <link linkend="GtkPolicyType">GtkPolicyType</link> vscrollbar_policy);
+<link linkend="void">void</link>                <link linkend="gimp-scrolled-preview-freeze">gimp_scrolled_preview_freeze</link>        (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview);
+<link linkend="void">void</link>                <link linkend="gimp-scrolled-preview-thaw">gimp_scrolled_preview_thaw</link>          (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpScrolledPreview.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkVBox">GtkVBox</link>
+                                       +----<link linkend="GimpPreview">GimpPreview</link>
+                                             +----GimpScrolledPreview
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpScrolledPreview.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpScrolledPreview implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpScrolledPreview.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A widget providing a <link linkend="GimpPreview"><type>GimpPreview</type></link> enhanced by scrolling capabilities.
+</para>
+</refsect1>
+
+<refsect1 id="GimpScrolledPreview.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpScrolledPreview-struct" role="struct">
+<title>GimpScrolledPreview</title>
+<indexterm zone="GimpScrolledPreview-struct"><primary>GimpScrolledPreview</primary></indexterm><programlisting>typedef struct _GimpScrolledPreview GimpScrolledPreview;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-scrolled-preview-set-position" role="function" condition="since:GIMP 2.4">
+<title>gimp_scrolled_preview_set_position ()</title>
+<indexterm zone="gimp-scrolled-preview-set-position" role="GIMP 2.4"><primary>gimp_scrolled_preview_set_position</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_scrolled_preview_set_position  (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpScrolledPreview"><type>GimpScrolledPreview</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>       horizontal scroll offset
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>       vertical scroll offset
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-scrolled-preview-set-policy" role="function" condition="since:GIMP 2.4">
+<title>gimp_scrolled_preview_set_policy ()</title>
+<indexterm zone="gimp-scrolled-preview-set-policy" role="GIMP 2.4"><primary>gimp_scrolled_preview_set_policy</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_scrolled_preview_set_policy    (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview,
+                                                         <link linkend="GtkPolicyType">GtkPolicyType</link> hscrollbar_policy,
+                                                         <link linkend="GtkPolicyType">GtkPolicyType</link> vscrollbar_policy);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara>           a <link linkend="GimpScrolledPreview"><type>GimpScrolledPreview</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>hscrollbar_policy</parameter>&nbsp;:</term>
+<listitem><simpara> policy for horizontal scrollbar
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vscrollbar_policy</parameter>&nbsp;:</term>
+<listitem><simpara> policy for vertical scrollbar
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-scrolled-preview-freeze" role="function" condition="since:GIMP 2.4">
+<title>gimp_scrolled_preview_freeze ()</title>
+<indexterm zone="gimp-scrolled-preview-freeze" role="GIMP 2.4"><primary>gimp_scrolled_preview_freeze</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_scrolled_preview_freeze        (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview);</programlisting>
+<para>
+While the <parameter>preview</parameter> is frozen, it is not going to redraw itself in
+response to scroll events.
+</para>
+<para>
+This function should only be used to implement widgets derived from
+<link linkend="GimpScrolledPreview"><type>GimpScrolledPreview</type></link>. There is no point in calling this from a plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpScrolledPreview"><type>GimpScrolledPreview</type></link>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-scrolled-preview-thaw" role="function" condition="since:GIMP 2.4">
+<title>gimp_scrolled_preview_thaw ()</title>
+<indexterm zone="gimp-scrolled-preview-thaw" role="GIMP 2.4"><primary>gimp_scrolled_preview_thaw</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_scrolled_preview_thaw          (<link linkend="GimpScrolledPreview">GimpScrolledPreview</link> *preview);</programlisting>
+<para>
+While the <parameter>preview</parameter> is frozen, it is not going to redraw itself in
+response to scroll events.
+</para>
+<para>
+This function should only be used to implement widgets derived from
+<link linkend="GimpScrolledPreview"><type>GimpScrolledPreview</type></link>. There is no point in calling this from a plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpScrolledPreview"><type>GimpScrolledPreview</type></link>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

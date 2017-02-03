@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpparam">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpparam.top_of_page">gimpparam</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpparam</refname>
+<refpurpose>Definitions of useful <link linkend="GParamFlags"><type>GParamFlags</type></link>.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpparam.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="GIMP-PARAM-STATIC-STRINGS:CAPS">GIMP_PARAM_STATIC_STRINGS</link>
+#define             <link linkend="GIMP-PARAM-READABLE:CAPS">GIMP_PARAM_READABLE</link>
+#define             <link linkend="GIMP-PARAM-WRITABLE:CAPS">GIMP_PARAM_WRITABLE</link>
+#define             <link linkend="GIMP-PARAM-READWRITE:CAPS">GIMP_PARAM_READWRITE</link>
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpparam.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpparam.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GIMP-PARAM-STATIC-STRINGS:CAPS" role="macro">
+<title>GIMP_PARAM_STATIC_STRINGS</title>
+<indexterm zone="GIMP-PARAM-STATIC-STRINGS:CAPS"><primary>GIMP_PARAM_STATIC_STRINGS</primary></indexterm><programlisting>#define             GIMP_PARAM_STATIC_STRINGS</programlisting>
+<para>
+Since: GIMP 2.4
+</para></refsect2>
+<refsect2 id="GIMP-PARAM-READABLE:CAPS" role="macro">
+<title>GIMP_PARAM_READABLE</title>
+<indexterm zone="GIMP-PARAM-READABLE:CAPS"><primary>GIMP_PARAM_READABLE</primary></indexterm><programlisting>#define             GIMP_PARAM_READABLE</programlisting>
+<para>
+Since: GIMP 2.4
+</para></refsect2>
+<refsect2 id="GIMP-PARAM-WRITABLE:CAPS" role="macro">
+<title>GIMP_PARAM_WRITABLE</title>
+<indexterm zone="GIMP-PARAM-WRITABLE:CAPS"><primary>GIMP_PARAM_WRITABLE</primary></indexterm><programlisting>#define             GIMP_PARAM_WRITABLE</programlisting>
+<para>
+Since: GIMP 2.4
+</para></refsect2>
+<refsect2 id="GIMP-PARAM-READWRITE:CAPS" role="macro">
+<title>GIMP_PARAM_READWRITE</title>
+<indexterm zone="GIMP-PARAM-READWRITE:CAPS"><primary>GIMP_PARAM_READWRITE</primary></indexterm><programlisting>#define             GIMP_PARAM_READWRITE</programlisting>
+<para>
+Since: GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

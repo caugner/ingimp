@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpColorDisplay">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpColorDisplay.top_of_page">GimpColorDisplay</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpColorDisplay</refname>
+<refpurpose>Pluggable GIMP display color correction modules.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpColorDisplay.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpColorDisplay-struct">GimpColorDisplay</link>;
+<link linkend="GimpColorDisplay">GimpColorDisplay</link>*   <link linkend="gimp-color-display-new">gimp_color_display_new</link>              (<link linkend="GType">GType</link> display_type);
+<link linkend="GimpColorDisplay">GimpColorDisplay</link>*   <link linkend="gimp-color-display-clone">gimp_color_display_clone</link>            (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+<link linkend="void">void</link>                <link linkend="gimp-color-display-set-enabled">gimp_color_display_set_enabled</link>      (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display,
+                                                         <link linkend="gboolean">gboolean</link> enabled);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-color-display-get-enabled">gimp_color_display_get_enabled</link>      (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+<link linkend="GimpColorConfig">GimpColorConfig</link>*    <link linkend="gimp-color-display-get-config">gimp_color_display_get_config</link>       (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+<link linkend="GimpColorManaged">GimpColorManaged</link>*   <link linkend="gimp-color-display-get-managed">gimp_color_display_get_managed</link>      (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+<link linkend="void">void</link>                <link linkend="gimp-color-display-convert">gimp_color_display_convert</link>          (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="gint">gint</link> bpp,
+                                                         <link linkend="gint">gint</link> bpl);
+<link linkend="void">void</link>                <link linkend="gimp-color-display-load-state">gimp_color_display_load_state</link>       (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display,
+                                                         <link linkend="GimpParasite">GimpParasite</link> *state);
+<link linkend="GimpParasite">GimpParasite</link>*       <link linkend="gimp-color-display-save-state">gimp_color_display_save_state</link>       (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-color-display-configure">gimp_color_display_configure</link>        (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+<link linkend="void">void</link>                <link linkend="gimp-color-display-configure-reset">gimp_color_display_configure_reset</link>  (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+<link linkend="void">void</link>                <link linkend="gimp-color-display-changed">gimp_color_display_changed</link>          (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpColorDisplay.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GimpColorDisplay
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpColorDisplay.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpColorDisplay implements
+ <link linkend="GimpConfigInterface">GimpConfigInterface</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpColorDisplay.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpColorDisplay--color-config">color-config</link>&quot;             <link linkend="GimpColorConfig">GimpColorConfig</link>*      : Read / Write / Construct Only
+  &quot;<link linkend="GimpColorDisplay--color-managed">color-managed</link>&quot;            <link linkend="GimpColorManagedInterface">GimpColorManagedInterface</link>*  : Read / Write / Construct Only
+  &quot;<link linkend="GimpColorDisplay--enabled">enabled</link>&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+<refsect1 id="GimpColorDisplay.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpColorDisplay-changed">changed</link>&quot;                                        : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpColorDisplay.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions and definitions for creating pluggable GIMP
+display color correction modules.
+</para>
+</refsect1>
+
+<refsect1 id="GimpColorDisplay.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpColorDisplay-struct" role="struct">
+<title>GimpColorDisplay</title>
+<indexterm zone="GimpColorDisplay-struct"><primary>GimpColorDisplay</primary></indexterm><programlisting>typedef struct _GimpColorDisplay GimpColorDisplay;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-color-display-new" role="function" condition="deprecated:">
+<title>gimp_color_display_new ()</title>
+<indexterm zone="gimp-color-display-new" role="deprecated"><primary>gimp_color_display_new</primary></indexterm><programlisting><link linkend="GimpColorDisplay">GimpColorDisplay</link>*   gimp_color_display_new              (<link linkend="GType">GType</link> display_type);</programlisting>
+<warning><para><literal>gimp_color_display_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This function is deprecated. Please use <link linkend="g-object-new"><function>g_object_new()</function></link> directly.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display_type</parameter>&nbsp;:</term>
+<listitem><simpara> the GType of the GimpColorDisplay to instantiate.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpColorDisplay"><literal>GimpColorDisplay</literal></link> object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-clone" role="function">
+<title>gimp_color_display_clone ()</title>
+<indexterm zone="gimp-color-display-clone"><primary>gimp_color_display_clone</primary></indexterm><programlisting><link linkend="GimpColorDisplay">GimpColorDisplay</link>*   gimp_color_display_clone            (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-set-enabled" role="function">
+<title>gimp_color_display_set_enabled ()</title>
+<indexterm zone="gimp-color-display-set-enabled"><primary>gimp_color_display_set_enabled</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_display_set_enabled      (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display,
+                                                         <link linkend="gboolean">gboolean</link> enabled);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enabled</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-get-enabled" role="function">
+<title>gimp_color_display_get_enabled ()</title>
+<indexterm zone="gimp-color-display-get-enabled"><primary>gimp_color_display_get_enabled</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_color_display_get_enabled      (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-get-config" role="function" condition="since:GIMP 2.4">
+<title>gimp_color_display_get_config ()</title>
+<indexterm zone="gimp-color-display-get-config" role="GIMP 2.4"><primary>gimp_color_display_get_config</primary></indexterm><programlisting><link linkend="GimpColorConfig">GimpColorConfig</link>*    gimp_color_display_get_config       (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a pointer to the <link linkend="GimpColorConfig"><type>GimpColorConfig</type></link> object or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-color-display-get-managed" role="function" condition="since:GIMP 2.4">
+<title>gimp_color_display_get_managed ()</title>
+<indexterm zone="gimp-color-display-get-managed" role="GIMP 2.4"><primary>gimp_color_display_get_managed</primary></indexterm><programlisting><link linkend="GimpColorManaged">GimpColorManaged</link>*   gimp_color_display_get_managed      (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a pointer to the <link linkend="GimpColorManaged"><type>GimpColorManaged</type></link> object or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-color-display-convert" role="function">
+<title>gimp_color_display_convert ()</title>
+<indexterm zone="gimp-color-display-convert"><primary>gimp_color_display_convert</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_display_convert          (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="gint">gint</link> bpp,
+                                                         <link linkend="gint">gint</link> bpl);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>bpp</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>bpl</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-load-state" role="function">
+<title>gimp_color_display_load_state ()</title>
+<indexterm zone="gimp-color-display-load-state"><primary>gimp_color_display_load_state</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_display_load_state       (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display,
+                                                         <link linkend="GimpParasite">GimpParasite</link> *state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-save-state" role="function">
+<title>gimp_color_display_save_state ()</title>
+<indexterm zone="gimp-color-display-save-state"><primary>gimp_color_display_save_state</primary></indexterm><programlisting><link linkend="GimpParasite">GimpParasite</link>*       gimp_color_display_save_state       (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-configure" role="function">
+<title>gimp_color_display_configure ()</title>
+<indexterm zone="gimp-color-display-configure"><primary>gimp_color_display_configure</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_color_display_configure        (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-configure-reset" role="function">
+<title>gimp_color_display_configure_reset ()</title>
+<indexterm zone="gimp-color-display-configure-reset"><primary>gimp_color_display_configure_reset</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_display_configure_reset  (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-display-changed" role="function">
+<title>gimp_color_display_changed ()</title>
+<indexterm zone="gimp-color-display-changed"><primary>gimp_color_display_changed</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_display_changed          (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *display);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GimpColorDisplay.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpColorDisplay--color-config"><title>The <literal>&quot;color-config&quot;</literal> property</title>
+<indexterm zone="GimpColorDisplay--color-config"><primary>GimpColorDisplay:color-config</primary></indexterm><programlisting>  &quot;color-config&quot;             <link linkend="GimpColorConfig">GimpColorConfig</link>*      : Read / Write / Construct Only</programlisting>
+<para></para></refsect2>
+<refsect2 id="GimpColorDisplay--color-managed"><title>The <literal>&quot;color-managed&quot;</literal> property</title>
+<indexterm zone="GimpColorDisplay--color-managed"><primary>GimpColorDisplay:color-managed</primary></indexterm><programlisting>  &quot;color-managed&quot;            <link linkend="GimpColorManagedInterface">GimpColorManagedInterface</link>*  : Read / Write / Construct Only</programlisting>
+<para></para></refsect2>
+<refsect2 id="GimpColorDisplay--enabled"><title>The <literal>&quot;enabled&quot;</literal> property</title>
+<indexterm zone="GimpColorDisplay--enabled"><primary>GimpColorDisplay:enabled</primary></indexterm><programlisting>  &quot;enabled&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write / Construct</programlisting>
+<para></para><para>Default value: TRUE</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpColorDisplay.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpColorDisplay-changed"><title>The <literal>&quot;changed&quot;</literal> signal</title>
+<indexterm zone="GimpColorDisplay-changed"><primary>GimpColorDisplay::changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpColorDisplay">GimpColorDisplay</link> *gimpcolordisplay,
+                                                        <link linkend="gpointer">gpointer</link>          user_data)             : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpcolordisplay</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+<refsect1 id="GimpColorDisplay.see-also">
+<title>See Also</title>
+<para>
+<link linkend="GModule"><type>GModule</type></link>
+</para>
+<para>
+<link linkend="GTypeModule"><type>GTypeModule</type></link>
+</para>
+<para>
+<link linkend="libgimp-gimpmodule"><type>libgimp-gimpmodule</type></link>
+</para>
+</refsect1>
+
+</refentry>

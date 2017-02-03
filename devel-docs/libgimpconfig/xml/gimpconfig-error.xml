@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpconfig-GimpConfigError">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpconfig-GimpConfigError.top_of_page">gimpconfig-error</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPCONFIG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpconfig-error</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpconfig-GimpConfigError.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="GimpConfigError">GimpConfigError</link>;
+#define             <link linkend="GIMP-CONFIG-ERROR:CAPS">GIMP_CONFIG_ERROR</link>
+<link linkend="GQuark">GQuark</link>              <link linkend="gimp-config-error-quark">gimp_config_error_quark</link>             (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpconfig-GimpConfigError.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpconfig-GimpConfigError.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpConfigError" role="enum">
+<title>enum GimpConfigError</title>
+<indexterm zone="GimpConfigError"><primary>GimpConfigError</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_CONFIG_ERROR_OPEN,         /*  open failed                            */
+  GIMP_CONFIG_ERROR_OPEN_ENOENT,  /*  file does not exist                    */
+  GIMP_CONFIG_ERROR_WRITE,        /*  write failed                           */
+  GIMP_CONFIG_ERROR_PARSE,        /*  parser error                           */
+  GIMP_CONFIG_ERROR_VERSION       /*  parser failed due to version mismatch  */
+} GimpConfigError;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-ERROR:CAPS" role="macro">
+<title>GIMP_CONFIG_ERROR</title>
+<indexterm zone="GIMP-CONFIG-ERROR:CAPS"><primary>GIMP_CONFIG_ERROR</primary></indexterm><programlisting>#define GIMP_CONFIG_ERROR (gimp_config_error_quark ())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-config-error-quark" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_error_quark ()</title>
+<indexterm zone="gimp-config-error-quark" role="GIMP 2.4"><primary>gimp_config_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              gimp_config_error_quark             (void);</programlisting>
+<para>
+This function is never called directly. Use <link linkend="GIMP-CONFIG-ERROR:CAPS"><function>GIMP_CONFIG_ERROR()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <link linkend="GQuark"><type>GQuark</type></link> that defines the GimpConfig error domain.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

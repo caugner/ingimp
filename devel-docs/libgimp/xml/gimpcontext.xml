@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpcontext">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpcontext.top_of_page">gimpcontext</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpcontext</refname>
+<refpurpose>Functions to manipulate a plug-in's context.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpcontext.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-push">gimp_context_push</link>                   (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-pop">gimp_context_pop</link>                    (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-get-foreground">gimp_context_get_foreground</link>         (<link linkend="GimpRGB">GimpRGB</link> *foreground);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-foreground">gimp_context_set_foreground</link>         (const <link linkend="GimpRGB">GimpRGB</link> *foreground);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-get-background">gimp_context_get_background</link>         (<link linkend="GimpRGB">GimpRGB</link> *background);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-background">gimp_context_set_background</link>         (const <link linkend="GimpRGB">GimpRGB</link> *background);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-default-colors">gimp_context_set_default_colors</link>     (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-swap-colors">gimp_context_swap_colors</link>            (void);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-context-get-opacity">gimp_context_get_opacity</link>            (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-opacity">gimp_context_set_opacity</link>            (<link linkend="gdouble">gdouble</link> opacity);
+<link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> <link linkend="gimp-context-get-paint-mode">gimp_context_get_paint_mode</link>        (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-paint-mode">gimp_context_set_paint_mode</link>         (<link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> paint_mode);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-context-get-brush">gimp_context_get_brush</link>              (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-brush">gimp_context_set_brush</link>              (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-context-get-pattern">gimp_context_get_pattern</link>            (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-pattern">gimp_context_set_pattern</link>            (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-context-get-gradient">gimp_context_get_gradient</link>           (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-gradient">gimp_context_set_gradient</link>           (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-context-get-palette">gimp_context_get_palette</link>            (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-palette">gimp_context_set_palette</link>            (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-context-get-font">gimp_context_get_font</link>               (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-font">gimp_context_set_font</link>               (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-context-get-paint-method">gimp_context_get_paint_method</link>       (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-set-paint-method">gimp_context_set_paint_method</link>       (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-context-list-paint-methods">gimp_context_list_paint_methods</link>     (<link linkend="gint">gint</link> *num_paint_methods,
+                                                         <link linkend="gchar">gchar</link> ***paint_methods);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpcontext.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions to manipulate a plug-in's context.
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpcontext.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-context-push" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_push ()</title>
+<indexterm zone="gimp-context-push" role="GIMP 2.2"><primary>gimp_context_push</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_push                   (void);</programlisting>
+<para>
+Pushes a context to the top of the plug-in's context stack.
+</para>
+<para>
+This procedure creates a new context by copying the current context.
+This copy becomes the new current context for the calling plug-in
+until it is popped again using <link linkend="gimp-context-pop"><function>gimp_context_pop()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-pop" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_pop ()</title>
+<indexterm zone="gimp-context-pop" role="GIMP 2.2"><primary>gimp_context_pop</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_pop                    (void);</programlisting>
+<para>
+Pops the topmost context from the plug-in's context stack.
+</para>
+<para>
+This procedure removes the topmost context from the plug-in's
+context stack. The context that was active before the corresponding
+call to <link linkend="gimp-context-push"><function>gimp_context_push()</function></link> becomes the new current context of the
+plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-foreground" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_foreground ()</title>
+<indexterm zone="gimp-context-get-foreground" role="GIMP 2.2"><primary>gimp_context_get_foreground</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_get_foreground         (<link linkend="GimpRGB">GimpRGB</link> *foreground);</programlisting>
+<para>
+Get the current GIMP foreground color.
+</para>
+<para>
+This procedure returns the current GIMP foreground color. The
+foreground color is used in a variety of tools such as paint tools,
+blending, and bucket fill.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>foreground</parameter>&nbsp;:</term>
+<listitem><simpara> The foreground color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-foreground" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_foreground ()</title>
+<indexterm zone="gimp-context-set-foreground" role="GIMP 2.2"><primary>gimp_context_set_foreground</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_foreground         (const <link linkend="GimpRGB">GimpRGB</link> *foreground);</programlisting>
+<para>
+Set the current GIMP foreground color.
+</para>
+<para>
+This procedure sets the current GIMP foreground color. After this is
+set, operations which use foreground such as paint tools, blending,
+and bucket fill will use the new value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>foreground</parameter>&nbsp;:</term>
+<listitem><simpara> The foreground color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-background" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_background ()</title>
+<indexterm zone="gimp-context-get-background" role="GIMP 2.2"><primary>gimp_context_get_background</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_get_background         (<link linkend="GimpRGB">GimpRGB</link> *background);</programlisting>
+<para>
+Get the current GIMP background color.
+</para>
+<para>
+This procedure returns the current GIMP background color. The
+background color is used in a variety of tools such as blending,
+erasing (with non-alpha images), and image filling.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>background</parameter>&nbsp;:</term>
+<listitem><simpara> The background color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-background" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_background ()</title>
+<indexterm zone="gimp-context-set-background" role="GIMP 2.2"><primary>gimp_context_set_background</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_background         (const <link linkend="GimpRGB">GimpRGB</link> *background);</programlisting>
+<para>
+Set the current GIMP background color.
+</para>
+<para>
+This procedure sets the current GIMP background color. After this is
+set, operations which use background such as blending, filling
+images, clearing, and erasing (in non-alpha images) will use the new
+value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>background</parameter>&nbsp;:</term>
+<listitem><simpara> The background color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-default-colors" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_default_colors ()</title>
+<indexterm zone="gimp-context-set-default-colors" role="GIMP 2.2"><primary>gimp_context_set_default_colors</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_default_colors     (void);</programlisting>
+<para>
+Set the current GIMP foreground and background colors to black and
+white.
+</para>
+<para>
+This procedure sets the current GIMP foreground and background
+colors to their initial default values, black and white.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-swap-colors" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_swap_colors ()</title>
+<indexterm zone="gimp-context-swap-colors" role="GIMP 2.2"><primary>gimp_context_swap_colors</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_swap_colors            (void);</programlisting>
+<para>
+Swap the current GIMP foreground and background colors.
+</para>
+<para>
+This procedure swaps the current GIMP foreground and background
+colors, so that the new foreground color becomes the old background
+color and vice versa.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-opacity" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_opacity ()</title>
+<indexterm zone="gimp-context-get-opacity" role="GIMP 2.2"><primary>gimp_context_get_opacity</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_context_get_opacity            (void);</programlisting>
+<para>
+Get the opacity.
+</para>
+<para>
+This procedure returns the opacity setting. The return value is a
+floating point number between 0 and 100.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The opacity.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-opacity" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_opacity ()</title>
+<indexterm zone="gimp-context-set-opacity" role="GIMP 2.2"><primary>gimp_context_set_opacity</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_opacity            (<link linkend="gdouble">gdouble</link> opacity);</programlisting>
+<para>
+Set the opacity.
+</para>
+<para>
+This procedure modifies the opacity setting. The value should be a
+floating point number between 0 and 100.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>opacity</parameter>&nbsp;:</term>
+<listitem><simpara> The opacity.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-paint-mode" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_paint_mode ()</title>
+<indexterm zone="gimp-context-get-paint-mode" role="GIMP 2.2"><primary>gimp_context_get_paint_mode</primary></indexterm><programlisting><link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> gimp_context_get_paint_mode        (void);</programlisting>
+<para>
+Get the paint mode.
+</para>
+<para>
+This procedure returns the paint-mode setting. The return value is
+an integer which corresponds to the values listed in the argument
+description.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The paint mode.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-paint-mode" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_paint_mode ()</title>
+<indexterm zone="gimp-context-set-paint-mode" role="GIMP 2.2"><primary>gimp_context_set_paint_mode</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_paint_mode         (<link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> paint_mode);</programlisting>
+<para>
+Set the paint mode.
+</para>
+<para>
+This procedure modifies the paint_mode setting.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>paint_mode</parameter>&nbsp;:</term>
+<listitem><simpara> The paint mode.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-brush" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_brush ()</title>
+<indexterm zone="gimp-context-get-brush" role="GIMP 2.2"><primary>gimp_context_get_brush</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_context_get_brush              (void);</programlisting>
+<para>
+Retrieve the currently active brush.
+</para>
+<para>
+This procedure returns the name of the currently active brush. All
+paint operations and stroke operations use this brush to control the
+application of paint to the image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the active brush.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-brush" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_brush ()</title>
+<indexterm zone="gimp-context-set-brush" role="GIMP 2.2"><primary>gimp_context_set_brush</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_brush              (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Set the specified brush as the active brush.
+</para>
+<para>
+This procedure allows the active brush to be set by specifying its
+name. The name is simply a string which corresponds to one of the
+names of the installed brushes. If there is no matching brush found,
+this procedure will return an error. Otherwise, the specified brush
+becomes active and will be used in all subsequent paint operations.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the brush.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-pattern" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_pattern ()</title>
+<indexterm zone="gimp-context-get-pattern" role="GIMP 2.2"><primary>gimp_context_get_pattern</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_context_get_pattern            (void);</programlisting>
+<para>
+Retrieve the currently active pattern.
+</para>
+<para>
+This procedure returns name of the the currently active pattern. All
+clone and bucket-fill operations with patterns will use this pattern
+to control the application of paint to the image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the active pattern.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-pattern" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_pattern ()</title>
+<indexterm zone="gimp-context-set-pattern" role="GIMP 2.2"><primary>gimp_context_set_pattern</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_pattern            (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Set the specified pattern as the active pattern.
+</para>
+<para>
+This procedure allows the active pattern to be set by specifying its
+name. The name is simply a string which corresponds to one of the
+names of the installed patterns. If there is no matching pattern
+found, this procedure will return an error. Otherwise, the specified
+pattern becomes active and will be used in all subsequent paint
+operations.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the pattern.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-gradient" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_gradient ()</title>
+<indexterm zone="gimp-context-get-gradient" role="GIMP 2.2"><primary>gimp_context_get_gradient</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_context_get_gradient           (void);</programlisting>
+<para>
+Retrieve the currently active gradient.
+</para>
+<para>
+This procedure returns the name of the currently active gradient.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the active gradient.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-gradient" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_gradient ()</title>
+<indexterm zone="gimp-context-set-gradient" role="GIMP 2.2"><primary>gimp_context_set_gradient</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_gradient           (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Sets the specified gradient as the active gradient.
+</para>
+<para>
+This procedure lets you set the specified gradient as the active or
+\"current\" one. The name is simply a string which corresponds to
+one of the loaded gradients. If no matching gradient is found, this
+procedure will return an error. Otherwise, the specified gradient
+will become active and will be used for subsequent custom gradient
+operations.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the gradient.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-palette" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_palette ()</title>
+<indexterm zone="gimp-context-get-palette" role="GIMP 2.2"><primary>gimp_context_get_palette</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_context_get_palette            (void);</programlisting>
+<para>
+Retrieve the currently active palette.
+</para>
+<para>
+This procedure returns the name of the the currently active palette.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the active palette.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-palette" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_palette ()</title>
+<indexterm zone="gimp-context-set-palette" role="GIMP 2.2"><primary>gimp_context_set_palette</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_palette            (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Set the specified palette as the active palette.
+</para>
+<para>
+This procedure allows the active palette to be set by specifying its
+name. The name is simply a string which corresponds to one of the
+names of the installed palettes. If no matching palette is found,
+this procedure will return an error. Otherwise, the specified
+palette becomes active and will be used in all subsequent palette
+operations.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the palette.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-font" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_get_font ()</title>
+<indexterm zone="gimp-context-get-font" role="GIMP 2.2"><primary>gimp_context_get_font</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_context_get_font               (void);</programlisting>
+<para>
+Retrieve the currently active font.
+</para>
+<para>
+This procedure returns the name of the currently active font.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the active font.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-set-font" role="function" condition="since:GIMP 2.2">
+<title>gimp_context_set_font ()</title>
+<indexterm zone="gimp-context-set-font" role="GIMP 2.2"><primary>gimp_context_set_font</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_font               (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Set the specified font as the active font.
+</para>
+<para>
+This procedure allows the active font to be set by specifying its
+name. The name is simply a string which corresponds to one of the
+names of the installed fonts. If no matching font is found, this
+procedure will return an error. Otherwise, the specified font
+becomes active and will be used in all subsequent font operations.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the font.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-context-get-paint-method" role="function" condition="since:GIMP 2.4">
+<title>gimp_context_get_paint_method ()</title>
+<indexterm zone="gimp-context-get-paint-method" role="GIMP 2.4"><primary>gimp_context_get_paint_method</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_context_get_paint_method       (void);</programlisting>
+<para>
+Retrieve the currently active paint method.
+</para>
+<para>
+This procedure returns the name of the currently active paint
+method.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the active paint method.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-context-set-paint-method" role="function" condition="since:GIMP 2.4">
+<title>gimp_context_set_paint_method ()</title>
+<indexterm zone="gimp-context-set-paint-method" role="GIMP 2.4"><primary>gimp_context_set_paint_method</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_set_paint_method       (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Set the specified paint method as the active paint method.
+</para>
+<para>
+This procedure allows the active paint method to be set by
+specifying its name. The name is simply a string which corresponds
+to one of the names of the available paint methods. If there is no
+matching method found, this procedure will return an error.
+Otherwise, the specified method becomes active and will be used in
+all subsequent paint operations.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the paint method.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-context-list-paint-methods" role="function" condition="since:GIMP 2.4">
+<title>gimp_context_list_paint_methods ()</title>
+<indexterm zone="gimp-context-list-paint-methods" role="GIMP 2.4"><primary>gimp_context_list_paint_methods</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_context_list_paint_methods     (<link linkend="gint">gint</link> *num_paint_methods,
+                                                         <link linkend="gchar">gchar</link> ***paint_methods);</programlisting>
+<para>
+Lists the available paint methods.
+</para>
+<para>
+This procedure lists the names of the available paint methods. Any
+of the results can be used for <link linkend="gimp-context-set-paint-method"><function>gimp_context_set_paint_method()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>num_paint_methods</parameter>&nbsp;:</term>
+<listitem><simpara> The number of the available paint methods.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>paint_methods</parameter>&nbsp;:</term>
+<listitem><simpara> The names of the available paint methods.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

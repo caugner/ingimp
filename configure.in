@@ -1908,6 +1908,10 @@ app/tools/Makefile
 app/vectors/Makefile
 app/widgets/Makefile
 app/xcf/Makefile
+guilog/Makefile
+guilog/wrapper/Makefile
+guilog/wrapper/images/Makefile
+guilog/consent/Makefile
 plug-ins/Makefile
 plug-ins/script-fu/Makefile
 plug-ins/script-fu/ftx/Makefile

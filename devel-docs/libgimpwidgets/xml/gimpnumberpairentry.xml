@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpNumberPairEntry">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpNumberPairEntry.top_of_page">GimpNumberPairEntry</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpNumberPairEntry</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpNumberPairEntry.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpNumberPairEntry-struct">GimpNumberPairEntry</link>;
+enum                <link linkend="GimpAspectType">GimpAspectType</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-number-pair-entry-new">gimp_number_pair_entry_new</link>          (const <link linkend="gchar">gchar</link> *separators,
+                                                         <link linkend="gboolean">gboolean</link> allow_simplification,
+                                                         <link linkend="gdouble">gdouble</link> min_valid_value,
+                                                         <link linkend="gdouble">gdouble</link> max_valid_value);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-set-default-values">gimp_number_pair_entry_set_default_values</link>
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> left,
+                                                         <link linkend="gdouble">gdouble</link> right);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-get-default-values">gimp_number_pair_entry_get_default_values</link>
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> *left,
+                                                         <link linkend="gdouble">gdouble</link> *right);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-set-values">gimp_number_pair_entry_set_values</link>   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> left,
+                                                         <link linkend="gdouble">gdouble</link> right);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-get-values">gimp_number_pair_entry_get_values</link>   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> *left,
+                                                         <link linkend="gdouble">gdouble</link> *right);
+<link linkend="GimpAspectType">GimpAspectType</link>      <link linkend="gimp-number-pair-entry-get-aspect">gimp_number_pair_entry_get_aspect</link>   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-set-aspect">gimp_number_pair_entry_set_aspect</link>   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="GimpAspectType">GimpAspectType</link> aspect);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-number-pair-entry-get-ratio">gimp_number_pair_entry_get_ratio</link>    (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-set-ratio">gimp_number_pair_entry_set_ratio</link>    (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> ratio);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-number-pair-entry-get-user-override">gimp_number_pair_entry_get_user_override</link>
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-set-user-override">gimp_number_pair_entry_set_user_override</link>
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gboolean">gboolean</link> user_override);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-number-pair-entry-get-default-text">gimp_number_pair_entry_get_default_text</link>
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);
+<link linkend="void">void</link>                <link linkend="gimp-number-pair-entry-set-default-text">gimp_number_pair_entry_set_default_text</link>
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         const <link linkend="gchar">gchar</link> *string);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpNumberPairEntry.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkEntry">GtkEntry</link>
+                           +----GimpNumberPairEntry
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpNumberPairEntry.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpNumberPairEntry implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkEditable">GtkEditable</link> and  <link linkend="GtkCellEditable">GtkCellEditable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpNumberPairEntry.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpNumberPairEntry--allow-simplification">allow-simplification</link>&quot;     <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--aspect">aspect</link>&quot;                   <link linkend="GimpAspectType">GimpAspectType</link>        : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--default-left-number">default-left-number</link>&quot;      <link linkend="gdouble">gdouble</link>               : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--default-right-number">default-right-number</link>&quot;     <link linkend="gdouble">gdouble</link>               : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--default-text">default-text</link>&quot;             <link linkend="gchar">gchar</link>*                : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--left-number">left-number</link>&quot;              <link linkend="gdouble">gdouble</link>               : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--max-valid-value">max-valid-value</link>&quot;          <link linkend="gdouble">gdouble</link>               : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--min-valid-value">min-valid-value</link>&quot;          <link linkend="gdouble">gdouble</link>               : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--ratio">ratio</link>&quot;                    <link linkend="gdouble">gdouble</link>               : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--right-number">right-number</link>&quot;             <link linkend="gdouble">gdouble</link>               : Read / Write
+  &quot;<link linkend="GimpNumberPairEntry--separators">separators</link>&quot;               <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only
+  &quot;<link linkend="GimpNumberPairEntry--user-override">user-override</link>&quot;            <link linkend="gboolean">gboolean</link>              : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="GimpNumberPairEntry.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpNumberPairEntry-numbers-changed">numbers-changed</link>&quot;                                : Run First
+  &quot;<link linkend="GimpNumberPairEntry-ratio-changed">ratio-changed</link>&quot;                                  : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpNumberPairEntry.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpNumberPairEntry.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpNumberPairEntry-struct" role="struct">
+<title>GimpNumberPairEntry</title>
+<indexterm zone="GimpNumberPairEntry-struct"><primary>GimpNumberPairEntry</primary></indexterm><programlisting>typedef struct _GimpNumberPairEntry GimpNumberPairEntry;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpAspectType" role="enum">
+<title>enum GimpAspectType</title>
+<indexterm zone="GimpAspectType"><primary>GimpAspectType</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_ASPECT_SQUARE,    /*&lt; desc="Square"    &gt;*/
+  GIMP_ASPECT_PORTRAIT,  /*&lt; desc="Portrait"  &gt;*/
+  GIMP_ASPECT_LANDSCAPE  /*&lt; desc="Landscape" &gt;*/
+} GimpAspectType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_new ()</title>
+<indexterm zone="gimp-number-pair-entry-new" role="GIMP 2.4"><primary>gimp_number_pair_entry_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_number_pair_entry_new          (const <link linkend="gchar">gchar</link> *separators,
+                                                         <link linkend="gboolean">gboolean</link> allow_simplification,
+                                                         <link linkend="gdouble">gdouble</link> min_valid_value,
+                                                         <link linkend="gdouble">gdouble</link> max_valid_value);</programlisting>
+<para>
+Creates a new <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget, which is a GtkEntry that
+accepts two numbers separated by a separator. Typical input example
+with a 'x' separator: "377x233".
+</para>
+<para>
+The widget supports simplification of the entered ratio when the
+input ends in '=', if "allow-simplification" is TRUE.
+</para>
+<para>
+The "separators" property contains a string of characters valid as
+separators when parsing input. The first separator is used when
+displaying the current values.
+</para>
+<para>
+It is possible to specify what range of values that shall be
+considered as valid when parsing user input, by changing
+"min-valid-value" and "max-valid-value".
+</para>
+<para>
+The first separator of <parameter>separators</parameter> is used to display the current
+value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>separators</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>allow_simplification</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>min_valid_value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max_valid_value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The new <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-set-default-values" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_set_default_values ()</title>
+<indexterm zone="gimp-number-pair-entry-set-default-values" role="GIMP 2.4"><primary>gimp_number_pair_entry_set_default_values</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_set_default_values
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> left,
+                                                         <link linkend="gdouble">gdouble</link> right);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>left</parameter>&nbsp;:</term>
+<listitem><simpara>  Default left value in the entry.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>right</parameter>&nbsp;:</term>
+<listitem><simpara> Default right value in the entry.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-get-default-values" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_get_default_values ()</title>
+<indexterm zone="gimp-number-pair-entry-get-default-values" role="GIMP 2.4"><primary>gimp_number_pair_entry_get_default_values</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_get_default_values
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> *left,
+                                                         <link linkend="gdouble">gdouble</link> *right);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>left</parameter>&nbsp;:</term>
+<listitem><simpara>  Pointer of where to put left value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>right</parameter>&nbsp;:</term>
+<listitem><simpara> Pointer of where to put right value.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-set-values" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_set_values ()</title>
+<indexterm zone="gimp-number-pair-entry-set-values" role="GIMP 2.4"><primary>gimp_number_pair_entry_set_values</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_set_values   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> left,
+                                                         <link linkend="gdouble">gdouble</link> right);</programlisting>
+<para>
+Forces setting the numbers displayed by a <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link>,
+ignoring if the user has set his/her own value. The state of
+user-override will not be changed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>left</parameter>&nbsp;:</term>
+<listitem><simpara>  Left number in the entry.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>right</parameter>&nbsp;:</term>
+<listitem><simpara> Right number in the entry.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-get-values" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_get_values ()</title>
+<indexterm zone="gimp-number-pair-entry-get-values" role="GIMP 2.4"><primary>gimp_number_pair_entry_get_values</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_get_values   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> *left,
+                                                         <link linkend="gdouble">gdouble</link> *right);</programlisting>
+<para>
+Gets the numbers displayed by a <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>left</parameter>&nbsp;:</term>
+<listitem><simpara>  Pointer of where to store the left number (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>right</parameter>&nbsp;:</term>
+<listitem><simpara> Pointer of to store the right number (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>).
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-get-aspect" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_get_aspect ()</title>
+<indexterm zone="gimp-number-pair-entry-get-aspect" role="GIMP 2.4"><primary>gimp_number_pair_entry_get_aspect</primary></indexterm><programlisting><link linkend="GimpAspectType">GimpAspectType</link>      gimp_number_pair_entry_get_aspect   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);</programlisting>
+<para>
+Gets the aspect of the ratio displayed by a <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The entry's current aspect.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-set-aspect" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_set_aspect ()</title>
+<indexterm zone="gimp-number-pair-entry-set-aspect" role="GIMP 2.4"><primary>gimp_number_pair_entry_set_aspect</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_set_aspect   (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="GimpAspectType">GimpAspectType</link> aspect);</programlisting>
+<para>
+Sets the aspect of the ratio by swapping the left_number and
+right_number if necessary (or setting them to 1.0 in case that
+<parameter>aspect</parameter> is <link linkend="GIMP-ASPECT-SQUARE:CAPS"><literal>GIMP_ASPECT_SQUARE</literal></link>).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara>  A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>aspect</parameter>&nbsp;:</term>
+<listitem><simpara> The new aspect.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-get-ratio" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_get_ratio ()</title>
+<indexterm zone="gimp-number-pair-entry-get-ratio" role="GIMP 2.4"><primary>gimp_number_pair_entry_get_ratio</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_number_pair_entry_get_ratio    (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);</programlisting>
+<para>
+Retrieves the ratio of the numbers displayed by a <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The ratio value.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-set-ratio" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_set_ratio ()</title>
+<indexterm zone="gimp-number-pair-entry-set-ratio" role="GIMP 2.4"><primary>gimp_number_pair_entry_set_ratio</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_set_ratio    (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gdouble">gdouble</link> ratio);</programlisting>
+<para>
+Sets the numbers of the <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> to have the desired
+ratio. If the new ratio is different than the previous ratio, the
+"ratio-changed" signal is emitted.
+</para>
+<para>
+An attempt is made to convert the decimal number into a fraction
+with left_number and right_number &lt; 1000.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ratio</parameter>&nbsp;:</term>
+<listitem><simpara> Ratio to set in the widget.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-get-user-override" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_get_user_override ()</title>
+<indexterm zone="gimp-number-pair-entry-get-user-override" role="GIMP 2.4"><primary>gimp_number_pair_entry_get_user_override</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_number_pair_entry_get_user_override
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Wether or not the the widget is in user overridden mode.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-set-user-override" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_set_user_override ()</title>
+<indexterm zone="gimp-number-pair-entry-set-user-override" role="GIMP 2.4"><primary>gimp_number_pair_entry_set_user_override</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_set_user_override
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         <link linkend="gboolean">gboolean</link> user_override);</programlisting>
+<para>
+When the entry is not in user overridden mode, the values will
+change when the default values are changed. When in user overridden
+mode, setting default values will not affect the active values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara>         A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_override</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> sets the entry in user overridden mode,
+                <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> disables.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-get-default-text" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_get_default_text ()</title>
+<indexterm zone="gimp-number-pair-entry-get-default-text" role="GIMP 2.4"><primary>gimp_number_pair_entry_get_default_text</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_number_pair_entry_get_default_text
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara>  A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the string manully set to be shown, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if values are
+         shown in a normal fashion.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-number-pair-entry-set-default-text" role="function" condition="since:GIMP 2.4">
+<title>gimp_number_pair_entry_set_default_text ()</title>
+<indexterm zone="gimp-number-pair-entry-set-default-text" role="GIMP 2.4"><primary>gimp_number_pair_entry_set_default_text</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_number_pair_entry_set_default_text
+                                                        (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *entry,
+                                                         const <link linkend="gchar">gchar</link> *string);</programlisting>
+<para>
+Causes the entry to show a given string when in automatic mode,
+instead of the default numbers. The only thing this does is making
+the <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> showing this string, the internal state
+and API calls are not affected.
+</para>
+<para>
+Set the default string to <link linkend="NULL:CAPS"><literal>NULL</literal></link> to display default values as
+normal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&nbsp;:</term>
+<listitem><simpara>  A <link linkend="GimpNumberPairEntry"><type>GimpNumberPairEntry</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara> Default string.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpNumberPairEntry.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpNumberPairEntry--allow-simplification"><title>The <literal>&quot;allow-simplification&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--allow-simplification"><primary>GimpNumberPairEntry:allow-simplification</primary></indexterm><programlisting>  &quot;allow-simplification&quot;     <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Whether to allow simplification.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--aspect"><title>The <literal>&quot;aspect&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--aspect"><primary>GimpNumberPairEntry:aspect</primary></indexterm><programlisting>  &quot;aspect&quot;                   <link linkend="GimpAspectType">GimpAspectType</link>        : Read / Write</programlisting>
+<para></para><para>Default value: GIMP_ASPECT_SQUARE</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--default-left-number"><title>The <literal>&quot;default-left-number&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--default-left-number"><primary>GimpNumberPairEntry:default-left-number</primary></indexterm><programlisting>  &quot;default-left-number&quot;      <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para></para><para>Allowed values: &gt;= G_MINDOUBLE</para>
+<para>Default value: 100</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--default-right-number"><title>The <literal>&quot;default-right-number&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--default-right-number"><primary>GimpNumberPairEntry:default-right-number</primary></indexterm><programlisting>  &quot;default-right-number&quot;     <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para></para><para>Allowed values: &gt;= G_MINDOUBLE</para>
+<para>Default value: 100</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--default-text"><title>The <literal>&quot;default-text&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--default-text"><primary>GimpNumberPairEntry:default-text</primary></indexterm><programlisting>  &quot;default-text&quot;             <link linkend="gchar">gchar</link>*                : Read / Write</programlisting>
+<para>String to show when in automatic mode.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--left-number"><title>The <literal>&quot;left-number&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--left-number"><primary>GimpNumberPairEntry:left-number</primary></indexterm><programlisting>  &quot;left-number&quot;              <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para></para><para>Allowed values: &gt;= G_MINDOUBLE</para>
+<para>Default value: 100</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--max-valid-value"><title>The <literal>&quot;max-valid-value&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--max-valid-value"><primary>GimpNumberPairEntry:max-valid-value</primary></indexterm><programlisting>  &quot;max-valid-value&quot;          <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para>Maximum value valid when parsing input.</para><para>Allowed values: &gt;= G_MINDOUBLE</para>
+<para>Default value: 1.79769e+308</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--min-valid-value"><title>The <literal>&quot;min-valid-value&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--min-valid-value"><primary>GimpNumberPairEntry:min-valid-value</primary></indexterm><programlisting>  &quot;min-valid-value&quot;          <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para>Minimum value valid when parsing input.</para><para>Allowed values: &gt;= G_MINDOUBLE</para>
+<para>Default value: 2.22507e-308</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--ratio"><title>The <literal>&quot;ratio&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--ratio"><primary>GimpNumberPairEntry:ratio</primary></indexterm><programlisting>  &quot;ratio&quot;                    <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para></para><para>Allowed values: &gt;= G_MINDOUBLE</para>
+<para>Default value: 1</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--right-number"><title>The <literal>&quot;right-number&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--right-number"><primary>GimpNumberPairEntry:right-number</primary></indexterm><programlisting>  &quot;right-number&quot;             <link linkend="gdouble">gdouble</link>               : Read / Write</programlisting>
+<para></para><para>Allowed values: &gt;= G_MINDOUBLE</para>
+<para>Default value: 100</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--separators"><title>The <literal>&quot;separators&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--separators"><primary>GimpNumberPairEntry:separators</primary></indexterm><programlisting>  &quot;separators&quot;               <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only</programlisting>
+<para>A string of valid separators.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GimpNumberPairEntry--user-override"><title>The <literal>&quot;user-override&quot;</literal> property</title>
+<indexterm zone="GimpNumberPairEntry--user-override"><primary>GimpNumberPairEntry:user-override</primary></indexterm><programlisting>  &quot;user-override&quot;            <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Whether the widget is in 'user override' mode.</para><para>Default value: FALSE</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpNumberPairEntry.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpNumberPairEntry-numbers-changed"><title>The <literal>&quot;numbers-changed&quot;</literal> signal</title>
+<indexterm zone="GimpNumberPairEntry-numbers-changed"><primary>GimpNumberPairEntry::numbers-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *gimpnumberpairentry,
+                                                        <link linkend="gpointer">gpointer</link>             user_data)                : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpnumberpairentry</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="GimpNumberPairEntry-ratio-changed"><title>The <literal>&quot;ratio-changed&quot;</literal> signal</title>
+<indexterm zone="GimpNumberPairEntry-ratio-changed"><primary>GimpNumberPairEntry::ratio-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpNumberPairEntry">GimpNumberPairEntry</link> *gimpnumberpairentry,
+                                                        <link linkend="gpointer">gpointer</link>             user_data)                : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpnumberpairentry</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

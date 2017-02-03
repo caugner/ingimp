@@ -1,3 +1,8 @@
+NOTE: This is ingimp, a modified version of GIMP that automatically
+logs and transmits usability data. See the README in the guilog/
+directory for more information. The rest of this file is the official
+README for GIMP.
+
 The GNU Image Manipulation Program Version 2.4
 ----------------------------------------------
 

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpplugin">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpplugin.top_of_page">gimpplugin</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpplugin</refname>
+<refpurpose>Functions useful for plugins, e.g. registration and progress indicators.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpplugin.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-plugin-domain-register">gimp_plugin_domain_register</link>         (const <link linkend="gchar">gchar</link> *domain_name,
+                                                         const <link linkend="gchar">gchar</link> *domain_path);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-plugin-help-register">gimp_plugin_help_register</link>           (const <link linkend="gchar">gchar</link> *domain_name,
+                                                         const <link linkend="gchar">gchar</link> *domain_uri);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-plugin-icon-register">gimp_plugin_icon_register</link>           (const <link linkend="gchar">gchar</link> *procedure_name,
+                                                         <link linkend="GimpIconType">GimpIconType</link> icon_type,
+                                                         const <link linkend="guint8">guint8</link> *icon_data);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-plugin-menu-register">gimp_plugin_menu_register</link>           (const <link linkend="gchar">gchar</link> *procedure_name,
+                                                         const <link linkend="gchar">gchar</link> *menu_path);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-plugin-menu-branch-register">gimp_plugin_menu_branch_register</link>    (const <link linkend="gchar">gchar</link> *menu_path,
+                                                         const <link linkend="gchar">gchar</link> *menu_name);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpplugin.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions useful for plugins, e.g. registration and progress indicators.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpplugin.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-plugin-domain-register" role="function">
+<title>gimp_plugin_domain_register ()</title>
+<indexterm zone="gimp-plugin-domain-register"><primary>gimp_plugin_domain_register</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_plugin_domain_register         (const <link linkend="gchar">gchar</link> *domain_name,
+                                                         const <link linkend="gchar">gchar</link> *domain_path);</programlisting>
+<para>
+Registers a textdomain for localisation.
+</para>
+<para>
+This procedure adds a textdomain to the list of domains Gimp
+searches for strings when translating its menu entries. There is no
+need to call this function for plug-ins that have their strings
+included in the gimp-std-plugins domain as that is used by default.
+If the compiled message catalog is not in the standard location, you
+may specify an absolute path to another location. This procedure can
+only be called in the query function of a plug-in and it has to be
+called before any procedure is installed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>domain_name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the textdomain (must be unique).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>domain_path</parameter>&nbsp;:</term>
+<listitem><simpara> The absolute path to the compiled message catalog (may be NULL).
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-plugin-help-register" role="function">
+<title>gimp_plugin_help_register ()</title>
+<indexterm zone="gimp-plugin-help-register"><primary>gimp_plugin_help_register</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_plugin_help_register           (const <link linkend="gchar">gchar</link> *domain_name,
+                                                         const <link linkend="gchar">gchar</link> *domain_uri);</programlisting>
+<para>
+Register a help path for a plug-in.
+</para>
+<para>
+This procedure changes the help rootdir for the plug-in which calls
+it. All subsequent calls of <link linkend="gimp-help"><function>gimp_help()</function></link> from this plug-in will be
+interpreted relative to this rootdir.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>domain_name</parameter>&nbsp;:</term>
+<listitem><simpara> The XML namespace of the plug-in's help pages.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>domain_uri</parameter>&nbsp;:</term>
+<listitem><simpara> The root URI of the plug-in's help pages.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-plugin-icon-register" role="function">
+<title>gimp_plugin_icon_register ()</title>
+<indexterm zone="gimp-plugin-icon-register"><primary>gimp_plugin_icon_register</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_plugin_icon_register           (const <link linkend="gchar">gchar</link> *procedure_name,
+                                                         <link linkend="GimpIconType">GimpIconType</link> icon_type,
+                                                         const <link linkend="guint8">guint8</link> *icon_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>procedure_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-plugin-menu-register" role="function" condition="since:GIMP 2.2">
+<title>gimp_plugin_menu_register ()</title>
+<indexterm zone="gimp-plugin-menu-register" role="GIMP 2.2"><primary>gimp_plugin_menu_register</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_plugin_menu_register           (const <link linkend="gchar">gchar</link> *procedure_name,
+                                                         const <link linkend="gchar">gchar</link> *menu_path);</programlisting>
+<para>
+Register an additional menu path for a plug-in procedure.
+</para>
+<para>
+This procedure installs an additional menu entry for the given
+procedure.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>procedure_name</parameter>&nbsp;:</term>
+<listitem><simpara> The procedure for which to install the menu path.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu_path</parameter>&nbsp;:</term>
+<listitem><simpara> The procedure's additional menu path.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-plugin-menu-branch-register" role="function" condition="since:GIMP 2.4">
+<title>gimp_plugin_menu_branch_register ()</title>
+<indexterm zone="gimp-plugin-menu-branch-register" role="GIMP 2.4"><primary>gimp_plugin_menu_branch_register</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_plugin_menu_branch_register    (const <link linkend="gchar">gchar</link> *menu_path,
+                                                         const <link linkend="gchar">gchar</link> *menu_name);</programlisting>
+<para>
+Register a sub-menu.
+</para>
+<para>
+This procedure installs a sub-menu which does not belong to any
+procedure. The menu-name should be the untranslated menu label. GIMP
+will look up the translation in the textdomain registered for the
+plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu_path</parameter>&nbsp;:</term>
+<listitem><simpara> The sub-menu's menu path.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu_name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the sub-menu.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

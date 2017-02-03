@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpIntComboBox">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpIntComboBox.top_of_page">GimpIntComboBox</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpIntComboBox</refname>
+<refpurpose>A widget providing a popup menu of integer values (e.g. enums).</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpIntComboBox.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpIntComboBox-struct">GimpIntComboBox</link>;
+<link linkend="gboolean">gboolean</link>            (<link linkend="GimpIntSensitivityFunc">*GimpIntSensitivityFunc</link>)           (<link linkend="gint">gint</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-int-combo-box-new">gimp_int_combo_box_new</link>              (const <link linkend="gchar">gchar</link> *first_label,
+                                                         <link linkend="gint">gint</link> first_value,
+                                                         ...);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-int-combo-box-new-valist">gimp_int_combo_box_new_valist</link>       (const <link linkend="gchar">gchar</link> *first_label,
+                                                         <link linkend="gint">gint</link> first_value,
+                                                         <link linkend="va-list">va_list</link> values);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-int-combo-box-new-array">gimp_int_combo_box_new_array</link>        (<link linkend="gint">gint</link> n_values,
+                                                         const <link linkend="gchar">gchar</link> *labels[]);
+<link linkend="void">void</link>                <link linkend="gimp-int-combo-box-prepend">gimp_int_combo_box_prepend</link>          (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="gimp-int-combo-box-append">gimp_int_combo_box_append</link>           (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         ...);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-int-combo-box-set-active">gimp_int_combo_box_set_active</link>       (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="gint">gint</link> value);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-int-combo-box-get-active">gimp_int_combo_box_get_active</link>       (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="gint">gint</link> *value);
+<link linkend="gulong">gulong</link>              <link linkend="gimp-int-combo-box-connect">gimp_int_combo_box_connect</link>          (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="gint">gint</link> value,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="gimp-int-combo-box-set-sensitivity">gimp_int_combo_box_set_sensitivity</link>  (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="GimpIntSensitivityFunc">GimpIntSensitivityFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data,
+                                                         <link linkend="GDestroyNotify">GDestroyNotify</link> destroy);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpIntComboBox.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkComboBox">GtkComboBox</link>
+                                       +----GimpIntComboBox
+                                             +----<link linkend="GimpEnumComboBox">GimpEnumComboBox</link>
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpIntComboBox.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpIntComboBox implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkCellEditable">GtkCellEditable</link> and  <link linkend="GtkCellLayout">GtkCellLayout</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpIntComboBox.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpIntComboBox--ellipsize">ellipsize</link>&quot;                <link linkend="PangoEllipsizeMode">PangoEllipsizeMode</link>    : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpIntComboBox.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A widget providing a popup menu of integer values (e.g. enums).
+</para>
+</refsect1>
+
+<refsect1 id="GimpIntComboBox.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpIntComboBox-struct" role="struct">
+<title>GimpIntComboBox</title>
+<indexterm zone="GimpIntComboBox-struct"><primary>GimpIntComboBox</primary></indexterm><programlisting>typedef struct _GimpIntComboBox GimpIntComboBox;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpIntSensitivityFunc" role="function">
+<title>GimpIntSensitivityFunc ()</title>
+<indexterm zone="GimpIntSensitivityFunc"><primary>GimpIntSensitivityFunc</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*GimpIntSensitivityFunc)           (<link linkend="gint">gint</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-int-combo-box-new" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_new ()</title>
+<indexterm zone="gimp-int-combo-box-new" role="GIMP 2.2"><primary>gimp_int_combo_box_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_int_combo_box_new              (const <link linkend="gchar">gchar</link> *first_label,
+                                                         <link linkend="gint">gint</link> first_value,
+                                                         ...);</programlisting>
+<para>
+Creates a GtkComboBox that has integer values associated with each
+item. The items to fill the combo box with are specified as a <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+terminated list of label/value pairs.
+</para>
+<para>
+If you need to construct an empty <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>, it's best to use
+g_object_new (GIMP_TYPE_INT_COMBO_BOX, NULL).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>first_label</parameter>&nbsp;:</term>
+<listitem><simpara> the label of the first item
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_value</parameter>&nbsp;:</term>
+<listitem><simpara> the value of the first item
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="NULL:CAPS"><literal>NULL</literal></link> terminated list of more label, value pairs
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-new-valist" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_new_valist ()</title>
+<indexterm zone="gimp-int-combo-box-new-valist" role="GIMP 2.2"><primary>gimp_int_combo_box_new_valist</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_int_combo_box_new_valist       (const <link linkend="gchar">gchar</link> *first_label,
+                                                         <link linkend="gint">gint</link> first_value,
+                                                         <link linkend="va-list">va_list</link> values);</programlisting>
+<para>
+A variant of <link linkend="gimp-int-combo-box-new"><function>gimp_int_combo_box_new()</function></link> that takes a va_list of
+label/value pairs. Probably only useful for language bindings.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>first_label</parameter>&nbsp;:</term>
+<listitem><simpara> the label of the first item
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_value</parameter>&nbsp;:</term>
+<listitem><simpara> the value of the first item
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>values</parameter>&nbsp;:</term>
+<listitem><simpara> a va_list with more values
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-new-array" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_new_array ()</title>
+<indexterm zone="gimp-int-combo-box-new-array" role="GIMP 2.2"><primary>gimp_int_combo_box_new_array</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_int_combo_box_new_array        (<link linkend="gint">gint</link> n_values,
+                                                         const <link linkend="gchar">gchar</link> *labels[]);</programlisting>
+<para>
+A variant of <link linkend="gimp-int-combo-box-new"><function>gimp_int_combo_box_new()</function></link> that takes an array of labels.
+The array indices are used as values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>n_values</parameter>&nbsp;:</term>
+<listitem><simpara> the number of values
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>labels</parameter>&nbsp;:</term>
+<listitem><simpara>   an array of labels (array length must be <parameter>n_values</parameter>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-prepend" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_prepend ()</title>
+<indexterm zone="gimp-int-combo-box-prepend" role="GIMP 2.2"><primary>gimp_int_combo_box_prepend</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_int_combo_box_prepend          (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         ...);</programlisting>
+<para>
+This function provides a convenient way to prepend items to a
+<link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>. It prepends a row to the <parameter>combo_box</parameter>'s list store
+and calls <link linkend="gtk-list-store-set"><function>gtk_list_store_set()</function></link> for you.
+</para>
+<para>
+The column number must be taken from the enum <link linkend="GimpIntStoreColumns"><type>GimpIntStoreColumns</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>combo_box</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>       pairs of column number and value, terminated with -1
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-append" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_append ()</title>
+<indexterm zone="gimp-int-combo-box-append" role="GIMP 2.2"><primary>gimp_int_combo_box_append</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_int_combo_box_append           (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         ...);</programlisting>
+<para>
+This function provides a convenient way to append items to a
+<link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>. It appends a row to the <parameter>combo_box</parameter>'s list store
+and calls <link linkend="gtk-list-store-set"><function>gtk_list_store_set()</function></link> for you.
+</para>
+<para>
+The column number must be taken from the enum <link linkend="GimpIntStoreColumns"><type>GimpIntStoreColumns</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>combo_box</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>       pairs of column number and value, terminated with -1
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-set-active" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_set_active ()</title>
+<indexterm zone="gimp-int-combo-box-set-active" role="GIMP 2.2"><primary>gimp_int_combo_box_set_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_int_combo_box_set_active       (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="gint">gint</link> value);</programlisting>
+<para>
+Looks up the item that belongs to the given <parameter>value</parameter> and makes it the
+selected item in the <parameter>combo_box</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>combo_box</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>     an integer value
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there was no item for
+              this value.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-get-active" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_get_active ()</title>
+<indexterm zone="gimp-int-combo-box-get-active" role="GIMP 2.2"><primary>gimp_int_combo_box_get_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_int_combo_box_get_active       (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="gint">gint</link> *value);</programlisting>
+<para>
+Retrieves the value of the selected (active) item in the <parameter>combo_box</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>combo_box</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>     return location for the integer value
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>value</parameter> has been set or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if no item was
+              active.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-connect" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_combo_box_connect ()</title>
+<indexterm zone="gimp-int-combo-box-connect" role="GIMP 2.2"><primary>gimp_int_combo_box_connect</primary></indexterm><programlisting><link linkend="gulong">gulong</link>              gimp_int_combo_box_connect          (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="gint">gint</link> value,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+A convenience function that sets the inital <parameter>value</parameter> of a
+<link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link> and connects <parameter>callback</parameter> to the "changed"
+signal.
+</para>
+<para>
+This function also calls the <parameter>callback</parameter> once after setting the
+initial <parameter>value</parameter>. This is often convenient when working with combo
+boxes that select a default active item, like for example
+<link linkend="gimp-drawable-combo-box-new"><function>gimp_drawable_combo_box_new()</function></link>. If you pass an invalid initial
+<parameter>value</parameter>, the <parameter>callback</parameter> will be called with the default item active.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>combo_box</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>     the value to set
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>  a callback to connect to the <parameter>combo_box</parameter>'s "changed" signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>      a pointer passed as data to <link linkend="g-signal-connect"><function>g_signal_connect()</function></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the signal handler ID as returned by <link linkend="g-signal-connect"><function>g_signal_connect()</function></link>
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-combo-box-set-sensitivity" role="function" condition="since:GIMP 2.4">
+<title>gimp_int_combo_box_set_sensitivity ()</title>
+<indexterm zone="gimp-int-combo-box-set-sensitivity" role="GIMP 2.4"><primary>gimp_int_combo_box_set_sensitivity</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_int_combo_box_set_sensitivity  (<link linkend="GimpIntComboBox">GimpIntComboBox</link> *combo_box,
+                                                         <link linkend="GimpIntSensitivityFunc">GimpIntSensitivityFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> data,
+                                                         <link linkend="GDestroyNotify">GDestroyNotify</link> destroy);</programlisting>
+<para>
+Sets a function that is used to decide about the sensitivity of
+rows in the <parameter>combo_box</parameter>. Use this if you want to set certain rows
+insensitive.
+</para>
+<para>
+Calling <link linkend="gtk-widget-queue-draw"><function>gtk_widget_queue_draw()</function></link> on the <parameter>combo_box</parameter> will cause the
+sensitivity to be updated.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>combo_box</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara> a function that returns a boolean value, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to unset
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to <parameter>func</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>destroy</parameter>&nbsp;:</term>
+<listitem><simpara> destroy notification for <parameter>data</parameter>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpIntComboBox.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpIntComboBox--ellipsize"><title>The <literal>&quot;ellipsize&quot;</literal> property</title>
+<indexterm zone="GimpIntComboBox--ellipsize" role="GIMP 2.4"><primary>GimpIntComboBox:ellipsize</primary></indexterm><programlisting>  &quot;ellipsize&quot;                <link linkend="PangoEllipsizeMode">PangoEllipsizeMode</link>    : Read / Write</programlisting>
+<para>
+Specifies the preferred place to ellipsize text in the combo-box,
+if the cell renderer does not have enough room to display the
+entire string.</para>
+<para>
+
+</para><para>Default value: PANGO_ELLIPSIZE_NONE</para>
+<para>Since  GIMP 2.4
+</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

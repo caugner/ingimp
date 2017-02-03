@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimppalettes">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimppalettes.top_of_page">gimppalettes</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimppalettes</refname>
+<refpurpose>Operations related to palettes.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimppalettes.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-palettes-refresh">gimp_palettes_refresh</link>               (void);
+<link linkend="gchar">gchar</link>**             <link linkend="gimp-palettes-get-list">gimp_palettes_get_list</link>              (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_palettes);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-palettes-get-palette">gimp_palettes_get_palette</link>           (<link linkend="gint">gint</link> *num_colors);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-palettes-set-palette">gimp_palettes_set_palette</link>           (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-palettes-get-palette-entry">gimp_palettes_get_palette_entry</link>     (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> entry_num,
+                                                         <link linkend="gint">gint</link> *num_colors,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimppalettes.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Operations related to palettes.
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimppalettes.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-palettes-refresh" role="function">
+<title>gimp_palettes_refresh ()</title>
+<indexterm zone="gimp-palettes-refresh"><primary>gimp_palettes_refresh</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_palettes_refresh               (void);</programlisting>
+<para>
+Refreshes current palettes. This function always succeeds.
+</para>
+<para>
+This procedure retrieves all palettes currently in the user's
+palette path and updates the palette dialogs accordingly.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palettes-get-list" role="function">
+<title>gimp_palettes_get_list ()</title>
+<indexterm zone="gimp-palettes-get-list"><primary>gimp_palettes_get_list</primary></indexterm><programlisting><link linkend="gchar">gchar</link>**             gimp_palettes_get_list              (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_palettes);</programlisting>
+<para>
+Retrieves a list of all of the available palettes
+</para>
+<para>
+This procedure returns a complete listing of available palettes.
+Each name returned can be used as input to the command
+<link linkend="gimp-context-set-palette"><function>gimp_context_set_palette()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> An optional regular expression used to filter the list.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_palettes</parameter>&nbsp;:</term>
+<listitem><simpara> The number of palettes in the list.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of palette names.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palettes-get-palette" role="function" condition="deprecated:">
+<title>gimp_palettes_get_palette ()</title>
+<indexterm zone="gimp-palettes-get-palette" role="deprecated"><primary>gimp_palettes_get_palette</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_palettes_get_palette           (<link linkend="gint">gint</link> *num_colors);</programlisting>
+<warning><para><literal>gimp_palettes_get_palette</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-context-get-palette"><function>gimp_context_get_palette()</function></link>
+instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>num_colors</parameter>&nbsp;:</term>
+<listitem><simpara> The palette num_colors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The palette name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palettes-set-palette" role="function" condition="deprecated:">
+<title>gimp_palettes_set_palette ()</title>
+<indexterm zone="gimp-palettes-set-palette" role="deprecated"><primary>gimp_palettes_set_palette</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_palettes_set_palette           (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<warning><para><literal>gimp_palettes_set_palette</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-context-set-palette"><function>gimp_context_set_palette()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The palette name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palettes-get-palette-entry" role="function" condition="deprecated:">
+<title>gimp_palettes_get_palette_entry ()</title>
+<indexterm zone="gimp-palettes-get-palette-entry" role="deprecated"><primary>gimp_palettes_get_palette_entry</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_palettes_get_palette_entry     (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> entry_num,
+                                                         <link linkend="gint">gint</link> *num_colors,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);</programlisting>
+<warning><para><literal>gimp_palettes_get_palette_entry</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-palette-entry-get-color"><function>gimp_palette_entry_get_color()</function></link>
+instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The palette name (\"\" means currently active palette).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>entry_num</parameter>&nbsp;:</term>
+<listitem><simpara> The entry to retrieve.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_colors</parameter>&nbsp;:</term>
+<listitem><simpara> The palette num_colors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&nbsp;:</term>
+<listitem><simpara> The color requested.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The palette name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

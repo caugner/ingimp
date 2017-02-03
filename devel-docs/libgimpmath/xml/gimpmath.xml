@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpmath-GimpMath">
+<refmeta>
+<refentrytitle role="top_of_page">GimpMath</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPMATH Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpMath</refname>
+<refpurpose>Mathematical definitions and macros.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="RINT:CAPS">RINT</link>                                (x)
+#define             <link linkend="ROUND:CAPS">ROUND</link>                               (x)
+#define             <link linkend="SQR:CAPS">SQR</link>                                 (x)
+#define             <link linkend="MAX255:CAPS">MAX255</link>                              (a)
+#define             <link linkend="CLAMP0255:CAPS">CLAMP0255</link>                           (a)
+#define             <link linkend="gimp-deg-to-rad">gimp_deg_to_rad</link>                     (angle)
+#define             <link linkend="gimp-rad-to-deg">gimp_rad_to_deg</link>                     (angle)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+Mathematical definitions and macros. These macros should be used
+rather than the ones from math.h for enhanced portability.
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="RINT:CAPS" role="macro"/>RINT()</title>
+<indexterm><primary>RINT</primary></indexterm><programlisting>#define             RINT(x)</programlisting>
+<para>
+This macro rounds its argument <parameter>x</parameter> to an integer value in floating point
+format.
+</para><variablelist role="params">
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>the value to be rounded.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="ROUND:CAPS" role="macro"/>ROUND()</title>
+<indexterm><primary>ROUND</primary></indexterm><programlisting>#define ROUND(x) ((int) ((x) + 0.5))
+</programlisting>
+<para>
+This macro rounds its argument <parameter>x</parameter> to the nearest integer.
+</para><variablelist role="params">
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>the value to be rounded.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SQR:CAPS" role="macro"/>SQR()</title>
+<indexterm><primary>SQR</primary></indexterm><programlisting>#define SQR(x) ((x) * (x))
+</programlisting>
+<para>
+This macro squares its argument <parameter>x</parameter>.
+</para><variablelist role="params">
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>the value to be squared.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="MAX255:CAPS" role="macro"/>MAX255()</title>
+<indexterm><primary>MAX255</primary></indexterm><programlisting>#define MAX255(a)  ((a) | (((a) &amp; 256) - (((a) &amp; 256) &gt;&gt; 8)))
+</programlisting>
+<para>
+This macro limits it argument <parameter>a</parameter>, an (0-511) int, to 255.
+</para><variablelist role="params">
+<varlistentry><term><parameter>a</parameter>&nbsp;:</term>
+<listitem><simpara>the value to be limited.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="CLAMP0255:CAPS" role="macro"/>CLAMP0255()</title>
+<indexterm><primary>CLAMP0255</primary></indexterm><programlisting>#define CLAMP0255(a)  CLAMP(a,0,255)
+</programlisting>
+<para>
+This macro clamps its argument <parameter>a</parameter>, an int32-range int, between 0 and
+255 inclusive.
+</para><variablelist role="params">
+<varlistentry><term><parameter>a</parameter>&nbsp;:</term>
+<listitem><simpara>the value to be clamped.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-deg-to-rad" role="macro"/>gimp_deg_to_rad()</title>
+<indexterm><primary>gimp_deg_to_rad</primary></indexterm><programlisting>#define gimp_deg_to_rad(angle) ((angle) * (2.0 * G_PI) / 360.0)
+</programlisting>
+<para>
+This macro converts its argument <parameter>angle</parameter> from degree to radian.
+</para><variablelist role="params">
+<varlistentry><term><parameter>angle</parameter>&nbsp;:</term>
+<listitem><simpara>the angle to be converted.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-rad-to-deg" role="macro"/>gimp_rad_to_deg()</title>
+<indexterm><primary>gimp_rad_to_deg</primary></indexterm><programlisting>#define gimp_rad_to_deg(angle) ((angle) * 360.0 / (2.0 * G_PI))
+</programlisting>
+<para>
+This macro converts its argument <parameter>angle</parameter> from radian to degree.
+</para><variablelist role="params">
+<varlistentry><term><parameter>angle</parameter>&nbsp;:</term>
+<listitem><simpara>the angle to be converted.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+
+<refsect1><refsect2 /><refsect2 /></refsect1>
+</refentry>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpColorProfileStore">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpColorProfileStore.top_of_page">GimpColorProfileStore</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpColorProfileStore</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpColorProfileStore.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpColorProfileStore-struct">GimpColorProfileStore</link>;
+<link linkend="GtkListStore">GtkListStore</link>*       <link linkend="gimp-color-profile-store-new">gimp_color_profile_store_new</link>        (const <link linkend="gchar">gchar</link> *history);
+<link linkend="void">void</link>                <link linkend="gimp-color-profile-store-add">gimp_color_profile_store_add</link>        (<link linkend="GimpColorProfileStore">GimpColorProfileStore</link> *store,
+                                                         const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *label);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpColorProfileStore.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GtkListStore">GtkListStore</link>
+         +----GimpColorProfileStore
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpColorProfileStore.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpColorProfileStore implements
+ <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkTreeModel">GtkTreeModel</link>,  <link linkend="GtkTreeDragSource">GtkTreeDragSource</link>,  <link linkend="GtkTreeDragDest">GtkTreeDragDest</link> and  <link linkend="GtkTreeSortable">GtkTreeSortable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpColorProfileStore.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpColorProfileStore--history">history</link>&quot;                  <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpColorProfileStore.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpColorProfileStore.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpColorProfileStore-struct" role="struct">
+<title>GimpColorProfileStore</title>
+<indexterm zone="GimpColorProfileStore-struct"><primary>GimpColorProfileStore</primary></indexterm><programlisting>typedef struct _GimpColorProfileStore GimpColorProfileStore;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-color-profile-store-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_color_profile_store_new ()</title>
+<indexterm zone="gimp-color-profile-store-new" role="GIMP 2.4"><primary>gimp_color_profile_store_new</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link>*       gimp_color_profile_store_new        (const <link linkend="gchar">gchar</link> *history);</programlisting>
+<para>
+Creates a new <link linkend="GimpColorProfileStore"><type>GimpColorProfileStore</type></link> object and populates it with
+last used profiles read from the file <parameter>history</parameter>. The updated history
+is written back to disk when the store is disposed.
+</para>
+<para>
+The filename passed as <parameter>history</parameter> is typically created using the
+following code snippet:
+<informalexample><programlisting>
+ gchar *history = gimp_personal_rc_file ("profilerc");
+</programlisting></informalexample></para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>history</parameter>&nbsp;:</term>
+<listitem><simpara> filename of the profilerc (or <link linkend="NULL:CAPS"><literal>NULL</literal></link> for no history)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpColorProfileStore"><type>GimpColorProfileStore</type></link>
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-color-profile-store-add" role="function" condition="since:GIMP 2.4">
+<title>gimp_color_profile_store_add ()</title>
+<indexterm zone="gimp-color-profile-store-add" role="GIMP 2.4"><primary>gimp_color_profile_store_add</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_profile_store_add        (<link linkend="GimpColorProfileStore">GimpColorProfileStore</link> *store,
+                                                         const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *label);</programlisting>
+<para>
+Adds a color profile item to the <link linkend="GimpColorProfileStore"><type>GimpColorProfileStore</type></link>. Items
+added with this function will be kept at the top, separated from
+the history of last used color profiles.
+</para>
+<para>
+This function is often used to add a selectable item for the <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+filename. If you pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> for both <parameter>filename</parameter> and <parameter>label</parameter>, the
+<parameter>label</parameter> will be set to the string "None" for you (and translated for
+the user).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>    a <link linkend="GimpColorProfileStore"><type>GimpColorProfileStore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> filename of the profile to add (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>label</parameter>&nbsp;:</term>
+<listitem><simpara>    label to use for the profile
+           (may only be <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>filename</parameter> is <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpColorProfileStore.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpColorProfileStore--history"><title>The <literal>&quot;history&quot;</literal> property</title>
+<indexterm zone="GimpColorProfileStore--history" role="GIMP 2.4"><primary>GimpColorProfileStore:history</primary></indexterm><programlisting>  &quot;history&quot;                  <link linkend="gchar">gchar</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+Filename of the color history used to populate the profile store.</para>
+<para>
+
+</para><para>Default value: NULL</para>
+<para>Since  GIMP 2.4
+</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

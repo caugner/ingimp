@@ -33,6 +33,7 @@
 #include "gimp.h"
 #include "gimpcontext.h"
 #include "gimpimage.h"
+#include "gimpinteraction-logger.h"
 #include "gimplayer.h"
 #include "gimpprojection.h"
 #include "gimptemplate.h"
@@ -425,6 +426,8 @@ gimp_template_create_image (Gimp         *gimp,
   gimp_image_clean_all (image);
 
   gimp_create_display (gimp, image, template->unit, 1.0);
+
+  guilog_template_create_image(image);
 
   g_object_unref (image);
 

@@ -1,0 +1,143 @@
+'''
+ingimp -- Instrumented GIMP
+Copyright (C) 2007 Michael Terry and Terry Park
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+'''
+
+import Tkinter as tk
+import tkFont
+import tkMessageBox
+import Utils
+import sys
+import time
+
+class ConsentDialog:
+    def __init__(self, window, consent_filename, include_prev_button):
+        self.consent_granted = False
+        self.dwell_time = 0
+        self.max_scroll_value = 0
+        self.user_cancelled = True
+        self.user_closed_window = False
+        self._build_UI(window, consent_filename, include_prev_button)
+    def _build_UI(self, window, consent_filename, include_prev_button):
+        self.window = window
+        window.protocol('WM_DELETE_WINDOW', self._handle_close)
+        window.title("ingimp Consent")        
+
+        self.logo_image = Utils.get_logo_image()
+        if self.logo_image:
+            logo = tk.Label(window, image=self.logo_image)
+        else:
+            logo = tk.Label(window, text="ingimp")
+        read_label = tk.Label(window, text="Please read carefully. This is NOT a license agreement")
+
+        try:
+            f = open(consent_filename)
+            consent_text = f.read()
+            f.close()
+        except:
+            tkMessageBox.showerror("Installation Error", "Could not find consent document. Exiting.")
+            sys.exit()
+        text_panel = tk.Frame(window)
+        text_box   = tk.Text(text_panel)
+        text_box.config(wrap=tk.WORD)
+        text_box.insert(tk.END, consent_text)
+        start_index = text_box.search("You must be 18", "1.0", stopindex=tk.END)
+        stop_index = text_box.search(". Participation is", "1.0", stopindex=tk.END)
+        bold_tag = "bold"
+        text_box.tag_config(bold_tag, underline=1)
+        text_box.tag_add(bold_tag, start_index, stop_index)
+
+        scrollbar  = tk.Scrollbar(text_panel)
+        scrollbar.config(command=self._handle_scroll)
+        text_box.config(yscrollcommand=scrollbar.set, state=tk.DISABLED)
+        text_box.grid(column=0, rowspan=3, columnspan=3, sticky='NWSE')
+        scrollbar.grid(row=0, column=3, rowspan=3, sticky='NSE')
+        self.scrollbar = scrollbar
+        self.text_box = text_box
+
+        radio_panel  = tk.Frame(window)
+        self.radio_var = tk.IntVar(0)
+        accept_radio = tk.Radiobutton(radio_panel, command=self._handle_radio, variable=self.radio_var, value=1, text="I agree to participate in this study")
+        reject_radio = tk.Radiobutton(radio_panel, command=self._handle_radio, variable=self.radio_var, value=2, text="I do NOT agree to participate in this study")
+        accept_radio.grid(row=0, column=0, sticky=tk.W)
+        reject_radio.grid(row=1, column=0, sticky=tk.W)
+        self.accept_radio = accept_radio
+        self.reject_radio = reject_radio
+
+        ok_text = "OK"
+        cancel_text = "Cancel"
+        if include_prev_button:
+            ok_text = "Next"
+            cancel_text = "Previous"
+        ok_button = tk.Button(window, command=self._handle_ok, text=ok_text)
+        ok_button.config(padx=40)
+        ok_button.config(state=tk.DISABLED)
+        self.ok_button = ok_button
+        cancel_button = tk.Button(window, command=self._handle_cancel, text=cancel_text)
+        cancel_button.config(padx=40)
+        self.cancel_button = cancel_button
+
+        logo.grid(row=1, column=0, rowspan=2, sticky=tk.N)
+        read_label.grid(row=0, column=1, sticky=tk.W)
+        text_panel.grid(row=1, column=1, rowspan=2, columnspan=2, sticky='NWSE')
+        radio_panel.grid(row=3, column=1, rowspan=2, sticky=tk.W)
+        cancel_button.grid(row=5, column=0, sticky=tk.W, padx=20, pady=20)
+        ok_button.grid(row=5, column=2, sticky=tk.E, padx=20, pady=20)
+        window.grid_columnconfigure(1, weight=1)
+        window.grid_rowconfigure(1, weight=1)
+        text_panel.grid_columnconfigure(0, weight=1)
+        text_panel.grid_rowconfigure(0, weight=1)
+    def _handle_scroll(self, mode, *args):
+        if mode == 'moveto':
+            self.text_box.yview(mode, args[0])
+        else:
+            self.text_box.yview(mode, args[0], args[1])
+        self.max_scroll_value = max(self.max_scroll_value, self.scrollbar.get()[1])
+    def _handle_ok(self):
+        self.consent_granted = (self.radio_var.get() == 1)
+        self.user_cancelled = False
+        self.window.withdraw()
+        self.window.quit()
+    def _handle_cancel(self):
+        self.window.withdraw()
+        self.window.quit()
+    def _handle_close(self):
+        self.user_closed_window = True
+        self.window.withdraw()
+        self.window.quit()
+    def _handle_radio(self):
+        self.ok_button.config(state=tk.NORMAL)
+        self.ok_button.focus_set()        
+    def show(self):
+        self.radio_var = tk.IntVar(0)
+        self.accept_radio.config(variable=self.radio_var)
+        self.reject_radio.config(variable=self.radio_var)
+        self.ok_button.config(state=tk.DISABLED)
+        self.window.state("normal")
+        self.window.lift()
+        Utils.center_window(self.window)
+        start_time = time.time()
+        self.window.mainloop()
+        self.dwell_time = self.dwell_time + (time.time() - start_time)
+        return (self.consent_granted, self.max_scroll_value, self.dwell_time)
+    def destroy(self):
+        self.window.destroy()
+
+if __name__ == '__main__':
+    # No need to use automake on files below; these are only for testing
+    consent_dialog = ConsentDialog(tk.Tk(), r'c:\ingimp-2.2.17\share\ingimp\consent.txt', True)
+    print consent_dialog.show()

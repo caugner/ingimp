@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpwidgets-GimpQueryBox">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpwidgets-GimpQueryBox.top_of_page">GimpQueryBox</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpQueryBox</refname>
+<refpurpose>Some simple dialogs to enter a single int, double, string or boolean value.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpwidgets-GimpQueryBox.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                (<link linkend="GimpQueryStringCallback">*GimpQueryStringCallback</link>)          (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                (<link linkend="GimpQueryIntCallback">*GimpQueryIntCallback</link>)             (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gint">gint</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                (<link linkend="GimpQueryDoubleCallback">*GimpQueryDoubleCallback</link>)          (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gdouble">gdouble</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                (<link linkend="GimpQuerySizeCallback">*GimpQuerySizeCallback</link>)            (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gdouble">gdouble</link> size,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                (<link linkend="GimpQueryBooleanCallback">*GimpQueryBooleanCallback</link>)         (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gboolean">gboolean</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-query-string-box">gimp_query_string_box</link>               (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *initial,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryStringCallback">GimpQueryStringCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-query-int-box">gimp_query_int_box</link>                  (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gint">gint</link> initial,
+                                                         <link linkend="gint">gint</link> lower,
+                                                         <link linkend="gint">gint</link> upper,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryIntCallback">GimpQueryIntCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-query-double-box">gimp_query_double_box</link>               (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gdouble">gdouble</link> initial,
+                                                         <link linkend="gdouble">gdouble</link> lower,
+                                                         <link linkend="gdouble">gdouble</link> upper,
+                                                         <link linkend="gint">gint</link> digits,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryDoubleCallback">GimpQueryDoubleCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-query-size-box">gimp_query_size_box</link>                 (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gdouble">gdouble</link> initial,
+                                                         <link linkend="gdouble">gdouble</link> lower,
+                                                         <link linkend="gdouble">gdouble</link> upper,
+                                                         <link linkend="gint">gint</link> digits,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> resolution,
+                                                         <link linkend="gboolean">gboolean</link> dot_for_dot,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQuerySizeCallback">GimpQuerySizeCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-query-boolean-box">gimp_query_boolean_box</link>              (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *stock_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *true_button,
+                                                         const <link linkend="gchar">gchar</link> *false_button,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryBooleanCallback">GimpQueryBooleanCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+#define             <link linkend="GIMP-QUERY-BOX-VBOX:CAPS">GIMP_QUERY_BOX_VBOX</link>                 (qbox)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpwidgets-GimpQueryBox.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+These functions provide simple dialogs for entering a single string,
+integer, double, boolean or pixel size value.
+</para>
+<para>
+They return a pointer to a <link linkend="GtkDialog"><type>GtkDialog</type></link> which has to be shown with
+<link linkend="gtk-widget-show"><function>gtk_widget_show()</function></link> by the caller.
+</para>
+<para>
+The dialogs contain an entry widget for the kind of value they ask for
+and "OK" and "Cancel" buttons. On "Cancel", all query boxes except the
+boolean one silently destroy themselves. On "OK" the user defined
+callback function is called and returns the entered value.
+</para>
+</refsect1>
+
+<refsect1 id="libgimpwidgets-GimpQueryBox.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpQueryStringCallback" role="function">
+<title>GimpQueryStringCallback ()</title>
+<indexterm zone="GimpQueryStringCallback"><primary>GimpQueryStringCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpQueryStringCallback)          (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Note that you have to <link linkend="g-free"><function>g_free()</function></link> the returned string.
+</para><variablelist role="params">
+<varlistentry><term><parameter>query_box</parameter>&nbsp;:</term>
+<listitem><simpara>The query box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>The entered string.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>The user data.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpQueryIntCallback" role="function">
+<title>GimpQueryIntCallback ()</title>
+<indexterm zone="GimpQueryIntCallback"><primary>GimpQueryIntCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpQueryIntCallback)             (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gint">gint</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>query_box</parameter>&nbsp;:</term>
+<listitem><simpara>The query box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>The entered integer value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>The user data.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpQueryDoubleCallback" role="function">
+<title>GimpQueryDoubleCallback ()</title>
+<indexterm zone="GimpQueryDoubleCallback"><primary>GimpQueryDoubleCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpQueryDoubleCallback)          (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gdouble">gdouble</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>query_box</parameter>&nbsp;:</term>
+<listitem><simpara>The query box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>The entered double value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>The user data.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpQuerySizeCallback" role="function">
+<title>GimpQuerySizeCallback ()</title>
+<indexterm zone="GimpQuerySizeCallback"><primary>GimpQuerySizeCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpQuerySizeCallback)            (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gdouble">gdouble</link> size,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>query_box</parameter>&nbsp;:</term>
+<listitem><simpara>The query box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&nbsp;:</term>
+<listitem><simpara>The entered size in pixels.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara>The selected unit from the <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>The user data.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpQueryBooleanCallback" role="function">
+<title>GimpQueryBooleanCallback ()</title>
+<indexterm zone="GimpQueryBooleanCallback"><primary>GimpQueryBooleanCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpQueryBooleanCallback)         (<link linkend="GtkWidget">GtkWidget</link> *query_box,
+                                                         <link linkend="gboolean">gboolean</link> value,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>query_box</parameter>&nbsp;:</term>
+<listitem><simpara>The query box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>The entered boolean value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>The user data.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-query-string-box" role="function">
+<title>gimp_query_string_box ()</title>
+<indexterm zone="gimp-query-string-box"><primary>gimp_query_string_box</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_query_string_box               (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *initial,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryStringCallback">GimpQueryStringCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Creates a new <link linkend="GtkDialog"><type>GtkDialog</type></link> that queries the user for a string value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>     The query box dialog's title.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>    The dialog's parent widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_func</parameter>&nbsp;:</term>
+<listitem><simpara> The help function to show this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_id</parameter>&nbsp;:</term>
+<listitem><simpara>   A string identifying this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>   A string which will be shown above the dialog's entry widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>initial</parameter>&nbsp;:</term>
+<listitem><simpara>   The initial value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara>    The object this query box is associated with.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>signal</parameter>&nbsp;:</term>
+<listitem><simpara>    The object's signal which will cause the query box to be closed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>  The function which will be called when the user selects "OK".
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>      The callback's user data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GtkDialog"><type>GtkDialog</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-query-int-box" role="function">
+<title>gimp_query_int_box ()</title>
+<indexterm zone="gimp-query-int-box"><primary>gimp_query_int_box</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_query_int_box                  (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gint">gint</link> initial,
+                                                         <link linkend="gint">gint</link> lower,
+                                                         <link linkend="gint">gint</link> upper,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryIntCallback">GimpQueryIntCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Creates a new <link linkend="GtkDialog"><type>GtkDialog</type></link> that queries the user for an integer value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>     The query box dialog's title.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>    The dialog's parent widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_func</parameter>&nbsp;:</term>
+<listitem><simpara> The help function to show this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_id</parameter>&nbsp;:</term>
+<listitem><simpara>   A string identifying this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>   A string which will be shown above the dialog's entry widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>initial</parameter>&nbsp;:</term>
+<listitem><simpara>   The initial value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>lower</parameter>&nbsp;:</term>
+<listitem><simpara>     The lower boundary of the range of possible values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>upper</parameter>&nbsp;:</term>
+<listitem><simpara>     The upper boundray of the range of possible values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara>    The object this query box is associated with.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>signal</parameter>&nbsp;:</term>
+<listitem><simpara>    The object's signal which will cause the query box to be closed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>  The function which will be called when the user selects "OK".
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>      The callback's user data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GtkDialog"><type>GtkDialog</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-query-double-box" role="function">
+<title>gimp_query_double_box ()</title>
+<indexterm zone="gimp-query-double-box"><primary>gimp_query_double_box</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_query_double_box               (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gdouble">gdouble</link> initial,
+                                                         <link linkend="gdouble">gdouble</link> lower,
+                                                         <link linkend="gdouble">gdouble</link> upper,
+                                                         <link linkend="gint">gint</link> digits,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryDoubleCallback">GimpQueryDoubleCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Creates a new <link linkend="GtkDialog"><type>GtkDialog</type></link> that queries the user for a double value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>     The query box dialog's title.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>    The dialog's parent widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_func</parameter>&nbsp;:</term>
+<listitem><simpara> The help function to show this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_id</parameter>&nbsp;:</term>
+<listitem><simpara>   A string identifying this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>   A string which will be shown above the dialog's entry widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>initial</parameter>&nbsp;:</term>
+<listitem><simpara>   The initial value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>lower</parameter>&nbsp;:</term>
+<listitem><simpara>     The lower boundary of the range of possible values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>upper</parameter>&nbsp;:</term>
+<listitem><simpara>     The upper boundray of the range of possible values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>digits</parameter>&nbsp;:</term>
+<listitem><simpara>    The number of decimal digits the <link linkend="GtkSpinButton"><type>GtkSpinButton</type></link> will provide.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara>    The object this query box is associated with.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>signal</parameter>&nbsp;:</term>
+<listitem><simpara>    The object's signal which will cause the query box to be closed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>  The function which will be called when the user selects "OK".
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>      The callback's user data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GtkDialog"><type>GtkDialog</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-query-size-box" role="function">
+<title>gimp_query_size_box ()</title>
+<indexterm zone="gimp-query-size-box"><primary>gimp_query_size_box</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_query_size_box                 (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gdouble">gdouble</link> initial,
+                                                         <link linkend="gdouble">gdouble</link> lower,
+                                                         <link linkend="gdouble">gdouble</link> upper,
+                                                         <link linkend="gint">gint</link> digits,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> resolution,
+                                                         <link linkend="gboolean">gboolean</link> dot_for_dot,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQuerySizeCallback">GimpQuerySizeCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Creates a new <link linkend="GtkDialog"><type>GtkDialog</type></link> that queries the user for a size using a
+<link linkend="GimpSizeEntry"><type>GimpSizeEntry</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>       The query box dialog's title.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>      The dialog's parent widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_func</parameter>&nbsp;:</term>
+<listitem><simpara>   The help function to show this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_id</parameter>&nbsp;:</term>
+<listitem><simpara>     A string identifying this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>     A string which will be shown above the dialog's entry widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>initial</parameter>&nbsp;:</term>
+<listitem><simpara>     The initial value.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>lower</parameter>&nbsp;:</term>
+<listitem><simpara>       The lower boundary of the range of possible values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>upper</parameter>&nbsp;:</term>
+<listitem><simpara>       The upper boundray of the range of possible values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>digits</parameter>&nbsp;:</term>
+<listitem><simpara>      The number of decimal digits the <link linkend="GimpSizeEntry"><type>GimpSizeEntry</type></link> provide in
+              "pixel" mode.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara>        The unit initially shown by the <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>resolution</parameter>&nbsp;:</term>
+<listitem><simpara>  The resolution (in dpi) which will be used for pixel/unit
+              calculations.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dot_for_dot</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>'s initial unit should be "pixels".
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara>      The object this query box is associated with.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>signal</parameter>&nbsp;:</term>
+<listitem><simpara>      The object's signal which will cause the query box
+              to be closed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>    The function which will be called when the user selects "OK".
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>        The callback's user data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GtkDialog"><type>GtkDialog</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-query-boolean-box" role="function">
+<title>gimp_query_boolean_box ()</title>
+<indexterm zone="gimp-query-boolean-box"><primary>gimp_query_boolean_box</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_query_boolean_box              (const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *parent,
+                                                         <link linkend="GimpHelpFunc">GimpHelpFunc</link> help_func,
+                                                         const <link linkend="gchar">gchar</link> *help_id,
+                                                         const <link linkend="gchar">gchar</link> *stock_id,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *true_button,
+                                                         const <link linkend="gchar">gchar</link> *false_button,
+                                                         <link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *signal,
+                                                         <link linkend="GimpQueryBooleanCallback">GimpQueryBooleanCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Creates a new <link linkend="GtkDialog"><type>GtkDialog</type></link> that asks the user to do a boolean decision.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>        The query box dialog's title.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>       The dialog's parent widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_func</parameter>&nbsp;:</term>
+<listitem><simpara>    The help function to show this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help_id</parameter>&nbsp;:</term>
+<listitem><simpara>      A string identifying this dialog's help page.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stock_id</parameter>&nbsp;:</term>
+<listitem><simpara>     A stock_id to specify an icon to appear on the left
+               on the dialog's message.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>      A string which will be shown in the query box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>true_button</parameter>&nbsp;:</term>
+<listitem><simpara>  The string to be shown in the dialog's left button.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>false_button</parameter>&nbsp;:</term>
+<listitem><simpara> The string to be shown in the dialog's right button.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara>       The object this query box is associated with.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>signal</parameter>&nbsp;:</term>
+<listitem><simpara>       The object's signal which will cause the query box
+               to be closed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>     The function which will be called when the user clicks one
+               of the buttons.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>         The callback's user data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GtkDialog"><type>GtkDialog</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-QUERY-BOX-VBOX:CAPS" role="macro">
+<title>GIMP_QUERY_BOX_VBOX()</title>
+<indexterm zone="GIMP-QUERY-BOX-VBOX:CAPS"><primary>GIMP_QUERY_BOX_VBOX</primary></indexterm><programlisting>#define             GIMP_QUERY_BOX_VBOX(qbox)</programlisting>
+<para>
+A macro to access the <link linkend="GtkVBox"><type>GtkVBox</type></link> in a <link linkend="GimpQueryBox"><type>GimpQueryBox</type></link>. Useful if you want to add
+more widgets.
+</para><variablelist role="params">
+<varlistentry><term><parameter>qbox</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libgimpwidgets-GimpQueryBox.see-also">
+<title>See Also</title>
+<para>
+GimpSizeEntry
+</para>
+<para>
+GimpUnitMenu
+</para>
+</refsect1>
+
+</refentry>

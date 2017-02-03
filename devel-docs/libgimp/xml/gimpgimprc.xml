@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpgimprc">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpgimprc.top_of_page">gimpgimprc</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpgimprc</refname>
+<refpurpose>Interactions with settings from .gimprc.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpgimprc.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-gimprc-query">gimp_gimprc_query</link>                   (const <link linkend="gchar">gchar</link> *token);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-gimprc-set">gimp_gimprc_set</link>                     (const <link linkend="gchar">gchar</link> *token,
+                                                         const <link linkend="gchar">gchar</link> *value);
+<link linkend="GimpColorConfig">GimpColorConfig</link>*    <link linkend="gimp-get-color-configuration">gimp_get_color_configuration</link>        (void);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-get-default-comment">gimp_get_default_comment</link>            (void);
+<link linkend="GimpUnit">GimpUnit</link>            <link linkend="gimp-get-default-unit">gimp_get_default_unit</link>               (void);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-get-module-load-inhibit">gimp_get_module_load_inhibit</link>        (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-get-monitor-resolution">gimp_get_monitor_resolution</link>         (<link linkend="gdouble">gdouble</link> *xres,
+                                                         <link linkend="gdouble">gdouble</link> *yres);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-get-theme-dir">gimp_get_theme_dir</link>                  (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpgimprc.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Interactions with settings from .gimprc.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpgimprc.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-gimprc-query" role="function">
+<title>gimp_gimprc_query ()</title>
+<indexterm zone="gimp-gimprc-query"><primary>gimp_gimprc_query</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_gimprc_query                   (const <link linkend="gchar">gchar</link> *token);</programlisting>
+<para>
+Queries the gimprc file parser for information on a specified token.
+</para>
+<para>
+This procedure is used to locate additional information contained in
+the gimprc file considered extraneous to the operation of GIMP.
+Plug-ins that need configuration information can expect it will be
+stored in the user gimprc file and can use this procedure to
+retrieve it. This query procedure will return the value associated
+with the specified token. This corresponds _only_ to entries with
+the format: (&lt;token&gt; &lt;value&gt;). The value must be a
+string. Entries not corresponding to this format will cause warnings
+to be issued on gimprc parsing and will not be queryable.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>token</parameter>&nbsp;:</term>
+<listitem><simpara> The token to query for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The value associated with the queried token.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gimprc-set" role="function">
+<title>gimp_gimprc_set ()</title>
+<indexterm zone="gimp-gimprc-set"><primary>gimp_gimprc_set</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_gimprc_set                     (const <link linkend="gchar">gchar</link> *token,
+                                                         const <link linkend="gchar">gchar</link> *value);</programlisting>
+<para>
+Sets a gimprc token to a value and saves it in the gimprc.
+</para>
+<para>
+This procedure is used to add or change additional information in
+the gimprc file that is considered extraneous to the operation of
+GIMP. Plug-ins that need configuration information can use this
+function to store it, and <link linkend="gimp-gimprc-query"><function>gimp_gimprc_query()</function></link> to retrieve it. This
+will accept _only_ string values in UTF-8 encoding.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>token</parameter>&nbsp;:</term>
+<listitem><simpara> The token to add or modify.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara> The value to set the token to.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-get-color-configuration" role="function" condition="since:GIMP 2.4">
+<title>gimp_get_color_configuration ()</title>
+<indexterm zone="gimp-get-color-configuration" role="GIMP 2.4"><primary>gimp_get_color_configuration</primary></indexterm><programlisting><link linkend="GimpColorConfig">GimpColorConfig</link>*    gimp_get_color_configuration        (void);</programlisting>
+<para>
+Retrieve a copy of the current color management configuration.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A copy of the core's <link linkend="GimpColorConfig"><type>GimpColorConfig</type></link>. You should unref
+         this copy if you don't need it any longer.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-get-default-comment" role="function">
+<title>gimp_get_default_comment ()</title>
+<indexterm zone="gimp-get-default-comment"><primary>gimp_get_default_comment</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_get_default_comment            (void);</programlisting>
+<para>
+Get the default image comment as specified in the Preferences.
+</para>
+<para>
+Returns a copy of the default image comment.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Default image comment.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-get-default-unit" role="function" condition="since:GIMP 2.4">
+<title>gimp_get_default_unit ()</title>
+<indexterm zone="gimp-get-default-unit" role="GIMP 2.4"><primary>gimp_get_default_unit</primary></indexterm><programlisting><link linkend="GimpUnit">GimpUnit</link>            gimp_get_default_unit               (void);</programlisting>
+<para>
+Get the default unit (taken from the user's locale).
+</para>
+<para>
+Returns the default unit's integer ID.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Default unit.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-get-module-load-inhibit" role="function">
+<title>gimp_get_module_load_inhibit ()</title>
+<indexterm zone="gimp-get-module-load-inhibit"><primary>gimp_get_module_load_inhibit</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_get_module_load_inhibit        (void);</programlisting>
+<para>
+Get the list of modules which should not be loaded.
+</para>
+<para>
+Returns a copy of the list of modules which should not be loaded.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of modules.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-get-monitor-resolution" role="function">
+<title>gimp_get_monitor_resolution ()</title>
+<indexterm zone="gimp-get-monitor-resolution"><primary>gimp_get_monitor_resolution</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_get_monitor_resolution         (<link linkend="gdouble">gdouble</link> *xres,
+                                                         <link linkend="gdouble">gdouble</link> *yres);</programlisting>
+<para>
+Get the monitor resolution as specified in the Preferences.
+</para>
+<para>
+Returns the resolution of the monitor in pixels/inch. This value is
+taken from the Preferences (or the windowing system if this is set
+in the Preferences) and there's no guarantee for the value to be
+reasonable.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>xres</parameter>&nbsp;:</term>
+<listitem><simpara> X resolution.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>yres</parameter>&nbsp;:</term>
+<listitem><simpara> Y resolution.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-get-theme-dir" role="function">
+<title>gimp_get_theme_dir ()</title>
+<indexterm zone="gimp-get-theme-dir"><primary>gimp_get_theme_dir</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_get_theme_dir                  (void);</programlisting>
+<para>
+Get the directory of the current GUI theme.
+</para>
+<para>
+Returns a copy of the current GUI theme dir.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The GUI theme dir.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

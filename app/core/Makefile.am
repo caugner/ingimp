@@ -10,6 +10,7 @@ INCLUDES = \
 	-I$(top_builddir)/app	\
 	-I$(top_srcdir)/app	\
 	$(GDK_PIXBUF_CFLAGS)	\
+	$(GTK_CFLAGS) \
 	$(LIBART_CFLAGS)	\
 	$(GLIB_CFLAGS)		\
 	-I$(includedir)
@@ -202,6 +203,8 @@ libappcore_a_sources = \
 	gimpimagefile.h			\
 	gimpimagemap.c			\
 	gimpimagemap.h			\
+	gimpinteraction-logger.c \
+	gimpinteraction-logger.h \
 	gimpitem.c			\
 	gimpitem.h			\
 	gimpitem-linked.c		\

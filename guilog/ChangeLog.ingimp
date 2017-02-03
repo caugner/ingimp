@@ -1,0 +1,49 @@
+2008-03-02:
+[ Francois Marier <fmarier@alumni.uwaterloo.ca> ]
+  - Port to GIMP 2.4.5
+
+2008-01-31:
+[ Francois Marier <fmarier@alumni.uwaterloo.ca> ]
+  - Port to GIMP 2.4.4
+
+2007-11-19:
+[ Michael Terry <mterry@cs.uwaterloo.ca> ]
+  - Port to GIMP 2.4.1
+
+2007-09-08:
+[ Michael Terry <mterry@cs.uwaterloo.ca> ]
+  - Switched to a one-time pad scheme for tracking strings across sessions.
+    This significantly increases anonymity for summarized strings
+
+2007-08-23:
+[ Michael Terry <mterry@cs.uwaterloo.ca> ]
+  - Added new illustrations describing how ingimp works
+
+2007-07-25:
+[ Michael Terry <mterry@cs.uwaterloo.ca> ]
+  - Added new code to support pictograms illustrating functionality of ingimp.
+    This includes new wrapper code as well as some new data being logged via
+	the C client (specifically, dwell times on each pictogram and the consent
+	agreement as well as maximum amount of scrolling for each of the latter
+	items).
+
+2007-07-15:
+[ Michael Terry <mterry@cs.uwaterloo.ca> ]
+  - Port patch to GIMP 2.2.17 (no changes)
+
+2007-06-12:
+
+[ Francois Marier <fmarier@alumni.uwaterloo.ca> ]
+  - Display a "logging disabled" confirmation when consent is not given.
+
+2007-06-10:
+
+[ Francois Marier <fmarier@alumni.uwaterloo.ca> ]
+  - Port patch to GIMP 2.2.16 (no changes)
+  - Add a ChangeLog file for ingimp
+
+2007-06-07:
+
+[ Francois Marier <fmarier@alumni.uwaterloo.ca> ]
+  - Display message on console when uploading data
+  - Make consent optional (disable logging)

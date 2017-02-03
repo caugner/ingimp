@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpFrame">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpFrame.top_of_page">GimpFrame</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpFrame</refname>
+<refpurpose>A widget providing a HIG-compliant subclass of <link linkend="GtkFrame"><type>GtkFrame</type></link>.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpFrame.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpFrame-struct">GimpFrame</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-frame-new">gimp_frame_new</link>                      (const <link linkend="gchar">gchar</link> *label);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpFrame.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkFrame">GtkFrame</link>
+                                       +----GimpFrame
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpFrame.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpFrame implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpFrame.style-properties" role="style_properties">
+<title role="style_properties.title">Style Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpFrame--label-bold">label-bold</link>&quot;               <link linkend="gboolean">gboolean</link>              : Read
+  &quot;<link linkend="GimpFrame--label-spacing">label-spacing</link>&quot;            <link linkend="gint">gint</link>                  : Read
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpFrame.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A widget providing a HIG-compliant subclass of <link linkend="GtkFrame"><type>GtkFrame</type></link>.
+</para>
+</refsect1>
+
+<refsect1 id="GimpFrame.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpFrame-struct" role="struct">
+<title>GimpFrame</title>
+<indexterm zone="GimpFrame-struct"><primary>GimpFrame</primary></indexterm><programlisting>typedef struct _GimpFrame GimpFrame;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-frame-new" role="function" condition="since:GIMP 2.2">
+<title>gimp_frame_new ()</title>
+<indexterm zone="gimp-frame-new" role="GIMP 2.2"><primary>gimp_frame_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_frame_new                      (const <link linkend="gchar">gchar</link> *label);</programlisting>
+<para>
+Creates a <link linkend="GimpFrame"><type>GimpFrame</type></link> widget. A <link linkend="GimpFrame"><type>GimpFrame</type></link> is a HIG-compliant
+variant of <link linkend="GtkFrame"><type>GtkFrame</type></link>. It doesn't render a frame at all but
+otherwise behaves like a frame. The frame's title is rendered in
+bold and the frame content is indented four spaces as suggested by
+the GNOME HIG (see http://developer.gnome.org/projects/gup/hig/).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>label</parameter>&nbsp;:</term>
+<listitem><simpara> text to set as the frame's title label (or <link linkend="NULL:CAPS"><literal>NULL</literal></link> for no title)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpFrame"><type>GimpFrame</type></link> widget
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpFrame.style-property-details" role="style_properties_details">
+<title role="style_properties_details.title">Style Property Details</title>
+<refsect2 id="GimpFrame--label-bold"><title>The <literal>&quot;label-bold&quot;</literal> style property</title>
+<indexterm zone="GimpFrame--label-bold"><primary>GimpFrame:label-bold</primary></indexterm><programlisting>  &quot;label-bold&quot;               <link linkend="gboolean">gboolean</link>              : Read</programlisting>
+<para></para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="GimpFrame--label-spacing"><title>The <literal>&quot;label-spacing&quot;</literal> style property</title>
+<indexterm zone="GimpFrame--label-spacing"><primary>GimpFrame:label-spacing</primary></indexterm><programlisting>  &quot;label-spacing&quot;            <link linkend="gint">gint</link>                  : Read</programlisting>
+<para></para><para>Allowed values: &gt;= 0</para>
+<para>Default value: 6</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

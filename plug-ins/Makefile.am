@@ -70,7 +70,7 @@ SUBDIRS = \
 	sgi			\
 	sel2path		\
 	$(twain)		\
-	$(uri)			\
+	uri			\
 	$(winicon)		\
 	$(winsnap)		\
 	$(xjt)			\

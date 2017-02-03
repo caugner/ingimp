@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpButton">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpButton.top_of_page">GimpButton</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpButton</refname>
+<refpurpose>A <link linkend="GtkButton"><type>GtkButton</type></link> with a little extra functionality.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpButton.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpButton-struct">GimpButton</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-button-new">gimp_button_new</link>                     (void);
+<link linkend="void">void</link>                <link linkend="gimp-button-extended-clicked">gimp_button_extended_clicked</link>        (<link linkend="GimpButton">GimpButton</link> *button,
+                                                         <link linkend="GdkModifierType">GdkModifierType</link> state);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpButton.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkButton">GtkButton</link>
+                                       +----GimpButton
+                                             +----<link linkend="GimpColorButton">GimpColorButton</link>
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpButton.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpButton implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpButton.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpButton-extended-clicked">extended-clicked</link>&quot;                               : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpButton.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+<link linkend="GimpButton"><type>GimpButton</type></link> adds an extra signal to the <link linkend="GtkButton"><type>GtkButton</type></link> widget that allows
+to distinguish a normal click from a click that was performed with
+modifier keys pressed.
+</para>
+</refsect1>
+
+<refsect1 id="GimpButton.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpButton-struct" role="struct">
+<title>GimpButton</title>
+<indexterm zone="GimpButton-struct"><primary>GimpButton</primary></indexterm><programlisting>typedef struct _GimpButton GimpButton;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-button-new" role="function">
+<title>gimp_button_new ()</title>
+<indexterm zone="gimp-button-new"><primary>gimp_button_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_button_new                     (void);</programlisting>
+<para>
+Creates a new <link linkend="GimpButton"><type>GimpButton</type></link> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GimpButton"><type>GimpButton</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-button-extended-clicked" role="function">
+<title>gimp_button_extended_clicked ()</title>
+<indexterm zone="gimp-button-extended-clicked"><primary>gimp_button_extended_clicked</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_button_extended_clicked        (<link linkend="GimpButton">GimpButton</link> *button,
+                                                         <link linkend="GdkModifierType">GdkModifierType</link> state);</programlisting>
+<para>
+Emits the button's "extended_clicked" signal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>button</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpButton"><type>GimpButton</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>  a state as found in <link linkend="GdkEventButton-"><type>GdkEventButton-</type></link>>state, e.g. <link linkend="GDK-SHIFT-MASK:CAPS"><type>GDK_SHIFT_MASK</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpButton.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpButton-extended-clicked"><title>The <literal>&quot;extended-clicked&quot;</literal> signal</title>
+<indexterm zone="GimpButton-extended-clicked"><primary>GimpButton::extended-clicked</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpButton">GimpButton</link>     *gimpbutton,
+                                                        <link linkend="GdkModifierType">GdkModifierType</link> arg1,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)       : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpbutton</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>the state of modifier keys when the button was clicked
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

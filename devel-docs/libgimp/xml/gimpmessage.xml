@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpmessage">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpmessage.top_of_page">gimpmessage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpmessage</refname>
+<refpurpose>Display a dialog box with a message.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpmessage.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-message">gimp_message</link>                        (const <link linkend="gchar">gchar</link> *message);
+<link linkend="GimpMessageHandlerType">GimpMessageHandlerType</link> <link linkend="gimp-message-get-handler">gimp_message_get_handler</link>         (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-message-set-handler">gimp_message_set_handler</link>            (<link linkend="GimpMessageHandlerType">GimpMessageHandlerType</link> handler);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpmessage.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Display a dialog box with a message.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpmessage.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-message" role="function">
+<title>gimp_message ()</title>
+<indexterm zone="gimp-message"><primary>gimp_message</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_message                        (const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+Displays a dialog box with a message.
+</para>
+<para>
+Displays a dialog box with a message. Useful for status or error
+reporting. The message must be in UTF-8 encoding.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> Message to display in the dialog.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-message-get-handler" role="function">
+<title>gimp_message_get_handler ()</title>
+<indexterm zone="gimp-message-get-handler"><primary>gimp_message_get_handler</primary></indexterm><programlisting><link linkend="GimpMessageHandlerType">GimpMessageHandlerType</link> gimp_message_get_handler         (void);</programlisting>
+<para>
+Returns the current state of where warning messages are displayed.
+</para>
+<para>
+This procedure returns the way g_message warnings are displayed.
+They can be shown in a dialog box or printed on the console where
+gimp was started.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The current handler type.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-message-set-handler" role="function">
+<title>gimp_message_set_handler ()</title>
+<indexterm zone="gimp-message-set-handler"><primary>gimp_message_set_handler</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_message_set_handler            (<link linkend="GimpMessageHandlerType">GimpMessageHandlerType</link> handler);</programlisting>
+<para>
+Controls where warning messages are displayed.
+</para>
+<para>
+This procedure controls how g_message warnings are displayed. They
+can be shown in a dialog box or printed on the console where gimp
+was started.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>handler</parameter>&nbsp;:</term>
+<listitem><simpara> The new handler type.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

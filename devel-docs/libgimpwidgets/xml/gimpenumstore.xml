@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpEnumStore">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpEnumStore.top_of_page">GimpEnumStore</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpEnumStore</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpEnumStore.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpEnumStore-struct">GimpEnumStore</link>;
+<link linkend="GtkListStore">GtkListStore</link>*       <link linkend="gimp-enum-store-new">gimp_enum_store_new</link>                 (<link linkend="GType">GType</link> enum_type);
+<link linkend="GtkListStore">GtkListStore</link>*       <link linkend="gimp-enum-store-new-with-range">gimp_enum_store_new_with_range</link>      (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum);
+<link linkend="GtkListStore">GtkListStore</link>*       <link linkend="gimp-enum-store-new-with-values">gimp_enum_store_new_with_values</link>     (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> n_values,
+                                                         ...);
+<link linkend="GtkListStore">GtkListStore</link>*       <link linkend="gimp-enum-store-new-with-values-valist">gimp_enum_store_new_with_values_valist</link>
+                                                        (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> n_values,
+                                                         <link linkend="va-list">va_list</link> args);
+<link linkend="void">void</link>                <link linkend="gimp-enum-store-set-stock-prefix">gimp_enum_store_set_stock_prefix</link>    (<link linkend="GimpEnumStore">GimpEnumStore</link> *store,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpEnumStore.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GtkListStore">GtkListStore</link>
+         +----<link linkend="GimpIntStore">GimpIntStore</link>
+               +----GimpEnumStore
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpEnumStore.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpEnumStore implements
+ <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkTreeModel">GtkTreeModel</link>,  <link linkend="GtkTreeDragSource">GtkTreeDragSource</link>,  <link linkend="GtkTreeDragDest">GtkTreeDragDest</link> and  <link linkend="GtkTreeSortable">GtkTreeSortable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpEnumStore.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpEnumStore--enum-type">enum-type</link>&quot;                <link linkend="GType">GType</link>*                : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpEnumStore.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpEnumStore.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpEnumStore-struct" role="struct">
+<title>GimpEnumStore</title>
+<indexterm zone="GimpEnumStore-struct"><primary>GimpEnumStore</primary></indexterm><programlisting>typedef struct _GimpEnumStore GimpEnumStore;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-enum-store-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_store_new ()</title>
+<indexterm zone="gimp-enum-store-new" role="GIMP 2.4"><primary>gimp_enum_store_new</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link>*       gimp_enum_store_new                 (<link linkend="GType">GType</link> enum_type);</programlisting>
+<para>
+Creates a new <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link>, derived from <link linkend="GtkListStore"><type>GtkListStore</type></link> and fills
+it with enum values. The enum needs to be registered to the type
+system and should have translatable value names.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-store-new-with-range" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_store_new_with_range ()</title>
+<indexterm zone="gimp-enum-store-new-with-range" role="GIMP 2.4"><primary>gimp_enum_store_new_with_range</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link>*       gimp_enum_store_new_with_range      (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum);</programlisting>
+<para>
+Creates a new <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link> like <link linkend="gimp-enum-store-new"><function>gimp_enum_store_new()</function></link> but allows
+to limit the enum values to a certain range. Values smaller than
+<parameter>minimum</parameter> or larger than <parameter>maximum</parameter> are not added to the store.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minimum</parameter>&nbsp;:</term>
+<listitem><simpara> the minimum value to include
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>maximum</parameter>&nbsp;:</term>
+<listitem><simpara> the maximum value to include
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-store-new-with-values" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_store_new_with_values ()</title>
+<indexterm zone="gimp-enum-store-new-with-values" role="GIMP 2.4"><primary>gimp_enum_store_new_with_values</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link>*       gimp_enum_store_new_with_values     (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> n_values,
+                                                         ...);</programlisting>
+<para>
+Creates a new <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link> like <link linkend="gimp-enum-store-new"><function>gimp_enum_store_new()</function></link> but allows
+to expliticely list the enum values that should be added to the
+store.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_values</parameter>&nbsp;:</term>
+<listitem><simpara>  the number of enum values to include
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>       a list of enum values (exactly <parameter>n_values</parameter>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-store-new-with-values-valist" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_store_new_with_values_valist ()</title>
+<indexterm zone="gimp-enum-store-new-with-values-valist" role="GIMP 2.4"><primary>gimp_enum_store_new_with_values_valist</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link>*       gimp_enum_store_new_with_values_valist
+                                                        (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> n_values,
+                                                         <link linkend="va-list">va_list</link> args);</programlisting>
+<para>
+See <link linkend="gimp-enum-store-new-with-values"><function>gimp_enum_store_new_with_values()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_values</parameter>&nbsp;:</term>
+<listitem><simpara>  the number of enum values to include
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>args</parameter>&nbsp;:</term>
+<listitem><simpara>      a va_list of enum values (exactly <parameter>n_values</parameter>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-store-set-stock-prefix" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_store_set_stock_prefix ()</title>
+<indexterm zone="gimp-enum-store-set-stock-prefix" role="GIMP 2.4"><primary>gimp_enum_store_set_stock_prefix</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_enum_store_set_stock_prefix    (<link linkend="GimpEnumStore">GimpEnumStore</link> *store,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix);</programlisting>
+<para>
+Creates a stock ID for each enum value in the <parameter>store</parameter> by appending
+the value's nick to the given <parameter>stock_prefix</parameter>, separated by a hyphen.
+</para>
+<para>
+See also: <link linkend="gimp-enum-combo-box-set-stock-prefix"><function>gimp_enum_combo_box_set_stock_prefix()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>        a <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stock_prefix</parameter>&nbsp;:</term>
+<listitem><simpara> a prefix to create icon stock ID from enum values
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpEnumStore.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpEnumStore--enum-type"><title>The <literal>&quot;enum-type&quot;</literal> property</title>
+<indexterm zone="GimpEnumStore--enum-type" role="GIMP 2.4"><primary>GimpEnumStore:enum-type</primary></indexterm><programlisting>  &quot;enum-type&quot;                <link linkend="GType">GType</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+Sets the <link linkend="GType"><type>GType</type></link> of the enum to be used in the store.</para>
+<para>
+
+</para><para>Since  GIMP 2.4
+</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

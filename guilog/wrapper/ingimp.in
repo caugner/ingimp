@@ -1,0 +1,65 @@
+#! /usr/bin/env python
+
+'''
+ingimp -- Instrumented GIMP
+Copyright (C) 2007 Michael Terry
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+'''
+
+try:
+    import sys
+    sys.path.append('.')
+
+    import os
+    this_dir = os.path.dirname(os.path.abspath(os.path.realpath(sys.argv[0])))
+    if sys.platform == 'win32':
+        wrapper_dir = os.path.abspath(os.path.join(this_dir, '../lib', 'ingimp'))
+    else:
+        wrapper_dir = os.path.join('@libdir@', 'ingimp')
+
+    sys.path.append(wrapper_dir)
+
+    import Config
+    if sys.platform == 'win32':
+        Config.bin_dir = this_dir
+    else:
+        Config.bin_dir = '@bindir@'
+    Config.wrapper_dir = wrapper_dir
+    Config.ingimp_helper = os.path.join(Config.bin_dir, 'ingimp-helper')
+    if sys.platform == 'win32':
+        Config.ingimp_helper = Config.ingimp_helper + '.exe'
+    if sys.platform == 'win32':
+        datadir = os.path.abspath(os.path.join(this_dir, '../share'))
+    else:
+        datadir = '@datadir@'
+    Config.logo_filename = os.path.join(datadir, 'ingimp', 'ingimp_logo.gif')
+    Config.info_logo_filename = os.path.join(datadir, 'ingimp', 'ingimp_info_logo.gif')
+    Config.webstats_button_filename = os.path.join(datadir, 'ingimp', 'webstats_button.gif')
+    Config.launch_button_filename = os.path.join(datadir, 'ingimp', 'launch_button.gif')
+    Config.divider_line_filename = os.path.join(datadir, 'ingimp', 'divider_line.gif')
+    Config.consent_filename = os.path.join(datadir, 'ingimp', 'consent.txt')
+    Config.pictogram_filenames = []
+    for i in range(5):
+        this_pictogram = os.path.join(datadir, 'ingimp', 'pictogram-%d.gif'%i)
+        Config.pictogram_filenames.append(this_pictogram)
+
+    import Main
+    Main.Main()
+except SystemExit:
+    pass
+except Exception, e:
+    import tkMessageBox
+    tkMessageBox.showerror("Launch Error", "Unexpected ingimp error: " + str(e))

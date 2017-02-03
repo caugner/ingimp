@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpfonts">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpfonts.top_of_page">gimpfonts</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpfonts</refname>
+<refpurpose>Operations related to fonts.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpfonts.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-fonts-refresh">gimp_fonts_refresh</link>                  (void);
+<link linkend="gchar">gchar</link>**             <link linkend="gimp-fonts-get-list">gimp_fonts_get_list</link>                 (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_fonts);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpfonts.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpfonts.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-fonts-refresh" role="function">
+<title>gimp_fonts_refresh ()</title>
+<indexterm zone="gimp-fonts-refresh"><primary>gimp_fonts_refresh</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_fonts_refresh                  (void);</programlisting>
+<para>
+Refresh current fonts. This function always succeeds.
+</para>
+<para>
+This procedure retrieves all fonts currently in the user's font path
+and updates the font dialogs accordingly.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-fonts-get-list" role="function">
+<title>gimp_fonts_get_list ()</title>
+<indexterm zone="gimp-fonts-get-list"><primary>gimp_fonts_get_list</primary></indexterm><programlisting><link linkend="gchar">gchar</link>**             gimp_fonts_get_list                 (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_fonts);</programlisting>
+<para>
+Retrieve the list of loaded fonts.
+</para>
+<para>
+This procedure returns a list of the fonts that are currently
+available.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> An optional regular expression used to filter the list.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_fonts</parameter>&nbsp;:</term>
+<listitem><simpara> The number of available fonts.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of font names.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="GIMP Config Library Reference Manual" link="index.html" author="" name="libgimpconfig">
+  <chapters>
+    <sub name="GIMP Config Library" link="libgimpconfig.html">
+      <sub name="Object Hierarchy" link="libgimpconfig-hierarchy.html"/>
+      <sub name="gimpconfig-iface" link="libgimpconfig-GimpConfig.html"/>
+      <sub name="gimpconfig-deserialize" link="libgimpconfig-gimpconfig-deserialize.html"/>
+      <sub name="gimpconfig-serialize" link="libgimpconfig-gimpconfig-serialize.html"/>
+      <sub name="gimpconfig-error" link="libgimpconfig-GimpConfigError.html"/>
+      <sub name="gimpconfig-params" link="libgimpconfig-gimpconfig-params.html"/>
+      <sub name="gimpconfig-path" link="libgimpconfig-gimpconfig-path.html"/>
+      <sub name="gimpconfig-utils" link="libgimpconfig-gimpconfig-utils.html"/>
+      <sub name="gimpconfigwriter" link="libgimpconfig-GimpConfigWriter.html"/>
+      <sub name="gimpscanner" link="libgimpconfig-GimpScanner.html"/>
+      <sub name="GimpColorConfig" link="GimpColorConfig.html"/>
+    </sub>
+    <sub name="Index" link="libgimpconfig-index.html"/>
+    <sub name="Index of new symbols in GIMP 2.4" link="libgimpconfig-index-new-in-2-4.html"/>
+    <sub name="Index of deprecated symbols" link="libgimpconfig-index-deprecated.html"/>
+  </chapters>
+  <functions>
+    <function name="GimpConfig" link="libgimpconfig-GimpConfig.html#GimpConfig"/>
+    <function name="GimpConfigInterface" link="libgimpconfig-GimpConfig.html#GimpConfigInterface-struct"/>
+    <function name="gimp_config_serialize_to_file ()" link="libgimpconfig-GimpConfig.html#gimp-config-serialize-to-file"/>
+    <function name="gimp_config_serialize_to_fd ()" link="libgimpconfig-GimpConfig.html#gimp-config-serialize-to-fd"/>
+    <function name="gimp_config_serialize_to_string ()" link="libgimpconfig-GimpConfig.html#gimp-config-serialize-to-string"/>
+    <function name="gimp_config_deserialize_file ()" link="libgimpconfig-GimpConfig.html#gimp-config-deserialize-file"/>
+    <function name="gimp_config_deserialize_string ()" link="libgimpconfig-GimpConfig.html#gimp-config-deserialize-string"/>
+    <function name="gimp_config_deserialize_return ()" link="libgimpconfig-GimpConfig.html#gimp-config-deserialize-return"/>
+    <function name="gimp_config_duplicate ()" link="libgimpconfig-GimpConfig.html#gimp-config-duplicate"/>
+    <function name="gimp_config_is_equal_to ()" link="libgimpconfig-GimpConfig.html#gimp-config-is-equal-to"/>
+    <function name="gimp_config_reset ()" link="libgimpconfig-GimpConfig.html#gimp-config-reset"/>
+    <function name="gimp_config_deserialize_properties ()" link="libgimpconfig-gimpconfig-deserialize.html#gimp-config-deserialize-properties"/>
+    <function name="gimp_config_deserialize_property ()" link="libgimpconfig-gimpconfig-deserialize.html#gimp-config-deserialize-property"/>
+    <function name="gimp_config_serialize_properties ()" link="libgimpconfig-gimpconfig-serialize.html#gimp-config-serialize-properties"/>
+    <function name="gimp_config_serialize_changed_properties ()" link="libgimpconfig-gimpconfig-serialize.html#gimp-config-serialize-changed-properties"/>
+    <function name="gimp_config_serialize_property ()" link="libgimpconfig-gimpconfig-serialize.html#gimp-config-serialize-property"/>
+    <function name="gimp_config_serialize_value ()" link="libgimpconfig-gimpconfig-serialize.html#gimp-config-serialize-value"/>
+    <function name="enum GimpConfigError" link="libgimpconfig-GimpConfigError.html#GimpConfigError"/>
+    <function name="GIMP_CONFIG_ERROR" link="libgimpconfig-GimpConfigError.html#GIMP-CONFIG-ERROR:CAPS"/>
+    <function name="gimp_config_error_quark ()" link="libgimpconfig-GimpConfigError.html#gimp-config-error-quark"/>
+    <function name="GIMP_CONFIG_PARAM_SERIALIZE" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-PARAM-SERIALIZE:CAPS"/>
+    <function name="GIMP_CONFIG_PARAM_AGGREGATE" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-PARAM-AGGREGATE:CAPS"/>
+    <function name="GIMP_CONFIG_PARAM_RESTART" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-PARAM-RESTART:CAPS"/>
+    <function name="GIMP_CONFIG_PARAM_CONFIRM" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-PARAM-CONFIRM:CAPS"/>
+    <function name="GIMP_CONFIG_PARAM_DEFAULTS" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-PARAM-DEFAULTS:CAPS"/>
+    <function name="GIMP_CONFIG_PARAM_IGNORE" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-PARAM-IGNORE:CAPS"/>
+    <function name="GIMP_CONFIG_PARAM_FLAGS" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-PARAM-FLAGS:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_BOOLEAN()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-BOOLEAN:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_BOXED()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-BOXED:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_RGB()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-RGB:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_DOUBLE()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-DOUBLE:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_RESOLUTION()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-RESOLUTION:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_ENUM()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-ENUM:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_INT()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-INT:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_MATRIX2()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-MATRIX2:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_MEMSIZE()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-MEMSIZE:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_PATH()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-PATH:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_STRING()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-STRING:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_UINT()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-UINT:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_UNIT()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-UNIT:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_OBJECT()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-OBJECT:CAPS"/>
+    <function name="GIMP_CONFIG_INSTALL_PROP_POINTER()" link="libgimpconfig-gimpconfig-params.html#GIMP-CONFIG-INSTALL-PROP-POINTER:CAPS"/>
+    <function name="enum GimpConfigPathType" link="libgimpconfig-gimpconfig-path.html#GimpConfigPathType"/>
+    <function name="gimp_param_spec_config_path ()" link="libgimpconfig-gimpconfig-path.html#gimp-param-spec-config-path"/>
+    <function name="gimp_param_spec_config_path_type ()" link="libgimpconfig-gimpconfig-path.html#gimp-param-spec-config-path-type"/>
+    <function name="gimp_config_path_expand ()" link="libgimpconfig-gimpconfig-path.html#gimp-config-path-expand"/>
+    <function name="gimp_config_build_data_path ()" link="libgimpconfig-gimpconfig-path.html#gimp-config-build-data-path"/>
+    <function name="gimp_config_build_writable_path ()" link="libgimpconfig-gimpconfig-path.html#gimp-config-build-writable-path"/>
+    <function name="gimp_config_build_plug_in_path ()" link="libgimpconfig-gimpconfig-path.html#gimp-config-build-plug-in-path"/>
+    <function name="GIMP_VALUE_HOLDS_CONFIG_PATH()" link="libgimpconfig-gimpconfig-path.html#GIMP-VALUE-HOLDS-CONFIG-PATH:CAPS"/>
+    <function name="gimp_config_diff ()" link="libgimpconfig-gimpconfig-utils.html#gimp-config-diff"/>
+    <function name="gimp_config_sync ()" link="libgimpconfig-gimpconfig-utils.html#gimp-config-sync"/>
+    <function name="gimp_config_reset_properties ()" link="libgimpconfig-gimpconfig-utils.html#gimp-config-reset-properties"/>
+    <function name="gimp_config_reset_property ()" link="libgimpconfig-gimpconfig-utils.html#gimp-config-reset-property"/>
+    <function name="gimp_config_string_append_escaped ()" link="libgimpconfig-gimpconfig-utils.html#gimp-config-string-append-escaped"/>
+    <function name="GimpConfigWriter" link="libgimpconfig-GimpConfigWriter.html#GimpConfigWriter"/>
+    <function name="gimp_config_writer_new_file ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-new-file"/>
+    <function name="gimp_config_writer_new_fd ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-new-fd"/>
+    <function name="gimp_config_writer_new_string ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-new-string"/>
+    <function name="gimp_config_writer_open ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-open"/>
+    <function name="gimp_config_writer_comment_mode ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-comment-mode"/>
+    <function name="gimp_config_writer_print ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-print"/>
+    <function name="gimp_config_writer_printf ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-printf"/>
+    <function name="gimp_config_writer_identifier ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-identifier"/>
+    <function name="gimp_config_writer_string ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-string"/>
+    <function name="gimp_config_writer_data ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-data"/>
+    <function name="gimp_config_writer_comment ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-comment"/>
+    <function name="gimp_config_writer_linefeed ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-linefeed"/>
+    <function name="gimp_config_writer_revert ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-revert"/>
+    <function name="gimp_config_writer_close ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-close"/>
+    <function name="gimp_config_writer_finish ()" link="libgimpconfig-GimpConfigWriter.html#gimp-config-writer-finish"/>
+    <function name="gimp_scanner_new_file ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-new-file"/>
+    <function name="gimp_scanner_new_string ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-new-string"/>
+    <function name="gimp_scanner_destroy ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-destroy"/>
+    <function name="gimp_scanner_parse_token ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-token"/>
+    <function name="gimp_scanner_parse_identifier ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-identifier"/>
+    <function name="gimp_scanner_parse_string ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-string"/>
+    <function name="gimp_scanner_parse_string_no_validate ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-string-no-validate"/>
+    <function name="gimp_scanner_parse_data ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-data"/>
+    <function name="gimp_scanner_parse_int ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-int"/>
+    <function name="gimp_scanner_parse_float ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-float"/>
+    <function name="gimp_scanner_parse_color ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-color"/>
+    <function name="gimp_scanner_parse_matrix2 ()" link="libgimpconfig-GimpScanner.html#gimp-scanner-parse-matrix2"/>
+    <function name="GimpColorConfig" link="GimpColorConfig.html#GimpColorConfig-struct"/>
+    <function name="enum GimpColorManagementMode" link="GimpColorConfig.html#GimpColorManagementMode"/>
+    <function name="enum GimpColorRenderingIntent" link="GimpColorConfig.html#GimpColorRenderingIntent"/>
+    <function name="The &quot;cmyk-profile&quot; property" link="GimpColorConfig.html#GimpColorConfig--cmyk-profile"/>
+    <function name="The &quot;display-module&quot; property" link="GimpColorConfig.html#GimpColorConfig--display-module"/>
+    <function name="The &quot;display-profile&quot; property" link="GimpColorConfig.html#GimpColorConfig--display-profile"/>
+    <function name="The &quot;display-profile-from-gdk&quot; property" link="GimpColorConfig.html#GimpColorConfig--display-profile-from-gdk"/>
+    <function name="The &quot;display-rendering-intent&quot; property" link="GimpColorConfig.html#GimpColorConfig--display-rendering-intent"/>
+    <function name="The &quot;mode&quot; property" link="GimpColorConfig.html#GimpColorConfig--mode"/>
+    <function name="The &quot;out-of-gamut-color&quot; property" link="GimpColorConfig.html#GimpColorConfig--out-of-gamut-color"/>
+    <function name="The &quot;printer-profile&quot; property" link="GimpColorConfig.html#GimpColorConfig--printer-profile"/>
+    <function name="The &quot;rgb-profile&quot; property" link="GimpColorConfig.html#GimpColorConfig--rgb-profile"/>
+    <function name="The &quot;simulation-gamut-check&quot; property" link="GimpColorConfig.html#GimpColorConfig--simulation-gamut-check"/>
+    <function name="The &quot;simulation-rendering-intent&quot; property" link="GimpColorConfig.html#GimpColorConfig--simulation-rendering-intent"/>
+  </functions>
+</book>

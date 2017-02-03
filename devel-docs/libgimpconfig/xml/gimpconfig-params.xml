@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpconfig-gimpconfig-params">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpconfig-gimpconfig-params.top_of_page">gimpconfig-params</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPCONFIG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpconfig-params</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpconfig-gimpconfig-params.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="GIMP-CONFIG-PARAM-SERIALIZE:CAPS">GIMP_CONFIG_PARAM_SERIALIZE</link>
+#define             <link linkend="GIMP-CONFIG-PARAM-AGGREGATE:CAPS">GIMP_CONFIG_PARAM_AGGREGATE</link>
+#define             <link linkend="GIMP-CONFIG-PARAM-RESTART:CAPS">GIMP_CONFIG_PARAM_RESTART</link>
+#define             <link linkend="GIMP-CONFIG-PARAM-CONFIRM:CAPS">GIMP_CONFIG_PARAM_CONFIRM</link>
+#define             <link linkend="GIMP-CONFIG-PARAM-DEFAULTS:CAPS">GIMP_CONFIG_PARAM_DEFAULTS</link>
+#define             <link linkend="GIMP-CONFIG-PARAM-IGNORE:CAPS">GIMP_CONFIG_PARAM_IGNORE</link>
+#define             <link linkend="GIMP-CONFIG-PARAM-FLAGS:CAPS">GIMP_CONFIG_PARAM_FLAGS</link>
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-BOOLEAN:CAPS">GIMP_CONFIG_INSTALL_PROP_BOOLEAN</link>    (class, id, name, blurb, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-BOXED:CAPS">GIMP_CONFIG_INSTALL_PROP_BOXED</link>      (class, id, name, blurb, boxed_type, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-RGB:CAPS">GIMP_CONFIG_INSTALL_PROP_RGB</link>        (class, id, name, blurb, has_alpha, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-DOUBLE:CAPS">GIMP_CONFIG_INSTALL_PROP_DOUBLE</link>     (class, id, name, blurb, min, max, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-RESOLUTION:CAPS">GIMP_CONFIG_INSTALL_PROP_RESOLUTION</link> (class, id, name, blurb, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-ENUM:CAPS">GIMP_CONFIG_INSTALL_PROP_ENUM</link>       (class, id, name, blurb, enum_type, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-INT:CAPS">GIMP_CONFIG_INSTALL_PROP_INT</link>        (class, id, name, blurb, min, max, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-MATRIX2:CAPS">GIMP_CONFIG_INSTALL_PROP_MATRIX2</link>    (class, id, name, blurb, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-MEMSIZE:CAPS">GIMP_CONFIG_INSTALL_PROP_MEMSIZE</link>    (class, id, name, blurb, min, max, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-PATH:CAPS">GIMP_CONFIG_INSTALL_PROP_PATH</link>       (class, id, name, blurb, path_type, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-STRING:CAPS">GIMP_CONFIG_INSTALL_PROP_STRING</link>     (class, id, name, blurb, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-UINT:CAPS">GIMP_CONFIG_INSTALL_PROP_UINT</link>       (class, id, name, blurb, min, max, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-UNIT:CAPS">GIMP_CONFIG_INSTALL_PROP_UNIT</link>       (class, id, name, blurb, pixels, percent, default, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-OBJECT:CAPS">GIMP_CONFIG_INSTALL_PROP_OBJECT</link>     (class, id, name, blurb, object_type, flags)
+#define             <link linkend="GIMP-CONFIG-INSTALL-PROP-POINTER:CAPS">GIMP_CONFIG_INSTALL_PROP_POINTER</link>    (class, id, name, blurb, flags)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpconfig-gimpconfig-params.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpconfig-gimpconfig-params.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GIMP-CONFIG-PARAM-SERIALIZE:CAPS" role="macro">
+<title>GIMP_CONFIG_PARAM_SERIALIZE</title>
+<indexterm zone="GIMP-CONFIG-PARAM-SERIALIZE:CAPS"><primary>GIMP_CONFIG_PARAM_SERIALIZE</primary></indexterm><programlisting>#define GIMP_CONFIG_PARAM_SERIALIZE    (1 &lt;&lt; (0 + G_PARAM_USER_SHIFT))
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-PARAM-AGGREGATE:CAPS" role="macro">
+<title>GIMP_CONFIG_PARAM_AGGREGATE</title>
+<indexterm zone="GIMP-CONFIG-PARAM-AGGREGATE:CAPS"><primary>GIMP_CONFIG_PARAM_AGGREGATE</primary></indexterm><programlisting>#define GIMP_CONFIG_PARAM_AGGREGATE    (1 &lt;&lt; (1 + G_PARAM_USER_SHIFT))
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-PARAM-RESTART:CAPS" role="macro">
+<title>GIMP_CONFIG_PARAM_RESTART</title>
+<indexterm zone="GIMP-CONFIG-PARAM-RESTART:CAPS"><primary>GIMP_CONFIG_PARAM_RESTART</primary></indexterm><programlisting>#define GIMP_CONFIG_PARAM_RESTART      (1 &lt;&lt; (2 + G_PARAM_USER_SHIFT))
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-PARAM-CONFIRM:CAPS" role="macro">
+<title>GIMP_CONFIG_PARAM_CONFIRM</title>
+<indexterm zone="GIMP-CONFIG-PARAM-CONFIRM:CAPS"><primary>GIMP_CONFIG_PARAM_CONFIRM</primary></indexterm><programlisting>#define GIMP_CONFIG_PARAM_CONFIRM      (1 &lt;&lt; (3 + G_PARAM_USER_SHIFT))
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-PARAM-DEFAULTS:CAPS" role="macro">
+<title>GIMP_CONFIG_PARAM_DEFAULTS</title>
+<indexterm zone="GIMP-CONFIG-PARAM-DEFAULTS:CAPS"><primary>GIMP_CONFIG_PARAM_DEFAULTS</primary></indexterm><programlisting>#define GIMP_CONFIG_PARAM_DEFAULTS     (1 &lt;&lt; (4 + G_PARAM_USER_SHIFT))
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-PARAM-IGNORE:CAPS" role="macro">
+<title>GIMP_CONFIG_PARAM_IGNORE</title>
+<indexterm zone="GIMP-CONFIG-PARAM-IGNORE:CAPS"><primary>GIMP_CONFIG_PARAM_IGNORE</primary></indexterm><programlisting>#define GIMP_CONFIG_PARAM_IGNORE       (1 &lt;&lt; (5 + G_PARAM_USER_SHIFT))
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-PARAM-FLAGS:CAPS" role="macro">
+<title>GIMP_CONFIG_PARAM_FLAGS</title>
+<indexterm zone="GIMP-CONFIG-PARAM-FLAGS:CAPS"><primary>GIMP_CONFIG_PARAM_FLAGS</primary></indexterm><programlisting>#define             GIMP_CONFIG_PARAM_FLAGS</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-BOOLEAN:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_BOOLEAN()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-BOOLEAN:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_BOOLEAN</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_BOOLEAN(class, id, name, blurb, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-BOXED:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_BOXED()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-BOXED:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_BOXED</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_BOXED(class, id, name, blurb, boxed_type, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>boxed_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-RGB:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_RGB()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-RGB:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_RGB</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_RGB(class, id, name, blurb, has_alpha, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>has_alpha</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-DOUBLE:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_DOUBLE()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-DOUBLE:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_DOUBLE</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_DOUBLE(class, id, name, blurb, min, max, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>min</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-RESOLUTION:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_RESOLUTION()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-RESOLUTION:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_RESOLUTION</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_RESOLUTION(class, id, name, blurb, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-ENUM:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_ENUM()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-ENUM:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_ENUM</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_ENUM(class, id, name, blurb, enum_type, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-INT:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_INT()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-INT:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_INT</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_INT(class, id, name, blurb, min, max, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>min</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-MATRIX2:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_MATRIX2()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-MATRIX2:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_MATRIX2</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_MATRIX2(class, id, name, blurb, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-MEMSIZE:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_MEMSIZE()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-MEMSIZE:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_MEMSIZE</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_MEMSIZE(class, id, name, blurb, min, max, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>min</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-PATH:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_PATH()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-PATH:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_PATH</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_PATH(class, id, name, blurb, path_type, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>path_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-STRING:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_STRING()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-STRING:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_STRING</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_STRING(class, id, name, blurb, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-UINT:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_UINT()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-UINT:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_UINT</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_UINT(class, id, name, blurb, min, max, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>min</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-UNIT:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_UNIT()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-UNIT:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_UNIT</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_UNIT(class, id, name, blurb, pixels, percent, default, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixels</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>percent</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-OBJECT:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_OBJECT()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-OBJECT:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_OBJECT</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_OBJECT(class, id, name, blurb, object_type, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-CONFIG-INSTALL-PROP-POINTER:CAPS" role="macro">
+<title>GIMP_CONFIG_INSTALL_PROP_POINTER()</title>
+<indexterm zone="GIMP-CONFIG-INSTALL-PROP-POINTER:CAPS"><primary>GIMP_CONFIG_INSTALL_PROP_POINTER</primary></indexterm><programlisting>#define             GIMP_CONFIG_INSTALL_PROP_POINTER(class, id, name, blurb, flags)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>class</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

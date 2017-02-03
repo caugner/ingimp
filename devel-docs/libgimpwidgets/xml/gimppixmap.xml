@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpPixmap">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpPixmap.top_of_page">GimpPixmap</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpPixmap</refname>
+<refpurpose>Widget which creates a <link linkend="GtkPixmap"><type>GtkPixmap</type></link> from XPM data.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpPixmap.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpPixmap-struct">GimpPixmap</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-pixmap-new">gimp_pixmap_new</link>                     (<link linkend="gchar">gchar</link> **xpm_data);
+<link linkend="void">void</link>                <link linkend="gimp-pixmap-set">gimp_pixmap_set</link>                     (<link linkend="GimpPixmap">GimpPixmap</link> *pixmap,
+                                                         <link linkend="gchar">gchar</link> **xpm_data);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpPixmap.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkMisc">GtkMisc</link>
+                           +----<link linkend="GtkImage">GtkImage</link>
+                                 +----GimpPixmap
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpPixmap.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpPixmap implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpPixmap.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Widget which creates a <link linkend="GtkPixmap"><type>GtkPixmap</type></link> from XPM data.
+</para>
+<para>
+Use this widget instead of <link linkend="GtkPixmap"><type>GtkPixmap</type></link> if you don't want to worry about
+the parent container's "realized" state.
+</para>
+<para>
+Note that the drawback of the easy interface is that the actual <link linkend="GdkPixmap"><type>GdkPixmap</type></link>
+and it's mask have to be constructed every time you call <link linkend="gimp-pixmap-new"><function>gimp_pixmap_new()</function></link>
+and cannot be cached in memory without doing bad hacks.
+</para>
+</refsect1>
+
+<refsect1 id="GimpPixmap.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpPixmap-struct" role="struct">
+<title>GimpPixmap</title>
+<indexterm zone="GimpPixmap-struct" role="deprecated"><primary>GimpPixmap</primary></indexterm><programlisting>typedef struct _GimpPixmap GimpPixmap;</programlisting>
+<warning><para><literal>GimpPixmap</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-pixmap-new" role="function" condition="deprecated:">
+<title>gimp_pixmap_new ()</title>
+<indexterm zone="gimp-pixmap-new" role="deprecated"><primary>gimp_pixmap_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_pixmap_new                     (<link linkend="gchar">gchar</link> **xpm_data);</programlisting>
+<warning><para><literal>gimp_pixmap_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Creates a new <link linkend="GimpPixmap"><type>GimpPixmap</type></link> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>xpm_data</parameter>&nbsp;:</term>
+<listitem><simpara> A pointer to a XPM data structure as found in XPM files.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GimpPixmap"><type>GimpPixmap</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixmap-set" role="function" condition="deprecated:">
+<title>gimp_pixmap_set ()</title>
+<indexterm zone="gimp-pixmap-set" role="deprecated"><primary>gimp_pixmap_set</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixmap_set                     (<link linkend="GimpPixmap">GimpPixmap</link> *pixmap,
+                                                         <link linkend="gchar">gchar</link> **xpm_data);</programlisting>
+<warning><para><literal>gimp_pixmap_set</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Sets a new image for an existing <link linkend="GimpPixmap"><type>GimpPixmap</type></link> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixmap</parameter>&nbsp;:</term>
+<listitem><simpara> The pixmap widget you want to set the new xpm_data for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>xpm_data</parameter>&nbsp;:</term>
+<listitem><simpara> A pointer to a XPM data structure as found in XPM files.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpPixmap.see-also">
+<title>See Also</title>
+<para>
+<link linkend="gimp-pixmap-button-new"><function>gimp_pixmap_button_new()</function></link>
+</para>
+<para>
+<link linkend="GtkPixmap"><type>GtkPixmap</type></link>
+</para>
+</refsect1>
+
+</refentry>

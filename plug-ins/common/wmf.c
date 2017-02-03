@@ -23,6 +23,7 @@
 
 #include "config.h"
 
+#include <ft2build.h>
 #include <libwmf/api.h>
 #include <libwmf/gd.h>
 

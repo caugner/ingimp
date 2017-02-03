@@ -31,6 +31,7 @@
 #include "core/gimp.h"
 #include "core/gimpcontainer.h"
 #include "core/gimpimage.h"
+#include "core/gimpinteraction-logger.h"
 #include "core/gimpprogress.h"
 #include "core/gimptemplate.h"
 
@@ -161,6 +162,8 @@ file_last_opened_cmd_callback (GtkAction *action,
                                       GIMP_OBJECT (imagefile)->name, FALSE,
                                       &status, &error);
 
+      guilog_last_opened(image, value, GIMP_OBJECT (imagefile)->name);
+
       if (! image && status != GIMP_PDB_CANCEL)
         {
           gchar *filename =
@@ -206,6 +209,8 @@ file_save_cmd_callback (GtkAction *action,
         {
           const gchar         *uri;
           GimpPlugInProcedure *save_proc = NULL;
+
+          guilog_save_image_requested(image, FALSE);
 
           uri       = gimp_object_get_name (GIMP_OBJECT (image));
           save_proc = gimp_image_get_save_proc (image);
@@ -282,6 +287,7 @@ file_save_cmd_callback (GtkAction *action,
         }
 
     case GIMP_SAVE_MODE_SAVE_AS:
+      guilog_save_image_requested(image, TRUE);
       file_save_dialog_show (display->image, widget,
                              _("Save Image"), FALSE,
                              save_mode == GIMP_SAVE_MODE_SAVE_AND_CLOSE);
@@ -573,6 +579,7 @@ file_revert_confirm_response (GtkWidget   *dialog,
 
       if (new_image)
         {
+          guilog_revert_image(old_image, new_image);
           gimp_displays_reconnect (gimp, old_image, new_image);
           gimp_image_flush (new_image);
 

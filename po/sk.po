@@ -4,7 +4,7 @@
 # Stanislav Visnovsky <visnovsky@kde.org>, 2003.
 # Marcel Telka <marcel@telka.sk>, 2005.
 #
-# $Id$
+# $Id: sk.po,v 1.96 2005/11/27 15:24:43 marcel Exp $
 #
 msgid ""
 msgstr ""

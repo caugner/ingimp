@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpUnitMenu">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpUnitMenu.top_of_page">GimpUnitMenu</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpUnitMenu</refname>
+<refpurpose>Widget for selecting a <link linkend="GimpUnit"><type>GimpUnit</type></link>.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpUnitMenu.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpUnitMenu-struct">GimpUnitMenu</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-unit-menu-new">gimp_unit_menu_new</link>                  (const <link linkend="gchar">gchar</link> *format,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gboolean">gboolean</link> show_pixels,
+                                                         <link linkend="gboolean">gboolean</link> show_percent,
+                                                         <link linkend="gboolean">gboolean</link> show_custom);
+<link linkend="void">void</link>                <link linkend="gimp-unit-menu-set-unit">gimp_unit_menu_set_unit</link>             (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit);
+<link linkend="GimpUnit">GimpUnit</link>            <link linkend="gimp-unit-menu-get-unit">gimp_unit_menu_get_unit</link>             (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu);
+<link linkend="gint">gint</link>                <link linkend="gimp-unit-menu-get-pixel-digits">gimp_unit_menu_get_pixel_digits</link>     (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu);
+<link linkend="void">void</link>                <link linkend="gimp-unit-menu-set-pixel-digits">gimp_unit_menu_set_pixel_digits</link>     (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu,
+                                                         <link linkend="gint">gint</link> digits);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpUnitMenu.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkButton">GtkButton</link>
+                                       +----<link linkend="GtkOptionMenu">GtkOptionMenu</link>
+                                             +----GimpUnitMenu
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpUnitMenu.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpUnitMenu implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpUnitMenu.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpUnitMenu-unit-changed">unit-changed</link>&quot;                                   : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpUnitMenu.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+This widget provides a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> which contains a list of <link linkend="GimpUnit"><type>GimpUnit</type></link>'s.
+</para>
+<para>
+You can specify the string that will be displayed for each unit by
+passing a printf-like <parameter>format</parameter> string to <link linkend="gimp-unit-menu-new"><function>gimp_unit_menu_new()</function></link>.
+</para>
+<para>
+The constructor also lets you choose if the menu should contain items
+for GIMP_UNIT_PIXEL, GIMP_UNIT_PERCENT and a "More..." item which will
+pop up a dialog for selecting user-defined units.
+</para>
+<para>
+Whenever the user selects a unit from the menu or the dialog, the
+"unit_changed" signal will be emitted.
+</para>
+</refsect1>
+
+<refsect1 id="GimpUnitMenu.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpUnitMenu-struct" role="struct">
+<title>GimpUnitMenu</title>
+<indexterm zone="GimpUnitMenu-struct"><primary>GimpUnitMenu</primary></indexterm><programlisting>typedef struct _GimpUnitMenu GimpUnitMenu;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-unit-menu-new" role="function">
+<title>gimp_unit_menu_new ()</title>
+<indexterm zone="gimp-unit-menu-new"><primary>gimp_unit_menu_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_unit_menu_new                  (const <link linkend="gchar">gchar</link> *format,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit,
+                                                         <link linkend="gboolean">gboolean</link> show_pixels,
+                                                         <link linkend="gboolean">gboolean</link> show_percent,
+                                                         <link linkend="gboolean">gboolean</link> show_custom);</programlisting>
+<para>
+Creates a new <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link> widget.
+</para>
+<para>
+The <parameter>format</parameter> string supports the following percent expansions:
+</para>
+<para>
+<informaltable pgwide="1" frame="none" role="enum">
+  <tgroup cols="2"><colspec colwidth="1*"/><colspec colwidth="8*"/>
+    <tbody>
+      <row>
+        <entry>% f</entry>
+        <entry>Factor (how many units make up an inch)</entry>
+       </row>
+      <row>
+        <entry>% y</entry>
+        <entry>Symbol (e.g. "''" for GIMP_UNIT_INCH)</entry>
+      </row>
+      <row>
+        <entry>% a</entry>
+        <entry>Abbreviation</entry>
+      </row>
+      <row>
+        <entry>% s</entry>
+        <entry>Singular</entry>
+      </row>
+      <row>
+        <entry>% p</entry>
+        <entry>Plural</entry>
+      </row>
+      <row>
+        <entry>%%</entry>
+        <entry>Literal percent</entry>
+      </row>
+    </tbody>
+  </tgroup>
+</informaltable></para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara>       A printf-like format string which is used to create the unit
+               strings.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara>         The initially selected unit.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_pixels</parameter>&nbsp;:</term>
+<listitem><simpara>  <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the unit menu should contain an item for
+               GIMP_UNIT_PIXEL.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_percent</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> in the unit menu should contain an item for
+               GIMP_UNIT_PERCENT.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_custom</parameter>&nbsp;:</term>
+<listitem><simpara>  <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the unit menu should contain a "More..." item for
+               opening the user-defined-unit selection dialog.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to the new <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-menu-set-unit" role="function">
+<title>gimp_unit_menu_set_unit ()</title>
+<indexterm zone="gimp-unit-menu-set-unit"><primary>gimp_unit_menu_set_unit</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_unit_menu_set_unit             (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+Sets a new <link linkend="GimpUnit"><type>GimpUnit</type></link> for the specified <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu</parameter>&nbsp;:</term>
+<listitem><simpara>  The unit menu you want to set the unit for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The new unit.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-menu-get-unit" role="function">
+<title>gimp_unit_menu_get_unit ()</title>
+<indexterm zone="gimp-unit-menu-get-unit"><primary>gimp_unit_menu_get_unit</primary></indexterm><programlisting><link linkend="GimpUnit">GimpUnit</link>            gimp_unit_menu_get_unit             (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu);</programlisting>
+<para>
+Returns the <link linkend="GimpUnit"><type>GimpUnit</type></link> the user has selected from the <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu</parameter>&nbsp;:</term>
+<listitem><simpara> The unit menu you want to know the unit of.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit the user has selected.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-menu-get-pixel-digits" role="function">
+<title>gimp_unit_menu_get_pixel_digits ()</title>
+<indexterm zone="gimp-unit-menu-get-pixel-digits"><primary>gimp_unit_menu_get_pixel_digits</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_unit_menu_get_pixel_digits     (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu);</programlisting>
+<para>
+Retrieve the number of digits for a pixel size as set by
+<link linkend="gimp-unit-set-pixel-digits"><function>gimp_unit_set_pixel_digits()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the configured number of digits for a pixel size
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-unit-menu-set-pixel-digits" role="function">
+<title>gimp_unit_menu_set_pixel_digits ()</title>
+<indexterm zone="gimp-unit-menu-set-pixel-digits"><primary>gimp_unit_menu_set_pixel_digits</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_unit_menu_set_pixel_digits     (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *menu,
+                                                         <link linkend="gint">gint</link> digits);</programlisting>
+<para>
+A GimpUnitMenu can be setup to control the number of digits shown
+by attached spinbuttons. Please refer to the documentation of
+<link linkend="gimp-unit-menu-update"><function>gimp_unit_menu_update()</function></link> to see how this is done.
+</para>
+<para>
+This function allows to specify the number of digits shown for a
+size in pixels. Usually this is 0 (only full pixels). If you want
+to allow the user to specify sub-pixel sizes using the attached
+spinbuttons, specify the number of digits after the decimal point
+here. You should do this after attaching your spinbuttons.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>digits</parameter>&nbsp;:</term>
+<listitem><simpara> the number of digits to display for a pixel size
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpUnitMenu.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpUnitMenu-unit-changed"><title>The <literal>&quot;unit-changed&quot;</literal> signal</title>
+<indexterm zone="GimpUnitMenu-unit-changed"><primary>GimpUnitMenu::unit-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpUnitMenu">GimpUnitMenu</link> *arg0,
+                                                        <link linkend="gpointer">gpointer</link>      user_data)      : Run First</programlisting>
+<para>
+This signal is emitted whenever the user selects a <link linkend="GimpUnit"><type>GimpUnit</type></link> from
+the <link linkend="GimpUnitMenu"><type>GimpUnitMenu</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+<refsect1 id="GimpUnitMenu.see-also">
+<title>See Also</title>
+<para>
+<link linkend="GimpUnit"><type>GimpUnit</type></link>
+</para>
+<para>
+<link linkend="GimpSizeEntry"><type>GimpSizeEntry</type></link>
+</para>
+<para>
+<link linkend="gimp-coordinates-new"><function>gimp_coordinates_new()</function></link>
+</para>
+</refsect1>
+
+</refentry>

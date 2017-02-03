@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpEnumLabel">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpEnumLabel.top_of_page">GimpEnumLabel</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpEnumLabel</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpEnumLabel.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpEnumLabel-struct">GimpEnumLabel</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-label-new">gimp_enum_label_new</link>                 (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> value);
+<link linkend="void">void</link>                <link linkend="gimp-enum-label-set-value">gimp_enum_label_set_value</link>           (<link linkend="GimpEnumLabel">GimpEnumLabel</link> *label,
+                                                         <link linkend="gint">gint</link> value);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpEnumLabel.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkMisc">GtkMisc</link>
+                           +----<link linkend="GtkLabel">GtkLabel</link>
+                                 +----GimpEnumLabel
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpEnumLabel.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpEnumLabel implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpEnumLabel.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpEnumLabel.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpEnumLabel-struct" role="struct">
+<title>GimpEnumLabel</title>
+<indexterm zone="GimpEnumLabel-struct"><primary>GimpEnumLabel</primary></indexterm><programlisting>typedef struct _GimpEnumLabel GimpEnumLabel;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-enum-label-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_label_new ()</title>
+<indexterm zone="gimp-enum-label-new" role="GIMP 2.4"><primary>gimp_enum_label_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_label_new                 (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> value);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpEnumLabel"><type>GimpEnumLabel</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-label-set-value" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_label_set_value ()</title>
+<indexterm zone="gimp-enum-label-set-value" role="GIMP 2.4"><primary>gimp_enum_label_set_value</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_enum_label_set_value           (<link linkend="GimpEnumLabel">GimpEnumLabel</link> *label,
+                                                         <link linkend="gint">gint</link> value);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>label</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpEnumLabel"><type>GimpEnumLabel</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -50,6 +50,7 @@
 #include "gimpimage-quick-mask.h"
 #include "gimpimage-undo.h"
 #include "gimpimage-undo-push.h"
+#include "gimpinteraction-logger.h"
 #include "gimplayer.h"
 #include "gimplayer-floating-sel.h"
 #include "gimplayermask.h"
@@ -818,6 +819,8 @@ static void
 gimp_image_dispose (GObject *object)
 {
   GimpImage *image = GIMP_IMAGE (object);
+
+  guilog_image_dispose(image);
 
   gimp_image_undo_free (image);
 
@@ -1890,6 +1893,9 @@ gimp_image_undo_event (GimpImage     *image,
                        GimpUndo      *undo)
 {
   g_return_if_fail (GIMP_IS_IMAGE (image));
+
+  guilog_undo_event(image, event, undo);
+
   g_return_if_fail (((event == GIMP_UNDO_EVENT_UNDO_FREE   ||
                       event == GIMP_UNDO_EVENT_UNDO_FREEZE ||
                       event == GIMP_UNDO_EVENT_UNDO_THAW) && undo == NULL) ||

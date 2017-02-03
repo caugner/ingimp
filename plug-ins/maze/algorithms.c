@@ -1,4 +1,4 @@
-/* $Id$
+/* $Id: algorithms.c 21431 2006-11-24 11:10:10Z neo $
  * Contains routines for generating mazes, somewhat intertwined with
  * Gimp plug-in-maze specific stuff.
  *

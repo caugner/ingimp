@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimputils">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimputils.top_of_page">gimputils</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimputils</refname>
+<refpurpose>Utilities of general interest</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimputils.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-any-to-utf8">gimp_any_to_utf8</link>                    (const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="gssize">gssize</link> len,
+                                                         const <link linkend="gchar">gchar</link> *warning_format,
+                                                         ...);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-filename-to-utf8">gimp_filename_to_utf8</link>               (const <link linkend="gchar">gchar</link> *filename);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-utf8-strtrim">gimp_utf8_strtrim</link>                   (const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="gint">gint</link> max_chars);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-escape-uline">gimp_escape_uline</link>                   (const <link linkend="gchar">gchar</link> *str);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-strip-uline">gimp_strip_uline</link>                    (const <link linkend="gchar">gchar</link> *str);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-canonicalize-identifier">gimp_canonicalize_identifier</link>        (const <link linkend="gchar">gchar</link> *identifier);
+<link linkend="GimpEnumDesc">GimpEnumDesc</link>*       <link linkend="gimp-enum-get-desc">gimp_enum_get_desc</link>                  (<link linkend="GEnumClass">GEnumClass</link> *enum_class,
+                                                         <link linkend="gint">gint</link> value);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-enum-get-value">gimp_enum_get_value</link>                 (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> value,
+                                                         const <link linkend="gchar">gchar</link> **value_name,
+                                                         const <link linkend="gchar">gchar</link> **value_nick,
+                                                         const <link linkend="gchar">gchar</link> **value_desc,
+                                                         const <link linkend="gchar">gchar</link> **value_help);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-enum-value-get-desc">gimp_enum_value_get_desc</link>            (<link linkend="GEnumClass">GEnumClass</link> *enum_class,
+                                                         <link linkend="GEnumValue">GEnumValue</link> *enum_value);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-enum-value-get-help">gimp_enum_value_get_help</link>            (<link linkend="GEnumClass">GEnumClass</link> *enum_class,
+                                                         <link linkend="GEnumValue">GEnumValue</link> *enum_value);
+<link linkend="GimpFlagsDesc">GimpFlagsDesc</link>*      <link linkend="gimp-flags-get-first-desc">gimp_flags_get_first_desc</link>           (<link linkend="GFlagsClass">GFlagsClass</link> *flags_class,
+                                                         <link linkend="guint">guint</link> value);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-flags-get-first-value">gimp_flags_get_first_value</link>          (<link linkend="GType">GType</link> flags_type,
+                                                         <link linkend="guint">guint</link> value,
+                                                         const <link linkend="gchar">gchar</link> **value_name,
+                                                         const <link linkend="gchar">gchar</link> **value_nick,
+                                                         const <link linkend="gchar">gchar</link> **value_desc,
+                                                         const <link linkend="gchar">gchar</link> **value_help);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-flags-value-get-desc">gimp_flags_value_get_desc</link>           (<link linkend="GFlagsClass">GFlagsClass</link> *flags_class,
+                                                         <link linkend="GFlagsValue">GFlagsValue</link> *flags_value);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-flags-value-get-help">gimp_flags_value_get_help</link>           (<link linkend="GFlagsClass">GFlagsClass</link> *flags_class,
+                                                         <link linkend="GFlagsValue">GFlagsValue</link> *flags_value);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimputils.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimputils.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-any-to-utf8" role="function">
+<title>gimp_any_to_utf8 ()</title>
+<indexterm zone="gimp-any-to-utf8"><primary>gimp_any_to_utf8</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_any_to_utf8                    (const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="gssize">gssize</link> len,
+                                                         const <link linkend="gchar">gchar</link> *warning_format,
+                                                         ...);</programlisting>
+<para>
+This function takes any string (UTF-8 or not) and always returns a valid
+UTF-8 string.
+</para>
+<para>
+If <parameter>str</parameter> is valid UTF-8, a copy of the string is returned.
+</para>
+<para>
+If UTF-8 validation fails, <link linkend="g-locale-to-utf8"><function>g_locale_to_utf8()</function></link> is tried and if it
+succeeds the resulting string is returned.
+</para>
+<para>
+Otherwise, the portion of <parameter>str</parameter> that is UTF-8, concatenated
+with "(invalid UTF-8 string)" is returned. If not even the start
+of <parameter>str</parameter> is valid UTF-8, only "(invalid UTF-8 string)" is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>            The string to be converted to UTF-8.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara>            The length of the string, or -1 if the string
+                 is nul-terminated.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>warning_format</parameter>&nbsp;:</term>
+<listitem><simpara> The message format for the warning message if conversion
+                 to UTF-8 fails. See the <function><link linkend="printf"><function>printf()</function></link></function>
+                 documentation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>        The parameters to insert into the format string.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The UTF-8 string as described above.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-filename-to-utf8" role="function">
+<title>gimp_filename_to_utf8 ()</title>
+<indexterm zone="gimp-filename-to-utf8"><primary>gimp_filename_to_utf8</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_filename_to_utf8               (const <link linkend="gchar">gchar</link> *filename);</programlisting>
+<para>
+Convert a filename in the filesystem's encoding to UTF-8
+temporarily.  The return value is a pointer to a string that is
+guaranteed to be valid only during the current iteration of the
+main loop or until the next call to <link linkend="gimp-filename-to-utf8"><function>gimp_filename_to_utf8()</function></link>.
+</para>
+<para>
+The only purpose of this function is to provide an easy way to pass
+a filename in the filesystem encoding to a function that expects an
+UTF-8 encoded filename.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> The filename to be converted to UTF-8.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A temporarily valid UTF-8 representation of <parameter>filename</parameter>.
+              This string must not be changed or freed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-utf8-strtrim" role="function">
+<title>gimp_utf8_strtrim ()</title>
+<indexterm zone="gimp-utf8-strtrim"><primary>gimp_utf8_strtrim</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_utf8_strtrim                   (const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="gint">gint</link> max_chars);</programlisting>
+<para>
+Creates a (possibly trimmed) copy of <parameter>str</parameter>. The string is cut if it
+exceeds <parameter>max_chars</parameter> characters or on the first newline. The fact
+that the string was trimmed is indicated by appending an ellipsis.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara> an UTF-8 encoded string (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max_chars</parameter>&nbsp;:</term>
+<listitem><simpara> the maximum number of characters before the string get
+trimmed
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A (possibly trimmed) copy of <parameter>str</parameter> which should be freed
+using <link linkend="g-free"><function>g_free()</function></link> when it is not needed any longer.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-escape-uline" role="function" condition="since:GIMP 2.2">
+<title>gimp_escape_uline ()</title>
+<indexterm zone="gimp-escape-uline" role="GIMP 2.2"><primary>gimp_escape_uline</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_escape_uline                   (const <link linkend="gchar">gchar</link> *str);</programlisting>
+<para>
+This function returns a copy of <parameter>str</parameter> with all underline converted
+to two adjacent underlines. This comes in handy when needing to display
+strings with underlines (like filenames) in a place that would convert
+them to mnemonics.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara> Underline infested string (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A (possibly escaped) copy of <parameter>str</parameter> which should be
+freed using <link linkend="g-free"><function>g_free()</function></link> when it is not needed any longer.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-strip-uline" role="function">
+<title>gimp_strip_uline ()</title>
+<indexterm zone="gimp-strip-uline"><primary>gimp_strip_uline</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_strip_uline                    (const <link linkend="gchar">gchar</link> *str);</programlisting>
+<para>
+This function returns a copy of <parameter>str</parameter> stripped of underline
+characters. This comes in handy when needing to strip mnemonics
+from menu paths etc.
+</para>
+<para>
+In some languages, mnemonics are handled by adding the mnemonic
+character in brackets (like "File (_F)"). This function recognizes
+this construct and removes the whole bracket construction to get
+rid of the mnemonic (see bug <link linkend="157561:CAPS"><type>157561</type></link>).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara> underline infested string (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A (possibly stripped) copy of <parameter>str</parameter> which should be
+              freed using <link linkend="g-free"><function>g_free()</function></link> when it is not needed any longer.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-canonicalize-identifier" role="function" condition="since:GIMP 2.4">
+<title>gimp_canonicalize_identifier ()</title>
+<indexterm zone="gimp-canonicalize-identifier" role="GIMP 2.4"><primary>gimp_canonicalize_identifier</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_canonicalize_identifier        (const <link linkend="gchar">gchar</link> *identifier);</programlisting>
+<para>
+Turns any input string into a canonicalized string.
+</para>
+<para>
+Canonical identifiers are e.g. expected by the PDB for procedure
+and parameter names. Every character of the input string that is
+not either '-', 'a-z', 'A-Z' or '0-9' will be replaced by a '-'.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>identifier</parameter>&nbsp;:</term>
+<listitem><simpara> The identifier string to canonicalize.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The canonicalized identifier. This is a newly
+              allocated string that should be freed with <link linkend="g-free"><function>g_free()</function></link>
+              when no longer needed.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-get-desc" role="function" condition="since:GIMP 2.2">
+<title>gimp_enum_get_desc ()</title>
+<indexterm zone="gimp-enum-get-desc" role="GIMP 2.2"><primary>gimp_enum_get_desc</primary></indexterm><programlisting><link linkend="GimpEnumDesc">GimpEnumDesc</link>*       gimp_enum_get_desc                  (<link linkend="GEnumClass">GEnumClass</link> *enum_class,
+                                                         <link linkend="gint">gint</link> value);</programlisting>
+<para>
+Retrieves <link linkend="GimpEnumDesc"><type>GimpEnumDesc</type></link> associated with the given value, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_class</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GEnumClass"><type>GEnumClass</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>      a value from <parameter>enum_class</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the value's <link linkend="GimpEnumDesc"><type>GimpEnumDesc</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-enum-get-value" role="function" condition="since:GIMP 2.2">
+<title>gimp_enum_get_value ()</title>
+<indexterm zone="gimp-enum-get-value" role="GIMP 2.2"><primary>gimp_enum_get_value</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_enum_get_value                 (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> value,
+                                                         const <link linkend="gchar">gchar</link> **value_name,
+                                                         const <link linkend="gchar">gchar</link> **value_nick,
+                                                         const <link linkend="gchar">gchar</link> **value_desc,
+                                                         const <link linkend="gchar">gchar</link> **value_help);</programlisting>
+<para>
+Checks if <parameter>value</parameter> is valid for the enum registered as <parameter>enum_type</parameter>.
+If the value exists in that enum, its name, nick and its translated
+desc and help are returned (if <parameter>value_name</parameter>, <parameter>value_nick</parameter>, <parameter>value_desc</parameter>
+and <parameter>value_help</parameter> are not <link linkend="NULL:CAPS"><literal>NULL</literal></link>).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara>  the <link linkend="GType"><type>GType</type></link> of a registered enum
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>      an integer value
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_name</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's name (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_nick</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's nick (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_desc</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's translated desc (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_help</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's translated help (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>value</parameter> is valid for the <parameter>enum_type</parameter>,
+              <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-enum-value-get-desc" role="function" condition="since:GIMP 2.2">
+<title>gimp_enum_value_get_desc ()</title>
+<indexterm zone="gimp-enum-value-get-desc" role="GIMP 2.2"><primary>gimp_enum_value_get_desc</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_enum_value_get_desc            (<link linkend="GEnumClass">GEnumClass</link> *enum_class,
+                                                         <link linkend="GEnumValue">GEnumValue</link> *enum_value);</programlisting>
+<para>
+Retrieves the translated desc for a given <parameter>enum_value</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_class</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GEnumClass"><type>GEnumClass</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enum_value</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GEnumValue"><type>GEnumValue</type></link> from <parameter>enum_class</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the translated desc of the enum value
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-enum-value-get-help" role="function" condition="since:GIMP 2.2">
+<title>gimp_enum_value_get_help ()</title>
+<indexterm zone="gimp-enum-value-get-help" role="GIMP 2.2"><primary>gimp_enum_value_get_help</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_enum_value_get_help            (<link linkend="GEnumClass">GEnumClass</link> *enum_class,
+                                                         <link linkend="GEnumValue">GEnumValue</link> *enum_value);</programlisting>
+<para>
+Retrieves the translated help for a given <parameter>enum_value</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_class</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GEnumClass"><type>GEnumClass</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enum_value</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GEnumValue"><type>GEnumValue</type></link> from <parameter>enum_class</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the translated help of the enum value
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-flags-get-first-desc" role="function" condition="since:GIMP 2.2">
+<title>gimp_flags_get_first_desc ()</title>
+<indexterm zone="gimp-flags-get-first-desc" role="GIMP 2.2"><primary>gimp_flags_get_first_desc</primary></indexterm><programlisting><link linkend="GimpFlagsDesc">GimpFlagsDesc</link>*      gimp_flags_get_first_desc           (<link linkend="GFlagsClass">GFlagsClass</link> *flags_class,
+                                                         <link linkend="guint">guint</link> value);</programlisting>
+<para>
+Retrieves the first <link linkend="GimpFlagsDesc"><type>GimpFlagsDesc</type></link> that matches the given value, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>flags_class</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GFlagsClass"><type>GFlagsClass</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>       a value from <parameter>flags_class</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the value's <link linkend="GimpFlagsDesc"><type>GimpFlagsDesc</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-flags-get-first-value" role="function" condition="since:GIMP 2.2">
+<title>gimp_flags_get_first_value ()</title>
+<indexterm zone="gimp-flags-get-first-value" role="GIMP 2.2"><primary>gimp_flags_get_first_value</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_flags_get_first_value          (<link linkend="GType">GType</link> flags_type,
+                                                         <link linkend="guint">guint</link> value,
+                                                         const <link linkend="gchar">gchar</link> **value_name,
+                                                         const <link linkend="gchar">gchar</link> **value_nick,
+                                                         const <link linkend="gchar">gchar</link> **value_desc,
+                                                         const <link linkend="gchar">gchar</link> **value_help);</programlisting>
+<para>
+Checks if <parameter>value</parameter> is valid for the flags registered as <parameter>flags_type</parameter>.
+If the value exists in that flags, its name, nick and its translated
+desc and help are returned (if <parameter>value_name</parameter>, <parameter>value_nick</parameter>, <parameter>value_desc</parameter>
+and <parameter>value_help</parameter> are not <link linkend="NULL:CAPS"><literal>NULL</literal></link>).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>flags_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of registered flags
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>      an integer value
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_name</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's name (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_nick</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's nick (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_desc</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's translated desc (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_help</parameter>&nbsp;:</term>
+<listitem><simpara> return location for the value's translated help (or <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>value</parameter> is valid for the <parameter>flags_type</parameter>,
+              <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-flags-value-get-desc" role="function" condition="since:GIMP 2.2">
+<title>gimp_flags_value_get_desc ()</title>
+<indexterm zone="gimp-flags-value-get-desc" role="GIMP 2.2"><primary>gimp_flags_value_get_desc</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_flags_value_get_desc           (<link linkend="GFlagsClass">GFlagsClass</link> *flags_class,
+                                                         <link linkend="GFlagsValue">GFlagsValue</link> *flags_value);</programlisting>
+<para>
+Retrieves the translated desc for a given <parameter>flags_value</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>flags_class</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GFlagsClass"><type>GFlagsClass</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags_value</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GFlagsValue"><type>GFlagsValue</type></link> from <parameter>flags_class</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the translated desc of the flags value
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-flags-value-get-help" role="function" condition="since:GIMP 2.2">
+<title>gimp_flags_value_get_help ()</title>
+<indexterm zone="gimp-flags-value-get-help" role="GIMP 2.2"><primary>gimp_flags_value_get_help</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_flags_value_get_help           (<link linkend="GFlagsClass">GFlagsClass</link> *flags_class,
+                                                         <link linkend="GFlagsValue">GFlagsValue</link> *flags_value);</programlisting>
+<para>
+Retrieves the translated help for a given <parameter>flags_value</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>flags_class</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GFlagsClass"><type>GFlagsClass</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags_value</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GFlagsValue"><type>GFlagsValue</type></link> from <parameter>flags_class</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the translated help of the flags value
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpwidgets-GimpEnumWidgets">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpwidgets-GimpEnumWidgets.top_of_page">GimpEnumWidgets</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpEnumWidgets</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpwidgets-GimpEnumWidgets.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-radio-box-new">gimp_enum_radio_box_new</link>             (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-radio-box-new-with-range">gimp_enum_radio_box_new_with_range</link>  (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-radio-frame-new">gimp_enum_radio_frame_new</link>           (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *label_widget,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-radio-frame-new-with-range">gimp_enum_radio_frame_new_with_range</link>
+                                                        (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *label_widget,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-stock-box-new">gimp_enum_stock_box_new</link>             (<link linkend="GType">GType</link> enum_type,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-stock-box-new-with-range">gimp_enum_stock_box_new_with_range</link>  (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);
+<link linkend="void">void</link>                <link linkend="gimp-enum-stock-box-set-child-padding">gimp_enum_stock_box_set_child_padding</link>
+                                                        (<link linkend="GtkWidget">GtkWidget</link> *stock_box,
+                                                         <link linkend="gint">gint</link> xpad,
+                                                         <link linkend="gint">gint</link> ypad);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpwidgets-GimpEnumWidgets.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpwidgets-GimpEnumWidgets.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-enum-radio-box-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_radio_box_new ()</title>
+<indexterm zone="gimp-enum-radio-box-new" role="GIMP 2.4"><primary>gimp_enum_radio_box_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_radio_box_new             (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);</programlisting>
+<para>
+Creates a new group of <link linkend="GtkRadioButtons"><type>GtkRadioButtons</type></link> representing the enum
+values.  A group of radiobuttons is a good way to represent enums
+with up to three or four values. Often it is better to use a
+<link linkend="GimpEnumComboBox"><type>GimpEnumComboBox</type></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a callback to connect to the "toggled" signal of each
+           <link linkend="GtkRadioButton"><type>GtkRadioButton</type></link> that is created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_button</parameter>&nbsp;:</term>
+<listitem><simpara> returns the first button in the created group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GtkVBox"><type>GtkVBox</type></link> holding a group of <link linkend="GtkRadioButtons"><type>GtkRadioButtons</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-radio-box-new-with-range" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_radio_box_new_with_range ()</title>
+<indexterm zone="gimp-enum-radio-box-new-with-range" role="GIMP 2.4"><primary>gimp_enum_radio_box_new_with_range</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_radio_box_new_with_range  (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);</programlisting>
+<para>
+Just like <link linkend="gimp-enum-radio-box-new"><function>gimp_enum_radio_box_new()</function></link>, this function creates a group
+of radio buttons, but it allows to limit the range of available
+enum values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minimum</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>maximum</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a callback to connect to the "toggled" signal of each
+           <link linkend="GtkRadioButton"><type>GtkRadioButton</type></link> that is created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_button</parameter>&nbsp;:</term>
+<listitem><simpara> returns the first button in the created group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GtkVBox"><type>GtkVBox</type></link> holding a group of <link linkend="GtkRadioButtons"><type>GtkRadioButtons</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-radio-frame-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_radio_frame_new ()</title>
+<indexterm zone="gimp-enum-radio-frame-new" role="GIMP 2.4"><primary>gimp_enum_radio_frame_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_radio_frame_new           (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *label_widget,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);</programlisting>
+<para>
+Calls <link linkend="gimp-enum-radio-box-new"><function>gimp_enum_radio_box_new()</function></link> and puts the resulting vbox into a
+<link linkend="GtkFrame"><type>GtkFrame</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>label_widget</parameter>&nbsp;:</term>
+<listitem><simpara> a widget to use as label for the frame that will
+               hold the radio box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a callback to connect to the "toggled" signal of each
+           <link linkend="GtkRadioButton"><type>GtkRadioButton</type></link> that is created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_button</parameter>&nbsp;:</term>
+<listitem><simpara> returns the first button in the created group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GtkFrame"><type>GtkFrame</type></link> holding a group of <link linkend="GtkRadioButtons"><type>GtkRadioButtons</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-radio-frame-new-with-range" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_radio_frame_new_with_range ()</title>
+<indexterm zone="gimp-enum-radio-frame-new-with-range" role="GIMP 2.4"><primary>gimp_enum_radio_frame_new_with_range</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_radio_frame_new_with_range
+                                                        (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *label_widget,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);</programlisting>
+<para>
+Calls <link linkend="gimp-enum-radio-box-new-with-range"><function>gimp_enum_radio_box_new_with_range()</function></link> and puts the resulting
+vbox into a <link linkend="GtkFrame"><type>GtkFrame</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minimum</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>maximum</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>label_widget</parameter>&nbsp;:</term>
+<listitem><simpara> a widget to put into the frame that will hold the radio box.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a callback to connect to the "toggled" signal of each
+           <link linkend="GtkRadioButton"><type>GtkRadioButton</type></link> that is created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_button</parameter>&nbsp;:</term>
+<listitem><simpara> returns the first button in the created group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GtkFrame"><type>GtkFrame</type></link> holding a group of <link linkend="GtkRadioButtons"><type>GtkRadioButtons</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-stock-box-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_stock_box_new ()</title>
+<indexterm zone="gimp-enum-stock-box-new" role="GIMP 2.4"><primary>gimp_enum_stock_box_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_stock_box_new             (<link linkend="GType">GType</link> enum_type,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);</programlisting>
+<para>
+Creates a horizontal box of radio buttons with stock icons.  The
+stock_id for each icon is created by appending the enum_value's
+nick to the given <parameter>stock_prefix</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stock_prefix</parameter>&nbsp;:</term>
+<listitem><simpara> the prefix of the group of stock ids to use.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon_size</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a callback to connect to the "toggled" signal of each
+           <link linkend="GtkRadioButton"><type>GtkRadioButton</type></link> that is created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_button</parameter>&nbsp;:</term>
+<listitem><simpara> returns the first button in the created group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GtkHbox"><type>GtkHbox</type></link> holding a group of <link linkend="GtkRadioButtons"><type>GtkRadioButtons</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-stock-box-new-with-range" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_stock_box_new_with_range ()</title>
+<indexterm zone="gimp-enum-stock-box-new-with-range" role="GIMP 2.4"><primary>gimp_enum_stock_box_new_with_range</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_stock_box_new_with_range  (<link linkend="GType">GType</link> enum_type,
+                                                         <link linkend="gint">gint</link> minimum,
+                                                         <link linkend="gint">gint</link> maximum,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data,
+                                                         <link linkend="GtkWidget">GtkWidget</link> **first_button);</programlisting>
+<para>
+Just like <link linkend="gimp-enum-stock-box-new"><function>gimp_enum_stock_box_new()</function></link>, this function creates a group
+of radio buttons, but it allows to limit the range of available
+enum values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minimum</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>maximum</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stock_prefix</parameter>&nbsp;:</term>
+<listitem><simpara> the prefix of the group of stock ids to use.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon_size</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a callback to connect to the "toggled" signal of each
+           <link linkend="GtkRadioButton"><type>GtkRadioButton</type></link> that is created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_button</parameter>&nbsp;:</term>
+<listitem><simpara> returns the first button in the created group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GtkHbox"><type>GtkHbox</type></link> holding a group of <link linkend="GtkRadioButtons"><type>GtkRadioButtons</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-stock-box-set-child-padding" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_stock_box_set_child_padding ()</title>
+<indexterm zone="gimp-enum-stock-box-set-child-padding" role="GIMP 2.4"><primary>gimp_enum_stock_box_set_child_padding</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_enum_stock_box_set_child_padding
+                                                        (<link linkend="GtkWidget">GtkWidget</link> *stock_box,
+                                                         <link linkend="gint">gint</link> xpad,
+                                                         <link linkend="gint">gint</link> ypad);</programlisting>
+<para>
+Sets the padding of all buttons in a box created by
+<link linkend="gimp-enum-stock-box-new"><function>gimp_enum_stock_box_new()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>stock_box</parameter>&nbsp;:</term>
+<listitem><simpara> a stock box widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>xpad</parameter>&nbsp;:</term>
+<listitem><simpara> horizontal padding
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ypad</parameter>&nbsp;:</term>
+<listitem><simpara> vertical padding
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

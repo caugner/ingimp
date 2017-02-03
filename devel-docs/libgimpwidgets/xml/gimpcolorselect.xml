@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpColorSelect">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpColorSelect.top_of_page">GimpColorSelect</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpColorSelect</refname>
+<refpurpose>A <link linkend="GimpColorSelector"><type>GimpColorSelector</type></link> implementation.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpColorSelect.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpColorSelect-struct">GimpColorSelect</link>;
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpColorSelect.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkVBox">GtkVBox</link>
+                                       +----<link linkend="GimpColorSelector">GimpColorSelector</link>
+                                             +----GimpColorSelect
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpColorSelect.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpColorSelect implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpColorSelect.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+The <link linkend="GimpColorSelect"><type>GimpColorSelect</type></link> widget is an implementation of a <link linkend="GimpColorSelector"><type>GimpColorSelector</type></link>.
+It shows a square area that allows to interactively change two color channels
+and a smaller area to change the third channel. You can select which channel
+should be the third by calling <link linkend="gimp-color-selector-set-channel"><function>gimp_color_selector_set_channel()</function></link>. The widget
+will then change the other two channels accordingly.
+</para>
+</refsect1>
+
+<refsect1 id="GimpColorSelect.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpColorSelect-struct" role="struct">
+<title>GimpColorSelect</title>
+<indexterm zone="GimpColorSelect-struct"><primary>GimpColorSelect</primary></indexterm><programlisting>typedef struct _GimpColorSelect GimpColorSelect;</programlisting>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

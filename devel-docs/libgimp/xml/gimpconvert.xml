@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpconvert">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpconvert.top_of_page">gimpconvert</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpconvert</refname>
+<refpurpose>Conversions between RGB, indexed, and grayscale modes.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpconvert.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-convert-rgb">gimp_image_convert_rgb</link>              (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-convert-grayscale">gimp_image_convert_grayscale</link>        (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-convert-indexed">gimp_image_convert_indexed</link>          (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpConvertDitherType">GimpConvertDitherType</link> dither_type,
+                                                         <link linkend="GimpConvertPaletteType">GimpConvertPaletteType</link> palette_type,
+                                                         <link linkend="gint">gint</link> num_cols,
+                                                         <link linkend="gboolean">gboolean</link> alpha_dither,
+                                                         <link linkend="gboolean">gboolean</link> remove_unused,
+                                                         const <link linkend="gchar">gchar</link> *palette);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-convert-set-dither-matrix">gimp_image_convert_set_dither_matrix</link>
+                                                        (<link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="gint">gint</link> matrix_length,
+                                                         const <link linkend="guint8">guint8</link> *matrix);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpconvert.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Conversions between RGB, indexed, and grayscale modes.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpconvert.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-image-convert-rgb" role="function">
+<title>gimp_image_convert_rgb ()</title>
+<indexterm zone="gimp-image-convert-rgb"><primary>gimp_image_convert_rgb</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_convert_rgb              (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Convert specified image to RGB color
+</para>
+<para>
+This procedure converts the specified image to RGB color. This
+process requires an image in RGB or Indexed color mode. No image
+content is lost in this process aside from the colormap for an
+indexed image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-convert-grayscale" role="function">
+<title>gimp_image_convert_grayscale ()</title>
+<indexterm zone="gimp-image-convert-grayscale"><primary>gimp_image_convert_grayscale</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_convert_grayscale        (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Convert specified image to grayscale (256 intensity levels)
+</para>
+<para>
+This procedure converts the specified image to grayscale with 8 bits
+per pixel (256 intensity levels). This process requires an image in
+RGB or Indexed color mode.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-convert-indexed" role="function">
+<title>gimp_image_convert_indexed ()</title>
+<indexterm zone="gimp-image-convert-indexed"><primary>gimp_image_convert_indexed</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_convert_indexed          (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpConvertDitherType">GimpConvertDitherType</link> dither_type,
+                                                         <link linkend="GimpConvertPaletteType">GimpConvertPaletteType</link> palette_type,
+                                                         <link linkend="gint">gint</link> num_cols,
+                                                         <link linkend="gboolean">gboolean</link> alpha_dither,
+                                                         <link linkend="gboolean">gboolean</link> remove_unused,
+                                                         const <link linkend="gchar">gchar</link> *palette);</programlisting>
+<para>
+Convert specified image to and Indexed image
+</para>
+<para>
+This procedure converts the specified image to 'indexed' color. This
+process requires an image in RGB or Grayscale mode. The
+'palette_type' specifies what kind of palette to use, A type of '0'
+means to use an optimal palette of 'num_cols' generated from the
+colors in the image. A type of '1' means to re-use the previous
+palette (not currently implemented). A type of '2' means to use the
+so-called WWW-optimized palette. Type '3' means to use only black
+and white colors. A type of '4' means to use a palette from the gimp
+palettes directories. The 'dither type' specifies what kind of
+dithering to use. '0' means no dithering, '1' means standard
+Floyd-Steinberg error diffusion, '2' means Floyd-Steinberg error
+diffusion with reduced bleeding, '3' means dithering based on pixel
+location ('Fixed' dithering).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dither_type</parameter>&nbsp;:</term>
+<listitem><simpara> The dither type to use.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>palette_type</parameter>&nbsp;:</term>
+<listitem><simpara> The type of palette to use.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_cols</parameter>&nbsp;:</term>
+<listitem><simpara> The number of colors to quantize to, ignored unless (palette_type == GIMP_MAKE_PALETTE).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>alpha_dither</parameter>&nbsp;:</term>
+<listitem><simpara> Dither transparency to fake partial opacity.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>remove_unused</parameter>&nbsp;:</term>
+<listitem><simpara> Remove unused or duplicate color entries from final palette, ignored if (palette_type == GIMP_MAKE_PALETTE).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>palette</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the custom palette to use, ignored unless (palette_type == GIMP_CUSTOM_PALETTE).
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-convert-set-dither-matrix" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_convert_set_dither_matrix ()</title>
+<indexterm zone="gimp-image-convert-set-dither-matrix" role="GIMP 2.4"><primary>gimp_image_convert_set_dither_matrix</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_convert_set_dither_matrix
+                                                        (<link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="gint">gint</link> matrix_length,
+                                                         const <link linkend="guint8">guint8</link> *matrix);</programlisting>
+<para>
+Set dither matrix for conversion to indexed
+</para>
+<para>
+This procedure sets the dither matrix used when converting images to
+INDEXED mode with positional dithering.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> Width of the matrix (0 to reset to default matrix).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> Height of the matrix (0 to reset to default matrix).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>matrix_length</parameter>&nbsp;:</term>
+<listitem><simpara> The length of 'matrix'.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>matrix</parameter>&nbsp;:</term>
+<listitem><simpara> The matrix -- all values must be &gt;= 1.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -932,5 +932,5 @@ write_rle16(sgi_t *sgip,	/* I - SGI image to write to */
 
 
 /*
- * End of "$Id$".
+ * End of "$Id: sgilib.c 16773 2005-03-04 13:23:32Z neo $".
  */

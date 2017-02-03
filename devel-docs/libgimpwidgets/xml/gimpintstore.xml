@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpIntStore">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpIntStore.top_of_page">GimpIntStore</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpIntStore</refname>
+<refpurpose>A model for integer based name-value pairs (e.g. enums)</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpIntStore.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpIntStore-struct">GimpIntStore</link>;
+enum                <link linkend="GimpIntStoreColumns">GimpIntStoreColumns</link>;
+<link linkend="GtkListStore">GtkListStore</link>*       <link linkend="gimp-int-store-new">gimp_int_store_new</link>                  (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-int-store-lookup-by-value">gimp_int_store_lookup_by_value</link>      (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="gint">gint</link> value,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpIntStore.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GtkListStore">GtkListStore</link>
+         +----GimpIntStore
+               +----<link linkend="GimpEnumStore">GimpEnumStore</link>
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpIntStore.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpIntStore implements
+ <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkTreeModel">GtkTreeModel</link>,  <link linkend="GtkTreeDragSource">GtkTreeDragSource</link>,  <link linkend="GtkTreeDragDest">GtkTreeDragDest</link> and  <link linkend="GtkTreeSortable">GtkTreeSortable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpIntStore.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpIntStore--user-data-type">user-data-type</link>&quot;           <link linkend="GType">GType</link>*                : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpIntStore.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A model for integer based name-value pairs (e.g. enums)
+</para>
+</refsect1>
+
+<refsect1 id="GimpIntStore.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpIntStore-struct" role="struct">
+<title>GimpIntStore</title>
+<indexterm zone="GimpIntStore-struct"><primary>GimpIntStore</primary></indexterm><programlisting>typedef struct _GimpIntStore GimpIntStore;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpIntStoreColumns" role="enum">
+<title>enum GimpIntStoreColumns</title>
+<indexterm zone="GimpIntStoreColumns"><primary>GimpIntStoreColumns</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_INT_STORE_VALUE,
+  GIMP_INT_STORE_LABEL,
+  GIMP_INT_STORE_STOCK_ID,
+  GIMP_INT_STORE_PIXBUF,
+  GIMP_INT_STORE_USER_DATA,
+  GIMP_INT_STORE_NUM_COLUMNS
+} GimpIntStoreColumns;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-int-store-new" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_store_new ()</title>
+<indexterm zone="gimp-int-store-new" role="GIMP 2.2"><primary>gimp_int_store_new</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link>*       gimp_int_store_new                  (void);</programlisting>
+<para>
+Creates a <link linkend="GtkListStore"><type>GtkListStore</type></link> with a number of useful columns.
+<link linkend="GimpIntStore"><type>GimpIntStore</type></link> is especially useful if the items you want to store
+are identified using an integer value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpIntStore"><type>GimpIntStore</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-int-store-lookup-by-value" role="function" condition="since:GIMP 2.2">
+<title>gimp_int_store_lookup_by_value ()</title>
+<indexterm zone="gimp-int-store-lookup-by-value" role="GIMP 2.2"><primary>gimp_int_store_lookup_by_value</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_int_store_lookup_by_value      (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="gint">gint</link> value,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);</programlisting>
+<para>
+Iterate over the <parameter>model</parameter> looking for <parameter>value</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>model</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpIntStore"><type>GimpIntStore</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara> an integer value to lookup in the <parameter>model</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>  return location for the iter of the given <parameter>value</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the value has been located and <parameter>iter</parameter> is
+              valid, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpIntStore.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpIntStore--user-data-type"><title>The <literal>&quot;user-data-type&quot;</literal> property</title>
+<indexterm zone="GimpIntStore--user-data-type" role="GIMP 2.4"><primary>GimpIntStore:user-data-type</primary></indexterm><programlisting>  &quot;user-data-type&quot;           <link linkend="GType">GType</link>*                : Read / Write / Construct Only</programlisting>
+<para>
+Allows to set the <link linkend="GType"><type>GType</type></link> for the GIMP_INT_STORE_USER_DATA column.
+</para>
+<para>
+You need to set this property when constructing the store if you want
+to use the GIMP_INT_STORE_USER_DATA column and want to have the store
+handle ref-counting of your user data.</para>
+<para>
+
+</para><para>Since  GIMP 2.4
+</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

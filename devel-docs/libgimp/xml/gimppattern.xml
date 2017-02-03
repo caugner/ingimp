@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimppattern">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimppattern.top_of_page">gimppattern</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimppattern</refname>
+<refpurpose>Functions operating on a single pattern.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimppattern.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-pattern-get-info">gimp_pattern_get_info</link>               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-pattern-get-pixels">gimp_pattern_get_pixels</link>             (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp,
+                                                         <link linkend="gint">gint</link> *num_color_bytes,
+                                                         <link linkend="guint8">guint8</link> **color_bytes);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimppattern.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions operating on a single pattern.
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimppattern.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-pattern-get-info" role="function" condition="since:GIMP 2.2">
+<title>gimp_pattern_get_info ()</title>
+<indexterm zone="gimp-pattern-get-info" role="GIMP 2.2"><primary>gimp_pattern_get_info</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_pattern_get_info               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp);</programlisting>
+<para>
+Retrieve information about the specified pattern.
+</para>
+<para>
+This procedure retrieves information about the specified pattern.
+This includes the pattern extents (width and height).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>bpp</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern bpp.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-pattern-get-pixels" role="function" condition="since:GIMP 2.2">
+<title>gimp_pattern_get_pixels ()</title>
+<indexterm zone="gimp-pattern-get-pixels" role="GIMP 2.2"><primary>gimp_pattern_get_pixels</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_pattern_get_pixels             (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp,
+                                                         <link linkend="gint">gint</link> *num_color_bytes,
+                                                         <link linkend="guint8">guint8</link> **color_bytes);</programlisting>
+<para>
+Retrieve information about the specified pattern (including pixels).
+</para>
+<para>
+This procedure retrieves information about the specified. This
+includes the pattern extents (width and height), its bpp and its
+pixel data.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>bpp</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern bpp.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_color_bytes</parameter>&nbsp;:</term>
+<listitem><simpara> Number of pattern bytes.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color_bytes</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

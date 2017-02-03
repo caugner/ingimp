@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpversion">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpversion.top_of_page">gimpversion</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpversion</refname>
+<refpurpose>Macros and constants useful for determining GIMP's version number and
+capabilities.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpversion.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="GIMP-MAJOR-VERSION:CAPS">GIMP_MAJOR_VERSION</link>
+#define             <link linkend="GIMP-MINOR-VERSION:CAPS">GIMP_MINOR_VERSION</link>
+#define             <link linkend="GIMP-MICRO-VERSION:CAPS">GIMP_MICRO_VERSION</link>
+#define             <link linkend="GIMP-VERSION:CAPS">GIMP_VERSION</link>
+#define             <link linkend="GIMP-API-VERSION:CAPS">GIMP_API_VERSION</link>
+#define             <link linkend="GIMP-CHECK-VERSION:CAPS">GIMP_CHECK_VERSION</link>                  (major, minor, micro)
+#define             <link linkend="GIMPVAR:CAPS">GIMPVAR</link>
+extern              const guint <link linkend="gimp-major-version">gimp_major_version</link>;
+extern              const guint <link linkend="gimp-minor-version">gimp_minor_version</link>;
+extern              const guint <link linkend="gimp-micro-version">gimp_micro_version</link>;
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpversion.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Macros and constants useful for determining GIMP's version number and
+capabilities.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpversion.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GIMP-MAJOR-VERSION:CAPS" role="macro">
+<title>GIMP_MAJOR_VERSION</title>
+<indexterm zone="GIMP-MAJOR-VERSION:CAPS"><primary>GIMP_MAJOR_VERSION</primary></indexterm><programlisting>#define GIMP_MAJOR_VERSION                              (2)
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-MINOR-VERSION:CAPS" role="macro">
+<title>GIMP_MINOR_VERSION</title>
+<indexterm zone="GIMP-MINOR-VERSION:CAPS"><primary>GIMP_MINOR_VERSION</primary></indexterm><programlisting>#define GIMP_MINOR_VERSION                              (4)
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-MICRO-VERSION:CAPS" role="macro">
+<title>GIMP_MICRO_VERSION</title>
+<indexterm zone="GIMP-MICRO-VERSION:CAPS"><primary>GIMP_MICRO_VERSION</primary></indexterm><programlisting>#define GIMP_MICRO_VERSION                              (6)
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-VERSION:CAPS" role="macro">
+<title>GIMP_VERSION</title>
+<indexterm zone="GIMP-VERSION:CAPS"><primary>GIMP_VERSION</primary></indexterm><programlisting>#define GIMP_VERSION                                    "2.4.6"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-API-VERSION:CAPS" role="macro">
+<title>GIMP_API_VERSION</title>
+<indexterm zone="GIMP-API-VERSION:CAPS"><primary>GIMP_API_VERSION</primary></indexterm><programlisting>#define GIMP_API_VERSION                                "2.0"
+</programlisting>
+<para>
+Since: GIMP 2.2
+</para></refsect2>
+<refsect2 id="GIMP-CHECK-VERSION:CAPS" role="macro">
+<title>GIMP_CHECK_VERSION()</title>
+<indexterm zone="GIMP-CHECK-VERSION:CAPS"><primary>GIMP_CHECK_VERSION</primary></indexterm><programlisting>#define             GIMP_CHECK_VERSION(major, minor, micro)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>major</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>micro</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMPVAR:CAPS" role="macro">
+<title>GIMPVAR</title>
+<indexterm zone="GIMPVAR:CAPS"><primary>GIMPVAR</primary></indexterm><programlisting>#define             GIMPVAR</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-major-version" role="variable">
+<title>gimp_major_version</title>
+<indexterm zone="gimp-major-version"><primary>gimp_major_version</primary></indexterm><programlisting>extern const guint gimp_major_version;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-minor-version" role="variable">
+<title>gimp_minor_version</title>
+<indexterm zone="gimp-minor-version"><primary>gimp_minor_version</primary></indexterm><programlisting>extern const guint gimp_minor_version;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-micro-version" role="variable">
+<title>gimp_micro_version</title>
+<indexterm zone="gimp-micro-version"><primary>gimp_micro_version</primary></indexterm><programlisting>extern const guint gimp_micro_version;
+</programlisting>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

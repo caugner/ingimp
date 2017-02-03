@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpprocview">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpprocview.top_of_page">gimpprocview</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpprocview</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpprocview.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-proc-view-new">gimp_proc_view_new</link>                  (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *menu_path,
+                                                         const <link linkend="gchar">gchar</link> *blurb,
+                                                         const <link linkend="gchar">gchar</link> *help,
+                                                         const <link linkend="gchar">gchar</link> *author,
+                                                         const <link linkend="gchar">gchar</link> *copyright,
+                                                         const <link linkend="gchar">gchar</link> *date,
+                                                         <link linkend="GimpPDBProcType">GimpPDBProcType</link> type,
+                                                         <link linkend="gint">gint</link> n_params,
+                                                         <link linkend="gint">gint</link> n_return_vals,
+                                                         <link linkend="GimpParamDef">GimpParamDef</link> *params,
+                                                         <link linkend="GimpParamDef">GimpParamDef</link> *return_vals);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpprocview.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpprocview.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-proc-view-new" role="function">
+<title>gimp_proc_view_new ()</title>
+<indexterm zone="gimp-proc-view-new"><primary>gimp_proc_view_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_proc_view_new                  (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *menu_path,
+                                                         const <link linkend="gchar">gchar</link> *blurb,
+                                                         const <link linkend="gchar">gchar</link> *help,
+                                                         const <link linkend="gchar">gchar</link> *author,
+                                                         const <link linkend="gchar">gchar</link> *copyright,
+                                                         const <link linkend="gchar">gchar</link> *date,
+                                                         <link linkend="GimpPDBProcType">GimpPDBProcType</link> type,
+                                                         <link linkend="gint">gint</link> n_params,
+                                                         <link linkend="gint">gint</link> n_return_vals,
+                                                         <link linkend="GimpParamDef">GimpParamDef</link> *params,
+                                                         <link linkend="GimpParamDef">GimpParamDef</link> *return_vals);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu_path</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>help</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>author</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>copyright</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>date</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_params</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_return_vals</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>params</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>return_vals</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

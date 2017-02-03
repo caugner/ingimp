@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpImageComboBox">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpImageComboBox.top_of_page">gimpimagecombobox</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpimagecombobox</refname>
+<refpurpose>A widget providing a popup menu of images.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpImageComboBox.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpImageComboBox-struct">GimpImageComboBox</link>;
+<link linkend="gboolean">gboolean</link>            (<link linkend="GimpImageConstraintFunc">*GimpImageConstraintFunc</link>)          (<link linkend="gint32">gint32</link> image_id,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-image-combo-box-new">gimp_image_combo_box_new</link>            (<link linkend="GimpImageConstraintFunc">GimpImageConstraintFunc</link> constraint,
+                                                         <link linkend="gpointer">gpointer</link> data);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpImageComboBox.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkComboBox">GtkComboBox</link>
+                                       +----<link linkend="GimpIntComboBox">GimpIntComboBox</link>
+                                             +----GimpImageComboBox
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpImageComboBox.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpImageComboBox implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkCellLayout">GtkCellLayout</link> and  <link linkend="GtkCellEditable">GtkCellEditable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpImageComboBox.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A widget providing a popup menu of images.
+</para>
+</refsect1>
+
+<refsect1 id="GimpImageComboBox.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpImageComboBox-struct" role="struct">
+<title>GimpImageComboBox</title>
+<indexterm zone="GimpImageComboBox-struct"><primary>GimpImageComboBox</primary></indexterm><programlisting>typedef struct _GimpImageComboBox GimpImageComboBox;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpImageConstraintFunc" role="function">
+<title>GimpImageConstraintFunc ()</title>
+<indexterm zone="GimpImageConstraintFunc"><primary>GimpImageConstraintFunc</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*GimpImageConstraintFunc)          (<link linkend="gint32">gint32</link> image_id,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-combo-box-new" role="function" condition="since:GIMP 2.2">
+<title>gimp_image_combo_box_new ()</title>
+<indexterm zone="gimp-image-combo-box-new" role="GIMP 2.2"><primary>gimp_image_combo_box_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_image_combo_box_new            (<link linkend="GimpImageConstraintFunc">GimpImageConstraintFunc</link> constraint,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Creates a new <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link> filled with all currently opened
+images. If a <parameter>constraint</parameter> function is specified, it is called for
+each image and only if the function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, the image is
+added to the combobox.
+</para>
+<para>
+You should use <link linkend="gimp-int-combo-connect"><function>gimp_int_combo_connect()</function></link> to initialize and connect
+the combo. Use <link linkend="gimp-int-combo-box-set-active"><function>gimp_int_combo_box_set_active()</function></link> to get the active
+image ID and <link linkend="gimp-int-combo-box-get-active"><function>gimp_int_combo_box_get_active()</function></link> to retrieve the ID of
+the selected image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>constraint</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpImageConstraintFunc"><type>GimpImageConstraintFunc</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>       a pointer that is passed to <parameter>constraint</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpIntComboBox"><type>GimpIntComboBox</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -40,6 +40,7 @@
 #include "core/gimpimage-rotate.h"
 #include "core/gimpimage-scale.h"
 #include "core/gimpimage-undo.h"
+#include "core/gimpinteraction-logger.h"
 #include "core/gimpprogress.h"
 
 #include "widgets/gimpdialogfactory.h"
@@ -438,6 +439,8 @@ image_duplicate_cmd_callback (GtkAction *action,
   shell = GIMP_DISPLAY_SHELL (display->shell);
 
   new_image = gimp_image_duplicate (display->image);
+
+  guilog_image_duplicate(display->image, new_image);
 
   gimp_create_display (new_image->gimp,
                        new_image,

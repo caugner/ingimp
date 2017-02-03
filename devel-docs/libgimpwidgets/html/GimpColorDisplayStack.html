@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GimpColorDisplayStack</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="GIMP Widgets Library Reference Manual">
+<link rel="up" href="libgimpwidgets-colordisplay.html" title="Part II. GIMP Display Filters">
+<link rel="prev" href="GimpColorDisplay.html" title="GimpColorDisplay">
+<link rel="next" href="libgimpwidgets-colorselector.html" title="Part III. GIMP Color Selectors">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="libgimpwidgets-widgets.html" title="Part I. GIMP Widgets">
+<link rel="chapter" href="libgimpwidgets-hierarchy.html" title="Object Hierarchy">
+<link rel="chapter" href="libgimpwidgets-gallery.html" title="Widget Gallery">
+<link rel="chapter" href="libgimpwidgets-cell-renderers.html" title="Cell Renderers for GtkTreeView">
+<link rel="part" href="libgimpwidgets-colordisplay.html" title="Part II. GIMP Display Filters">
+<link rel="part" href="libgimpwidgets-colorselector.html" title="Part III. GIMP Color Selectors">
+<link rel="part" href="libgimpwidgets-controller.html" title="Part IV. GIMP Controllers">
+<link rel="part" href="libgimpwidgets-utils.html" title="Part V. GIMP Widgets Utilities">
+<link rel="part" href="libgimpwidgets-deprecated.html" title="Part VI. Deprecated API">
+<link rel="index" href="libgimpwidgets-index.html" title="Index">
+<link rel="index" href="libgimpwidgets-index-new-in-2-2.html" title="Index of new symbols in GIMP 2.2">
+<link rel="index" href="libgimpwidgets-index-new-in-2-4.html" title="Index of new symbols in GIMP 2.4">
+<link rel="index" href="libgimpwidgets-index-deprecated.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GimpColorDisplay.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgimpwidgets-colordisplay.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GIMP Widgets Library Reference Manual</th>
+<td><a accesskey="n" href="libgimpwidgets-colorselector.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GimpColorDisplayStack.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GimpColorDisplayStack.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GimpColorDisplayStack.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GimpColorDisplayStack.signals" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GimpColorDisplayStack"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GimpColorDisplayStack.top_of_page"></a>GimpColorDisplayStack</span></h2>
+<p>GimpColorDisplayStack</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GimpColorDisplayStack.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GimpColorDisplayStack.html#GimpColorDisplayStack-struct" title="GimpColorDisplayStack">GimpColorDisplayStack</a>;
+<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a>* <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-new" title="gimp_color_display_stack_new ()">gimp_color_display_stack_new</a>     (void);
+<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a>* <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-clone" title="gimp_color_display_stack_clone ()">gimp_color_display_stack_clone</a>   (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack);
+void                <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-changed" title="gimp_color_display_stack_changed ()">gimp_color_display_stack_changed</a>    (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack);
+void                <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-add" title="gimp_color_display_stack_add ()">gimp_color_display_stack_add</a>        (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);
+void                <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-remove" title="gimp_color_display_stack_remove ()">gimp_color_display_stack_remove</a>     (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);
+void                <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-reorder-up" title="gimp_color_display_stack_reorder_up ()">gimp_color_display_stack_reorder_up</a> (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);
+void                <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-reorder-down" title="gimp_color_display_stack_reorder_down ()">gimp_color_display_stack_reorder_down</a>
+                                                        (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);
+void                <a class="link" href="GimpColorDisplayStack.html#gimp-color-display-stack-convert" title="gimp_color_display_stack_convert ()">gimp_color_display_stack_convert</a>    (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *buf,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> height,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> bpp,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> bpl);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpColorDisplayStack.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----GimpColorDisplayStack
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpColorDisplayStack.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GimpColorDisplayStack.html#GimpColorDisplayStack-added" title='The "added" signal'>added</a>"                                          : Run First
+  "<a class="link" href="GimpColorDisplayStack.html#GimpColorDisplayStack-changed" title='The "changed" signal'>changed</a>"                                        : Run First
+  "<a class="link" href="GimpColorDisplayStack.html#GimpColorDisplayStack-removed" title='The "removed" signal'>removed</a>"                                        : Run First
+  "<a class="link" href="GimpColorDisplayStack.html#GimpColorDisplayStack-reordered" title='The "reordered" signal'>reordered</a>"                                      : Run First
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpColorDisplayStack.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpColorDisplayStack.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GimpColorDisplayStack-struct"></a><h3>GimpColorDisplayStack</h3>
+<pre class="programlisting">typedef struct _GimpColorDisplayStack GimpColorDisplayStack;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-new"></a><h3>gimp_color_display_stack_new ()</h3>
+<pre class="programlisting"><a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a>* gimp_color_display_stack_new     (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-clone"></a><h3>gimp_color_display_stack_clone ()</h3>
+<pre class="programlisting"><a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a>* gimp_color_display_stack_clone   (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stack</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-changed"></a><h3>gimp_color_display_stack_changed ()</h3>
+<pre class="programlisting">void                gimp_color_display_stack_changed    (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>stack</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-add"></a><h3>gimp_color_display_stack_add ()</h3>
+<pre class="programlisting">void                gimp_color_display_stack_add        (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stack</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-remove"></a><h3>gimp_color_display_stack_remove ()</h3>
+<pre class="programlisting">void                gimp_color_display_stack_remove     (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stack</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-reorder-up"></a><h3>gimp_color_display_stack_reorder_up ()</h3>
+<pre class="programlisting">void                gimp_color_display_stack_reorder_up (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stack</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-reorder-down"></a><h3>gimp_color_display_stack_reorder_down ()</h3>
+<pre class="programlisting">void                gimp_color_display_stack_reorder_down
+                                                        (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a> *display);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stack</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-color-display-stack-convert"></a><h3>gimp_color_display_stack_convert ()</h3>
+<pre class="programlisting">void                gimp_color_display_stack_convert    (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *stack,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *buf,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> width,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> height,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> bpp,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> bpl);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stack</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bpp</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bpl</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpColorDisplayStack.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="GimpColorDisplayStack-added"></a><h3>The <code class="literal">"added"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *gimpcolordisplaystack,
+                                                        <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a>      *arg1,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                   arg2,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>               user_data)                  : Run First</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gimpcolordisplaystack</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GimpColorDisplayStack-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *gimpcolordisplaystack,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>               user_data)                  : Run First</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gimpcolordisplaystack</code></em> :</span></p></td>
+<td>the object which received the signal.
+
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GimpColorDisplayStack-removed"></a><h3>The <code class="literal">"removed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *gimpcolordisplaystack,
+                                                        <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a>      *arg1,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>               user_data)                  : Run First</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gimpcolordisplaystack</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GimpColorDisplayStack-reordered"></a><h3>The <code class="literal">"reordered"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GimpColorDisplayStack.html" title="GimpColorDisplayStack">GimpColorDisplayStack</a> *gimpcolordisplaystack,
+                                                        <a class="link" href="GimpColorDisplay.html" title="GimpColorDisplay">GimpColorDisplay</a>      *arg1,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                   arg2,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>               user_data)                  : Run First</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gimpcolordisplaystack</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 # Zdenko Podobný <zdpo@mailbox.sk>, 2004.
 # Marcel Telka <marcel@telka.sk>, 2005.
 #
-# $Id$
+# $Id: sk.po,v 1.95 2005/12/28 12:55:01 marcel Exp $
 #
 msgid ""
 msgstr ""

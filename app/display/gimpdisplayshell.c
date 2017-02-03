@@ -40,6 +40,7 @@
 #include "core/gimpguide.h"
 #include "core/gimpimage.h"
 #include "core/gimpimage-snap.h"
+#include "core/gimpinteraction-logger.h"
 #include "core/gimpprojection.h"
 #include "core/gimpmarshal.h"
 #include "core/gimpsamplepoint.h"
@@ -1129,6 +1130,8 @@ gimp_display_shell_new (GimpDisplay     *display,
 
   /* make sure the information is up-to-date */
   gimp_display_shell_scale_changed (shell);
+
+  guilog_register_display_shell (shell);
 
   return GTK_WIDGET (shell);
 }

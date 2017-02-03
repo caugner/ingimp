@@ -33,6 +33,7 @@
 #include "core/gimpdrawable.h"
 #include "core/gimpimage.h"
 #include "core/gimpitem.h"
+#include "core/gimpinteraction-logger.h"
 #include "core/gimpparamspecs.h"
 #include "core/gimpprogress.h"
 
@@ -185,8 +186,11 @@ plug_in_run_cmd_callback (GtkAction           *action,
       break;
     }
 
-  if (n_args >= 1)
+  if (n_args >= 1) {
+    guilog_plugin_invoked(procedure, FALSE);
     plug_in_procedure_execute (proc, gimp, display, args, n_args);
+    guilog_plugin_returned(procedure);
+  }
 
   g_value_array_free (args);
 }
@@ -220,6 +224,7 @@ plug_in_repeat_cmd_callback (GtkAction *action,
                                              GIMP_PROCEDURE (procedure)->args,
                                              args, 1);
 
+      guilog_plugin_invoked(GIMP_PROCEDURE(procedure), TRUE);
       plug_in_procedure_execute (procedure, gimp, display, args, n_args);
 
       g_value_array_free (args);

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpconfig-gimpconfig-utils">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpconfig-gimpconfig-utils.top_of_page">gimpconfig-utils</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPCONFIG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpconfig-utils</refname>
+<refpurpose>Miscellaneous utility functions for libgimpconfig.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpconfig-gimpconfig-utils.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GList">GList</link>*              <link linkend="gimp-config-diff">gimp_config_diff</link>                    (<link linkend="GObject">GObject</link> *a,
+                                                         <link linkend="GObject">GObject</link> *b,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-config-sync">gimp_config_sync</link>                    (<link linkend="GObject">GObject</link> *src,
+                                                         <link linkend="GObject">GObject</link> *dest,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);
+<link linkend="void">void</link>                <link linkend="gimp-config-reset-properties">gimp_config_reset_properties</link>        (<link linkend="GObject">GObject</link> *object);
+<link linkend="void">void</link>                <link linkend="gimp-config-reset-property">gimp_config_reset_property</link>          (<link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *property_name);
+<link linkend="void">void</link>                <link linkend="gimp-config-string-append-escaped">gimp_config_string_append_escaped</link>   (<link linkend="GString">GString</link> *string,
+                                                         const <link linkend="gchar">gchar</link> *val);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpconfig-gimpconfig-utils.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Miscellaneous utility functions for libgimpconfig.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpconfig-gimpconfig-utils.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-config-diff" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_diff ()</title>
+<indexterm zone="gimp-config-diff" role="GIMP 2.4"><primary>gimp_config_diff</primary></indexterm><programlisting><link linkend="GList">GList</link>*              gimp_config_diff                    (<link linkend="GObject">GObject</link> *a,
+                                                         <link linkend="GObject">GObject</link> *b,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);</programlisting>
+<para>
+Compares all properties of <parameter>a</parameter> and <parameter>b</parameter> that have all <parameter>flags</parameter> set. If
+<parameter>flags</parameter> is 0, all properties are compared.
+</para>
+<para>
+If the two objects are not of the same type, only properties that
+exist in both object classes and are of the same value_type are
+compared.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>a</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GObject"><type>GObject</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>b</parameter>&nbsp;:</term>
+<listitem><simpara> another <link linkend="GObject"><type>GObject</type></link> object
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara> a mask of GParamFlags
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a GList of differing GParamSpecs.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-sync" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_sync ()</title>
+<indexterm zone="gimp-config-sync" role="GIMP 2.4"><primary>gimp_config_sync</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_config_sync                    (<link linkend="GObject">GObject</link> *src,
+                                                         <link linkend="GObject">GObject</link> *dest,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);</programlisting>
+<para>
+Compares all read- and write-able properties from <parameter>src</parameter> and <parameter>dest</parameter>
+that have all <parameter>flags</parameter> set. Differing values are then copied from
+<parameter>src</parameter> to <parameter>dest</parameter>. If <parameter>flags</parameter> is 0, all differing read/write properties.
+</para>
+<para>
+Properties marked as "construct-only" are not touched.
+</para>
+<para>
+If the two objects are not of the same type, only properties that
+exist in both object classes and are of the same value_type are
+synchronized</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>src</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GObject"><type>GObject</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest</parameter>&nbsp;:</term>
+<listitem><simpara> another <link linkend="GObject"><type>GObject</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara> a mask of GParamFlags
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>dest</parameter> was modified, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-reset-properties" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_reset_properties ()</title>
+<indexterm zone="gimp-config-reset-properties" role="GIMP 2.4"><primary>gimp_config_reset_properties</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_reset_properties        (<link linkend="GObject">GObject</link> *object);</programlisting>
+<para>
+Resets all writable properties of <parameter>object</parameter> to the default values as
+defined in their <link linkend="GParamSpec"><type>GParamSpec</type></link>. Properties marked as "construct-only"
+are not touched.
+</para>
+<para>
+If you want to reset a <link linkend="GimpConfig"><type>GimpConfig</type></link> object, please use <link linkend="gimp-config-reset"><function>gimp_config_reset()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GObject"><type>GObject</type></link>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-reset-property" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_reset_property ()</title>
+<indexterm zone="gimp-config-reset-property" role="GIMP 2.4"><primary>gimp_config_reset_property</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_reset_property          (<link linkend="GObject">GObject</link> *object,
+                                                         const <link linkend="gchar">gchar</link> *property_name);</programlisting>
+<para>
+Resets the property named <parameter>property_name</parameter> to its default value.  The
+property must be writable and must not be marked as "construct-only".</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>object</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GObject"><type>GObject</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>property_name</parameter>&nbsp;:</term>
+<listitem><simpara> name of the property to reset
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-string-append-escaped" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_string_append_escaped ()</title>
+<indexterm zone="gimp-config-string-append-escaped" role="GIMP 2.4"><primary>gimp_config_string_append_escaped</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_string_append_escaped   (<link linkend="GString">GString</link> *string,
+                                                         const <link linkend="gchar">gchar</link> *val);</programlisting>
+<para>
+Escapes and quotes <parameter>val</parameter> and appends it to <parameter>string</parameter>. The escape
+algorithm is different from the one used by <link linkend="g-strescape"><function>g_strescape()</function></link> since it
+leaves non-ASCII characters intact and thus preserves UTF-8
+strings. Only control characters and quotes are being escaped.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara> pointer to a <link linkend="GString"><type>GString</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>val</parameter>&nbsp;:</term>
+<listitem><simpara> a string to append or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

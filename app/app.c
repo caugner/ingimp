@@ -44,6 +44,7 @@
 
 #include "core/gimp.h"
 #include "core/gimp-user-install.h"
+#include "core/gimpinteraction-logger.h"
 
 #include "file/file-open.h"
 
@@ -230,8 +231,10 @@ app_run (const gchar         *full_prog_name,
     }
 
 #ifndef GIMP_CONSOLE_COMPILATION
-  if (! no_interface)
+  if (! no_interface) {
     gui_post_init (gimp);
+    guilog_start(gimp);
+  }
 #endif
 
   batch_run (gimp, batch_interpreter, batch_commands);

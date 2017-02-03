@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpbrushmenu">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpbrushmenu.top_of_page">gimpbrushmenu</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpbrushmenu</refname>
+<refpurpose>A widget for selecting brushes.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpbrushmenu.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-brush-select-widget-new">gimp_brush_select_widget_new</link>        (const <link linkend="gchar">gchar</link> *title,
+                                                         const <link linkend="gchar">gchar</link> *brush_name,
+                                                         <link linkend="gdouble">gdouble</link> opacity,
+                                                         <link linkend="gint">gint</link> spacing,
+                                                         <link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> paint_mode,
+                                                         <link linkend="GimpRunBrushCallback">GimpRunBrushCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="gimp-brush-select-widget-close">gimp_brush_select_widget_close</link>      (<link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="void">void</link>                <link linkend="gimp-brush-select-widget-set">gimp_brush_select_widget_set</link>        (<link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         const <link linkend="gchar">gchar</link> *brush_name,
+                                                         <link linkend="gdouble">gdouble</link> opacity,
+                                                         <link linkend="gint">gint</link> spacing,
+                                                         <link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> paint_mode);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpbrushmenu.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A widget for selecting brushes.
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpbrushmenu.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-brush-select-widget-new" role="function" condition="deprecated:">
+<title>gimp_brush_select_widget_new ()</title>
+<indexterm zone="gimp-brush-select-widget-new" role="deprecated"><primary>gimp_brush_select_widget_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_brush_select_widget_new        (const <link linkend="gchar">gchar</link> *title,
+                                                         const <link linkend="gchar">gchar</link> *brush_name,
+                                                         <link linkend="gdouble">gdouble</link> opacity,
+                                                         <link linkend="gint">gint</link> spacing,
+                                                         <link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> paint_mode,
+                                                         <link linkend="GimpRunBrushCallback">GimpRunBrushCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<warning><para><literal>gimp_brush_select_widget_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Creates a new <link linkend="GtkWidget"><type>GtkWidget</type></link> that completely controls the selection of
+a <link linkend="GimpBrush"><type>GimpBrush</type></link>. This widget is suitable for placement in a table in
+a plug-in dialog.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>      Title of the dialog to use or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use the default title.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>brush_name</parameter>&nbsp;:</term>
+<listitem><simpara> Initial brush name or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use current selection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opacity</parameter>&nbsp;:</term>
+<listitem><simpara>    Initial opacity. -1 means to use current opacity.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>spacing</parameter>&nbsp;:</term>
+<listitem><simpara>    Initial spacing. -1 means to use current spacing.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>paint_mode</parameter>&nbsp;:</term>
+<listitem><simpara> Initial paint mode.  -1 means to use current paint mode.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>   A function to call when the selected brush changes.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>       A pointer to arbitary data to be used in the call to <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A <link linkend="GtkWidget"><type>GtkWidget</type></link> that you can use in your UI.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-brush-select-widget-close" role="function" condition="deprecated:">
+<title>gimp_brush_select_widget_close ()</title>
+<indexterm zone="gimp-brush-select-widget-close" role="deprecated"><primary>gimp_brush_select_widget_close</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_brush_select_widget_close      (<link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<warning><para><literal>gimp_brush_select_widget_close</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Closes the popup window associated with <parameter>widget</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&nbsp;:</term>
+<listitem><simpara> A brush select widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-brush-select-widget-set" role="function" condition="deprecated:">
+<title>gimp_brush_select_widget_set ()</title>
+<indexterm zone="gimp-brush-select-widget-set" role="deprecated"><primary>gimp_brush_select_widget_set</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_brush_select_widget_set        (<link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         const <link linkend="gchar">gchar</link> *brush_name,
+                                                         <link linkend="gdouble">gdouble</link> opacity,
+                                                         <link linkend="gint">gint</link> spacing,
+                                                         <link linkend="GimpLayerModeEffects">GimpLayerModeEffects</link> paint_mode);</programlisting>
+<warning><para><literal>gimp_brush_select_widget_set</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Sets the current brush and other values for the brush select
+widget.  Calls the callback function if one was supplied in the
+call to <link linkend="gimp-brush-select-widget-new"><function>gimp_brush_select_widget_new()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&nbsp;:</term>
+<listitem><simpara>     A brush select widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>brush_name</parameter>&nbsp;:</term>
+<listitem><simpara> Brush name to set; <link linkend="NULL:CAPS"><literal>NULL</literal></link> means no change.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opacity</parameter>&nbsp;:</term>
+<listitem><simpara>    Opacity to set. -1.0 means no change.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>spacing</parameter>&nbsp;:</term>
+<listitem><simpara>    Spacing to set. -1 means no change.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>paint_mode</parameter>&nbsp;:</term>
+<listitem><simpara> Paint mode to set.  -1 means no change.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

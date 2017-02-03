@@ -54,6 +54,7 @@
 #include "core/gimpimage-merge.h"
 #include "core/gimpimage-undo.h"
 #include "core/gimpimagefile.h"
+#include "core/gimpinteraction-logger.h"
 #include "core/gimplayer.h"
 #include "core/gimpparamspecs.h"
 #include "core/gimpprogress.h"
@@ -164,6 +165,7 @@ file_open_image (Gimp                *gimp,
       if (image)
         {
           file_open_sanitize_image (image, as_new);
+          guilog_open_image(uri, entered_filename, image);
 
           /* Only set the load procedure if it hasn't already been set. */
           if (! gimp_image_get_load_proc (image))

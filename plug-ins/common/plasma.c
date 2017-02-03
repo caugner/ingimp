@@ -39,7 +39,7 @@
  * Ported to GIMP Plug-in API 1.0
  *    by Eiichi Takamori <taka@ma1.seikyou.ne.jp>
  *
- * $Id$
+ * $Id: plasma.c 23603 2007-09-21 13:27:33Z neo $
  *
  * A few functions names and their order are changed :)
  * Plasma implementation almost hasn't been changed.

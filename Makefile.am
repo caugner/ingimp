@@ -28,7 +28,8 @@ SUBDIRS = \
 	$(GIMP_PLUGINS)	\
 	etc		\
 	devel-docs	\
-	docs
+	docs \
+	guilog
 
 bin_SCRIPTS = gimptool-@GIMP_TOOL_VERSION@ @GIMPINSTALL@
 

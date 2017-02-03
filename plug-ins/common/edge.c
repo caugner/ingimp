@@ -57,7 +57,7 @@
 
 
 #ifdef RCSID
-static gchar rcsid[] = "$Id$";
+static gchar rcsid[] = "$Id: edge.c 23603 2007-09-21 13:27:33Z neo $";
 #endif
 
 /* Some useful macros */

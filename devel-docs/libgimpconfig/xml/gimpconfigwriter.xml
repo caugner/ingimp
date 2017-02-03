@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpconfig-GimpConfigWriter">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpconfig-GimpConfigWriter.top_of_page">gimpconfigwriter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPCONFIG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpconfigwriter</refname>
+<refpurpose>Functions for writing config info to a file for libgimpconfig.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpconfig-GimpConfigWriter.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpConfigWriter">GimpConfigWriter</link>;
+<link linkend="GimpConfigWriter">GimpConfigWriter</link>*   <link linkend="gimp-config-writer-new-file">gimp_config_writer_new_file</link>         (const <link linkend="gchar">gchar</link> *filename,
+                                                         <link linkend="gboolean">gboolean</link> atomic,
+                                                         const <link linkend="gchar">gchar</link> *header,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="GimpConfigWriter">GimpConfigWriter</link>*   <link linkend="gimp-config-writer-new-fd">gimp_config_writer_new_fd</link>           (<link linkend="gint">gint</link> fd);
+<link linkend="GimpConfigWriter">GimpConfigWriter</link>*   <link linkend="gimp-config-writer-new-string">gimp_config_writer_new_string</link>       (<link linkend="GString">GString</link> *string);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-open">gimp_config_writer_open</link>             (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-comment-mode">gimp_config_writer_comment_mode</link>     (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         <link linkend="gboolean">gboolean</link> enable);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-print">gimp_config_writer_print</link>            (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gint">gint</link> len);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-printf">gimp_config_writer_printf</link>           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-identifier">gimp_config_writer_identifier</link>       (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *identifier);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-string">gimp_config_writer_string</link>           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *string);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-data">gimp_config_writer_data</link>             (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         <link linkend="gint">gint</link> length,
+                                                         const <link linkend="guint8">guint8</link> *data);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-comment">gimp_config_writer_comment</link>          (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *comment);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-linefeed">gimp_config_writer_linefeed</link>         (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-revert">gimp_config_writer_revert</link>           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer);
+<link linkend="void">void</link>                <link linkend="gimp-config-writer-close">gimp_config_writer_close</link>            (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-config-writer-finish">gimp_config_writer_finish</link>           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *footer,
+                                                         <link linkend="GError">GError</link> **error);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpconfig-GimpConfigWriter.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions for writing config info to a file for libgimpconfig.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpconfig-GimpConfigWriter.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpConfigWriter" role="struct">
+<title>GimpConfigWriter</title>
+<indexterm zone="GimpConfigWriter"><primary>GimpConfigWriter</primary></indexterm><programlisting>typedef struct _GimpConfigWriter GimpConfigWriter;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-config-writer-new-file" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_new_file ()</title>
+<indexterm zone="gimp-config-writer-new-file" role="GIMP 2.4"><primary>gimp_config_writer_new_file</primary></indexterm><programlisting><link linkend="GimpConfigWriter">GimpConfigWriter</link>*   gimp_config_writer_new_file         (const <link linkend="gchar">gchar</link> *filename,
+                                                         <link linkend="gboolean">gboolean</link> atomic,
+                                                         const <link linkend="gchar">gchar</link> *header,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Creates a new <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link> and sets it up to write to
+<parameter>filename</parameter>. If <parameter>atomic</parameter> is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, a temporary file is used to avoid
+possible race conditions. The temporary file is then moved to
+<parameter>filename</parameter> when the writer is closed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> a filename
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>atomic</parameter>&nbsp;:</term>
+<listitem><simpara> if <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> the file is written atomically
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>header</parameter>&nbsp;:</term>
+<listitem><simpara> text to include as comment at the top of the file
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> return location for errors
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> in case of an error
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-new-fd" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_new_fd ()</title>
+<indexterm zone="gimp-config-writer-new-fd" role="GIMP 2.4"><primary>gimp_config_writer_new_fd</primary></indexterm><programlisting><link linkend="GimpConfigWriter">GimpConfigWriter</link>*   gimp_config_writer_new_fd           (<link linkend="gint">gint</link> fd);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>fd</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> in case of an error
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-new-string" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_new_string ()</title>
+<indexterm zone="gimp-config-writer-new-string" role="GIMP 2.4"><primary>gimp_config_writer_new_string</primary></indexterm><programlisting><link linkend="GimpConfigWriter">GimpConfigWriter</link>*   gimp_config_writer_new_string       (<link linkend="GString">GString</link> *string);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> in case of an error
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-open" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_open ()</title>
+<indexterm zone="gimp-config-writer-open" role="GIMP 2.4"><primary>gimp_config_writer_open</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_open             (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+This function writes the opening parenthese followed by <parameter>name</parameter>.
+It also increases the indentation level and sets a mark that
+can be used by <link linkend="gimp-config-writer-revert"><function>gimp_config_writer_revert()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> name of the element to open
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-comment-mode" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_comment_mode ()</title>
+<indexterm zone="gimp-config-writer-comment-mode" role="GIMP 2.4"><primary>gimp_config_writer_comment_mode</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_comment_mode     (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         <link linkend="gboolean">gboolean</link> enable);</programlisting>
+<para>
+This function toggles whether the <parameter>writer</parameter> should create commented
+or uncommented output. This feature is used to generate the
+system-wide installed gimprc that documents the default settings.
+</para>
+<para>
+Since comments have to start at the beginning of a line, this
+funtion will insert a newline if necessary.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enable</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable comment mode, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to disable it
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-print" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_print ()</title>
+<indexterm zone="gimp-config-writer-print" role="GIMP 2.4"><primary>gimp_config_writer_print</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_print            (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gint">gint</link> len);</programlisting>
+<para>
+Appends a space followed by <parameter>string</parameter> to the <parameter>writer</parameter>. Note that string
+must not contain any special characters that might need to be escaped.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara> a string to write
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara> number of bytes from <parameter>string</parameter> or -1 if <parameter>string</parameter> is NUL-terminated.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-printf" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_printf ()</title>
+<indexterm zone="gimp-config-writer-printf" role="GIMP 2.4"><primary>gimp_config_writer_printf</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_printf           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         ...);</programlisting>
+<para>
+A printf-like function for <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara> a format string as described for <link linkend="g-strdup-printf"><function>g_strdup_printf()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> list of arguments according to <parameter>format</parameter>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-identifier" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_identifier ()</title>
+<indexterm zone="gimp-config-writer-identifier" role="GIMP 2.4"><primary>gimp_config_writer_identifier</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_identifier       (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *identifier);</programlisting>
+<para>
+Writes an identifier to <parameter>writer</parameter>. The <parameter>string</parameter> is *not* quoted and special
+characters are *not* escaped.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara>     a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&nbsp;:</term>
+<listitem><simpara> a NUL-terminated string
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-string" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_string ()</title>
+<indexterm zone="gimp-config-writer-string" role="GIMP 2.4"><primary>gimp_config_writer_string</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_string           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *string);</programlisting>
+<para>
+Writes a string value to <parameter>writer</parameter>. The <parameter>string</parameter> is quoted and special
+characters are escaped.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara> a NUL-terminated string
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-data" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_data ()</title>
+<indexterm zone="gimp-config-writer-data" role="GIMP 2.4"><primary>gimp_config_writer_data</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_data             (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         <link linkend="gint">gint</link> length,
+                                                         const <link linkend="guint8">guint8</link> *data);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-comment" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_comment ()</title>
+<indexterm zone="gimp-config-writer-comment" role="GIMP 2.4"><primary>gimp_config_writer_comment</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_comment          (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *comment);</programlisting>
+<para>
+Appends the <parameter>comment</parameter> to <parameter>str</parameter> and inserts linebreaks and hash-marks to
+format it as a comment. Note that this function does not handle non-ASCII
+characters.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>comment</parameter>&nbsp;:</term>
+<listitem><simpara> the comment to write (ASCII only)
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-linefeed" role="function">
+<title>gimp_config_writer_linefeed ()</title>
+<indexterm zone="gimp-config-writer-linefeed"><primary>gimp_config_writer_linefeed</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_linefeed         (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-config-writer-revert" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_revert ()</title>
+<indexterm zone="gimp-config-writer-revert" role="GIMP 2.4"><primary>gimp_config_writer_revert</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_revert           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer);</programlisting>
+<para>
+Reverts all changes to <parameter>writer</parameter> that were done since the last call
+to <link linkend="gimp-config-writer-open"><function>gimp_config_writer_open()</function></link>. This can only work if you didn't call
+<link linkend="gimp-config-writer-close"><function>gimp_config_writer_close()</function></link> yet.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-close" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_close ()</title>
+<indexterm zone="gimp-config-writer-close" role="GIMP 2.4"><primary>gimp_config_writer_close</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_config_writer_close            (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer);</programlisting>
+<para>
+Closes an element opened with <link linkend="gimp-config-writer-open"><function>gimp_config_writer_open()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-config-writer-finish" role="function" condition="since:GIMP 2.4">
+<title>gimp_config_writer_finish ()</title>
+<indexterm zone="gimp-config-writer-finish" role="GIMP 2.4"><primary>gimp_config_writer_finish</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_config_writer_finish           (<link linkend="GimpConfigWriter">GimpConfigWriter</link> *writer,
+                                                         const <link linkend="gchar">gchar</link> *footer,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+This function finishes the work of <parameter>writer</parameter> and frees it afterwards.
+It closes all open elements, appends an optional comment and
+releases all resources allocated by <parameter>writer</parameter>. You must not access
+the <parameter>writer</parameter> afterwards.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>writer</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpConfigWriter"><type>GimpConfigWriter</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>footer</parameter>&nbsp;:</term>
+<listitem><simpara> text to include as comment at the bottom of the file
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&nbsp;:</term>
+<listitem><simpara> return location for possible errors
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if everything could be successfully written,
+              <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

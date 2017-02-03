@@ -64,6 +64,7 @@
 #include "gimpgradient-load.h"
 #include "gimpimage.h"
 #include "gimpimagefile.h"
+#include "gimpinteraction-logger.h"
 #include "gimplist.h"
 #include "gimpmarshal.h"
 #include "gimppalette.h"
@@ -927,6 +928,9 @@ gimp_create_image (Gimp              *gimp,
           gimp_image_parasite_attach (image, parasite);
           gimp_parasite_free (parasite);
         }
+      guilog_create_image(image, comment);
+    } else {
+      guilog_create_image(image, NULL);
     }
 
   return image;

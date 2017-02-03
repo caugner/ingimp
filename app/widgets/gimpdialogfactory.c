@@ -31,6 +31,7 @@
 #include "widgets-types.h"
 
 #include "core/gimpcontext.h"
+#include "core/gimpinteraction-logger.h"
 
 #include "gimpcursor.h"
 #include "gimpdialogfactory.h"
@@ -891,6 +892,7 @@ gimp_dialog_factory_add_dialog (GimpDialogFactory *factory,
                              G_CALLBACK (gimp_dialog_factory_dialog_configure),
                              factory,
                              0);
+  guilog_register_window (dialog);
 }
 
 void

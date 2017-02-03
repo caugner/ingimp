@@ -86,5 +86,5 @@ extern int	sgiPutRow(sgi_t *sgip, unsigned short *row, int y, int z);
 #endif /* !_SGI_H_ */
 
 /*
- * End of "$Id$".
+ * End of "$Id: sgi.h 16773 2005-03-04 13:23:32Z neo $".
  */

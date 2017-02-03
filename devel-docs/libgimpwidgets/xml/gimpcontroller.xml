@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpController">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpController.top_of_page">GimpController</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpController</refname>
+<refpurpose>Pluggable GIMP input controller modules.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpController.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="GimpControllerEventType">GimpControllerEventType</link>;
+                    <link linkend="GimpControllerEventAny">GimpControllerEventAny</link>;
+                    <link linkend="GimpControllerEventTrigger">GimpControllerEventTrigger</link>;
+                    <link linkend="GimpControllerEventValue">GimpControllerEventValue</link>;
+union               <link linkend="GimpControllerEvent">GimpControllerEvent</link>;
+                    <link linkend="GimpController-struct">GimpController</link>;
+<link linkend="GimpController">GimpController</link>*     <link linkend="gimp-controller-new">gimp_controller_new</link>                 (<link linkend="GType">GType</link> controller_type);
+<link linkend="gint">gint</link>                <link linkend="gimp-controller-get-n-events">gimp_controller_get_n_events</link>        (<link linkend="GimpController">GimpController</link> *controller);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-controller-get-event-name">gimp_controller_get_event_name</link>      (<link linkend="GimpController">GimpController</link> *controller,
+                                                         <link linkend="gint">gint</link> event_id);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-controller-get-event-blurb">gimp_controller_get_event_blurb</link>     (<link linkend="GimpController">GimpController</link> *controller,
+                                                         <link linkend="gint">gint</link> event_id);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-controller-event">gimp_controller_event</link>               (<link linkend="GimpController">GimpController</link> *controller,
+                                                         const <link linkend="GimpControllerEvent">GimpControllerEvent</link> *event);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpController.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----GimpController
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpController.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpController implements
+ <link linkend="GimpConfigInterface">GimpConfigInterface</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpController.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpController--name">name</link>&quot;                     <link linkend="gchar">gchar</link>*                : Read / Write / Construct
+  &quot;<link linkend="GimpController--state">state</link>&quot;                    <link linkend="gchar">gchar</link>*                : Read / Write / Construct
+</synopsis>
+</refsect1>
+
+<refsect1 id="GimpController.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpController-event">event</link>&quot;                                          : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpController.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+An abstract interface for implementing arbitrary input controllers.
+</para>
+</refsect1>
+
+<refsect1 id="GimpController.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpControllerEventType" role="enum">
+<title>enum GimpControllerEventType</title>
+<indexterm zone="GimpControllerEventType"><primary>GimpControllerEventType</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_CONTROLLER_EVENT_TRIGGER,
+  GIMP_CONTROLLER_EVENT_VALUE
+} GimpControllerEventType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpControllerEventAny" role="struct">
+<title>GimpControllerEventAny</title>
+<indexterm zone="GimpControllerEventAny"><primary>GimpControllerEventAny</primary></indexterm><programlisting>typedef struct {
+  GimpControllerEventType  type;
+  GimpController          *source;
+  gint                     event_id;
+} GimpControllerEventAny;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpControllerEventTrigger" role="struct">
+<title>GimpControllerEventTrigger</title>
+<indexterm zone="GimpControllerEventTrigger"><primary>GimpControllerEventTrigger</primary></indexterm><programlisting>typedef struct {
+  GimpControllerEventType  type;
+  GimpController          *source;
+  gint                     event_id;
+} GimpControllerEventTrigger;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpControllerEventValue" role="struct">
+<title>GimpControllerEventValue</title>
+<indexterm zone="GimpControllerEventValue"><primary>GimpControllerEventValue</primary></indexterm><programlisting>typedef struct {
+  GimpControllerEventType  type;
+  GimpController          *source;
+  gint                     event_id;
+  GValue                   value;
+} GimpControllerEventValue;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpControllerEvent" role="union">
+<title>union GimpControllerEvent</title>
+<indexterm zone="GimpControllerEvent"><primary>GimpControllerEvent</primary></indexterm><programlisting>union GimpControllerEvent
+{
+  GimpControllerEventType    type;
+  GimpControllerEventAny     any;
+  GimpControllerEventTrigger trigger;
+  GimpControllerEventValue   value;
+};
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpController-struct" role="struct">
+<title>GimpController</title>
+<indexterm zone="GimpController-struct"><primary>GimpController</primary></indexterm><programlisting>typedef struct _GimpController GimpController;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-controller-new" role="function">
+<title>gimp_controller_new ()</title>
+<indexterm zone="gimp-controller-new"><primary>gimp_controller_new</primary></indexterm><programlisting><link linkend="GimpController">GimpController</link>*     gimp_controller_new                 (<link linkend="GType">GType</link> controller_type);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>controller_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-controller-get-n-events" role="function">
+<title>gimp_controller_get_n_events ()</title>
+<indexterm zone="gimp-controller-get-n-events"><primary>gimp_controller_get_n_events</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_controller_get_n_events        (<link linkend="GimpController">GimpController</link> *controller);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>controller</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-controller-get-event-name" role="function">
+<title>gimp_controller_get_event_name ()</title>
+<indexterm zone="gimp-controller-get-event-name"><primary>gimp_controller_get_event_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_controller_get_event_name      (<link linkend="GimpController">GimpController</link> *controller,
+                                                         <link linkend="gint">gint</link> event_id);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>controller</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-controller-get-event-blurb" role="function">
+<title>gimp_controller_get_event_blurb ()</title>
+<indexterm zone="gimp-controller-get-event-blurb"><primary>gimp_controller_get_event_blurb</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_controller_get_event_blurb     (<link linkend="GimpController">GimpController</link> *controller,
+                                                         <link linkend="gint">gint</link> event_id);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>controller</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-controller-event" role="function">
+<title>gimp_controller_event ()</title>
+<indexterm zone="gimp-controller-event"><primary>gimp_controller_event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_controller_event               (<link linkend="GimpController">GimpController</link> *controller,
+                                                         const <link linkend="GimpControllerEvent">GimpControllerEvent</link> *event);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>controller</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GimpController.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpController--name"><title>The <literal>&quot;name&quot;</literal> property</title>
+<indexterm zone="GimpController--name"><primary>GimpController:name</primary></indexterm><programlisting>  &quot;name&quot;                     <link linkend="gchar">gchar</link>*                : Read / Write / Construct</programlisting>
+<para></para><para>Default value: "Unnamed Controller"</para>
+</refsect2>
+<refsect2 id="GimpController--state"><title>The <literal>&quot;state&quot;</literal> property</title>
+<indexterm zone="GimpController--state"><primary>GimpController:state</primary></indexterm><programlisting>  &quot;state&quot;                    <link linkend="gchar">gchar</link>*                : Read / Write / Construct</programlisting>
+<para></para><para>Default value: "Unknown"</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpController.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpController-event"><title>The <literal>&quot;event&quot;</literal> signal</title>
+<indexterm zone="GimpController-event"><primary>GimpController::event</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            user_function                      (<link linkend="GimpController">GimpController</link> *gimpcontroller,
+                                                        <link linkend="gpointer">gpointer</link>        arg1,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)           : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpcontroller</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

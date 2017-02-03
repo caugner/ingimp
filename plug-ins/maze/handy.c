@@ -1,4 +1,4 @@
-/* $Id$
+/* $Id: handy.c 22715 2007-06-06 08:44:52Z muks $
  * These routines are useful for working with GIMP and need not be
  * specific to plug-in-maze.
  *

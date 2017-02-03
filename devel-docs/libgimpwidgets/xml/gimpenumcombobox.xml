@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpEnumComboBox">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpEnumComboBox.top_of_page">GimpEnumComboBox</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpEnumComboBox</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpEnumComboBox.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpEnumComboBox-struct">GimpEnumComboBox</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-combo-box-new">gimp_enum_combo_box_new</link>             (<link linkend="GType">GType</link> enum_type);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-enum-combo-box-new-with-model">gimp_enum_combo_box_new_with_model</link>  (<link linkend="GimpEnumStore">GimpEnumStore</link> *enum_store);
+<link linkend="void">void</link>                <link linkend="gimp-enum-combo-box-set-stock-prefix">gimp_enum_combo_box_set_stock_prefix</link>
+                                                        (<link linkend="GimpEnumComboBox">GimpEnumComboBox</link> *combo_box,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpEnumComboBox.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkComboBox">GtkComboBox</link>
+                                       +----<link linkend="GimpIntComboBox">GimpIntComboBox</link>
+                                             +----GimpEnumComboBox
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpEnumComboBox.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpEnumComboBox implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkCellEditable">GtkCellEditable</link> and  <link linkend="GtkCellLayout">GtkCellLayout</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpEnumComboBox.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpEnumComboBox--model">model</link>&quot;                    <link linkend="GimpEnumStore">GimpEnumStore</link>*        : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="GimpEnumComboBox.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpEnumComboBox.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpEnumComboBox-struct" role="struct">
+<title>GimpEnumComboBox</title>
+<indexterm zone="GimpEnumComboBox-struct"><primary>GimpEnumComboBox</primary></indexterm><programlisting>typedef struct _GimpEnumComboBox GimpEnumComboBox;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-enum-combo-box-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_combo_box_new ()</title>
+<indexterm zone="gimp-enum-combo-box-new" role="GIMP 2.4"><primary>gimp_enum_combo_box_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_combo_box_new             (<link linkend="GType">GType</link> enum_type);</programlisting>
+<para>
+Creates a <link linkend="GtkComboBox"><type>GtkComboBox</type></link> readily filled with all enum values from a
+given <parameter>enum_type</parameter>. The enum needs to be registered to the type
+system. It should also have <link linkend="GimpEnumDesc"><literal>GimpEnumDesc</literal></link> descriptions registered
+that contain translatable value names. This is the case for the
+enums used in the GIMP PDB functions.
+</para>
+<para>
+This is just a convenience function. If you need more control over
+the enum values that appear in the combo_box, you can create your
+own <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link> and use <link linkend="gimp-enum-combo-box-new-with-model"><function>gimp_enum_combo_box_new_with_model()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_type</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GType"><type>GType</type></link> of an enum.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpEnumComboBox"><type>GimpEnumComboBox</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-combo-box-new-with-model" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_combo_box_new_with_model ()</title>
+<indexterm zone="gimp-enum-combo-box-new-with-model" role="GIMP 2.4"><primary>gimp_enum_combo_box_new_with_model</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_enum_combo_box_new_with_model  (<link linkend="GimpEnumStore">GimpEnumStore</link> *enum_store);</programlisting>
+<para>
+Creates a <link linkend="GtkComboBox"><type>GtkComboBox</type></link> for the given <parameter>enum_store</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>enum_store</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpEnumStore"><type>GimpEnumStore</type></link> to use as the model
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a new <link linkend="GimpEnumComboBox"><type>GimpEnumComboBox</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-enum-combo-box-set-stock-prefix" role="function" condition="since:GIMP 2.4">
+<title>gimp_enum_combo_box_set_stock_prefix ()</title>
+<indexterm zone="gimp-enum-combo-box-set-stock-prefix" role="GIMP 2.4"><primary>gimp_enum_combo_box_set_stock_prefix</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_enum_combo_box_set_stock_prefix
+                                                        (<link linkend="GimpEnumComboBox">GimpEnumComboBox</link> *combo_box,
+                                                         const <link linkend="gchar">gchar</link> *stock_prefix);</programlisting>
+<para>
+Attempts to create stock icons for all items in the <parameter>combo_box</parameter>. See
+<link linkend="gimp-enum-store-set-icons"><function>gimp_enum_store_set_icons()</function></link> to find out what to use as <parameter>stock_prefix</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>combo_box</parameter>&nbsp;:</term>
+<listitem><simpara>    a <link linkend="GimpEnumComboBox"><type>GimpEnumComboBox</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stock_prefix</parameter>&nbsp;:</term>
+<listitem><simpara> a prefix to create icon stock ID from enum values
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpEnumComboBox.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpEnumComboBox--model"><title>The <literal>&quot;model&quot;</literal> property</title>
+<indexterm zone="GimpEnumComboBox--model"><primary>GimpEnumComboBox:model</primary></indexterm><programlisting>  &quot;model&quot;                    <link linkend="GimpEnumStore">GimpEnumStore</link>*        : Read / Write</programlisting>
+<para></para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

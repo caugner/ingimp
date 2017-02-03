@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpprogress">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpprogress.top_of_page">gimpprogress</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpprogress</refname>
+<refpurpose>Functions for embedding the progress bar into a plug-in's GUI.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpprogress.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpProgressVtable">GimpProgressVtable</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-init">gimp_progress_init</link>                  (const <link linkend="gchar">gchar</link> *message);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-init-printf">gimp_progress_init_printf</link>           (const <link linkend="gchar">gchar</link> *format,
+                                                         ...);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-update">gimp_progress_update</link>                (<link linkend="gdouble">gdouble</link> percentage);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-pulse">gimp_progress_pulse</link>                 (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-set-text">gimp_progress_set_text</link>              (const <link linkend="gchar">gchar</link> *message);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-set-text-printf">gimp_progress_set_text_printf</link>       (const <link linkend="gchar">gchar</link> *format,
+                                                         ...);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-end">gimp_progress_end</link>                   (void);
+<link linkend="gint">gint</link>                <link linkend="gimp-progress-get-window-handle">gimp_progress_get_window_handle</link>     (void);
+<link linkend="void">void</link>                (<link linkend="GimpProgressStartCallback">*GimpProgressStartCallback</link>)        (const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gboolean">gboolean</link> cancelable,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                (<link linkend="GimpProgressEndCallback">*GimpProgressEndCallback</link>)          (<link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                (<link linkend="GimpProgressTextCallback">*GimpProgressTextCallback</link>)         (const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                (<link linkend="GimpProgressValueCallback">*GimpProgressValueCallback</link>)        (<link linkend="gdouble">gdouble</link> percentage,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-progress-install-vtable">gimp_progress_install_vtable</link>        (const <link linkend="GimpProgressVtable">GimpProgressVtable</link> *vtable,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-progress-install">gimp_progress_install</link>               (<link linkend="GimpProgressStartCallback">GimpProgressStartCallback</link> start_callback,
+                                                         <link linkend="GimpProgressEndCallback">GimpProgressEndCallback</link> end_callback,
+                                                         <link linkend="GimpProgressTextCallback">GimpProgressTextCallback</link> text_callback,
+                                                         <link linkend="GimpProgressValueCallback">GimpProgressValueCallback</link> value_callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="gpointer">gpointer</link>            <link linkend="gimp-progress-uninstall">gimp_progress_uninstall</link>             (const <link linkend="gchar">gchar</link> *progress_callback);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-progress-cancel">gimp_progress_cancel</link>                (const <link linkend="gchar">gchar</link> *progress_callback);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpprogress.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions for embedding the progress bar into a plug-in's GUI.
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpprogress.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpProgressVtable" role="struct">
+<title>GimpProgressVtable</title>
+<indexterm zone="GimpProgressVtable"><primary>GimpProgressVtable</primary></indexterm><programlisting>typedef struct {
+  void    (* start)        (const gchar *message,
+                            gboolean     cancelable,
+                            gpointer     user_data);
+  void    (* end)          (gpointer     user_data);
+  void    (* set_text)     (const gchar *message,
+                            gpointer     user_data);
+  void    (* set_value)    (gdouble      percentage,
+                            gpointer     user_data);
+  void    (* pulse)        (gpointer     user_data);
+
+  guint32 (* get_window)   (gpointer     user_data);
+
+  /* Padding for future expansion. Must be initialized with NULL! */
+  void (* _gimp_reserved1) (void);
+  void (* _gimp_reserved2) (void);
+  void (* _gimp_reserved3) (void);
+  void (* _gimp_reserved4) (void);
+  void (* _gimp_reserved5) (void);
+  void (* _gimp_reserved6) (void);
+  void (* _gimp_reserved7) (void);
+  void (* _gimp_reserved8) (void);
+} GimpProgressVtable;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-progress-init" role="function">
+<title>gimp_progress_init ()</title>
+<indexterm zone="gimp-progress-init"><primary>gimp_progress_init</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_init                  (const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+Initializes the progress bar for the current plug-in.
+</para>
+<para>
+Initializes the progress bar for the current plug-in. It is only
+valid to call this procedure from a plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> Message to use in the progress dialog.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-progress-init-printf" role="function" condition="since:GIMP 2.4">
+<title>gimp_progress_init_printf ()</title>
+<indexterm zone="gimp-progress-init-printf" role="GIMP 2.4"><primary>gimp_progress_init_printf</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_init_printf           (const <link linkend="gchar">gchar</link> *format,
+                                                         ...);</programlisting>
+<para>
+Initializes the progress bar for the current plug-in.
+</para>
+<para>
+Initializes the progress bar for the current plug-in. It is only
+valid to call this procedure from a plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara> a standard <link linkend="printf"><function>printf()</function></link> format string
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments for <parameter>format</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-progress-update" role="function">
+<title>gimp_progress_update ()</title>
+<indexterm zone="gimp-progress-update"><primary>gimp_progress_update</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_update                (<link linkend="gdouble">gdouble</link> percentage);</programlisting>
+<para>
+Updates the progress bar for the current plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>percentage</parameter>&nbsp;:</term>
+<listitem><simpara> Percentage of progress completed (in the range from 0.0 to 1.0).
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-progress-pulse" role="function" condition="since:GIMP 2.4">
+<title>gimp_progress_pulse ()</title>
+<indexterm zone="gimp-progress-pulse" role="GIMP 2.4"><primary>gimp_progress_pulse</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_pulse                 (void);</programlisting>
+<para>
+Pulses the progress bar for the current plug-in.
+</para>
+<para>
+Updates the progress bar for the current plug-in. It is only valid
+to call this procedure from a plug-in. Use this function instead of
+<link linkend="gimp-progress-update"><function>gimp_progress_update()</function></link> if you cannot tell how much progress has been
+made. This usually causes the the progress bar to enter \"activity
+mode\", where a block bounces back and forth.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-progress-set-text" role="function" condition="since:GIMP 2.4">
+<title>gimp_progress_set_text ()</title>
+<indexterm zone="gimp-progress-set-text" role="GIMP 2.4"><primary>gimp_progress_set_text</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_set_text              (const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+Changes the text in the progress bar for the current plug-in.
+</para>
+<para>
+This function allows to change the text in the progress bar for the
+current plug-in. Unlike <link linkend="gimp-progress-init"><function>gimp_progress_init()</function></link> it does not change the
+displayed value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> Message to use in the progress dialog.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-progress-set-text-printf" role="function" condition="since:GIMP 2.4">
+<title>gimp_progress_set_text_printf ()</title>
+<indexterm zone="gimp-progress-set-text-printf" role="GIMP 2.4"><primary>gimp_progress_set_text_printf</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_set_text_printf       (const <link linkend="gchar">gchar</link> *format,
+                                                         ...);</programlisting>
+<para>
+Changes the text in the progress bar for the current plug-in.
+</para>
+<para>
+This function allows to change the text in the progress bar for the
+current plug-in. Unlike <link linkend="gimp-progress-init"><function>gimp_progress_init()</function></link> it does not change the
+displayed value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara> a standard <link linkend="printf"><function>printf()</function></link> format string
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> arguments for <parameter>format</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-progress-end" role="function" condition="since:GIMP 2.4">
+<title>gimp_progress_end ()</title>
+<indexterm zone="gimp-progress-end" role="GIMP 2.4"><primary>gimp_progress_end</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_end                   (void);</programlisting>
+<para>
+Ends the progress bar for the current plug-in.
+</para>
+<para>
+Ends the progress display for the current plug-in. Most plug-ins
+don't need to call this, they just exit when the work is done. It is
+only valid to call this procedure from a plug-in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-progress-get-window-handle" role="function" condition="since:GIMP 2.2">
+<title>gimp_progress_get_window_handle ()</title>
+<indexterm zone="gimp-progress-get-window-handle" role="GIMP 2.2"><primary>gimp_progress_get_window_handle</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_progress_get_window_handle     (void);</programlisting>
+<para>
+Returns the native window ID of the toplevel window this plug-in's
+progress is displayed in.
+</para>
+<para>
+This function returns the native window ID of the toplevel window
+this plug-in\'s progress is displayed in.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The progress bar's toplevel window.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="GimpProgressStartCallback" role="function" condition="deprecated:">
+<title>GimpProgressStartCallback ()</title>
+<indexterm zone="GimpProgressStartCallback" role="deprecated"><primary>GimpProgressStartCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpProgressStartCallback)        (const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gboolean">gboolean</link> cancelable,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<warning><para><literal>GimpProgressStartCallback</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cancelable</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpProgressEndCallback" role="function" condition="deprecated:">
+<title>GimpProgressEndCallback ()</title>
+<indexterm zone="GimpProgressEndCallback" role="deprecated"><primary>GimpProgressEndCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpProgressEndCallback)          (<link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<warning><para><literal>GimpProgressEndCallback</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpProgressTextCallback" role="function" condition="deprecated:">
+<title>GimpProgressTextCallback ()</title>
+<indexterm zone="GimpProgressTextCallback" role="deprecated"><primary>GimpProgressTextCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpProgressTextCallback)         (const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<warning><para><literal>GimpProgressTextCallback</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpProgressValueCallback" role="function" condition="deprecated:">
+<title>GimpProgressValueCallback ()</title>
+<indexterm zone="GimpProgressValueCallback" role="deprecated"><primary>GimpProgressValueCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpProgressValueCallback)        (<link linkend="gdouble">gdouble</link> percentage,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<warning><para><literal>GimpProgressValueCallback</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>percentage</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-progress-install-vtable" role="function" condition="since:GIMP 2.4">
+<title>gimp_progress_install_vtable ()</title>
+<indexterm zone="gimp-progress-install-vtable" role="GIMP 2.4"><primary>gimp_progress_install_vtable</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_progress_install_vtable        (const <link linkend="GimpProgressVtable">GimpProgressVtable</link> *vtable,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vtable</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to a <parameter>GimpProgressVtable</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara> a pointer that is passed as user_data to all vtable functions.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the name of the temporary procedure that's been installed
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-progress-install" role="function" condition="deprecated:|since">
+<title>gimp_progress_install ()</title>
+<indexterm zone="gimp-progress-install" role="deprecated"><primary>gimp_progress_install</primary></indexterm><indexterm zone="gimp-progress-install" role="GIMP 2.2
+
+Note that since GIMP 2.4, @value_callback can be called with
+negative values. This is triggered by calls to gimp_progress_pulse().
+The callback should then implement a progress indicating business,
+e.g. by calling gtk_progress_bar_pulse()."><primary>gimp_progress_install</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_progress_install               (<link linkend="GimpProgressStartCallback">GimpProgressStartCallback</link> start_callback,
+                                                         <link linkend="GimpProgressEndCallback">GimpProgressEndCallback</link> end_callback,
+                                                         <link linkend="GimpProgressTextCallback">GimpProgressTextCallback</link> text_callback,
+                                                         <link linkend="GimpProgressValueCallback">GimpProgressValueCallback</link> value_callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<warning><para><literal>gimp_progress_install</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>start_callback</parameter>&nbsp;:</term>
+<listitem><simpara> the function to call when progress starts
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>end_callback</parameter>&nbsp;:</term>
+<listitem><simpara>   the function to call when progress finishes
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text_callback</parameter>&nbsp;:</term>
+<listitem><simpara>  the function to call to change the text
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value_callback</parameter>&nbsp;:</term>
+<listitem><simpara> the function to call to change the value
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>      a pointer that is returned when uninstalling the progress
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the name of the temporary procedure that's been installed
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+
+Note that since GIMP 2.4, @value_callback can be called with
+negative values. This is triggered by calls to gimp_progress_pulse().
+The callback should then implement a progress indicating business,
+e.g. by calling gtk_progress_bar_pulse().
+</para></refsect2>
+<refsect2 id="gimp-progress-uninstall" role="function" condition="since:GIMP 2.2">
+<title>gimp_progress_uninstall ()</title>
+<indexterm zone="gimp-progress-uninstall" role="GIMP 2.2"><primary>gimp_progress_uninstall</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            gimp_progress_uninstall             (const <link linkend="gchar">gchar</link> *progress_callback);</programlisting>
+<para>
+Uninstalls a temporary progress procedure that was installed using
+<link linkend="gimp-progress-install"><function>gimp_progress_install()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>progress_callback</parameter>&nbsp;:</term>
+<listitem><simpara> the name of the temporary procedure to uninstall
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <parameter>user_data</parameter> that was passed to <link linkend="gimp-progress-install"><function>gimp_progress_install()</function></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-progress-cancel" role="function" condition="since:GIMP 2.2">
+<title>gimp_progress_cancel ()</title>
+<indexterm zone="gimp-progress-cancel" role="GIMP 2.2"><primary>gimp_progress_cancel</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_progress_cancel                (const <link linkend="gchar">gchar</link> *progress_callback);</programlisting>
+<para>
+Cancels a running progress.
+</para>
+<para>
+This function cancels the currently running progress.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>progress_callback</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the callback registered for this progress.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

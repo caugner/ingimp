@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimppatterns">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimppatterns.top_of_page">gimppatterns</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimppatterns</refname>
+<refpurpose>Functions relating to patterns.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimppatterns.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-patterns-refresh">gimp_patterns_refresh</link>               (void);
+<link linkend="gchar">gchar</link>**             <link linkend="gimp-patterns-get-list">gimp_patterns_get_list</link>              (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_patterns);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-patterns-get-pattern">gimp_patterns_get_pattern</link>           (<link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-patterns-set-pattern">gimp_patterns_set_pattern</link>           (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-patterns-get-pattern-data">gimp_patterns_get_pattern_data</link>      (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *mask_bpp,
+                                                         <link linkend="gint">gint</link> *length,
+                                                         <link linkend="guint8">guint8</link> **mask_data);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimppatterns.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions relating to patterns.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimppatterns.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-patterns-refresh" role="function">
+<title>gimp_patterns_refresh ()</title>
+<indexterm zone="gimp-patterns-refresh"><primary>gimp_patterns_refresh</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_patterns_refresh               (void);</programlisting>
+<para>
+Refresh current patterns. This function always succeeds.
+</para>
+<para>
+This procedure retrieves all patterns currently in the user's
+pattern path and updates all pattern dialogs accordingly.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-patterns-get-list" role="function">
+<title>gimp_patterns_get_list ()</title>
+<indexterm zone="gimp-patterns-get-list"><primary>gimp_patterns_get_list</primary></indexterm><programlisting><link linkend="gchar">gchar</link>**             gimp_patterns_get_list              (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_patterns);</programlisting>
+<para>
+Retrieve a complete listing of the available patterns.
+</para>
+<para>
+This procedure returns a complete listing of available GIMP
+patterns. Each name returned can be used as input to the
+<link linkend="gimp-context-set-pattern"><function>gimp_context_set_pattern()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> An optional regular expression used to filter the list.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_patterns</parameter>&nbsp;:</term>
+<listitem><simpara> The number of patterns in the pattern list.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of pattern names.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-patterns-get-pattern" role="function" condition="deprecated:">
+<title>gimp_patterns_get_pattern ()</title>
+<indexterm zone="gimp-patterns-get-pattern" role="deprecated"><primary>gimp_patterns_get_pattern</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_patterns_get_pattern           (<link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height);</programlisting>
+<warning><para><literal>gimp_patterns_get_pattern</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-context-get-pattern"><function>gimp_context_get_pattern()</function></link>
+instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The pattern name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-patterns-set-pattern" role="function" condition="deprecated:">
+<title>gimp_patterns_set_pattern ()</title>
+<indexterm zone="gimp-patterns-set-pattern" role="deprecated"><primary>gimp_patterns_set_pattern</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_patterns_set_pattern           (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<warning><para><literal>gimp_patterns_set_pattern</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-context-set-pattern"><function>gimp_context_set_pattern()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-patterns-get-pattern-data" role="function" condition="deprecated:">
+<title>gimp_patterns_get_pattern_data ()</title>
+<indexterm zone="gimp-patterns-get-pattern-data" role="deprecated"><primary>gimp_patterns_get_pattern_data</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_patterns_get_pattern_data      (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *mask_bpp,
+                                                         <link linkend="gint">gint</link> *length,
+                                                         <link linkend="guint8">guint8</link> **mask_data);</programlisting>
+<warning><para><literal>gimp_patterns_get_pattern_data</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-pattern-get-pixels"><function>gimp_pattern_get_pixels()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern name (\"\" means currently active pattern).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mask_bpp</parameter>&nbsp;:</term>
+<listitem><simpara> Pattern bytes per pixel.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara> Length of pattern mask data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mask_data</parameter>&nbsp;:</term>
+<listitem><simpara> The pattern mask data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The pattern name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

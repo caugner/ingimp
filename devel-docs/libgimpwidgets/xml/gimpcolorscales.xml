@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpColorScales">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpColorScales.top_of_page">GimpColorScales</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpColorScales</refname>
+<refpurpose>A <link linkend="GimpColorSelector"><type>GimpColorSelector</type></link> implementation.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpColorScales.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpColorScales-struct">GimpColorScales</link>;
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpColorScales.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkVBox">GtkVBox</link>
+                                       +----<link linkend="GimpColorSelector">GimpColorSelector</link>
+                                             +----GimpColorScales
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpColorScales.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpColorScales implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpColorScales.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+The <link linkend="GimpColorScales"><type>GimpColorScales</type></link> widget is an implementation of a <link linkend="GimpColorSelector"><type>GimpColorSelector</type></link>.
+It shows a group of <link linkend="GimpColorScale"><type>GimpColorScale</type></link> widgets that allow to adjust the
+HSV and RGB color channels.
+</para>
+</refsect1>
+
+<refsect1 id="GimpColorScales.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpColorScales-struct" role="struct">
+<title>GimpColorScales</title>
+<indexterm zone="GimpColorScales-struct"><primary>GimpColorScales</primary></indexterm><programlisting>typedef struct _GimpColorScales GimpColorScales;</programlisting>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimppixelrgn">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimppixelrgn.top_of_page">gimppixelrgn</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimppixelrgn</refname>
+<refpurpose>Functions for operating on pixel regions.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimppixelrgn.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpPixelRgn">GimpPixelRgn</link>;
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-init">gimp_pixel_rgn_init</link>                 (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="GimpDrawable">GimpDrawable</link> *drawable,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="gint">gint</link> dirty,
+                                                         <link linkend="gint">gint</link> shadow);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-resize">gimp_pixel_rgn_resize</link>               (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-get-pixel">gimp_pixel_rgn_get_pixel</link>            (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-get-row">gimp_pixel_rgn_get_row</link>              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-get-col">gimp_pixel_rgn_get_col</link>              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-get-rect">gimp_pixel_rgn_get_rect</link>             (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-set-pixel">gimp_pixel_rgn_set_pixel</link>            (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-set-row">gimp_pixel_rgn_set_row</link>              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-set-col">gimp_pixel_rgn_set_col</link>              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="void">void</link>                <link linkend="gimp-pixel-rgn-set-rect">gimp_pixel_rgn_set_rect</link>             (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="gpointer">gpointer</link>            <link linkend="gimp-pixel-rgns-register">gimp_pixel_rgns_register</link>            (<link linkend="gint">gint</link> nrgns,
+                                                         ...);
+<link linkend="gpointer">gpointer</link>            <link linkend="gimp-pixel-rgns-register2">gimp_pixel_rgns_register2</link>           (<link linkend="gint">gint</link> nrgns,
+                                                         <link linkend="GimpPixelRgn">GimpPixelRgn</link> **prs);
+<link linkend="gpointer">gpointer</link>            <link linkend="gimp-pixel-rgns-process">gimp_pixel_rgns_process</link>             (<link linkend="gpointer">gpointer</link> pri_ptr);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimppixelrgn.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions for operating on pixel regions.  These functions provide
+fast ways of accessing and modifying portions of a drawable.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimppixelrgn.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpPixelRgn" role="struct">
+<title>GimpPixelRgn</title>
+<indexterm zone="GimpPixelRgn"><primary>GimpPixelRgn</primary></indexterm><programlisting>typedef struct {
+  guchar       *data;          /* pointer to region data */
+  GimpDrawable *drawable;      /* pointer to drawable */
+  guint         bpp;           /* bytes per pixel */
+  guint         rowstride;     /* bytes per pixel row */
+  guint         x, y;          /* origin */
+  guint         w, h;          /* width and height of region */
+  guint         dirty : 1;     /* will this region be dirtied? */
+  guint         shadow : 1;    /* will this region use the shadow or normal tiles */
+  guint         process_count; /* used internally */
+} GimpPixelRgn;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-pixel-rgn-init" role="function">
+<title>gimp_pixel_rgn_init ()</title>
+<indexterm zone="gimp-pixel-rgn-init"><primary>gimp_pixel_rgn_init</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_init                 (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="GimpDrawable">GimpDrawable</link> *drawable,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="gint">gint</link> dirty,
+                                                         <link linkend="gint">gint</link> shadow);</programlisting>
+<para>
+Initialize the pixel region pointed by <parameter>pr</parameter> with the specified parameters.
+</para>
+<para>
+The <parameter>dirty</parameter> and <parameter>shadow</parameter> flags can be used as follows:
+</para>
+<para>
+- <parameter>dirty</parameter> = FALSE, <parameter>shadow</parameter> = FALSE: the region will be used to read
+                                   the actual drawable datas.  This
+                                   is useful for save plug-ins or for
+                                   filters.
+</para>
+<para>
+- <parameter>dirty</parameter> = FALSE, <parameter>shadow</parameter> = TRUE:  the region will be used to read the
+                                   shadow tiles.  This is used in
+                                   some filter plug-ins which operate
+                                   in two passes such as gaussian
+                                   blur.  The first pass reads the
+                                   actual drawable data and writes to
+                                   the shadow tiles, and the second
+                                   one reads from and writes to the
+                                   shadow tiles.
+</para>
+<para>
+- <parameter>dirty</parameter> = TRUE, <parameter>shadow</parameter> = TRUE:   the region will be used to write to
+                                   the shadow tiles. It is common
+                                   practice to write to the shadow
+                                   tiles and then use
+                                   #<link linkend="gimp-drawable-merge-shadow"><function>gimp_drawable_merge_shadow()</function></link> to
+                                   merge the changes from the shadow
+                                   tiles using the current selection
+                                   as a mask.
+</para>
+<para>
+- <parameter>dirty</parameter> = TRUE, <parameter>shadow</parameter> = FALSE:  the region will be used to directly
+                                   change the drawable content. Don't
+                                   do this, since this could prevent
+                                   the Undo-System from working as
+                                   expected.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>        a pointer to a <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link> variable.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>drawable</parameter>&nbsp;:</term>
+<listitem><simpara>  the <link linkend="GimpDrawable"><type>GimpDrawable</type></link> the new region will be attached to.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>         the x coordinate of the top-left pixel of the region in the
+            <parameter>drawable</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>         the y coordinate of the top-left pixel of the region in the
+            <parameter>drawable</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>     the width of the region.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>    the height of the region.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dirty</parameter>&nbsp;:</term>
+<listitem><simpara>     a <link linkend="gboolean"><type>gboolean</type></link> indicating whether the <parameter>drawable</parameter> should be marked
+            as "dirty".
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>shadow</parameter>&nbsp;:</term>
+<listitem><simpara>    a <link linkend="gboolean"><type>gboolean</type></link> indicating whether the region is attached to the
+            shadow tiles or the real <parameter>drawable</parameter> tiles.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-resize" role="function">
+<title>gimp_pixel_rgn_resize ()</title>
+<indexterm zone="gimp-pixel-rgn-resize"><primary>gimp_pixel_rgn_resize</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_resize               (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Change the position and size of a previously initialized pixel region.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>      a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>       the x coordinate of the new position of the region's
+          top-left corner.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>       the y coordinate of the new position of the region's
+          top-left corner.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>   the new width of the region.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>  the new height of the region.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-get-pixel" role="function">
+<title>gimp_pixel_rgn_get_pixel ()</title>
+<indexterm zone="gimp-pixel-rgn-get-pixel"><primary>gimp_pixel_rgn_get_pixel</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_get_pixel            (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);</programlisting>
+<para>
+Fill the buffer pointed by <parameter>buf</parameter> with the value of the pixel at (<parameter>x</parameter>, <parameter>y</parameter>)
+in the region <parameter>pr</parameter>. <parameter>buf</parameter> should be large enough to hold the pixel value
+(1 <link linkend="guchar"><type>guchar</type></link> for an indexed or grayscale drawable, 2 <link linkend="guchar"><type>guchar</type></link> for
+indexed with alpha or grayscale with alpha drawable, 3 <link linkend="guchar"><type>guchar</type></link> for
+rgb drawable and 4 <link linkend="guchar"><type>guchar</type></link> for rgb with alpha drawable.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>   a pointer to an array of <link linkend="guchar"><type>guchar</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>     the x coordinate of the wanted pixel (relative to the drawable)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>     the y coordinate of the wanted pixel (relative to the drawable)
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-get-row" role="function">
+<title>gimp_pixel_rgn_get_row ()</title>
+<indexterm zone="gimp-pixel-rgn-get-row"><primary>gimp_pixel_rgn_get_row</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_get_row              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width);</programlisting>
+<para>
+Get several pixels of a region in a row. This function fills the buffer
+<parameter>buf</parameter> with the values of the pixels from (<parameter>x</parameter>, <parameter>y</parameter>) to (<parameter>x</parameter>+<parameter>width</parameter>-1, <parameter>y</parameter>).
+<parameter>buf</parameter> should be large enough to hold all these values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>     a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to an array of <link linkend="guchar"><type>guchar</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>      the x coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>      the y coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>  the number of pixels to get.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-get-col" role="function">
+<title>gimp_pixel_rgn_get_col ()</title>
+<indexterm zone="gimp-pixel-rgn-get-col"><primary>gimp_pixel_rgn_get_col</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_get_col              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Get several pixels of a region's column. This function fills the buffer
+<parameter>buf</parameter> with the values of the pixels from (<parameter>x</parameter>, <parameter>y</parameter>) to (<parameter>x</parameter>, <parameter>y</parameter>+<parameter>height</parameter>-1).
+<parameter>buf</parameter> should be large enough to hold all these values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>     a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to an array of <link linkend="guchar"><type>guchar</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>      the x coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>      the y coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> the number of pixels to get.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-get-rect" role="function">
+<title>gimp_pixel_rgn_get_rect ()</title>
+<indexterm zone="gimp-pixel-rgn-get-rect"><primary>gimp_pixel_rgn_get_rect</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_get_rect             (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Get all the pixel values from the rectangle defined by <parameter>x</parameter>, <parameter>y</parameter>, <parameter>width</parameter> and
+<parameter>height</parameter>. This function fills the buffer <parameter>buf</parameter> with the values of the pixels
+from (<parameter>x</parameter>, <parameter>y</parameter>) to (<parameter>x</parameter>+<parameter>width</parameter>-1, <parameter>y</parameter>+<parameter>height</parameter>-1).
+<parameter>buf</parameter> should be large enough to hold all these values (<parameter>width</parameter>*<parameter>height</parameter>*bpp).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>     a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to an array of <link linkend="guchar"><type>guchar</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>      the x coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>      the y coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>  the width of the rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> the height of the rectangle.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-set-pixel" role="function">
+<title>gimp_pixel_rgn_set_pixel ()</title>
+<indexterm zone="gimp-pixel-rgn-set-pixel"><primary>gimp_pixel_rgn_set_pixel</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_set_pixel            (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);</programlisting>
+<para>
+Set the pixel at (<parameter>x</parameter>, <parameter>y</parameter>) to the values from <parameter>buf</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>   a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>  a pointer to an array of <link linkend="guchar"><type>guchar</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>    the x coordinate of the pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>    the y coordinate of the pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-set-row" role="function">
+<title>gimp_pixel_rgn_set_row ()</title>
+<indexterm zone="gimp-pixel-rgn-set-row"><primary>gimp_pixel_rgn_set_row</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_set_row              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width);</programlisting>
+<para>
+Set several pixels of a region in a row. This function draws the pixels
+from (<parameter>x</parameter>, <parameter>y</parameter>) to (<parameter>x</parameter>+<parameter>width</parameter>-1, <parameter>y</parameter>) using the values of the buffer <parameter>buf</parameter>.
+<parameter>buf</parameter> should be large enough to hold all these values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>     a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to an array of <link linkend="guchar"><type>guchar</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>      the x coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>      the y coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>  the number of pixels to set.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-set-col" role="function">
+<title>gimp_pixel_rgn_set_col ()</title>
+<indexterm zone="gimp-pixel-rgn-set-col"><primary>gimp_pixel_rgn_set_col</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_set_col              (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Set several pixels of a region's column. This function draws the pixels
+from (<parameter>x</parameter>, <parameter>y</parameter>) to (<parameter>x</parameter>, <parameter>y</parameter>+<parameter>height</parameter>-1) using the values from the buffer <parameter>buf</parameter>.
+<parameter>buf</parameter> should be large enough to hold all these values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>     a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to an array of <link linkend="guchar"><type>guchar</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>      the x coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>      the y coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> the number of pixels to set.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgn-set-rect" role="function">
+<title>gimp_pixel_rgn_set_rect ()</title>
+<indexterm zone="gimp-pixel-rgn-set-rect"><primary>gimp_pixel_rgn_set_rect</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixel_rgn_set_rect             (<link linkend="GimpPixelRgn">GimpPixelRgn</link> *pr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Set all the pixel of the rectangle defined by <parameter>x</parameter>, <parameter>y</parameter>, <parameter>width</parameter> and
+<parameter>height</parameter>. This function draws the rectangle from (<parameter>x</parameter>, <parameter>y</parameter>) to
+(<parameter>x</parameter>+<parameter>width</parameter>-1, <parameter>y</parameter>+<parameter>height</parameter>-1), using the pixel values from the buffer <parameter>buf</parameter>.
+<parameter>buf</parameter> should be large enough to hold all these values (<parameter>width</parameter>*<parameter>height</parameter>*bpp).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pr</parameter>&nbsp;:</term>
+<listitem><simpara>     a pointer to a previously initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&nbsp;:</term>
+<listitem><simpara>    a pointer to an array of <link linkend="guchar"><type>guchar</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>      the x coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>      the y coordinate of the first pixel (relative to the drawable).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>  the width of the rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> the height of the rectangle.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgns-register" role="function">
+<title>gimp_pixel_rgns_register ()</title>
+<indexterm zone="gimp-pixel-rgns-register"><primary>gimp_pixel_rgns_register</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            gimp_pixel_rgns_register            (<link linkend="gint">gint</link> nrgns,
+                                                         ...);</programlisting>
+<para>
+This is the varargs version of <link linkend="gimp-pixel-rgns-register2"><type>gimp_pixel_rgns_register2</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>nrgns</parameter>&nbsp;:</term>
+<listitem><simpara>   the number of regions to register.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> <parameter>nrgns</parameter> pointers to <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="gpointer"><type>gpointer</type></link> to a regions iterator.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgns-register2" role="function">
+<title>gimp_pixel_rgns_register2 ()</title>
+<indexterm zone="gimp-pixel-rgns-register2"><primary>gimp_pixel_rgns_register2</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            gimp_pixel_rgns_register2           (<link linkend="gint">gint</link> nrgns,
+                                                         <link linkend="GimpPixelRgn">GimpPixelRgn</link> **prs);</programlisting>
+<para>
+It takes a number of initialized regions of the same size and provides a
+pixel region iterator the iterator can be used to iterate over the
+registered pixel regions.  While iterating the registered pixel regions will
+cover subsets of the original pixel regions, chosen for optimized access to
+the image data.
+</para>
+<para>
+Note that the given regions themselves are changed by this function, so
+they are resized to the first subsets.
+</para>
+<para>
+This function has to be used together with gimp_pixel_rgns_process in a loop.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>nrgns</parameter>&nbsp;:</term>
+<listitem><simpara> the number of regions to register.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prs</parameter>&nbsp;:</term>
+<listitem><simpara>   an array of <parameter>nrgns</parameter> pointers to initialized <link linkend="GimpPixelRgn"><type>GimpPixelRgn</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="gpointer"><type>gpointer</type></link> to a regions iterator.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixel-rgns-process" role="function">
+<title>gimp_pixel_rgns_process ()</title>
+<indexterm zone="gimp-pixel-rgns-process"><primary>gimp_pixel_rgns_process</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            gimp_pixel_rgns_process             (<link linkend="gpointer">gpointer</link> pri_ptr);</programlisting>
+<para>
+This function update the regions registered previously with one of the
+<link linkend="gimp-pixel-rgns-register"><type>gimp_pixel_rgns_register</type></link>* functions to their next tile.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pri_ptr</parameter>&nbsp;:</term>
+<listitem><simpara> a regions iterator returned by <link linkend="gimp-pixel-rgns-register"><type>gimp_pixel_rgns_register</type></link>,
+          <link linkend="gimp-pixel-rgns-register2"><type>gimp_pixel_rgns_register2</type></link> or <link linkend="gimp-pixel-rgns-process"><type>gimp_pixel_rgns_process</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="gpointer"><type>gpointer</type></link> to a new regions iterator or <link linkend="NULL:CAPS"><type>NULL</type></link> if there isn't
+any tiles left.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

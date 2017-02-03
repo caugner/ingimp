@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpdatafiles">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpdatafiles.top_of_page">gimpdatafiles</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpdatafiles</refname>
+<refpurpose>Functions to handle GIMP data files.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpdatafiles.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpDatafileData">GimpDatafileData</link>;
+<link linkend="void">void</link>                (<link linkend="GimpDatafileLoaderFunc">*GimpDatafileLoaderFunc</link>)           (const <link linkend="GimpDatafileData">GimpDatafileData</link> *file_data,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-datafiles-check-extension">gimp_datafiles_check_extension</link>      (const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *extension);
+<link linkend="void">void</link>                <link linkend="gimp-datafiles-read-directories">gimp_datafiles_read_directories</link>     (const <link linkend="gchar">gchar</link> *path_str,
+                                                         <link linkend="GFileTest">GFileTest</link> flags,
+                                                         <link linkend="GimpDatafileLoaderFunc">GimpDatafileLoaderFunc</link> loader_func,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpdatafiles.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions to handle GIMP data files.
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpdatafiles.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpDatafileData" role="struct">
+<title>GimpDatafileData</title>
+<indexterm zone="GimpDatafileData"><primary>GimpDatafileData</primary></indexterm><programlisting>typedef struct {
+  const gchar *filename;
+  const gchar *dirname;
+  const gchar *basename;
+
+  time_t       atime;
+  time_t       mtime;
+  time_t       ctime;
+} GimpDatafileData;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpDatafileLoaderFunc" role="function">
+<title>GimpDatafileLoaderFunc ()</title>
+<indexterm zone="GimpDatafileLoaderFunc"><primary>GimpDatafileLoaderFunc</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpDatafileLoaderFunc)           (const <link linkend="GimpDatafileData">GimpDatafileData</link> *file_data,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>file_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-datafiles-check-extension" role="function">
+<title>gimp_datafiles_check_extension ()</title>
+<indexterm zone="gimp-datafiles-check-extension"><primary>gimp_datafiles_check_extension</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_datafiles_check_extension      (const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *extension);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>extension</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-datafiles-read-directories" role="function">
+<title>gimp_datafiles_read_directories ()</title>
+<indexterm zone="gimp-datafiles-read-directories"><primary>gimp_datafiles_read_directories</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_datafiles_read_directories     (const <link linkend="gchar">gchar</link> *path_str,
+                                                         <link linkend="GFileTest">GFileTest</link> flags,
+                                                         <link linkend="GimpDatafileLoaderFunc">GimpDatafileLoaderFunc</link> loader_func,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>path_str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>loader_func</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

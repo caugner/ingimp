@@ -1,0 +1,2133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpimage">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpimage.top_of_page">gimpimage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpimage</refname>
+<refpurpose>Operations on complete images.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpimage.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gint">gint</link>*               <link linkend="gimp-image-list">gimp_image_list</link>                     (<link linkend="gint">gint</link> *num_images);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-new">gimp_image_new</link>                      (<link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="GimpImageBaseType">GimpImageBaseType</link> type);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-duplicate">gimp_image_duplicate</link>                (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-delete">gimp_image_delete</link>                   (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-is-valid">gimp_image_is_valid</link>                 (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="GimpImageBaseType">GimpImageBaseType</link>   <link linkend="gimp-image-base-type">gimp_image_base_type</link>                (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint">gint</link>                <link linkend="gimp-image-width">gimp_image_width</link>                    (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint">gint</link>                <link linkend="gimp-image-height">gimp_image_height</link>                   (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-free-shadow">gimp_image_free_shadow</link>              (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-flip">gimp_image_flip</link>                     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpOrientationType">GimpOrientationType</link> flip_type);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-rotate">gimp_image_rotate</link>                   (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpRotationType">GimpRotationType</link> rotate_type);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-resize">gimp_image_resize</link>                   (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> new_width,
+                                                         <link linkend="gint">gint</link> new_height,
+                                                         <link linkend="gint">gint</link> offx,
+                                                         <link linkend="gint">gint</link> offy);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-resize-to-layers">gimp_image_resize_to_layers</link>         (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-scale">gimp_image_scale</link>                    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> new_width,
+                                                         <link linkend="gint">gint</link> new_height);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-crop">gimp_image_crop</link>                     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> new_width,
+                                                         <link linkend="gint">gint</link> new_height,
+                                                         <link linkend="gint">gint</link> offx,
+                                                         <link linkend="gint">gint</link> offy);
+<link linkend="gint">gint</link>*               <link linkend="gimp-image-get-layers">gimp_image_get_layers</link>               (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_layers);
+<link linkend="gint">gint</link>*               <link linkend="gimp-image-get-channels">gimp_image_get_channels</link>             (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_channels);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-active-drawable">gimp_image_get_active_drawable</link>      (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-floating-sel">gimp_image_get_floating_sel</link>         (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-floating-sel-attached-to">gimp_image_floating_sel_attached_to</link> (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-pick-color">gimp_image_pick_color</link>               (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> drawable_ID,
+                                                         <link linkend="gdouble">gdouble</link> x,
+                                                         <link linkend="gdouble">gdouble</link> y,
+                                                         <link linkend="gboolean">gboolean</link> sample_merged,
+                                                         <link linkend="gboolean">gboolean</link> sample_average,
+                                                         <link linkend="gdouble">gdouble</link> average_radius,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-pick-correlate-layer">gimp_image_pick_correlate_layer</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-add-layer">gimp_image_add_layer</link>                (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID,
+                                                         <link linkend="gint">gint</link> position);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-remove-layer">gimp_image_remove_layer</link>             (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-raise-layer">gimp_image_raise_layer</link>              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-lower-layer">gimp_image_lower_layer</link>              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-raise-layer-to-top">gimp_image_raise_layer_to_top</link>       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-lower-layer-to-bottom">gimp_image_lower_layer_to_bottom</link>    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);
+<link linkend="gint">gint</link>                <link linkend="gimp-image-get-layer-position">gimp_image_get_layer_position</link>       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-add-channel">gimp_image_add_channel</link>              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID,
+                                                         <link linkend="gint">gint</link> position);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-remove-channel">gimp_image_remove_channel</link>           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-raise-channel">gimp_image_raise_channel</link>            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-lower-channel">gimp_image_lower_channel</link>            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);
+<link linkend="gint">gint</link>                <link linkend="gimp-image-get-channel-position">gimp_image_get_channel_position</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-flatten">gimp_image_flatten</link>                  (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-merge-visible-layers">gimp_image_merge_visible_layers</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpMergeType">GimpMergeType</link> merge_type);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-merge-down">gimp_image_merge_down</link>               (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> merge_layer_ID,
+                                                         <link linkend="GimpMergeType">GimpMergeType</link> merge_type);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-clean-all">gimp_image_clean_all</link>                (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-is-dirty">gimp_image_is_dirty</link>                 (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-active-layer">gimp_image_get_active_layer</link>         (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-active-layer">gimp_image_set_active_layer</link>         (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> active_layer_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-active-channel">gimp_image_get_active_channel</link>       (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-active-channel">gimp_image_set_active_channel</link>       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> active_channel_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-unset-active-channel">gimp_image_unset_active_channel</link>     (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-selection">gimp_image_get_selection</link>            (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-get-component-active">gimp_image_get_component_active</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-component-active">gimp_image_set_component_active</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component,
+                                                         <link linkend="gboolean">gboolean</link> active);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-get-component-visible">gimp_image_get_component_visible</link>    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-component-visible">gimp_image_set_component_visible</link>    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component,
+                                                         <link linkend="gboolean">gboolean</link> visible);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-image-get-filename">gimp_image_get_filename</link>             (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-filename">gimp_image_set_filename</link>             (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *filename);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-image-get-name">gimp_image_get_name</link>                 (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-get-resolution">gimp_image_get_resolution</link>           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gdouble">gdouble</link> *xresolution,
+                                                         <link linkend="gdouble">gdouble</link> *yresolution);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-resolution">gimp_image_set_resolution</link>           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gdouble">gdouble</link> xresolution,
+                                                         <link linkend="gdouble">gdouble</link> yresolution);
+<link linkend="GimpUnit">GimpUnit</link>            <link linkend="gimp-image-get-unit">gimp_image_get_unit</link>                 (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-unit">gimp_image_set_unit</link>                 (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-tattoo-state">gimp_image_set_tattoo_state</link>         (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> tattoo_state);
+<link linkend="gint">gint</link>                <link linkend="gimp-image-get-tattoo-state">gimp_image_get_tattoo_state</link>         (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-layer-by-tattoo">gimp_image_get_layer_by_tattoo</link>      (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> tattoo);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-channel-by-tattoo">gimp_image_get_channel_by_tattoo</link>    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> tattoo);
+<link linkend="guchar">guchar</link>*             <link linkend="gimp-image-get-cmap">gimp_image_get_cmap</link>                 (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_colors);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-cmap">gimp_image_set_cmap</link>                 (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="guchar">guchar</link> *cmap,
+                                                         <link linkend="gint">gint</link> num_colors);
+<link linkend="guchar">guchar</link>*             <link linkend="gimp-image-get-colormap">gimp_image_get_colormap</link>             (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_colors);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-colormap">gimp_image_set_colormap</link>             (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="guchar">guchar</link> *colormap,
+                                                         <link linkend="gint">gint</link> num_colors);
+<link linkend="gint">gint</link>*               <link linkend="gimp-image-get-vectors">gimp_image_get_vectors</link>              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_vectors);
+<link linkend="guchar">guchar</link>*             <link linkend="gimp-image-get-thumbnail-data">gimp_image_get_thumbnail_data</link>       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp);
+<link linkend="GimpParasite">GimpParasite</link>*       <link linkend="gimp-image-parasite-find">gimp_image_parasite_find</link>            (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-parasite-list">gimp_image_parasite_list</link>            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_parasites,
+                                                         <link linkend="gchar">gchar</link> ***parasites);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-parasite-attach">gimp_image_parasite_attach</link>          (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="GimpParasite">GimpParasite</link> *parasite);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-parasite-detach">gimp_image_parasite_detach</link>          (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-attach-new-parasite">gimp_image_attach_new_parasite</link>      (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> flags,
+                                                         <link linkend="gint">gint</link> size,
+                                                         <link linkend="gconstpointer">gconstpointer</link> data);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-add-vectors">gimp_image_add_vectors</link>              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> position);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-remove-vectors">gimp_image_remove_vectors</link>           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-image-get-active-vectors">gimp_image_get_active_vectors</link>       (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-set-active-vectors">gimp_image_set_active_vectors</link>       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> active_vectors_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-lower-vectors">gimp_image_lower_vectors</link>            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-raise-vectors">gimp_image_raise_vectors</link>            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-lower-vectors-to-bottom">gimp_image_lower_vectors_to_bottom</link>  (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-raise-vectors-to-top">gimp_image_raise_vectors_to_top</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gint">gint</link>                <link linkend="gimp-image-get-vectors-position">gimp_image_get_vectors_position</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpimage.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Operations on complete images: creation, resizing/rescaling,
+and operations involving multiple layers.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpimage.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-image-list" role="function">
+<title>gimp_image_list ()</title>
+<indexterm zone="gimp-image-list"><primary>gimp_image_list</primary></indexterm><programlisting><link linkend="gint">gint</link>*               gimp_image_list                     (<link linkend="gint">gint</link> *num_images);</programlisting>
+<para>
+Returns the list of images currently open.
+</para>
+<para>
+This procedure returns the list of images currently open in GIMP.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>num_images</parameter>&nbsp;:</term>
+<listitem><simpara> The number of images currently open.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of images currently open.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-new" role="function">
+<title>gimp_image_new ()</title>
+<indexterm zone="gimp-image-new"><primary>gimp_image_new</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_new                      (<link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height,
+                                                         <link linkend="GimpImageBaseType">GimpImageBaseType</link> type);</programlisting>
+<para>
+Creates a new image with the specified width, height, and type.
+</para>
+<para>
+Creates a new image, undisplayed with the specified extents and
+type. A layer should be created and added before this image is
+displayed, or subsequent calls to <link linkend="gimp-display-new"><function>gimp_display_new()</function></link> with this image
+as an argument will fail. Layers can be created using the
+<link linkend="gimp-layer-new"><function>gimp_layer_new()</function></link> commands. They can be added to an image using the
+<link linkend="gimp-image-add-layer"><function>gimp_image_add_layer()</function></link> command.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The width of the image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> The height of the image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> The type of image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The ID of the newly created image.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-duplicate" role="function">
+<title>gimp_image_duplicate ()</title>
+<indexterm zone="gimp-image-duplicate"><primary>gimp_image_duplicate</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_duplicate                (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Duplicate the specified image
+</para>
+<para>
+This procedure duplicates the specified image, copying all layers,
+channels, and image information.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The new, duplicated image.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-delete" role="function">
+<title>gimp_image_delete ()</title>
+<indexterm zone="gimp-image-delete"><primary>gimp_image_delete</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_delete                   (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Delete the specified image.
+</para>
+<para>
+If there are no displays associated with this image it will be
+deleted. This means that you can not delete an image through the PDB
+that was created by the user. If the associated display was however
+created through the PDB and you know the display ID, you may delete
+the display. Removal of the last associated display will then delete
+the image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-is-valid" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_is_valid ()</title>
+<indexterm zone="gimp-image-is-valid" role="GIMP 2.4"><primary>gimp_image_is_valid</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_is_valid                 (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns TRUE if the image is valid.
+</para>
+<para>
+This procedure checks if the given image ID is valid and refers to
+an existing image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image to check.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Whether the image ID is valid.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-base-type" role="function">
+<title>gimp_image_base_type ()</title>
+<indexterm zone="gimp-image-base-type"><primary>gimp_image_base_type</primary></indexterm><programlisting><link linkend="GimpImageBaseType">GimpImageBaseType</link>   gimp_image_base_type                (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Get the base type of the image.
+</para>
+<para>
+This procedure returns the image's base type. Layers in the image
+must be of this subtype, but can have an optional alpha channel.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The image's base type.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-width" role="function">
+<title>gimp_image_width ()</title>
+<indexterm zone="gimp-image-width"><primary>gimp_image_width</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_image_width                    (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Return the width of the image
+</para>
+<para>
+This procedure returns the image's width. This value is independent
+of any of the layers in this image. This is the \"canvas\" width.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The image's width.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-height" role="function">
+<title>gimp_image_height ()</title>
+<indexterm zone="gimp-image-height"><primary>gimp_image_height</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_image_height                   (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Return the height of the image
+</para>
+<para>
+This procedure returns the image's height. This value is independent
+of any of the layers in this image. This is the \"canvas\" height.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The image's height.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-free-shadow" role="function">
+<title>gimp_image_free_shadow ()</title>
+<indexterm zone="gimp-image-free-shadow"><primary>gimp_image_free_shadow</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_free_shadow              (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Free the specified image's shadow data (if it exists).
+</para>
+<para>
+This procedure is intended as a memory saving device. If any shadow
+memory has been allocated, it will be freed automatically on a call
+to <link linkend="gimp-image-delete"><function>gimp_image_delete()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-flip" role="function">
+<title>gimp_image_flip ()</title>
+<indexterm zone="gimp-image-flip"><primary>gimp_image_flip</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_flip                     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpOrientationType">GimpOrientationType</link> flip_type);</programlisting>
+<para>
+Flips the image horizontally or vertically.
+</para>
+<para>
+This procedure flips (mirrors) the image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flip_type</parameter>&nbsp;:</term>
+<listitem><simpara> Type of flip.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-rotate" role="function">
+<title>gimp_image_rotate ()</title>
+<indexterm zone="gimp-image-rotate"><primary>gimp_image_rotate</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_rotate                   (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpRotationType">GimpRotationType</link> rotate_type);</programlisting>
+<para>
+Rotates the image by the specified degrees.
+</para>
+<para>
+This procedure rotates the image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rotate_type</parameter>&nbsp;:</term>
+<listitem><simpara> Angle of rotation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-resize" role="function">
+<title>gimp_image_resize ()</title>
+<indexterm zone="gimp-image-resize"><primary>gimp_image_resize</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_resize                   (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> new_width,
+                                                         <link linkend="gint">gint</link> new_height,
+                                                         <link linkend="gint">gint</link> offx,
+                                                         <link linkend="gint">gint</link> offy);</programlisting>
+<para>
+Resize the image to the specified extents.
+</para>
+<para>
+This procedure resizes the image so that it's new width and height
+are equal to the supplied parameters. Offsets are also provided
+which describe the position of the previous image's content. No
+bounds checking is currently provided, so don't supply parameters
+that are out of bounds. All channels within the image are resized
+according to the specified parameters; this includes the image
+selection mask. All layers within the image are repositioned
+according to the specified offsets.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_width</parameter>&nbsp;:</term>
+<listitem><simpara> New image width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_height</parameter>&nbsp;:</term>
+<listitem><simpara> New image height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offx</parameter>&nbsp;:</term>
+<listitem><simpara> x offset between upper left corner of old and new images: (new - old).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offy</parameter>&nbsp;:</term>
+<listitem><simpara> y offset between upper left corner of old and new images: (new - old).
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-resize-to-layers" role="function" condition="since:GIMP 2.2">
+<title>gimp_image_resize_to_layers ()</title>
+<indexterm zone="gimp-image-resize-to-layers" role="GIMP 2.2"><primary>gimp_image_resize_to_layers</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_resize_to_layers         (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Resize the image to fit all layers.
+</para>
+<para>
+This procedure resizes the image to the bounding box of all layers
+of the image. All channels within the image are resized to the new
+size; this includes the image selection mask. All layers within the
+image are repositioned to the new image area.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-image-scale" role="function">
+<title>gimp_image_scale ()</title>
+<indexterm zone="gimp-image-scale"><primary>gimp_image_scale</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_scale                    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> new_width,
+                                                         <link linkend="gint">gint</link> new_height);</programlisting>
+<para>
+Scale the image to the specified extents.
+</para>
+<para>
+This procedure scales the image so that its new width and height are
+equal to the supplied parameters. Offsets are also provided which
+describe the position of the previous image's content. No bounds
+checking is currently provided, so don't supply parameters that are
+out of bounds. All channels within the image are scaled according to
+the specified parameters; this includes the image selection mask.
+All layers within the image are repositioned according to the
+specified offsets.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_width</parameter>&nbsp;:</term>
+<listitem><simpara> New image width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_height</parameter>&nbsp;:</term>
+<listitem><simpara> New image height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-crop" role="function">
+<title>gimp_image_crop ()</title>
+<indexterm zone="gimp-image-crop"><primary>gimp_image_crop</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_crop                     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> new_width,
+                                                         <link linkend="gint">gint</link> new_height,
+                                                         <link linkend="gint">gint</link> offx,
+                                                         <link linkend="gint">gint</link> offy);</programlisting>
+<para>
+Crop the image to the specified extents.
+</para>
+<para>
+This procedure crops the image so that it's new width and height are
+equal to the supplied parameters. Offsets are also provided which
+describe the position of the previous image's content. All channels
+and layers within the image are cropped to the new image extents;
+this includes the image selection mask. If any parameters are out of
+range, an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_width</parameter>&nbsp;:</term>
+<listitem><simpara> New image width: (0 &lt; new_width &lt;= width).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_height</parameter>&nbsp;:</term>
+<listitem><simpara> New image height: (0 &lt; new_height &lt;= height).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offx</parameter>&nbsp;:</term>
+<listitem><simpara> x offset: (0 &lt;= offx &lt;= (width - new_width)).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>offy</parameter>&nbsp;:</term>
+<listitem><simpara> y offset: (0 &lt;= offy &lt;= (height - new_height)).
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-layers" role="function">
+<title>gimp_image_get_layers ()</title>
+<indexterm zone="gimp-image-get-layers"><primary>gimp_image_get_layers</primary></indexterm><programlisting><link linkend="gint">gint</link>*               gimp_image_get_layers               (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_layers);</programlisting>
+<para>
+Returns the list of layers contained in the specified image.
+</para>
+<para>
+This procedure returns the list of layers contained in the specified
+image. The order of layers is from topmost to bottommost.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_layers</parameter>&nbsp;:</term>
+<listitem><simpara> The number of layers contained in the image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of layers contained in the image.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-channels" role="function">
+<title>gimp_image_get_channels ()</title>
+<indexterm zone="gimp-image-get-channels"><primary>gimp_image_get_channels</primary></indexterm><programlisting><link linkend="gint">gint</link>*               gimp_image_get_channels             (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_channels);</programlisting>
+<para>
+Returns the list of channels contained in the specified image.
+</para>
+<para>
+This procedure returns the list of channels contained in the
+specified image. This does not include the selection mask, or layer
+masks. The order is from topmost to bottommost.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_channels</parameter>&nbsp;:</term>
+<listitem><simpara> The number of channels contained in the image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of channels contained in the image.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-active-drawable" role="function">
+<title>gimp_image_get_active_drawable ()</title>
+<indexterm zone="gimp-image-get-active-drawable"><primary>gimp_image_get_active_drawable</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_active_drawable      (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Get the image's active drawable
+</para>
+<para>
+This procedure returns the ID of the image's active drawable. This
+can be either a layer, a channel, or a layer mask. The active
+drawable is specified by the active image channel. If that is -1,
+then by the active image layer. If the active image layer has a
+layer mask and the layer mask is in edit mode, then the layer mask
+is the active drawable.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The active drawable.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-floating-sel" role="function">
+<title>gimp_image_get_floating_sel ()</title>
+<indexterm zone="gimp-image-get-floating-sel"><primary>gimp_image_get_floating_sel</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_floating_sel         (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Return the floating selection of the image.
+</para>
+<para>
+This procedure returns the image's floating selection, if it exists.
+If it doesn't exist, -1 is returned as the layer ID.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The image's floating selection.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-floating-sel-attached-to" role="function">
+<title>gimp_image_floating_sel_attached_to ()</title>
+<indexterm zone="gimp-image-floating-sel-attached-to"><primary>gimp_image_floating_sel_attached_to</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_floating_sel_attached_to (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Return the drawable the floating selection is attached to.
+</para>
+<para>
+This procedure returns the drawable the image's floating selection
+is attached to, if it exists. If it doesn't exist, -1 is returned as
+the drawable ID.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The drawable the floating selection is attached to.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-pick-color" role="function">
+<title>gimp_image_pick_color ()</title>
+<indexterm zone="gimp-image-pick-color"><primary>gimp_image_pick_color</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_pick_color               (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> drawable_ID,
+                                                         <link linkend="gdouble">gdouble</link> x,
+                                                         <link linkend="gdouble">gdouble</link> y,
+                                                         <link linkend="gboolean">gboolean</link> sample_merged,
+                                                         <link linkend="gboolean">gboolean</link> sample_average,
+                                                         <link linkend="gdouble">gdouble</link> average_radius,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);</programlisting>
+<para>
+Determine the color at the given drawable coordinates
+</para>
+<para>
+This tool determines the color at the specified coordinates. The
+returned color is an RGB triplet even for grayscale and indexed
+drawables. If the coordinates lie outside of the extents of the
+specified drawable, then an error is returned. If the drawable has
+an alpha channel, the algorithm examines the alpha value of the
+drawable at the coordinates. If the alpha value is completely
+transparent (0), then an error is returned. If the sample_merged
+parameter is TRUE, the data of the composite image will be used
+instead of that for the specified drawable. This is equivalent to
+sampling for colors after merging all visible layers. In the case of
+a merged sampling, the supplied drawable is ignored.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>drawable_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The drawable to pick from.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara> x coordinate of upper-left corner of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara> y coordinate of upper-left corner of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>sample_merged</parameter>&nbsp;:</term>
+<listitem><simpara> Use the composite image, not the drawable.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>sample_average</parameter>&nbsp;:</term>
+<listitem><simpara> Average the color of all the pixels in a specified radius.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>average_radius</parameter>&nbsp;:</term>
+<listitem><simpara> The radius of pixels to average.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&nbsp;:</term>
+<listitem><simpara> The return color.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-pick-correlate-layer" role="function">
+<title>gimp_image_pick_correlate_layer ()</title>
+<indexterm zone="gimp-image-pick-correlate-layer"><primary>gimp_image_pick_correlate_layer</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_pick_correlate_layer     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y);</programlisting>
+<para>
+Find the layer visible at the specified coordinates.
+</para>
+<para>
+This procedure finds the layer which is visible at the specified
+coordinates. Layers which do not qualify are those whose extents do
+not pass within the specified coordinates, or which are transparent
+at the specified coordinates. This procedure will return -1 if no
+layer is found.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara> The x coordinate for the pick.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara> The y coordinate for the pick.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The layer found at the specified coordinates.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-add-layer" role="function">
+<title>gimp_image_add_layer ()</title>
+<indexterm zone="gimp-image-add-layer"><primary>gimp_image_add_layer</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_add_layer                (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID,
+                                                         <link linkend="gint">gint</link> position);</programlisting>
+<para>
+Add the specified layer to the image.
+</para>
+<para>
+This procedure adds the specified layer to the image at the given
+position. If the position is specified as -1, then the layer is
+inserted above the active layer. The layer type must be compatible
+with the image base type.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&nbsp;:</term>
+<listitem><simpara> The layer position.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-remove-layer" role="function">
+<title>gimp_image_remove_layer ()</title>
+<indexterm zone="gimp-image-remove-layer"><primary>gimp_image_remove_layer</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_remove_layer             (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);</programlisting>
+<para>
+Remove the specified layer from the image.
+</para>
+<para>
+This procedure removes the specified layer from the image. If the
+layer doesn't exist, an error is returned. If there are no layers
+left in the image, this call will fail. If this layer is the last
+layer remaining, the image will become empty and have no active
+layer.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-raise-layer" role="function">
+<title>gimp_image_raise_layer ()</title>
+<indexterm zone="gimp-image-raise-layer"><primary>gimp_image_raise_layer</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_raise_layer              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);</programlisting>
+<para>
+Raise the specified layer in the image's layer stack
+</para>
+<para>
+This procedure raises the specified layer one step in the existing
+layer stack. It will not move the layer if there is no layer above
+it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer to raise.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-lower-layer" role="function">
+<title>gimp_image_lower_layer ()</title>
+<indexterm zone="gimp-image-lower-layer"><primary>gimp_image_lower_layer</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_lower_layer              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);</programlisting>
+<para>
+Lower the specified layer in the image's layer stack
+</para>
+<para>
+This procedure lowers the specified layer one step in the existing
+layer stack. It will not move the layer if there is no layer below
+it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer to lower.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-raise-layer-to-top" role="function">
+<title>gimp_image_raise_layer_to_top ()</title>
+<indexterm zone="gimp-image-raise-layer-to-top"><primary>gimp_image_raise_layer_to_top</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_raise_layer_to_top       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);</programlisting>
+<para>
+Raise the specified layer in the image's layer stack to top of stack
+</para>
+<para>
+This procedure raises the specified layer to top of the existing
+layer stack. It will not move the layer if there is no layer above
+it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer to raise to top.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-lower-layer-to-bottom" role="function">
+<title>gimp_image_lower_layer_to_bottom ()</title>
+<indexterm zone="gimp-image-lower-layer-to-bottom"><primary>gimp_image_lower_layer_to_bottom</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_lower_layer_to_bottom    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);</programlisting>
+<para>
+Lower the specified layer in the image's layer stack to bottom of
+stack
+</para>
+<para>
+This procedure lowers the specified layer to bottom of the existing
+layer stack. It will not move the layer if there is no layer below
+it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer to lower to bottom.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-layer-position" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_get_layer_position ()</title>
+<indexterm zone="gimp-image-get-layer-position" role="GIMP 2.4"><primary>gimp_image_get_layer_position</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_image_get_layer_position       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> layer_ID);</programlisting>
+<para>
+Returns the position of the layer in the layer stack.
+</para>
+<para>
+This procedure determines the positioin of the specified layer in
+the images layer stack. If the layer doesn't exist in the image, an
+error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The position of the layer in the layer stack.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-add-channel" role="function">
+<title>gimp_image_add_channel ()</title>
+<indexterm zone="gimp-image-add-channel"><primary>gimp_image_add_channel</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_add_channel              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID,
+                                                         <link linkend="gint">gint</link> position);</programlisting>
+<para>
+Add the specified channel to the image.
+</para>
+<para>
+This procedure adds the specified channel to the image. The position
+channel is not currently used, so the channel is always inserted at
+the top of the channel stack.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The channel.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&nbsp;:</term>
+<listitem><simpara> The channel position.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-remove-channel" role="function">
+<title>gimp_image_remove_channel ()</title>
+<indexterm zone="gimp-image-remove-channel"><primary>gimp_image_remove_channel</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_remove_channel           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);</programlisting>
+<para>
+Remove the specified channel from the image.
+</para>
+<para>
+This procedure removes the specified channel from the image. If the
+channel doesn't exist, an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The channel.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-raise-channel" role="function">
+<title>gimp_image_raise_channel ()</title>
+<indexterm zone="gimp-image-raise-channel"><primary>gimp_image_raise_channel</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_raise_channel            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);</programlisting>
+<para>
+Raise the specified channel in the image's channel stack
+</para>
+<para>
+This procedure raises the specified channel one step in the existing
+channel stack. It will not move the channel if there is no channel
+above it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The channel to raise.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-lower-channel" role="function">
+<title>gimp_image_lower_channel ()</title>
+<indexterm zone="gimp-image-lower-channel"><primary>gimp_image_lower_channel</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_lower_channel            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);</programlisting>
+<para>
+Lower the specified channel in the image's channel stack
+</para>
+<para>
+This procedure lowers the specified channel one step in the existing
+channel stack. It will not move the channel if there is no channel
+below it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The channel to lower.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-channel-position" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_get_channel_position ()</title>
+<indexterm zone="gimp-image-get-channel-position" role="GIMP 2.4"><primary>gimp_image_get_channel_position</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_image_get_channel_position     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> channel_ID);</programlisting>
+<para>
+Returns the position of the channel in the channel stack.
+</para>
+<para>
+This procedure determines the positioin of the specified channel in
+the images channel stack. If the channel doesn't exist in the image,
+an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>channel_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The channel.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The position of the channel in the channel stack.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-flatten" role="function">
+<title>gimp_image_flatten ()</title>
+<indexterm zone="gimp-image-flatten"><primary>gimp_image_flatten</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_flatten                  (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Flatten all visible layers into a single layer. Discard all
+invisible layers.
+</para>
+<para>
+This procedure combines the visible layers in a manner analogous to
+merging with the CLIP_TO_IMAGE merge type. Non-visible layers are
+discarded, and the resulting image is stripped of its alpha channel.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The resulting layer.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-merge-visible-layers" role="function">
+<title>gimp_image_merge_visible_layers ()</title>
+<indexterm zone="gimp-image-merge-visible-layers"><primary>gimp_image_merge_visible_layers</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_merge_visible_layers     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpMergeType">GimpMergeType</link> merge_type);</programlisting>
+<para>
+Merge the visible image layers into one.
+</para>
+<para>
+This procedure combines the visible layers into a single layer using
+the specified merge type. A merge type of EXPAND_AS_NECESSARY
+expands the final layer to encompass the areas of the visible
+layers. A merge type of CLIP_TO_IMAGE clips the final layer to the
+extents of the image. A merge type of CLIP_TO_BOTTOM_LAYER clips the
+final layer to the size of the bottommost layer.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>merge_type</parameter>&nbsp;:</term>
+<listitem><simpara> The type of merge.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The resulting layer.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-merge-down" role="function">
+<title>gimp_image_merge_down ()</title>
+<indexterm zone="gimp-image-merge-down"><primary>gimp_image_merge_down</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_merge_down               (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> merge_layer_ID,
+                                                         <link linkend="GimpMergeType">GimpMergeType</link> merge_type);</programlisting>
+<para>
+Merge the layer passed and the first visible layer below.
+</para>
+<para>
+This procedure combines the passed layer and the first visible layer
+below it using the specified merge type. A merge type of
+EXPAND_AS_NECESSARY expands the final layer to encompass the areas
+of the visible layers. A merge type of CLIP_TO_IMAGE clips the final
+layer to the extents of the image. A merge type of
+CLIP_TO_BOTTOM_LAYER clips the final layer to the size of the
+bottommost layer.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>merge_layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The layer to merge down from.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>merge_type</parameter>&nbsp;:</term>
+<listitem><simpara> The type of merge.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The resulting layer.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-clean-all" role="function">
+<title>gimp_image_clean_all ()</title>
+<indexterm zone="gimp-image-clean-all"><primary>gimp_image_clean_all</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_clean_all                (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Set the image dirty count to 0.
+</para>
+<para>
+This procedure sets the specified image's dirty count to 0, allowing
+operations to occur without having a 'dirtied' image. This is
+especially useful for creating and loading images which should not
+initially be considered dirty, even though layers must be created,
+filled, and installed in the image. Note that save plug-ins must NOT
+call this function themselves after saving the image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-is-dirty" role="function">
+<title>gimp_image_is_dirty ()</title>
+<indexterm zone="gimp-image-is-dirty"><primary>gimp_image_is_dirty</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_is_dirty                 (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Checks if the image has unsaved changes.
+</para>
+<para>
+This procedure checks the specified image's dirty count to see if it
+needs to be saved. Note that saving the image does not automatically
+set the dirty count to 0, you need to call <link linkend="gimp-image-clean-all"><function>gimp_image_clean_all()</function></link>
+after calling a save procedure to make the image clean.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the image has unsaved changes.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-active-layer" role="function">
+<title>gimp_image_get_active_layer ()</title>
+<indexterm zone="gimp-image-get-active-layer"><primary>gimp_image_get_active_layer</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_active_layer         (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the specified image's active layer.
+</para>
+<para>
+If there is an active layer, its ID will be returned, otherwise, -1.
+If a channel is currently active, then no layer will be. If a layer
+mask is active, then this will return the associated layer.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The active layer.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-active-layer" role="function">
+<title>gimp_image_set_active_layer ()</title>
+<indexterm zone="gimp-image-set-active-layer"><primary>gimp_image_set_active_layer</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_active_layer         (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> active_layer_ID);</programlisting>
+<para>
+Sets the specified image's active layer.
+</para>
+<para>
+If the layer exists, it is set as the active layer in the image. Any
+previous active layer or channel is set to inactive. An exception is
+a previously existing floating selection, in which case this
+procedure will return an execution error.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>active_layer_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The new image active layer.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-active-channel" role="function">
+<title>gimp_image_get_active_channel ()</title>
+<indexterm zone="gimp-image-get-active-channel"><primary>gimp_image_get_active_channel</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_active_channel       (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the specified image's active channel.
+</para>
+<para>
+If there is an active channel, this will return the channel ID,
+otherwise, -1.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The active channel.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-active-channel" role="function">
+<title>gimp_image_set_active_channel ()</title>
+<indexterm zone="gimp-image-set-active-channel"><primary>gimp_image_set_active_channel</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_active_channel       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> active_channel_ID);</programlisting>
+<para>
+Sets the specified image's active channel.
+</para>
+<para>
+If the channel exists, it is set as the active channel in the image.
+Any previous active channel or channel is set to inactive. An
+exception is a previously existing floating selection, in which case
+this procedure will return an execution error.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>active_channel_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The new image active channel.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-unset-active-channel" role="function">
+<title>gimp_image_unset_active_channel ()</title>
+<indexterm zone="gimp-image-unset-active-channel"><primary>gimp_image_unset_active_channel</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_unset_active_channel     (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Unsets the active channel in the specified image.
+</para>
+<para>
+If an active channel exists, it is unset. There then exists no
+active channel, and if desired, one can be set through a call to
+'Set Active Channel'. No error is returned in the case of no
+existing active channel.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-selection" role="function">
+<title>gimp_image_get_selection ()</title>
+<indexterm zone="gimp-image-get-selection"><primary>gimp_image_get_selection</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_selection            (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the specified image's selection.
+</para>
+<para>
+This will always return a valid ID for a selection -- which is
+represented as a channel internally.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The selection channel.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-component-active" role="function">
+<title>gimp_image_get_component_active ()</title>
+<indexterm zone="gimp-image-get-component-active"><primary>gimp_image_get_component_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_get_component_active     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component);</programlisting>
+<para>
+Returns if the specified image's image component is active.
+</para>
+<para>
+This procedure returns if the specified image's image component
+(i.e. Red, Green, Blue intensity channels in an RGB image) is active
+or inactive -- whether or not it can be modified. If the specified
+component is not valid for the image type, an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>component</parameter>&nbsp;:</term>
+<listitem><simpara> The image component.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Component is active.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-component-active" role="function">
+<title>gimp_image_set_component_active ()</title>
+<indexterm zone="gimp-image-set-component-active"><primary>gimp_image_set_component_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_component_active     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component,
+                                                         <link linkend="gboolean">gboolean</link> active);</programlisting>
+<para>
+Sets if the specified image's image component is active.
+</para>
+<para>
+This procedure sets if the specified image's image component (i.e.
+Red, Green, Blue intensity channels in an RGB image) is active or
+inactive -- whether or not it can be modified. If the specified
+component is not valid for the image type, an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>component</parameter>&nbsp;:</term>
+<listitem><simpara> The image component.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>active</parameter>&nbsp;:</term>
+<listitem><simpara> Component is active.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-component-visible" role="function">
+<title>gimp_image_get_component_visible ()</title>
+<indexterm zone="gimp-image-get-component-visible"><primary>gimp_image_get_component_visible</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_get_component_visible    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component);</programlisting>
+<para>
+Returns if the specified image's image component is visible.
+</para>
+<para>
+This procedure returns if the specified image's image component
+(i.e. Red, Green, Blue intensity channels in an RGB image) is
+visible or invisible -- whether or not it can be seen. If the
+specified component is not valid for the image type, an error is
+returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>component</parameter>&nbsp;:</term>
+<listitem><simpara> The image component.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Component is visible.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-component-visible" role="function">
+<title>gimp_image_set_component_visible ()</title>
+<indexterm zone="gimp-image-set-component-visible"><primary>gimp_image_set_component_visible</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_component_visible    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpChannelType">GimpChannelType</link> component,
+                                                         <link linkend="gboolean">gboolean</link> visible);</programlisting>
+<para>
+Sets if the specified image's image component is visible.
+</para>
+<para>
+This procedure sets if the specified image's image component (i.e.
+Red, Green, Blue intensity channels in an RGB image) is visible or
+invisible -- whether or not it can be seen. If the specified
+component is not valid for the image type, an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>component</parameter>&nbsp;:</term>
+<listitem><simpara> The image component.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>visible</parameter>&nbsp;:</term>
+<listitem><simpara> Component is visible.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-filename" role="function">
+<title>gimp_image_get_filename ()</title>
+<indexterm zone="gimp-image-get-filename"><primary>gimp_image_get_filename</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_image_get_filename             (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the specified image's filename.
+</para>
+<para>
+This procedure returns the specified image's filename in the
+filesystem encoding. The image has a filename only if it was loaded
+or has since been saved. Otherwise, this function returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The filename.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-filename" role="function">
+<title>gimp_image_set_filename ()</title>
+<indexterm zone="gimp-image-set-filename"><primary>gimp_image_set_filename</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_filename             (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *filename);</programlisting>
+<para>
+Sets the specified image's filename.
+</para>
+<para>
+This procedure sets the specified image's filename. The filename
+should be in the filesystem encoding.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> The new image filename.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-name" role="function">
+<title>gimp_image_get_name ()</title>
+<indexterm zone="gimp-image-get-name"><primary>gimp_image_get_name</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_image_get_name                 (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the specified image's name.
+</para>
+<para>
+This procedure returns the specified image's name.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-resolution" role="function">
+<title>gimp_image_get_resolution ()</title>
+<indexterm zone="gimp-image-get-resolution"><primary>gimp_image_get_resolution</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_get_resolution           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gdouble">gdouble</link> *xresolution,
+                                                         <link linkend="gdouble">gdouble</link> *yresolution);</programlisting>
+<para>
+Returns the specified image's resolution.
+</para>
+<para>
+This procedure returns the specified image's resolution in dots per
+inch. This value is independent of any of the layers in this image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>xresolution</parameter>&nbsp;:</term>
+<listitem><simpara> The resolution in the x-axis, in dots per inch.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>yresolution</parameter>&nbsp;:</term>
+<listitem><simpara> The resolution in the y-axis, in dots per inch.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-resolution" role="function">
+<title>gimp_image_set_resolution ()</title>
+<indexterm zone="gimp-image-set-resolution"><primary>gimp_image_set_resolution</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_resolution           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gdouble">gdouble</link> xresolution,
+                                                         <link linkend="gdouble">gdouble</link> yresolution);</programlisting>
+<para>
+Sets the specified image's resolution.
+</para>
+<para>
+This procedure sets the specified image's resolution in dots per
+inch. This value is independent of any of the layers in this image.
+No scaling or resizing is performed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>xresolution</parameter>&nbsp;:</term>
+<listitem><simpara> The new image resolution in the x-axis, in dots per inch.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>yresolution</parameter>&nbsp;:</term>
+<listitem><simpara> The new image resolution in the y-axis, in dots per inch.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-unit" role="function">
+<title>gimp_image_get_unit ()</title>
+<indexterm zone="gimp-image-get-unit"><primary>gimp_image_get_unit</primary></indexterm><programlisting><link linkend="GimpUnit">GimpUnit</link>            gimp_image_get_unit                 (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the specified image's unit.
+</para>
+<para>
+This procedure returns the specified image's unit. This value is
+independent of any of the layers in this image. See the
+gimp_unit_*() procedure definitions for the valid range of unit IDs
+and a description of the unit system.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The unit.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-unit" role="function">
+<title>gimp_image_set_unit ()</title>
+<indexterm zone="gimp-image-set-unit"><primary>gimp_image_set_unit</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_unit                 (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="GimpUnit">GimpUnit</link> unit);</programlisting>
+<para>
+Sets the specified image's unit.
+</para>
+<para>
+This procedure sets the specified image's unit. No scaling or
+resizing is performed. This value is independent of any of the
+layers in this image. See the gimp_unit_*() procedure definitions
+for the valid range of unit IDs and a description of the unit
+system.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&nbsp;:</term>
+<listitem><simpara> The new image unit.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-tattoo-state" role="function">
+<title>gimp_image_set_tattoo_state ()</title>
+<indexterm zone="gimp-image-set-tattoo-state"><primary>gimp_image_set_tattoo_state</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_tattoo_state         (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> tattoo_state);</programlisting>
+<para>
+Set the tattoo state associated with the image.
+</para>
+<para>
+This procedure sets the tattoo state of the image. Use only by
+save/load plugins that wish to preserve an images tattoo state.
+Using this function at other times will produce unexpected results.
+A full check of uniqueness of states in layers, channels and paths
+will be performed by this procedure and a execution failure will be
+returned if this fails. A failure will also be returned if the new
+tattoo state value is less than the maximum tattoo value from all of
+the tattoos from the paths, layers and channels. After the image
+data has been loaded and all the tattoos have been set then this is
+the last procedure that should be called. If effectively does a
+status check on the tattoo values that have been set to make sure
+that all is OK.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tattoo_state</parameter>&nbsp;:</term>
+<listitem><simpara> The new image tattoo state.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-tattoo-state" role="function">
+<title>gimp_image_get_tattoo_state ()</title>
+<indexterm zone="gimp-image-get-tattoo-state"><primary>gimp_image_get_tattoo_state</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_image_get_tattoo_state         (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the tattoo state associated with the image.
+</para>
+<para>
+This procedure returns the tattoo state of the image. Use only by
+save/load plugins that wish to preserve an images tattoo state.
+Using this function at other times will produce unexpected results.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The tattoo state.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-layer-by-tattoo" role="function">
+<title>gimp_image_get_layer_by_tattoo ()</title>
+<indexterm zone="gimp-image-get-layer-by-tattoo"><primary>gimp_image_get_layer_by_tattoo</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_layer_by_tattoo      (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> tattoo);</programlisting>
+<para>
+Find a layer with a given tattoo in an image.
+</para>
+<para>
+This procedure returns the layer with the given tattoo in the
+specified image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tattoo</parameter>&nbsp;:</term>
+<listitem><simpara> The tattoo of the layer to find.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The layer with the specified tattoo.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-channel-by-tattoo" role="function">
+<title>gimp_image_get_channel_by_tattoo ()</title>
+<indexterm zone="gimp-image-get-channel-by-tattoo"><primary>gimp_image_get_channel_by_tattoo</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_channel_by_tattoo    (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> tattoo);</programlisting>
+<para>
+Find a channel with a given tattoo in an image.
+</para>
+<para>
+This procedure returns the channel with the given tattoo in the
+specified image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tattoo</parameter>&nbsp;:</term>
+<listitem><simpara> The tattoo of the channel to find.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The channel with the specified tattoo.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-cmap" role="function" condition="deprecated:">
+<title>gimp_image_get_cmap ()</title>
+<indexterm zone="gimp-image-get-cmap" role="deprecated"><primary>gimp_image_get_cmap</primary></indexterm><programlisting><link linkend="guchar">guchar</link>*             gimp_image_get_cmap                 (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_colors);</programlisting>
+<warning><para><literal>gimp_image_get_cmap</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-image-get-colormap"><function>gimp_image_get_colormap()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara>   The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_colors</parameter>&nbsp;:</term>
+<listitem><simpara> Number of colors in the colormap array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The image's colormap.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-cmap" role="function" condition="deprecated:">
+<title>gimp_image_set_cmap ()</title>
+<indexterm zone="gimp-image-set-cmap" role="deprecated"><primary>gimp_image_set_cmap</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_cmap                 (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="guchar">guchar</link> *cmap,
+                                                         <link linkend="gint">gint</link> num_colors);</programlisting>
+<warning><para><literal>gimp_image_set_cmap</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-image-set-colormap"><function>gimp_image_set_colormap()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara>   The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cmap</parameter>&nbsp;:</term>
+<listitem><simpara>       The new colormap values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_colors</parameter>&nbsp;:</term>
+<listitem><simpara> Number of colors in the colormap array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-colormap" role="function">
+<title>gimp_image_get_colormap ()</title>
+<indexterm zone="gimp-image-get-colormap"><primary>gimp_image_get_colormap</primary></indexterm><programlisting><link linkend="guchar">guchar</link>*             gimp_image_get_colormap             (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_colors);</programlisting>
+<para>
+Returns the image's colormap
+</para>
+<para>
+This procedure returns an actual pointer to the image's colormap, as
+well as the number of colors contained in the colormap. If the image
+is not of base type INDEXED, this pointer will be NULL.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara>   The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_colors</parameter>&nbsp;:</term>
+<listitem><simpara> Number of colors in the colormap array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The image's colormap.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-colormap" role="function">
+<title>gimp_image_set_colormap ()</title>
+<indexterm zone="gimp-image-set-colormap"><primary>gimp_image_set_colormap</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_colormap             (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="guchar">guchar</link> *colormap,
+                                                         <link linkend="gint">gint</link> num_colors);</programlisting>
+<para>
+Sets the entries in the image's colormap.
+</para>
+<para>
+This procedure sets the entries in the specified image's colormap.
+The number of colors is specified by the \"num_colors\" parameter
+and corresponds to the number of INT8 triples that must be contained
+in the \"cmap\" array.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara>   The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>colormap</parameter>&nbsp;:</term>
+<listitem><simpara>   The new colormap values.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_colors</parameter>&nbsp;:</term>
+<listitem><simpara> Number of colors in the colormap array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-get-vectors" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_get_vectors ()</title>
+<indexterm zone="gimp-image-get-vectors" role="GIMP 2.4"><primary>gimp_image_get_vectors</primary></indexterm><programlisting><link linkend="gint">gint</link>*               gimp_image_get_vectors              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_vectors);</programlisting>
+<para>
+Returns the list of vectors contained in the specified image.
+</para>
+<para>
+This procedure returns the list of vectors contained in the
+specified image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_vectors</parameter>&nbsp;:</term>
+<listitem><simpara> The number of vectors contained in the image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of vectors contained in the image.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-get-thumbnail-data" role="function">
+<title>gimp_image_get_thumbnail_data ()</title>
+<indexterm zone="gimp-image-get-thumbnail-data"><primary>gimp_image_get_thumbnail_data</primary></indexterm><programlisting><link linkend="guchar">guchar</link>*             gimp_image_get_thumbnail_data       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *bpp);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>bpp</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-parasite-find" role="function">
+<title>gimp_image_parasite_find ()</title>
+<indexterm zone="gimp-image-parasite-find"><primary>gimp_image_parasite_find</primary></indexterm><programlisting><link linkend="GimpParasite">GimpParasite</link>*       gimp_image_parasite_find            (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Look up a parasite in an image
+</para>
+<para>
+Finds and returns the parasite that was previously attached to an
+image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the parasite to find.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The found parasite.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-parasite-list" role="function">
+<title>gimp_image_parasite_list ()</title>
+<indexterm zone="gimp-image-parasite-list"><primary>gimp_image_parasite_list</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_parasite_list            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint">gint</link> *num_parasites,
+                                                         <link linkend="gchar">gchar</link> ***parasites);</programlisting>
+<para>
+List all parasites.
+</para>
+<para>
+Returns a list of all currently attached parasites.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_parasites</parameter>&nbsp;:</term>
+<listitem><simpara> The number of attached parasites.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parasites</parameter>&nbsp;:</term>
+<listitem><simpara> The names of currently attached parasites.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-parasite-attach" role="function">
+<title>gimp_image_parasite_attach ()</title>
+<indexterm zone="gimp-image-parasite-attach"><primary>gimp_image_parasite_attach</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_parasite_attach          (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="GimpParasite">GimpParasite</link> *parasite);</programlisting>
+<para>
+Add a parasite to an image.
+</para>
+<para>
+This procedure attaches a parasite to an image. It has no return
+values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parasite</parameter>&nbsp;:</term>
+<listitem><simpara> The parasite to attach to an image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-parasite-detach" role="function">
+<title>gimp_image_parasite_detach ()</title>
+<indexterm zone="gimp-image-parasite-detach"><primary>gimp_image_parasite_detach</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_parasite_detach          (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Removes a parasite from an image.
+</para>
+<para>
+This procedure detaches a parasite from an image. It has no return
+values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the parasite to detach from an image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-attach-new-parasite" role="function">
+<title>gimp_image_attach_new_parasite ()</title>
+<indexterm zone="gimp-image-attach-new-parasite"><primary>gimp_image_attach_new_parasite</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_attach_new_parasite      (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> flags,
+                                                         <link linkend="gint">gint</link> size,
+                                                         <link linkend="gconstpointer">gconstpointer</link> data);</programlisting>
+<para>
+Convenience function that creates a parasite and attaches it
+to GIMP.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> the ID of the image to attach the <link linkend="GimpParasite"><type>GimpParasite</type></link> to.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> the name of the <link linkend="GimpParasite"><type>GimpParasite</type></link> to create and attach.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara> the flags set on the <link linkend="GimpParasite"><type>GimpParasite</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&nbsp;:</term>
+<listitem><simpara> the size of the parasite data in bytes.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> a pointer to the data attached with the <link linkend="GimpParasite"><type>GimpParasite</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on successful creation and attachment of
+the new parasite.
+
+See Also: <link linkend="gimp-image-parasite-attach"><function>gimp_image_parasite_attach()</function></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-add-vectors" role="function">
+<title>gimp_image_add_vectors ()</title>
+<indexterm zone="gimp-image-add-vectors"><primary>gimp_image_add_vectors</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_add_vectors              (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> position);</programlisting>
+<para>
+Add the specified vectors object to the image.
+</para>
+<para>
+This procedure adds the specified vectors object to the image at the
+given position. If the position is specified as -1, then the vectors
+object is inserted at the top of the vectors stack.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>position</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors objects position.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-remove-vectors" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_remove_vectors ()</title>
+<indexterm zone="gimp-image-remove-vectors" role="GIMP 2.4"><primary>gimp_image_remove_vectors</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_remove_vectors           (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Remove the specified path from the image.
+</para>
+<para>
+This procedure removes the specified path from the image. If the
+path doesn't exist, an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-get-active-vectors" role="function">
+<title>gimp_image_get_active_vectors ()</title>
+<indexterm zone="gimp-image-get-active-vectors"><primary>gimp_image_get_active_vectors</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_image_get_active_vectors       (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Returns the specified image's active vectors.
+</para>
+<para>
+If there is an active path, its ID will be returned, otherwise, -1.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The active vectors.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-set-active-vectors" role="function">
+<title>gimp_image_set_active_vectors ()</title>
+<indexterm zone="gimp-image-set-active-vectors"><primary>gimp_image_set_active_vectors</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_set_active_vectors       (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> active_vectors_ID);</programlisting>
+<para>
+Sets the specified image's active vectors.
+</para>
+<para>
+If the path exists, it is set as the active path in the image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>active_vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The new image active vectors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-lower-vectors" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_lower_vectors ()</title>
+<indexterm zone="gimp-image-lower-vectors" role="GIMP 2.4"><primary>gimp_image_lower_vectors</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_lower_vectors            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Lower the specified vectors in the image's vectors stack
+</para>
+<para>
+This procedure lowers the specified vectors one step in the existing
+vectors stack. It will not move the vectors if there is no vectors
+below it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object to lower.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-raise-vectors" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_raise_vectors ()</title>
+<indexterm zone="gimp-image-raise-vectors" role="GIMP 2.4"><primary>gimp_image_raise_vectors</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_raise_vectors            (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Raise the specified vectors in the image's vectors stack
+</para>
+<para>
+This procedure raises the specified vectors one step in the existing
+vectors stack. It will not move the vectors if there is no vectors
+above it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object to raise.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-lower-vectors-to-bottom" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_lower_vectors_to_bottom ()</title>
+<indexterm zone="gimp-image-lower-vectors-to-bottom" role="GIMP 2.4"><primary>gimp_image_lower_vectors_to_bottom</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_lower_vectors_to_bottom  (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Lower the specified vectors in the image's vectors stack to bottom
+of stack
+</para>
+<para>
+This procedure lowers the specified vectors to bottom of the
+existing vectors stack. It will not move the vectors if there is no
+vectors below it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object to lower to bottom.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-raise-vectors-to-top" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_raise_vectors_to_top ()</title>
+<indexterm zone="gimp-image-raise-vectors-to-top" role="GIMP 2.4"><primary>gimp_image_raise_vectors_to_top</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_raise_vectors_to_top     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Raise the specified vectors in the image's vectors stack to top of
+stack
+</para>
+<para>
+This procedure raises the specified vectors to top of the existing
+vectors stack. It will not move the vectors if there is no vectors
+above it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object to raise to top.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-image-get-vectors-position" role="function" condition="since:GIMP 2.4">
+<title>gimp_image_get_vectors_position ()</title>
+<indexterm zone="gimp-image-get-vectors-position" role="GIMP 2.4"><primary>gimp_image_get_vectors_position</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_image_get_vectors_position     (<link linkend="gint32">gint32</link> image_ID,
+                                                         <link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Returns the position of the vectors object in the vectors objects
+stack.
+</para>
+<para>
+This procedure determines the positioin of the specified vectors
+object in the images vectors object stack. If the vectors object
+doesn't exist in the image, an error is returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The position of the vectors object in the vectors stack.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpenv">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpenv.top_of_page">gimpenv</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpenv</refname>
+<refpurpose>Functions to access the GIMP environment.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpenv.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                <link linkend="gimp-env-init">gimp_env_init</link>                       (<link linkend="gboolean">gboolean</link> plug_in);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-directory">gimp_directory</link>                      (void);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-data-directory">gimp_data_directory</link>                 (void);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-locale-directory">gimp_locale_directory</link>               (void);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-plug-in-directory">gimp_plug_in_directory</link>              (void);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-sysconf-directory">gimp_sysconf_directory</link>              (void);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-user-directory">gimp_user_directory</link>                 (<link linkend="GimpUserDirectory">GimpUserDirectory</link> type);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-personal-rc-file">gimp_personal_rc_file</link>               (const <link linkend="gchar">gchar</link> *basename);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-gtkrc">gimp_gtkrc</link>                          (void);
+<link linkend="GList">GList</link>*              <link linkend="gimp-path-parse">gimp_path_parse</link>                     (const <link linkend="gchar">gchar</link> *path,
+                                                         <link linkend="gint">gint</link> max_paths,
+                                                         <link linkend="gboolean">gboolean</link> check,
+                                                         <link linkend="GList">GList</link> **check_failed);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-path-to-str">gimp_path_to_str</link>                    (<link linkend="GList">GList</link> *path);
+<link linkend="void">void</link>                <link linkend="gimp-path-free">gimp_path_free</link>                      (<link linkend="GList">GList</link> *path);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-path-get-user-writable-dir">gimp_path_get_user_writable_dir</link>     (<link linkend="GList">GList</link> *path);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpenv.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A set of functions to find the locations of GIMP's data directories and
+configuration files.
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpenv.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-env-init" role="function" condition="since:GIMP 2.4">
+<title>gimp_env_init ()</title>
+<indexterm zone="gimp-env-init" role="GIMP 2.4"><primary>gimp_env_init</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_env_init                       (<link linkend="gboolean">gboolean</link> plug_in);</programlisting>
+<para>
+You don't need to care about this function. It is being called for
+you automatically (by means of the <link linkend="MAIN:CAPS"><function>MAIN()</function></link> macro that every plug-in
+runs). Calling it again will cause a fatal error.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>plug_in</parameter>&nbsp;:</term>
+<listitem><simpara> must be <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if this function is called from a plug-in
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-directory" role="function">
+<title>gimp_directory ()</title>
+<indexterm zone="gimp-directory"><primary>gimp_directory</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_directory                      (void);</programlisting>
+<para>
+Returns the user-specific GIMP settings directory. If the
+environment variable GIMP2_DIRECTORY exists, it is used. If it is
+an absolute path, it is used as is.  If it is a relative path, it
+is taken to be a subdirectory of the home directory. If it is a
+relative path, and no home directory can be determined, it is taken
+to be a subdirectory of <link linkend="gimp-data-directory"><function>gimp_data_directory()</function></link>.
+</para>
+<para>
+The usual case is that no GIMP2_DIRECTORY environment variable
+exists, and then we use the GIMPDIR subdirectory of the home
+directory. If no home directory exists, we use a per-user
+subdirectory of <link linkend="gimp-data-directory"><function>gimp_data_directory()</function></link>.  In any case, we always
+return some non-empty string, whether it corresponds to an existing
+directory or not.
+</para>
+<para>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The user-specific GIMP settings directory.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-data-directory" role="function">
+<title>gimp_data_directory ()</title>
+<indexterm zone="gimp-data-directory"><primary>gimp_data_directory</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_data_directory                 (void);</programlisting>
+<para>
+Returns the top directory for GIMP data. If the environment
+variable GIMP2_DATADIR exists, that is used.  It should be an
+absolute pathname.  Otherwise, on Unix the compile-time defined
+directory is used. On Windows, the installation directory as deduced
+from the executable's full filename is used.
+</para>
+<para>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The top directory for GIMP data.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-locale-directory" role="function">
+<title>gimp_locale_directory ()</title>
+<indexterm zone="gimp-locale-directory"><primary>gimp_locale_directory</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_locale_directory               (void);</programlisting>
+<para>
+Returns the top directory for GIMP locale files. If the environment
+variable GIMP2_LOCALEDIR exists, that is used.  It should be an
+absolute pathname.  Otherwise, on Unix the compile-time defined
+directory is used. On Windows, the installation directory as deduced
+from the executable's full filename is used.
+</para>
+<para>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+the C library, which isn't necessarily UTF-8. (On Windows, unlike
+the other similar functions here, the return value from this
+function is in the system codepage, never in UTF-8. It can thus be
+passed directly to the <link linkend="bindtextdomain"><function>bindtextdomain()</function></link> function from libintl which
+does not handle UTF-8.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The top directory for GIMP locale files.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-plug-in-directory" role="function">
+<title>gimp_plug_in_directory ()</title>
+<indexterm zone="gimp-plug-in-directory"><primary>gimp_plug_in_directory</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_plug_in_directory              (void);</programlisting>
+<para>
+Returns the top directory for GIMP plug_ins and modules. If the
+environment variable GIMP2_PLUGINDIR exists, that is used.  It
+should be an absolute pathname. Otherwise, on Unix the compile-time
+defined directory is used. On Windows, the installation directory as
+deduced from the executable's full filename is used.
+</para>
+<para>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The top directory for GIMP plug_ins and modules.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-sysconf-directory" role="function">
+<title>gimp_sysconf_directory ()</title>
+<indexterm zone="gimp-sysconf-directory"><primary>gimp_sysconf_directory</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_sysconf_directory              (void);</programlisting>
+<para>
+Returns the top directory for GIMP config files. If the environment
+variable GIMP2_SYSCONFDIR exists, that is used.  It should be an
+absolute pathname.  Otherwise, on Unix the compile-time defined
+directory is used. On Windows, the installation directory as deduced
+from the executable's full filename is used.
+</para>
+<para>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The top directory for GIMP config files.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-user-directory" role="function" condition="since:GIMP 2.4">
+<title>gimp_user_directory ()</title>
+<indexterm zone="gimp-user-directory" role="GIMP 2.4"><primary>gimp_user_directory</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_user_directory                 (<link linkend="GimpUserDirectory">GimpUserDirectory</link> type);</programlisting>
+<para>
+Identifies special folders used frequently by applications, but
+which may not have the same name or location on any given system.
+</para>
+<para>
+Plug-ins may want to use this function to add shortcuts to such
+folders to a file-chooser.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> the type of user directory to retrieve
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The path to the specified user directory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the
+         logical ID was not found.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-personal-rc-file" role="function">
+<title>gimp_personal_rc_file ()</title>
+<indexterm zone="gimp-personal-rc-file"><primary>gimp_personal_rc_file</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_personal_rc_file               (const <link linkend="gchar">gchar</link> *basename);</programlisting>
+<para>
+Returns the name of a file in the user-specific GIMP settings directory.
+</para>
+<para>
+The returned string is allocated dynamically and *SHOULD* be freed
+with <link linkend="g-free"><function>g_free()</function></link> after use. The returned string is in the encoding
+used for filenames by GLib, which isn't necessarily
+UTF-8. (On Windows it always is UTF-8.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>basename</parameter>&nbsp;:</term>
+<listitem><simpara> The basename of a rc_file.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of a file in the user-specific GIMP settings directory.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gtkrc" role="function">
+<title>gimp_gtkrc ()</title>
+<indexterm zone="gimp-gtkrc"><primary>gimp_gtkrc</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_gtkrc                          (void);</programlisting>
+<para>
+Returns the name of GIMP's application-specific gtkrc file.
+</para>
+<para>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of GIMP's application-specific gtkrc file.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-path-parse" role="function">
+<title>gimp_path_parse ()</title>
+<indexterm zone="gimp-path-parse"><primary>gimp_path_parse</primary></indexterm><programlisting><link linkend="GList">GList</link>*              gimp_path_parse                     (const <link linkend="gchar">gchar</link> *path,
+                                                         <link linkend="gint">gint</link> max_paths,
+                                                         <link linkend="gboolean">gboolean</link> check,
+                                                         <link linkend="GList">GList</link> **check_failed);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara>         A list of directories separated by <link linkend="G-SEARCHPATH-SEPARATOR:CAPS"><type>G_SEARCHPATH_SEPARATOR</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max_paths</parameter>&nbsp;:</term>
+<listitem><simpara>    The maximum number of directories to return.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>check</parameter>&nbsp;:</term>
+<listitem><simpara>        <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if you want the directories to be checked.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>check_failed</parameter>&nbsp;:</term>
+<listitem><simpara> Returns a <link linkend="GList"><type>GList</type></link> of path elements for which the
+               check failed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A <link linkend="GList"><type>GList</type></link> of all directories in <parameter>path</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-path-to-str" role="function">
+<title>gimp_path_to_str ()</title>
+<indexterm zone="gimp-path-to-str"><primary>gimp_path_to_str</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_path_to_str                    (<link linkend="GList">GList</link> *path);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara> A list of directories as returned by <link linkend="gimp-path-parse"><function>gimp_path_parse()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A searchpath string separated by <link linkend="G-SEARCHPATH-SEPARATOR:CAPS"><type>G_SEARCHPATH_SEPARATOR</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-path-free" role="function">
+<title>gimp_path_free ()</title>
+<indexterm zone="gimp-path-free"><primary>gimp_path_free</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_path_free                      (<link linkend="GList">GList</link> *path);</programlisting>
+<para>
+This function frees the memory allocated for the list and the strings
+it contains.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara> A list of directories as returned by <link linkend="gimp-path-parse"><function>gimp_path_parse()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-path-get-user-writable-dir" role="function">
+<title>gimp_path_get_user_writable_dir ()</title>
+<indexterm zone="gimp-path-get-user-writable-dir"><primary>gimp_path_get_user_writable_dir</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_path_get_user_writable_dir     (<link linkend="GList">GList</link> *path);</programlisting>
+<para>
+Note that you have to <link linkend="g-free"><function>g_free()</function></link> the returned string.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara> A list of directories as returned by <link linkend="gimp-path-parse"><function>gimp_path_parse()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The first directory in <parameter>path</parameter> where the user has write permission.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

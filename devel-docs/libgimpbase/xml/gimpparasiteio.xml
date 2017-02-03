@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpparasiteio">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpparasiteio.top_of_page">gimpparasiteio</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpparasiteio</refname>
+<refpurpose>Utility functions to (de)serialize certain C structures to/from <link linkend="GimpParasite"><type>GimpParasite</type></link>'s.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpparasiteio.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="GIMP-PIXPIPE-MAXDIM:CAPS">GIMP_PIXPIPE_MAXDIM</link>
+<link linkend="void">void</link>                <link linkend="gimp-pixpipe-params-init">gimp_pixpipe_params_init</link>            (<link linkend="GimpPixPipeParams">GimpPixPipeParams</link> *params);
+<link linkend="void">void</link>                <link linkend="gimp-pixpipe-params-parse">gimp_pixpipe_params_parse</link>           (const <link linkend="gchar">gchar</link> *parameters,
+                                                         <link linkend="GimpPixPipeParams">GimpPixPipeParams</link> *params);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-pixpipe-params-build">gimp_pixpipe_params_build</link>           (<link linkend="GimpPixPipeParams">GimpPixPipeParams</link> *params);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpparasiteio.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Utility functions to (de)serialize certain C structures to/from <link linkend="GimpParasite"><type>GimpParasite</type></link>'s.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpparasiteio.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GIMP-PIXPIPE-MAXDIM:CAPS" role="macro">
+<title>GIMP_PIXPIPE_MAXDIM</title>
+<indexterm zone="GIMP-PIXPIPE-MAXDIM:CAPS"><primary>GIMP_PIXPIPE_MAXDIM</primary></indexterm><programlisting>#define GIMP_PIXPIPE_MAXDIM 4
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-pixpipe-params-init" role="function">
+<title>gimp_pixpipe_params_init ()</title>
+<indexterm zone="gimp-pixpipe-params-init"><primary>gimp_pixpipe_params_init</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixpipe_params_init            (<link linkend="GimpPixPipeParams">GimpPixPipeParams</link> *params);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>params</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixpipe-params-parse" role="function">
+<title>gimp_pixpipe_params_parse ()</title>
+<indexterm zone="gimp-pixpipe-params-parse"><primary>gimp_pixpipe_params_parse</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_pixpipe_params_parse           (const <link linkend="gchar">gchar</link> *parameters,
+                                                         <link linkend="GimpPixPipeParams">GimpPixPipeParams</link> *params);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>parameters</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>params</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-pixpipe-params-build" role="function">
+<title>gimp_pixpipe_params_build ()</title>
+<indexterm zone="gimp-pixpipe-params-build"><primary>gimp_pixpipe_params_build</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_pixpipe_params_build           (<link linkend="GimpPixPipeParams">GimpPixPipeParams</link> *params);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>params</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libgimpbase-gimpparasiteio.see-also">
+<title>See Also</title>
+<para>
+<link linkend="GimpParasite"><type>GimpParasite</type></link>
+</para>
+</refsect1>
+
+</refentry>

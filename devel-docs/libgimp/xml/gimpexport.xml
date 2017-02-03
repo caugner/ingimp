@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpexport">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpexport.top_of_page">gimpexport</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpexport</refname>
+<refpurpose>Export an image before it is saved.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpexport.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="GimpExportCapabilities">GimpExportCapabilities</link>;
+enum                <link linkend="GimpExportReturn">GimpExportReturn</link>;
+<link linkend="GimpExportReturn">GimpExportReturn</link>    <link linkend="gimp-export-image">gimp_export_image</link>                   (<link linkend="gint32">gint32</link> *image_ID,
+                                                         <link linkend="gint32">gint32</link> *drawable_ID,
+                                                         const <link linkend="gchar">gchar</link> *format_name,
+                                                         <link linkend="GimpExportCapabilities">GimpExportCapabilities</link> capabilities);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpexport.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+This function should be called by all save_plugins unless they are
+able to save all image formats GIMP knows about. It takes care
+of asking the user if she wishes to export the image to a format the
+save_plugin can handle. It then performs the necessary conversions
+(e.g. Flatten) on a copy of the image so that the image can be saved 
+without changing the original image.
+
+The capabilities of the save_plugin are specified by combining
+<link linkend="GimpExportCapabilities"><type>GimpExportCapabilities</type></link> using a bitwise OR. 
+
+Make sure you have initialized GTK+ before you call this function
+as it will most probably have to open a dialog. 
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpexport.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpExportCapabilities" role="enum">
+<title>enum GimpExportCapabilities</title>
+<indexterm zone="GimpExportCapabilities"><primary>GimpExportCapabilities</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_EXPORT_CAN_HANDLE_RGB                 = 1 &lt;&lt; 0,
+  GIMP_EXPORT_CAN_HANDLE_GRAY                = 1 &lt;&lt; 1,
+  GIMP_EXPORT_CAN_HANDLE_INDEXED             = 1 &lt;&lt; 2,
+  GIMP_EXPORT_CAN_HANDLE_BITMAP              = 1 &lt;&lt; 3,
+  GIMP_EXPORT_CAN_HANDLE_ALPHA               = 1 &lt;&lt; 4,
+  GIMP_EXPORT_CAN_HANDLE_LAYERS              = 1 &lt;&lt; 5,
+  GIMP_EXPORT_CAN_HANDLE_LAYERS_AS_ANIMATION = 1 &lt;&lt; 6,
+  GIMP_EXPORT_CAN_HANDLE_LAYER_MASKS         = 1 &lt;&lt; 7,
+  GIMP_EXPORT_NEEDS_ALPHA                    = 1 &lt;&lt; 8
+} GimpExportCapabilities;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GimpExportReturn" role="enum">
+<title>enum GimpExportReturn</title>
+<indexterm zone="GimpExportReturn"><primary>GimpExportReturn</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_EXPORT_CANCEL,
+  GIMP_EXPORT_IGNORE,
+  GIMP_EXPORT_EXPORT
+} GimpExportReturn;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-export-image" role="function">
+<title>gimp_export_image ()</title>
+<indexterm zone="gimp-export-image"><primary>gimp_export_image</primary></indexterm><programlisting><link linkend="GimpExportReturn">GimpExportReturn</link>    gimp_export_image                   (<link linkend="gint32">gint32</link> *image_ID,
+                                                         <link linkend="gint32">gint32</link> *drawable_ID,
+                                                         const <link linkend="gchar">gchar</link> *format_name,
+                                                         <link linkend="GimpExportCapabilities">GimpExportCapabilities</link> capabilities);</programlisting>
+<para>
+Takes an image and a drawable to be saved together with a
+description of the capabilities of the image_format. If the
+type of image doesn't match the capabilities of the format
+a dialog is opened that informs the user that the image has
+to be exported and offers to do the necessary conversions.
+</para>
+<para>
+If the user chooses to export the image, a copy is created.
+This copy is then converted, the image_ID and drawable_ID
+are changed to point to the new image and the procedure returns
+GIMP_EXPORT_EXPORT. The save_plugin has to take care of deleting the
+created image using <link linkend="gimp-image-delete"><function>gimp_image_delete()</function></link> when it has saved it.
+</para>
+<para>
+If the user chooses to Ignore the export problem, the image_ID
+and drawable_ID is not altered, GIMP_EXPORT_IGNORE is returned and
+the save_plugin should try to save the original image. If the
+user chooses Cancel, GIMP_EXPORT_CANCEL is returned and the
+save_plugin should quit itself with status <link linkend="GIMP-PDB-CANCEL:CAPS"><type>GIMP_PDB_CANCEL</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> Pointer to the image_ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>drawable_ID</parameter>&nbsp;:</term>
+<listitem><simpara> Pointer to the drawable_ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format_name</parameter>&nbsp;:</term>
+<listitem><simpara> The (short) name of the image_format (e.g. JPEG or GIF).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>capabilities</parameter>&nbsp;:</term>
+<listitem><simpara> What can the image_format do?
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> An enum of <link linkend="GimpExportReturn"><type>GimpExportReturn</type></link> describing the user_action.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

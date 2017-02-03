@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gimpenv</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="GIMP Base Library Reference Manual">
+<link rel="up" href="libgimpbase.html" title="Part I. GIMP Base Library">
+<link rel="prev" href="libgimpbase-gimpdatafiles.html" title="gimpdatafiles">
+<link rel="next" href="libgimpbase-gimpmemsize.html" title="gimpmemsize">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="libgimpbase.html" title="Part I. GIMP Base Library">
+<link rel="index" href="libgimpbase-index.html" title="Index">
+<link rel="index" href="libgimpbase-index-new-in-2-2.html" title="Index of new symbols in GIMP 2.2">
+<link rel="index" href="libgimpbase-index-new-in-2-4.html" title="Index of new symbols in GIMP 2.4">
+<link rel="index" href="libgimpbase-index-deprecated.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libgimpbase-gimpdatafiles.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgimpbase.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GIMP Base Library Reference Manual</th>
+<td><a accesskey="n" href="libgimpbase-gimpmemsize.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#libgimpbase-gimpenv.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libgimpbase-gimpenv.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libgimpbase-gimpenv"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libgimpbase-gimpenv.top_of_page"></a>gimpenv</span></h2>
+<p>gimpenv — Functions to access the GIMP environment.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libgimpbase-gimpenv.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+void                <a class="link" href="libgimpbase-gimpenv.html#gimp-env-init" title="gimp_env_init ()">gimp_env_init</a>                       (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> plug_in);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="libgimpbase-gimpenv.html#gimp-directory" title="gimp_directory ()">gimp_directory</a>                      (void);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="libgimpbase-gimpenv.html#gimp-data-directory" title="gimp_data_directory ()">gimp_data_directory</a>                 (void);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="libgimpbase-gimpenv.html#gimp-locale-directory" title="gimp_locale_directory ()">gimp_locale_directory</a>               (void);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="libgimpbase-gimpenv.html#gimp-plug-in-directory" title="gimp_plug_in_directory ()">gimp_plug_in_directory</a>              (void);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="libgimpbase-gimpenv.html#gimp-sysconf-directory" title="gimp_sysconf_directory ()">gimp_sysconf_directory</a>              (void);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="libgimpbase-gimpenv.html#gimp-user-directory" title="gimp_user_directory ()">gimp_user_directory</a>                 (<a class="link" href="libgimpbase-gimpbaseenums.html#GimpUserDirectory" title="enum GimpUserDirectory">GimpUserDirectory</a> type);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="libgimpbase-gimpenv.html#gimp-personal-rc-file" title="gimp_personal_rc_file ()">gimp_personal_rc_file</a>               (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *basename);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="libgimpbase-gimpenv.html#gimp-gtkrc" title="gimp_gtkrc ()">gimp_gtkrc</a>                          (void);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a>*              <a class="link" href="libgimpbase-gimpenv.html#gimp-path-parse" title="gimp_path_parse ()">gimp_path_parse</a>                     (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *path,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> max_paths,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> check,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> **check_failed);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="libgimpbase-gimpenv.html#gimp-path-to-str" title="gimp_path_to_str ()">gimp_path_to_str</a>                    (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *path);
+void                <a class="link" href="libgimpbase-gimpenv.html#gimp-path-free" title="gimp_path_free ()">gimp_path_free</a>                      (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *path);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="libgimpbase-gimpenv.html#gimp-path-get-user-writable-dir" title="gimp_path_get_user_writable_dir ()">gimp_path_get_user_writable_dir</a>     (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *path);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="libgimpbase-gimpenv.description"></a><h2>Description</h2>
+<p>
+A set of functions to find the locations of GIMP's data directories and
+configuration files.
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="libgimpbase-gimpenv.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="gimp-env-init"></a><h3>gimp_env_init ()</h3>
+<pre class="programlisting">void                gimp_env_init                       (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> plug_in);</pre>
+<p>
+You don't need to care about this function. It is being called for
+you automatically (by means of the <a
+href="/usr/share/gtk-doc/html/libgimp/libgimp-gimp.html#MAIN:CAPS"
+><code class="function">MAIN()</code></a> macro that every plug-in
+runs). Calling it again will cause a fatal error.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plug_in</code></em> :</span></p></td>
+<td> must be <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> if this function is called from a plug-in
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-directory"></a><h3>gimp_directory ()</h3>
+<pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        gimp_directory                      (void);</pre>
+<p>
+Returns the user-specific GIMP settings directory. If the
+environment variable GIMP2_DIRECTORY exists, it is used. If it is
+an absolute path, it is used as is.  If it is a relative path, it
+is taken to be a subdirectory of the home directory. If it is a
+relative path, and no home directory can be determined, it is taken
+to be a subdirectory of <a class="link" href="libgimpbase-gimpenv.html#gimp-data-directory" title="gimp_data_directory ()"><code class="function">gimp_data_directory()</code></a>.
+</p>
+<p>
+The usual case is that no GIMP2_DIRECTORY environment variable
+exists, and then we use the GIMPDIR subdirectory of the home
+directory. If no home directory exists, we use a per-user
+subdirectory of <a class="link" href="libgimpbase-gimpenv.html#gimp-data-directory" title="gimp_data_directory ()"><code class="function">gimp_data_directory()</code></a>.  In any case, we always
+return some non-empty string, whether it corresponds to an existing
+directory or not.
+</p>
+<p>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The user-specific GIMP settings directory.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-data-directory"></a><h3>gimp_data_directory ()</h3>
+<pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        gimp_data_directory                 (void);</pre>
+<p>
+Returns the top directory for GIMP data. If the environment
+variable GIMP2_DATADIR exists, that is used.  It should be an
+absolute pathname.  Otherwise, on Unix the compile-time defined
+directory is used. On Windows, the installation directory as deduced
+from the executable's full filename is used.
+</p>
+<p>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The top directory for GIMP data.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-locale-directory"></a><h3>gimp_locale_directory ()</h3>
+<pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        gimp_locale_directory               (void);</pre>
+<p>
+Returns the top directory for GIMP locale files. If the environment
+variable GIMP2_LOCALEDIR exists, that is used.  It should be an
+absolute pathname.  Otherwise, on Unix the compile-time defined
+directory is used. On Windows, the installation directory as deduced
+from the executable's full filename is used.
+</p>
+<p>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+the C library, which isn't necessarily UTF-8. (On Windows, unlike
+the other similar functions here, the return value from this
+function is in the system codepage, never in UTF-8. It can thus be
+passed directly to the <code class="function">bindtextdomain()</code> function from libintl which
+does not handle UTF-8.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The top directory for GIMP locale files.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-plug-in-directory"></a><h3>gimp_plug_in_directory ()</h3>
+<pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        gimp_plug_in_directory              (void);</pre>
+<p>
+Returns the top directory for GIMP plug_ins and modules. If the
+environment variable GIMP2_PLUGINDIR exists, that is used.  It
+should be an absolute pathname. Otherwise, on Unix the compile-time
+defined directory is used. On Windows, the installation directory as
+deduced from the executable's full filename is used.
+</p>
+<p>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The top directory for GIMP plug_ins and modules.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-sysconf-directory"></a><h3>gimp_sysconf_directory ()</h3>
+<pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        gimp_sysconf_directory              (void);</pre>
+<p>
+Returns the top directory for GIMP config files. If the environment
+variable GIMP2_SYSCONFDIR exists, that is used.  It should be an
+absolute pathname.  Otherwise, on Unix the compile-time defined
+directory is used. On Windows, the installation directory as deduced
+from the executable's full filename is used.
+</p>
+<p>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The top directory for GIMP config files.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-user-directory"></a><h3>gimp_user_directory ()</h3>
+<pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        gimp_user_directory                 (<a class="link" href="libgimpbase-gimpbaseenums.html#GimpUserDirectory" title="enum GimpUserDirectory">GimpUserDirectory</a> type);</pre>
+<p>
+Identifies special folders used frequently by applications, but
+which may not have the same name or location on any given system.
+</p>
+<p>
+Plug-ins may want to use this function to add shortcuts to such
+folders to a file-chooser.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td> the type of user directory to retrieve
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The path to the specified user directory, or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if the
+         logical ID was not found.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-personal-rc-file"></a><h3>gimp_personal_rc_file ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              gimp_personal_rc_file               (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *basename);</pre>
+<p>
+Returns the name of a file in the user-specific GIMP settings directory.
+</p>
+<p>
+The returned string is allocated dynamically and *SHOULD* be freed
+with <a
+href="/usr/share/gtk-doc/html/glib/glib-Memory-Allocation.html#g-free"
+><code class="function">g_free()</code></a> after use. The returned string is in the encoding
+used for filenames by GLib, which isn't necessarily
+UTF-8. (On Windows it always is UTF-8.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>basename</code></em> :</span></p></td>
+<td> The basename of a rc_file.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The name of a file in the user-specific GIMP settings directory.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-gtkrc"></a><h3>gimp_gtkrc ()</h3>
+<pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*        gimp_gtkrc                          (void);</pre>
+<p>
+Returns the name of GIMP's application-specific gtkrc file.
+</p>
+<p>
+The returned string is owned by GIMP and must not be modified or
+freed. The returned string is in the encoding used for filenames by
+GLib, which isn't necessarily UTF-8. (On Windows it always is
+UTF-8.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The name of GIMP's application-specific gtkrc file.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-path-parse"></a><h3>gimp_path_parse ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a>*              gimp_path_parse                     (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *path,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> max_paths,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> check,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> **check_failed);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>         A list of directories separated by <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#G-SEARCHPATH-SEPARATOR:CAPS"
+><span class="type">G_SEARCHPATH_SEPARATOR</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_paths</code></em> :</span></p></td>
+<td>    The maximum number of directories to return.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>check</code></em> :</span></p></td>
+<td>        <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> if you want the directories to be checked.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>check_failed</code></em> :</span></p></td>
+<td> Returns a <a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+><span class="type">GList</span></a> of path elements for which the
+               check failed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+><span class="type">GList</span></a> of all directories in <em class="parameter"><code>path</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-path-to-str"></a><h3>gimp_path_to_str ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              gimp_path_to_str                    (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *path);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> A list of directories as returned by <a class="link" href="libgimpbase-gimpenv.html#gimp-path-parse" title="gimp_path_parse ()"><code class="function">gimp_path_parse()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A searchpath string separated by <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#G-SEARCHPATH-SEPARATOR:CAPS"
+><span class="type">G_SEARCHPATH_SEPARATOR</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-path-free"></a><h3>gimp_path_free ()</h3>
+<pre class="programlisting">void                gimp_path_free                      (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *path);</pre>
+<p>
+This function frees the memory allocated for the list and the strings
+it contains.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> A list of directories as returned by <a class="link" href="libgimpbase-gimpenv.html#gimp-path-parse" title="gimp_path_parse ()"><code class="function">gimp_path_parse()</code></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-path-get-user-writable-dir"></a><h3>gimp_path_get_user_writable_dir ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              gimp_path_get_user_writable_dir     (<a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *path);</pre>
+<p>
+Note that you have to <a
+href="/usr/share/gtk-doc/html/glib/glib-Memory-Allocation.html#g-free"
+><code class="function">g_free()</code></a> the returned string.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> A list of directories as returned by <a class="link" href="libgimpbase-gimpenv.html#gimp-path-parse" title="gimp_path_parse ()"><code class="function">gimp_path_parse()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The first directory in <em class="parameter"><code>path</code></em> where the user has write permission.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpwidgets-gimpoldwidgets">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpwidgets-gimpoldwidgets.top_of_page">gimpoldwidgets</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpoldwidgets</refname>
+<refpurpose>Old API that is still available but declared as deprecated.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpwidgets-gimpoldwidgets.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-int-option-menu-new">gimp_int_option_menu_new</link>            (<link linkend="gboolean">gboolean</link> menu_only,
+                                                         <link linkend="GCallback">GCallback</link> menu_item_callback,
+                                                         <link linkend="gpointer">gpointer</link> menu_item_callback_data,
+                                                         <link linkend="gint">gint</link> initial,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="gimp-int-option-menu-set-history">gimp_int_option_menu_set_history</link>    (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="gint">gint</link> item_data);
+<link linkend="gboolean">gboolean</link>            (<link linkend="GimpIntOptionMenuSensitivityCallback">*GimpIntOptionMenuSensitivityCallback</link>)
+                                                        (<link linkend="gint">gint</link> item_data,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);
+<link linkend="void">void</link>                <link linkend="gimp-int-option-menu-set-sensitive">gimp_int_option_menu_set_sensitive</link>  (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="GimpIntOptionMenuSensitivityCallback">GimpIntOptionMenuSensitivityCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-option-menu-new">gimp_option_menu_new</link>                (<link linkend="gboolean">gboolean</link> menu_only,
+                                                         ...);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-option-menu-new2">gimp_option_menu_new2</link>               (<link linkend="gboolean">gboolean</link> menu_only,
+                                                         <link linkend="GCallback">GCallback</link> menu_item_callback,
+                                                         <link linkend="gpointer">gpointer</link> menu_item_callback_data,
+                                                         <link linkend="gpointer">gpointer</link> initial,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="gimp-option-menu-set-history">gimp_option_menu_set_history</link>        (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="gpointer">gpointer</link> item_data);
+<link linkend="gboolean">gboolean</link>            (<link linkend="GimpOptionMenuSensitivityCallback">*GimpOptionMenuSensitivityCallback</link>)
+                                                        (<link linkend="gpointer">gpointer</link> item_data,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);
+<link linkend="void">void</link>                <link linkend="gimp-option-menu-set-sensitive">gimp_option_menu_set_sensitive</link>      (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="GimpOptionMenuSensitivityCallback">GimpOptionMenuSensitivityCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);
+<link linkend="void">void</link>                <link linkend="gimp-menu-item-update">gimp_menu_item_update</link>               (<link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         <link linkend="gpointer">gpointer</link> data);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpwidgets-gimpoldwidgets.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+These functions are not defined if you #define GIMP_DISABLE_DEPRECATED.
+</para>
+</refsect1>
+
+<refsect1 id="libgimpwidgets-gimpoldwidgets.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-int-option-menu-new" role="function" condition="deprecated:">
+<title>gimp_int_option_menu_new ()</title>
+<indexterm zone="gimp-int-option-menu-new" role="deprecated"><primary>gimp_int_option_menu_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_int_option_menu_new            (<link linkend="gboolean">gboolean</link> menu_only,
+                                                         <link linkend="GCallback">GCallback</link> menu_item_callback,
+                                                         <link linkend="gpointer">gpointer</link> menu_item_callback_data,
+                                                         <link linkend="gint">gint</link> initial,
+                                                         ...);</programlisting>
+<warning><para><literal>gimp_int_option_menu_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Convenience function to create a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> or a <link linkend="GtkMenu"><type>GtkMenu</type></link>. This
+function does the same thing as the deprecated function
+<link linkend="gimp-option-menu-new2"><function>gimp_option_menu_new2()</function></link>, but it takes integers as <parameter>item_data</parameter>
+instead of pointers, since that is a very common case (mapping an
+enum to a menu).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu_only</parameter>&nbsp;:</term>
+<listitem><simpara>          <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the function should return a <link linkend="GtkMenu"><type>GtkMenu</type></link> only.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu_item_callback</parameter>&nbsp;:</term>
+<listitem><simpara> The callback each menu item's "activate" signal will
+                     be connected with.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu_item_callback_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+                     The data which will be passed to <link linkend="g-signal-connect"><function>g_signal_connect()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>initial</parameter>&nbsp;:</term>
+<listitem><simpara>            The <parameter>item_data</parameter> of the initially selected menu item.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>                A <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated <parameter>va_list</parameter> describing the menu items.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> or a <link linkend="GtkMenu"><type>GtkMenu</type></link> (depending on <parameter>menu_only</parameter>).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-int-option-menu-set-history" role="function" condition="deprecated:">
+<title>gimp_int_option_menu_set_history ()</title>
+<indexterm zone="gimp-int-option-menu-set-history" role="deprecated"><primary>gimp_int_option_menu_set_history</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_int_option_menu_set_history    (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="gint">gint</link> item_data);</programlisting>
+<warning><para><literal>gimp_int_option_menu_set_history</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Iterates over all entries in a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> and selects the one with the
+matching <parameter>item_data</parameter>. Probably only makes sense to use with a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link>
+that was created using <link linkend="gimp-int-option-menu-new"><function>gimp_int_option_menu_new()</function></link>. This function does the
+same thing as <link linkend="gimp-option-menu-set-history"><function>gimp_option_menu_set_history()</function></link>, but takes integers as
+<parameter>item_data</parameter> instead of pointers.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>option_menu</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> as returned by <link linkend="gimp-int-option-menu-new"><function>gimp_int_option_menu_new()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item_data</parameter>&nbsp;:</term>
+<listitem><simpara>   The <parameter>item_data</parameter> of the menu item you want to select.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpIntOptionMenuSensitivityCallback" role="function" condition="deprecated:">
+<title>GimpIntOptionMenuSensitivityCallback ()</title>
+<indexterm zone="GimpIntOptionMenuSensitivityCallback" role="deprecated"><primary>GimpIntOptionMenuSensitivityCallback</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*GimpIntOptionMenuSensitivityCallback)
+                                                        (<link linkend="gint">gint</link> item_data,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);</programlisting>
+<warning><para><literal>GimpIntOptionMenuSensitivityCallback</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>item_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-int-option-menu-set-sensitive" role="function" condition="deprecated:">
+<title>gimp_int_option_menu_set_sensitive ()</title>
+<indexterm zone="gimp-int-option-menu-set-sensitive" role="deprecated"><primary>gimp_int_option_menu_set_sensitive</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_int_option_menu_set_sensitive  (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="GimpIntOptionMenuSensitivityCallback">GimpIntOptionMenuSensitivityCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);</programlisting>
+<warning><para><literal>gimp_int_option_menu_set_sensitive</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Calls the given <parameter>callback</parameter> for each item in the menu and passes it the
+item_data and the <parameter>callback_data</parameter>. The menu item's sensitivity is set
+according to the return value of this function. This function does the
+same thing as <link linkend="gimp-option-menu-set-sensitive"><function>gimp_option_menu_set_sensitive()</function></link>, but takes integers as
+<parameter>item_data</parameter> instead of pointers.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>option_menu</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> as returned by <link linkend="gimp-option-menu-new"><function>gimp_option_menu_new()</function></link> or
+           <link linkend="gimp-option-menu-new2"><function>gimp_option_menu_new2()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a function called for each item in the menu to determine the
+           the sensitivity state.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter> function.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-option-menu-new" role="function" condition="deprecated:">
+<title>gimp_option_menu_new ()</title>
+<indexterm zone="gimp-option-menu-new" role="deprecated"><primary>gimp_option_menu_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_option_menu_new                (<link linkend="gboolean">gboolean</link> menu_only,
+                                                         ...);</programlisting>
+<warning><para><literal>gimp_option_menu_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Convenience function to create a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> or a <link linkend="GtkMenu"><type>GtkMenu</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu_only</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the function should return a <link linkend="GtkMenu"><type>GtkMenu</type></link> only.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>       A <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated <parameter>va_list</parameter> describing the menu items.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> or a <link linkend="GtkMenu"><type>GtkMenu</type></link> (depending on <parameter>menu_only</parameter>).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-option-menu-new2" role="function" condition="deprecated:">
+<title>gimp_option_menu_new2 ()</title>
+<indexterm zone="gimp-option-menu-new2" role="deprecated"><primary>gimp_option_menu_new2</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_option_menu_new2               (<link linkend="gboolean">gboolean</link> menu_only,
+                                                         <link linkend="GCallback">GCallback</link> menu_item_callback,
+                                                         <link linkend="gpointer">gpointer</link> menu_item_callback_data,
+                                                         <link linkend="gpointer">gpointer</link> initial,
+                                                         ...);</programlisting>
+<warning><para><literal>gimp_option_menu_new2</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Convenience function to create a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> or a <link linkend="GtkMenu"><type>GtkMenu</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu_only</parameter>&nbsp;:</term>
+<listitem><simpara>          <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the function should return a <link linkend="GtkMenu"><type>GtkMenu</type></link> only.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu_item_callback</parameter>&nbsp;:</term>
+<listitem><simpara> The callback each menu item's "activate" signal will
+                     be connected with.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu_item_callback_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+                     The data which will be passed to <link linkend="g-signal-connect"><function>g_signal_connect()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>initial</parameter>&nbsp;:</term>
+<listitem><simpara>            The <parameter>item_data</parameter> of the initially selected menu item.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>                A <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated <parameter>va_list</parameter> describing the menu items.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> or a <link linkend="GtkMenu"><type>GtkMenu</type></link> (depending on <parameter>menu_only</parameter>).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-option-menu-set-history" role="function" condition="deprecated:">
+<title>gimp_option_menu_set_history ()</title>
+<indexterm zone="gimp-option-menu-set-history" role="deprecated"><primary>gimp_option_menu_set_history</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_option_menu_set_history        (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="gpointer">gpointer</link> item_data);</programlisting>
+<warning><para><literal>gimp_option_menu_set_history</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Iterates over all entries in a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> and selects the one
+with the matching <parameter>item_data</parameter>. Probably only makes sense to use with
+a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> that was created using <link linkend="gimp-option-menu-new"><function>gimp_option_menu_new()</function></link> or
+<link linkend="gimp-option-menu-new2"><function>gimp_option_menu_new2()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>option_menu</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> as returned by <link linkend="gimp-option-menu-new"><function>gimp_option_menu_new()</function></link> or
+              <link linkend="gimp-option-menu-new2"><function>gimp_option_menu_new2()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>item_data</parameter>&nbsp;:</term>
+<listitem><simpara>   The <parameter>item_data</parameter> of the menu item you want to select.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpOptionMenuSensitivityCallback" role="function" condition="deprecated:">
+<title>GimpOptionMenuSensitivityCallback ()</title>
+<indexterm zone="GimpOptionMenuSensitivityCallback" role="deprecated"><primary>GimpOptionMenuSensitivityCallback</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*GimpOptionMenuSensitivityCallback)
+                                                        (<link linkend="gpointer">gpointer</link> item_data,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);</programlisting>
+<warning><para><literal>GimpOptionMenuSensitivityCallback</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>item_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-option-menu-set-sensitive" role="function" condition="deprecated:">
+<title>gimp_option_menu_set_sensitive ()</title>
+<indexterm zone="gimp-option-menu-set-sensitive" role="deprecated"><primary>gimp_option_menu_set_sensitive</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_option_menu_set_sensitive      (<link linkend="GtkOptionMenu">GtkOptionMenu</link> *option_menu,
+                                                         <link linkend="GimpOptionMenuSensitivityCallback">GimpOptionMenuSensitivityCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> callback_data);</programlisting>
+<warning><para><literal>gimp_option_menu_set_sensitive</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+Calls the given <parameter>callback</parameter> for each item in the menu and passes it the
+item_data and the <parameter>callback_data</parameter>. The menu item's sensitivity is set
+according to the return value of this function.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>option_menu</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GtkOptionMenu"><type>GtkOptionMenu</type></link> as returned by <link linkend="gimp-option-menu-new"><function>gimp_option_menu_new()</function></link> or
+           <link linkend="gimp-option-menu-new2"><function>gimp_option_menu_new2()</function></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a function called for each item in the menu to determine the
+           the sensitivity state.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to the <parameter>callback</parameter> function.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-menu-item-update" role="function" condition="deprecated:">
+<title>gimp_menu_item_update ()</title>
+<indexterm zone="gimp-menu-item-update" role="deprecated"><primary>gimp_menu_item_update</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_menu_item_update               (<link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<warning><para><literal>gimp_menu_item_update</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GtkMenuItem"><type>GtkMenuItem</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>   A pointer to a <link linkend="gint"><type>gint</type></link> variable which will store the value of
+         GPOINTER_TO_INT (g_object_get_data (<parameter>widget</parameter>, "gimp-item-data")).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libgimpwidgets-gimpoldwidgets.see-also">
+<title>See Also</title>
+<para>
+GimpIntComboBox
+</para>
+</refsect1>
+
+</refentry>

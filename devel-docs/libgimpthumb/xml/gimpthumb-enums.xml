@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpthumb-gimpthumb-enums">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpthumb-gimpthumb-enums.top_of_page">gimpthumb-enums</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPTHUMB Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpthumb-enums</refname>
+<refpurpose>Enumerations used by libgimpthumb</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpthumb-gimpthumb-enums.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="GimpThumbFileType">GimpThumbFileType</link>;
+enum                <link linkend="GimpThumbSize">GimpThumbSize</link>;
+enum                <link linkend="GimpThumbState">GimpThumbState</link>;
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpthumb-gimpthumb-enums.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpthumb-gimpthumb-enums.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpThumbFileType" role="enum">
+<title>enum GimpThumbFileType</title>
+<indexterm zone="GimpThumbFileType"><primary>GimpThumbFileType</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_THUMB_FILE_TYPE_NONE,
+  GIMP_THUMB_FILE_TYPE_REGULAR,
+  GIMP_THUMB_FILE_TYPE_FOLDER,
+  GIMP_THUMB_FILE_TYPE_SPECIAL
+} GimpThumbFileType;
+</programlisting>
+<para>
+File types as returned by <link linkend="gimp-thumb-file-test"><function>gimp_thumb_file_test()</function></link>.
+</para><variablelist role="enum">
+<varlistentry id="GIMP-THUMB-FILE-TYPE-NONE:CAPS" role="constant">
+<term><literal>GIMP_THUMB_FILE_TYPE_NONE</literal></term>
+<listitem><simpara>    file does not exist
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-FILE-TYPE-REGULAR:CAPS" role="constant">
+<term><literal>GIMP_THUMB_FILE_TYPE_REGULAR</literal></term>
+<listitem><simpara> a regular file
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-FILE-TYPE-FOLDER:CAPS" role="constant">
+<term><literal>GIMP_THUMB_FILE_TYPE_FOLDER</literal></term>
+<listitem><simpara>  a directory
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-FILE-TYPE-SPECIAL:CAPS" role="constant">
+<term><literal>GIMP_THUMB_FILE_TYPE_SPECIAL</literal></term>
+<listitem><simpara> a special file (device node, fifo, socket, ...)
+
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpThumbSize" role="enum">
+<title>enum GimpThumbSize</title>
+<indexterm zone="GimpThumbSize"><primary>GimpThumbSize</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_THUMB_SIZE_FAIL   = 0,
+  GIMP_THUMB_SIZE_NORMAL = 128,
+  GIMP_THUMB_SIZE_LARGE  = 256
+} GimpThumbSize;
+</programlisting>
+<para>
+Possible thumbnail sizes as defined by the Thumbnail Managaging Standard
+</para><variablelist role="enum">
+<varlistentry id="GIMP-THUMB-SIZE-FAIL:CAPS" role="constant">
+<term><literal>GIMP_THUMB_SIZE_FAIL</literal></term>
+<listitem><simpara>   special size used to indicate a thumbnail
+                          creation failure
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-SIZE-NORMAL:CAPS" role="constant">
+<term><literal>GIMP_THUMB_SIZE_NORMAL</literal></term>
+<listitem><simpara> normal thumbnail size (128 pixels)
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-SIZE-LARGE:CAPS" role="constant">
+<term><literal>GIMP_THUMB_SIZE_LARGE</literal></term>
+<listitem><simpara>  large thumbnail size (256 pixels)
+
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GimpThumbState" role="enum">
+<title>enum GimpThumbState</title>
+<indexterm zone="GimpThumbState"><primary>GimpThumbState</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_THUMB_STATE_UNKNOWN,
+  GIMP_THUMB_STATE_REMOTE,
+  GIMP_THUMB_STATE_FOLDER,
+  GIMP_THUMB_STATE_SPECIAL,
+  GIMP_THUMB_STATE_NOT_FOUND,
+  GIMP_THUMB_STATE_EXISTS,
+  GIMP_THUMB_STATE_OLD,
+  GIMP_THUMB_STATE_FAILED,
+  GIMP_THUMB_STATE_OK
+} GimpThumbState;
+</programlisting>
+<para>
+Possible image and thumbnail file states used by libgimpthumb.
+</para><variablelist role="enum">
+<varlistentry id="GIMP-THUMB-STATE-UNKNOWN:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_UNKNOWN</literal></term>
+<listitem><simpara>   nothing is known about the file/thumbnail
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-REMOTE:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_REMOTE</literal></term>
+<listitem><simpara>    the file is on a remote file system
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-FOLDER:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_FOLDER</literal></term>
+<listitem><simpara>
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-SPECIAL:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_SPECIAL</literal></term>
+<listitem><simpara>
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-NOT-FOUND:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_NOT_FOUND</literal></term>
+<listitem><simpara> the file/thumbnail doesn't exist
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-EXISTS:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_EXISTS</literal></term>
+<listitem><simpara>    the file/thumbnail exists
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-OLD:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_OLD</literal></term>
+<listitem><simpara>       the thumbnail may be outdated
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-FAILED:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_FAILED</literal></term>
+<listitem><simpara>    the thumbnail couldn't be created
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GIMP-THUMB-STATE-OK:CAPS" role="constant">
+<term><literal>GIMP_THUMB_STATE_OK</literal></term>
+<listitem><simpara>        the thumbnail exists and matches the image
+
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

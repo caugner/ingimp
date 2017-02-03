@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimprectangle">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimprectangle.top_of_page">gimprectangle</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimprectangle</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimprectangle.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-rectangle-intersect">gimp_rectangle_intersect</link>            (<link linkend="gint">gint</link> x1,
+                                                         <link linkend="gint">gint</link> y1,
+                                                         <link linkend="gint">gint</link> width1,
+                                                         <link linkend="gint">gint</link> height1,
+                                                         <link linkend="gint">gint</link> x2,
+                                                         <link linkend="gint">gint</link> y2,
+                                                         <link linkend="gint">gint</link> width2,
+                                                         <link linkend="gint">gint</link> height2,
+                                                         <link linkend="gint">gint</link> *dest_x,
+                                                         <link linkend="gint">gint</link> *dest_y,
+                                                         <link linkend="gint">gint</link> *dest_width,
+                                                         <link linkend="gint">gint</link> *dest_height);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimprectangle.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimprectangle.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-rectangle-intersect" role="function" condition="since:GIMP 2.4">
+<title>gimp_rectangle_intersect ()</title>
+<indexterm zone="gimp-rectangle-intersect" role="GIMP 2.4"><primary>gimp_rectangle_intersect</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_rectangle_intersect            (<link linkend="gint">gint</link> x1,
+                                                         <link linkend="gint">gint</link> y1,
+                                                         <link linkend="gint">gint</link> width1,
+                                                         <link linkend="gint">gint</link> height1,
+                                                         <link linkend="gint">gint</link> x2,
+                                                         <link linkend="gint">gint</link> y2,
+                                                         <link linkend="gint">gint</link> width2,
+                                                         <link linkend="gint">gint</link> height2,
+                                                         <link linkend="gint">gint</link> *dest_x,
+                                                         <link linkend="gint">gint</link> *dest_y,
+                                                         <link linkend="gint">gint</link> *dest_width,
+                                                         <link linkend="gint">gint</link> *dest_height);</programlisting>
+<para>
+Calculates the intersection of two rectangles.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>x1</parameter>&nbsp;:</term>
+<listitem><simpara>          origin of first rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y1</parameter>&nbsp;:</term>
+<listitem><simpara>          origin of first rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width1</parameter>&nbsp;:</term>
+<listitem><simpara>      width of first rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height1</parameter>&nbsp;:</term>
+<listitem><simpara>     height of first rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x2</parameter>&nbsp;:</term>
+<listitem><simpara>          origin of second rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y2</parameter>&nbsp;:</term>
+<listitem><simpara>          origin of second rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width2</parameter>&nbsp;:</term>
+<listitem><simpara>      width of second rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height2</parameter>&nbsp;:</term>
+<listitem><simpara>     height of second rectangle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_x</parameter>&nbsp;:</term>
+<listitem><simpara>      return location for origin of intersection (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_y</parameter>&nbsp;:</term>
+<listitem><simpara>      return location for origin of intersection (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_width</parameter>&nbsp;:</term>
+<listitem><simpara>  return location for width of intersection (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_height</parameter>&nbsp;:</term>
+<listitem><simpara> return location for height of intersection (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>)
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the intersection is non-empty, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

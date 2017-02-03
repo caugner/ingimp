@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpmemsize">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpmemsize.top_of_page">gimpmemsize</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpmemsize</refname>
+<refpurpose>Functions to (de)serialize a given memory size.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpmemsize.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-memsize-serialize">gimp_memsize_serialize</link>              (<link linkend="guint64">guint64</link> memsize);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-memsize-deserialize">gimp_memsize_deserialize</link>            (const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="guint64">guint64</link> *memsize);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-memsize-to-string">gimp_memsize_to_string</link>              (<link linkend="guint64">guint64</link> memsize);
+#define             <link linkend="GIMP-TYPE-MEMSIZE:CAPS">GIMP_TYPE_MEMSIZE</link>
+#define             <link linkend="GIMP-TYPE-PARAM-MEMSIZE:CAPS">GIMP_TYPE_PARAM_MEMSIZE</link>
+#define             <link linkend="GIMP-IS-PARAM-SPEC-MEMSIZE:CAPS">GIMP_IS_PARAM_SPEC_MEMSIZE</link>          (pspec)
+<link linkend="GParamSpec">GParamSpec</link>*         <link linkend="gimp-param-spec-memsize">gimp_param_spec_memsize</link>             (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *nick,
+                                                         const <link linkend="gchar">gchar</link> *blurb,
+                                                         <link linkend="guint64">guint64</link> minimum,
+                                                         <link linkend="guint64">guint64</link> maximum,
+                                                         <link linkend="guint64">guint64</link> default_value,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);
+#define             <link linkend="GIMP-VALUE-HOLDS-MEMSIZE:CAPS">GIMP_VALUE_HOLDS_MEMSIZE</link>            (value)
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpmemsize.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions to (de)serialize a given memory size.
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpmemsize.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-memsize-serialize" role="function" condition="since:GIMP 2.2">
+<title>gimp_memsize_serialize ()</title>
+<indexterm zone="gimp-memsize-serialize" role="GIMP 2.2"><primary>gimp_memsize_serialize</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_memsize_serialize              (<link linkend="guint64">guint64</link> memsize);</programlisting>
+<para>
+Creates a string representation of a given memory size. This string
+can be parsed by <link linkend="gimp-memsize-deserialize"><function>gimp_memsize_deserialize()</function></link> and can thus be used in
+config files. It should not be displayed to the user. If you need a
+nice human-readable string please use <link linkend="gimp-memsize-to-string"><function>gimp_memsize_to_string()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>memsize</parameter>&nbsp;:</term>
+<listitem><simpara> memory size in bytes
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A newly allocated string representation of <parameter>memsize</parameter>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-memsize-deserialize" role="function" condition="since:GIMP 2.2">
+<title>gimp_memsize_deserialize ()</title>
+<indexterm zone="gimp-memsize-deserialize" role="GIMP 2.2"><primary>gimp_memsize_deserialize</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_memsize_deserialize            (const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="guint64">guint64</link> *memsize);</programlisting>
+<para>
+Parses a string representation of a memory size as returned by
+<link linkend="gimp-memsize-serialize"><function>gimp_memsize_serialize()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara>  a string as returned by <link linkend="gimp-memsize-serialize"><function>gimp_memsize_serialize()</function></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>memsize</parameter>&nbsp;:</term>
+<listitem><simpara> return location for memory size in bytes
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <parameter>string</parameter> was successfully parsed and
+              <parameter>memsize</parameter> has been set, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-memsize-to-string" role="function">
+<title>gimp_memsize_to_string ()</title>
+<indexterm zone="gimp-memsize-to-string"><primary>gimp_memsize_to_string</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_memsize_to_string              (<link linkend="guint64">guint64</link> memsize);</programlisting>
+<para>
+This function returns a human readable, translated representation
+of the passed <parameter>memsize</parameter>. Large values are displayed using a
+reasonable memsize unit, e.g.: "345" becomes "345 Bytes", "4500"
+becomes "4.4 KB" and so on.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>memsize</parameter>&nbsp;:</term>
+<listitem><simpara> A memory size in bytes.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A newly allocated human-readable, translated string.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="GIMP-TYPE-MEMSIZE:CAPS" role="macro">
+<title>GIMP_TYPE_MEMSIZE</title>
+<indexterm zone="GIMP-TYPE-MEMSIZE:CAPS"><primary>GIMP_TYPE_MEMSIZE</primary></indexterm><programlisting>#define GIMP_TYPE_MEMSIZE               (gimp_memsize_get_type ())
+</programlisting>
+<para>
+<link linkend="GIMP-TYPE-MEMSIZE:CAPS"><type>GIMP_TYPE_MEMSIZE</type></link> is a <link linkend="GType"><type>GType</type></link> derived from <link linkend="G-TYPE-UINT64:CAPS"><type>G_TYPE_UINT64</type></link>.
+</para></refsect2>
+<refsect2 id="GIMP-TYPE-PARAM-MEMSIZE:CAPS" role="macro">
+<title>GIMP_TYPE_PARAM_MEMSIZE</title>
+<indexterm zone="GIMP-TYPE-PARAM-MEMSIZE:CAPS"><primary>GIMP_TYPE_PARAM_MEMSIZE</primary></indexterm><programlisting>#define GIMP_TYPE_PARAM_MEMSIZE           (gimp_param_memsize_get_type ())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="GIMP-IS-PARAM-SPEC-MEMSIZE:CAPS" role="macro">
+<title>GIMP_IS_PARAM_SPEC_MEMSIZE()</title>
+<indexterm zone="GIMP-IS-PARAM-SPEC-MEMSIZE:CAPS"><primary>GIMP_IS_PARAM_SPEC_MEMSIZE</primary></indexterm><programlisting>#define GIMP_IS_PARAM_SPEC_MEMSIZE(pspec) (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), GIMP_TYPE_PARAM_MEMSIZE))
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>pspec</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-param-spec-memsize" role="function" condition="since:GIMP 2.4">
+<title>gimp_param_spec_memsize ()</title>
+<indexterm zone="gimp-param-spec-memsize" role="GIMP 2.4"><primary>gimp_param_spec_memsize</primary></indexterm><programlisting><link linkend="GParamSpec">GParamSpec</link>*         gimp_param_spec_memsize             (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *nick,
+                                                         const <link linkend="gchar">gchar</link> *blurb,
+                                                         <link linkend="guint64">guint64</link> minimum,
+                                                         <link linkend="guint64">guint64</link> maximum,
+                                                         <link linkend="guint64">guint64</link> default_value,
+                                                         <link linkend="GParamFlags">GParamFlags</link> flags);</programlisting>
+<para>
+Creates a param spec to hold a memory size value.
+See <link linkend="g-param-spec-internal"><function>g_param_spec_internal()</function></link> for more information.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>          Canonical name of the param
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>nick</parameter>&nbsp;:</term>
+<listitem><simpara>          Nickname of the param
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>blurb</parameter>&nbsp;:</term>
+<listitem><simpara>         Brief desciption of param.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minimum</parameter>&nbsp;:</term>
+<listitem><simpara>       Smallest allowed value of the parameter.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>maximum</parameter>&nbsp;:</term>
+<listitem><simpara>       Largest allowed value of the parameter.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>default_value</parameter>&nbsp;:</term>
+<listitem><simpara> Value to use if none is assigned.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara>         a combination of <link linkend="GParamFlags"><type>GParamFlags</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a newly allocated <link linkend="GParamSpec"><type>GParamSpec</type></link> instance
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="GIMP-VALUE-HOLDS-MEMSIZE:CAPS" role="macro">
+<title>GIMP_VALUE_HOLDS_MEMSIZE()</title>
+<indexterm zone="GIMP-VALUE-HOLDS-MEMSIZE:CAPS"><primary>GIMP_VALUE_HOLDS_MEMSIZE</primary></indexterm><programlisting>#define GIMP_VALUE_HOLDS_MEMSIZE(value) (G_TYPE_CHECK_VALUE_TYPE ((value), GIMP_TYPE_MEMSIZE))
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

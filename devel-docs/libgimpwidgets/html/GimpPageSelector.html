@@ -1,0 +1,869 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GimpPageSelector</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="GIMP Widgets Library Reference Manual">
+<link rel="up" href="libgimpwidgets-widgets.html" title="Part I. GIMP Widgets">
+<link rel="prev" href="GimpOffsetArea.html" title="GimpOffsetArea">
+<link rel="next" href="GimpPathEditor.html" title="GimpPathEditor">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="part" href="libgimpwidgets-widgets.html" title="Part I. GIMP Widgets">
+<link rel="chapter" href="libgimpwidgets-hierarchy.html" title="Object Hierarchy">
+<link rel="chapter" href="libgimpwidgets-gallery.html" title="Widget Gallery">
+<link rel="chapter" href="libgimpwidgets-cell-renderers.html" title="Cell Renderers for GtkTreeView">
+<link rel="part" href="libgimpwidgets-colordisplay.html" title="Part II. GIMP Display Filters">
+<link rel="part" href="libgimpwidgets-colorselector.html" title="Part III. GIMP Color Selectors">
+<link rel="part" href="libgimpwidgets-controller.html" title="Part IV. GIMP Controllers">
+<link rel="part" href="libgimpwidgets-utils.html" title="Part V. GIMP Widgets Utilities">
+<link rel="part" href="libgimpwidgets-deprecated.html" title="Part VI. Deprecated API">
+<link rel="index" href="libgimpwidgets-index.html" title="Index">
+<link rel="index" href="libgimpwidgets-index-new-in-2-2.html" title="Index of new symbols in GIMP 2.2">
+<link rel="index" href="libgimpwidgets-index-new-in-2-4.html" title="Index of new symbols in GIMP 2.4">
+<link rel="index" href="libgimpwidgets-index-deprecated.html" title="Index of deprecated symbols">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GimpOffsetArea.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgimpwidgets-widgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GIMP Widgets Library Reference Manual</th>
+<td><a accesskey="n" href="GimpPathEditor.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#GimpPageSelector.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GimpPageSelector.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GimpPageSelector.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GimpPageSelector.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GimpPageSelector.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GimpPageSelector.signals" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="GimpPageSelector"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GimpPageSelector.top_of_page"></a>GimpPageSelector</span></h2>
+<p>GimpPageSelector</p>
+</td>
+<td valign="top" align="right"><img src="gimp-page-selector.png"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GimpPageSelector.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="GimpPageSelector.html#GimpPageSelector-struct" title="GimpPageSelector">GimpPageSelector</a>;
+enum                <a class="link" href="GimpPageSelector.html#GimpPageSelectorTarget" title="enum GimpPageSelectorTarget">GimpPageSelectorTarget</a>;
+<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a>*          <a class="link" href="GimpPageSelector.html#gimp-page-selector-new" title="gimp_page_selector_new ()">gimp_page_selector_new</a>              (void);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-set-n-pages" title="gimp_page_selector_set_n_pages ()">gimp_page_selector_set_n_pages</a>      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> n_pages);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                <a class="link" href="GimpPageSelector.html#gimp-page-selector-get-n-pages" title="gimp_page_selector_get_n_pages ()">gimp_page_selector_get_n_pages</a>      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-set-target" title="gimp_page_selector_set_target ()">gimp_page_selector_set_target</a>       (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a class="link" href="GimpPageSelector.html#GimpPageSelectorTarget" title="enum GimpPageSelectorTarget">GimpPageSelectorTarget</a> target);
+<a class="link" href="GimpPageSelector.html#GimpPageSelectorTarget" title="enum GimpPageSelectorTarget">GimpPageSelectorTarget</a> <a class="link" href="GimpPageSelector.html#gimp-page-selector-get-target" title="gimp_page_selector_get_target ()">gimp_page_selector_get_target</a>    (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-set-page-thumbnail" title="gimp_page_selector_set_page_thumbnail ()">gimp_page_selector_set_page_thumbnail</a>
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *thumbnail);
+<a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          <a class="link" href="GimpPageSelector.html#gimp-page-selector-get-page-thumbnail" title="gimp_page_selector_get_page_thumbnail ()">gimp_page_selector_get_page_thumbnail</a>
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-set-page-label" title="gimp_page_selector_set_page_label ()">gimp_page_selector_set_page_label</a>   (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *label);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="GimpPageSelector.html#gimp-page-selector-get-page-label" title="gimp_page_selector_get_page_label ()">gimp_page_selector_get_page_label</a>   (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-select-all" title="gimp_page_selector_select_all ()">gimp_page_selector_select_all</a>       (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-unselect-all" title="gimp_page_selector_unselect_all ()">gimp_page_selector_unselect_all</a>     (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-select-page" title="gimp_page_selector_select_page ()">gimp_page_selector_select_page</a>      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-unselect-page" title="gimp_page_selector_unselect_page ()">gimp_page_selector_unselect_page</a>    (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="GimpPageSelector.html#gimp-page-selector-page-is-selected" title="gimp_page_selector_page_is_selected ()">gimp_page_selector_page_is_selected</a> (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>*               <a class="link" href="GimpPageSelector.html#gimp-page-selector-get-selected-pages" title="gimp_page_selector_get_selected_pages ()">gimp_page_selector_get_selected_pages</a>
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> *n_selected_pages);
+void                <a class="link" href="GimpPageSelector.html#gimp-page-selector-select-range" title="gimp_page_selector_select_range ()">gimp_page_selector_select_range</a>     (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *range);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="GimpPageSelector.html#gimp-page-selector-get-selected-range" title="gimp_page_selector_get_selected_range ()">gimp_page_selector_get_selected_range</a>
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkContainer.html"
+>GtkContainer</a>
+                           +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkBox.html"
+>GtkBox</a>
+                                 +----<a
+href="/usr/share/gtk-doc/html/gtk/GtkVBox.html"
+>GtkVBox</a>
+                                       +----GimpPageSelector
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GimpPageSelector implements
+ AtkImplementorIface and  GtkBuildable.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GimpPageSelector.html#GimpPageSelector--n-pages" title='The "n-pages" property'>n-pages</a>"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write
+  "<a class="link" href="GimpPageSelector.html#GimpPageSelector--target" title='The "target" property'>target</a>"                   <a class="link" href="GimpPageSelector.html#GimpPageSelectorTarget" title="enum GimpPageSelectorTarget">GimpPageSelectorTarget</a>  : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GimpPageSelector.html#GimpPageSelector-activate" title='The "activate" signal'>activate</a>"                                       : Run First / Action
+  "<a class="link" href="GimpPageSelector.html#GimpPageSelector-selection-changed" title='The "selection-changed" signal'>selection-changed</a>"                              : Run First
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="GimpPageSelector-struct"></a><h3>GimpPageSelector</h3>
+<pre class="programlisting">typedef struct _GimpPageSelector GimpPageSelector;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GimpPageSelectorTarget"></a><h3>enum GimpPageSelectorTarget</h3>
+<pre class="programlisting">typedef enum
+{
+  GIMP_PAGE_SELECTOR_TARGET_LAYERS, /*&lt; desc="Layers" &gt;*/
+  GIMP_PAGE_SELECTOR_TARGET_IMAGES  /*&lt; desc="Images" &gt;*/
+} GimpPageSelectorTarget;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-new"></a><h3>gimp_page_selector_new ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"
+>GtkWidget</a>*          gimp_page_selector_new              (void);</pre>
+<p>
+Creates a new <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a> widget.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Pointer to the new <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a> widget.
+
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-set-n-pages"></a><h3>gimp_page_selector_set_n_pages ()</h3>
+<pre class="programlisting">void                gimp_page_selector_set_n_pages      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> n_pages);</pre>
+<p>
+Sets the number of pages in the document to open.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_pages</code></em> :</span></p></td>
+<td>  The number of pages.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-get-n-pages"></a><h3>gimp_page_selector_get_n_pages ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                gimp_page_selector_get_n_pages      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of pages in the document to open.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-set-target"></a><h3>gimp_page_selector_set_target ()</h3>
+<pre class="programlisting">void                gimp_page_selector_set_target       (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a class="link" href="GimpPageSelector.html#GimpPageSelectorTarget" title="enum GimpPageSelectorTarget">GimpPageSelectorTarget</a> target);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>   How to open the selected pages.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-get-target"></a><h3>gimp_page_selector_get_target ()</h3>
+<pre class="programlisting"><a class="link" href="GimpPageSelector.html#GimpPageSelectorTarget" title="enum GimpPageSelectorTarget">GimpPageSelectorTarget</a> gimp_page_selector_get_target    (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> How the selected pages should be opened.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-set-page-thumbnail"></a><h3>gimp_page_selector_set_page_thumbnail ()</h3>
+<pre class="programlisting">void                gimp_page_selector_set_page_thumbnail
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no,
+                                                         <a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *thumbnail);</pre>
+<p>
+Sets the thumbnail for given <code class="literal">page_no</code>. A default "page" icon will
+be used if no page thumbnail is set.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_no</code></em> :</span></p></td>
+<td> The number of the page to set the thumbnail for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbnail</code></em> :</span></p></td>
+<td> The thumbnail pixbuf.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-get-page-thumbnail"></a><h3>gimp_page_selector_get_page_thumbnail ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          gimp_page_selector_get_page_thumbnail
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_no</code></em> :</span></p></td>
+<td> The number of the page to get the thumbnail for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The page's thumbnail, or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if none is set. The returned
+         pixbuf is owned by <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a> and must not be
+         unref'ed when no longer needed.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-set-page-label"></a><h3>gimp_page_selector_set_page_label ()</h3>
+<pre class="programlisting">void                gimp_page_selector_set_page_label   (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *label);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_no</code></em> :</span></p></td>
+<td> The number of the page to set the label for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td> The label.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-get-page-label"></a><h3>gimp_page_selector_get_page_label ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              gimp_page_selector_get_page_label   (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_no</code></em> :</span></p></td>
+<td> The number of the page to get the thumbnail for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The page's label, or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if none is set. This is a newly
+         allocated string that should be <a
+href="/usr/share/gtk-doc/html/glib/glib-Memory-Allocation.html#g-free"
+><code class="function">g_free()</code></a>'d when no longer
+         needed.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-select-all"></a><h3>gimp_page_selector_select_all ()</h3>
+<pre class="programlisting">void                gimp_page_selector_select_all       (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);</pre>
+<p>
+Selects all pages.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-unselect-all"></a><h3>gimp_page_selector_unselect_all ()</h3>
+<pre class="programlisting">void                gimp_page_selector_unselect_all     (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);</pre>
+<p>
+Unselects all pages.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-select-page"></a><h3>gimp_page_selector_select_page ()</h3>
+<pre class="programlisting">void                gimp_page_selector_select_page      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);</pre>
+<p>
+Adds a page to the selection.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_no</code></em> :</span></p></td>
+<td> The number of the page to select.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-unselect-page"></a><h3>gimp_page_selector_unselect_page ()</h3>
+<pre class="programlisting">void                gimp_page_selector_unselect_page    (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);</pre>
+<p>
+Removes a page from the selection.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_no</code></em> :</span></p></td>
+<td> The number of the page to unselect.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-page-is-selected"></a><h3>gimp_page_selector_page_is_selected ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            gimp_page_selector_page_is_selected (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> page_no);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_no</code></em> :</span></p></td>
+<td> The number of the page to check.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> if the page is selected, <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"
+><code class="literal">FALSE</code></a> otherwise.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-get-selected-pages"></a><h3>gimp_page_selector_get_selected_pages ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>*               gimp_page_selector_get_selected_pages
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a> *n_selected_pages);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_selected_pages</code></em> :</span></p></td>
+<td> Returns the number of selected pages.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A sorted array of page numbers of selected pages. Use <a
+href="/usr/share/gtk-doc/html/glib/glib-Memory-Allocation.html#g-free"
+><code class="function">g_free()</code></a> if
+         you don't need the array any longer.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-select-range"></a><h3>gimp_page_selector_select_range ()</h3>
+<pre class="programlisting">void                gimp_page_selector_select_range     (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector,
+                                                         const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *range);</pre>
+<p>
+Selectes the pages described by <code class="literal">range</code>. The range string is a
+user-editable list of pages and ranges, e.g. "1,3,5-7,9-12,14".
+Note that the page numbering in the range string starts with 1,
+not 0.
+</p>
+<p>
+Invalid pages and ranges will be silently ignored, duplicate and
+overlapping pages and ranges will be merged.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>range</code></em> :</span></p></td>
+<td> A string representing the set of selected pages.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="gimp-page-selector-get-selected-range"></a><h3>gimp_page_selector_get_selected_range ()</h3>
+<pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a>*              gimp_page_selector_get_selected_range
+                                                        (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *selector);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td> Pointer to a <a class="link" href="GimpPageSelector.html" title="GimpPageSelector"><span class="type">GimpPageSelector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A newly allocated string representing the set of selected
+         pages. See <code class="function">gimp_page_selector_set_selected_range()</code> for the
+         format of the string.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  GIMP 2.4
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="GimpPageSelector--n-pages"></a><h3>The <code class="literal">"n-pages"</code> property</h3>
+<pre class="programlisting">  "n-pages"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>                  : Read / Write</pre>
+<p>
+The number of pages of the document to open.</p>
+<p>
+
+</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+<p>Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GimpPageSelector--target"></a><h3>The <code class="literal">"target"</code> property</h3>
+<pre class="programlisting">  "target"                   <a class="link" href="GimpPageSelector.html#GimpPageSelectorTarget" title="enum GimpPageSelectorTarget">GimpPageSelectorTarget</a>  : Read / Write</pre>
+<p>
+The target to open the document to.</p>
+<p>
+
+</p>
+<p>Default value: GIMP_PAGE_SELECTOR_TARGET_LAYERS</p>
+<p>Since  GIMP 2.4
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="GimpPageSelector.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="GimpPageSelector-activate"></a><h3>The <code class="literal">"activate"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *widget,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>          user_data)      : Run First / Action</pre>
+<p>
+The "activate" signal on GimpPageSelector is an action signal. It
+is emitted when a user double-clicks an item in the page selection.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Since  GIMP 2.4
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="GimpPageSelector-selection-changed"></a><h3>The <code class="literal">"selection-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="GimpPageSelector.html" title="GimpPageSelector">GimpPageSelector</a> *widget,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>          user_data)      : Run First</pre>
+<p>
+This signal is emitted whenever the set of selected pages changes.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Since  GIMP 2.4
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpColorSelection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpColorSelection.top_of_page">GimpColorSelection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpColorSelection</refname>
+<refpurpose>Widget for doing a color selection.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpColorSelection.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpColorSelection-struct">GimpColorSelection</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-color-selection-new">gimp_color_selection_new</link>            (void);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-set-show-alpha">gimp_color_selection_set_show_alpha</link> (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="gboolean">gboolean</link> show_alpha);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-color-selection-get-show-alpha">gimp_color_selection_get_show_alpha</link> (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-set-color">gimp_color_selection_set_color</link>      (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         const <link linkend="GimpRGB">GimpRGB</link> *color);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-get-color">gimp_color_selection_get_color</link>      (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-set-old-color">gimp_color_selection_set_old_color</link>  (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         const <link linkend="GimpRGB">GimpRGB</link> *color);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-get-old-color">gimp_color_selection_get_old_color</link>  (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-reset">gimp_color_selection_reset</link>          (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-color-changed">gimp_color_selection_color_changed</link>  (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection);
+<link linkend="void">void</link>                <link linkend="gimp-color-selection-set-config">gimp_color_selection_set_config</link>     (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="GimpColorConfig">GimpColorConfig</link> *config);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpColorSelection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkVBox">GtkVBox</link>
+                                       +----GimpColorSelection
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpColorSelection.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpColorSelection implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 id="GimpColorSelection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GimpColorSelection--config">config</link>&quot;                   <link linkend="GimpColorConfig">GimpColorConfig</link>*      : Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="GimpColorSelection.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpColorSelection-color-changed">color-changed</link>&quot;                                  : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpColorSelection.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpColorSelection.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpColorSelection-struct" role="struct">
+<title>GimpColorSelection</title>
+<indexterm zone="GimpColorSelection-struct"><primary>GimpColorSelection</primary></indexterm><programlisting>typedef struct _GimpColorSelection GimpColorSelection;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-color-selection-new" role="function">
+<title>gimp_color_selection_new ()</title>
+<indexterm zone="gimp-color-selection-new"><primary>gimp_color_selection_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_color_selection_new            (void);</programlisting>
+<para>
+Creates a new <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The new <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-set-show-alpha" role="function">
+<title>gimp_color_selection_set_show_alpha ()</title>
+<indexterm zone="gimp-color-selection-set-show-alpha"><primary>gimp_color_selection_set_show_alpha</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_set_show_alpha (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="gboolean">gboolean</link> show_alpha);</programlisting>
+<para>
+Sets the <parameter>show_alpha</parameter> property of the <parameter>selection</parameter> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara>  A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_alpha</parameter>&nbsp;:</term>
+<listitem><simpara> The new <parameter>show_alpha</parameter> setting.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-get-show-alpha" role="function">
+<title>gimp_color_selection_get_show_alpha ()</title>
+<indexterm zone="gimp-color-selection-get-show-alpha"><primary>gimp_color_selection_get_show_alpha</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_color_selection_get_show_alpha (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection);</programlisting>
+<para>
+Returns the <parameter>selection</parameter>'s <parameter>show_alpha</parameter> property.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><type>TRUE</type></link> if the <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> has alpha controls.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-set-color" role="function">
+<title>gimp_color_selection_set_color ()</title>
+<indexterm zone="gimp-color-selection-set-color"><primary>gimp_color_selection_set_color</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_set_color      (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         const <link linkend="GimpRGB">GimpRGB</link> *color);</programlisting>
+<para>
+Sets the <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link>'s current color to the new <parameter>color</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&nbsp;:</term>
+<listitem><simpara>     The <parameter>color</parameter> to set as current color.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-get-color" role="function">
+<title>gimp_color_selection_get_color ()</title>
+<indexterm zone="gimp-color-selection-get-color"><primary>gimp_color_selection_get_color</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_get_color      (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);</programlisting>
+<para>
+This function returns the <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link>'s current color.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&nbsp;:</term>
+<listitem><simpara>     Return location for the <parameter>selection</parameter>'s current <parameter>color</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-set-old-color" role="function">
+<title>gimp_color_selection_set_old_color ()</title>
+<indexterm zone="gimp-color-selection-set-old-color"><primary>gimp_color_selection_set_old_color</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_set_old_color  (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         const <link linkend="GimpRGB">GimpRGB</link> *color);</programlisting>
+<para>
+Sets the <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link>'s old color.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&nbsp;:</term>
+<listitem><simpara>     The <parameter>color</parameter> to set as old color.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-get-old-color" role="function">
+<title>gimp_color_selection_get_old_color ()</title>
+<indexterm zone="gimp-color-selection-get-old-color"><primary>gimp_color_selection_get_old_color</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_get_old_color  (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="GimpRGB">GimpRGB</link> *color);</programlisting>
+<para>
+This function returns the <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link>'s old color.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&nbsp;:</term>
+<listitem><simpara>     Return location for the <parameter>selection</parameter>'s old <parameter>color</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-reset" role="function">
+<title>gimp_color_selection_reset ()</title>
+<indexterm zone="gimp-color-selection-reset"><primary>gimp_color_selection_reset</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_reset          (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection);</programlisting>
+<para>
+Sets the <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link>'s current color to its old color.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-color-changed" role="function">
+<title>gimp_color_selection_color_changed ()</title>
+<indexterm zone="gimp-color-selection-color-changed"><primary>gimp_color_selection_color_changed</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_color_changed  (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection);</programlisting>
+<para>
+Emits the "color-changed" signal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="GimpColorSelection"><type>GimpColorSelection</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-color-selection-set-config" role="function" condition="since:GIMP 2.4">
+<title>gimp_color_selection_set_config ()</title>
+<indexterm zone="gimp-color-selection-set-config" role="GIMP 2.4"><primary>gimp_color_selection_set_config</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_selection_set_config     (<link linkend="GimpColorSelection">GimpColorSelection</link> *selection,
+                                                         <link linkend="GimpColorConfig">GimpColorConfig</link> *config);</programlisting>
+<para>
+Sets the color management configuration to use with this color selection.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>selection</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>config</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+<refsect1 id="GimpColorSelection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GimpColorSelection--config"><title>The <literal>&quot;config&quot;</literal> property</title>
+<indexterm zone="GimpColorSelection--config"><primary>GimpColorSelection:config</primary></indexterm><programlisting>  &quot;config&quot;                   <link linkend="GimpColorConfig">GimpColorConfig</link>*      : Write</programlisting>
+<para></para></refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpColorSelection.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpColorSelection-color-changed"><title>The <literal>&quot;color-changed&quot;</literal> signal</title>
+<indexterm zone="GimpColorSelection-color-changed"><primary>GimpColorSelection::color-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpColorSelection">GimpColorSelection</link> *gimpcolorselection,
+                                                        <link linkend="gpointer">gpointer</link>            user_data)               : Run First</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpcolorselection</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

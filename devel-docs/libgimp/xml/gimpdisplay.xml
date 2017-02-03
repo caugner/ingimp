@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpdisplay">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpdisplay.top_of_page">gimpdisplay</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpdisplay</refname>
+<refpurpose>Functions to create, delete and flush new displays (views) on an image.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpdisplay.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gint32">gint32</link>              <link linkend="gimp-display-new">gimp_display_new</link>                    (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-display-delete">gimp_display_delete</link>                 (<link linkend="gint32">gint32</link> display_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-display-is-valid">gimp_display_is_valid</link>               (<link linkend="gint32">gint32</link> display_ID);
+<link linkend="gint">gint</link>                <link linkend="gimp-display-get-window-handle">gimp_display_get_window_handle</link>      (<link linkend="gint32">gint32</link> display_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-displays-flush">gimp_displays_flush</link>                 (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-displays-reconnect">gimp_displays_reconnect</link>             (<link linkend="gint32">gint32</link> old_image_ID,
+                                                         <link linkend="gint32">gint32</link> new_image_ID);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpdisplay.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions to create, delete and flush new displays (views) on an image.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpdisplay.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-display-new" role="function">
+<title>gimp_display_new ()</title>
+<indexterm zone="gimp-display-new"><primary>gimp_display_new</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_display_new                    (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Create a new display for the specified image.
+</para>
+<para>
+Creates a new display for the specified image. If the image already
+has a display, another is added. Multiple displays are handled
+transparently by GIMP. The newly created display is returned and can
+be subsequently destroyed with a call to <link linkend="gimp-display-delete"><function>gimp_display_delete()</function></link>. This
+procedure only makes sense for use with the GIMP UI.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The new display.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-display-delete" role="function">
+<title>gimp_display_delete ()</title>
+<indexterm zone="gimp-display-delete"><primary>gimp_display_delete</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_display_delete                 (<link linkend="gint32">gint32</link> display_ID);</programlisting>
+<para>
+Delete the specified display.
+</para>
+<para>
+This procedure removes the specified display. If this is the last
+remaining display for the underlying image, then the image is
+deleted also. Note that the display is closed no matter if the image
+is dirty or not. Better save the image before calling this
+procedure.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The display to delete.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-display-is-valid" role="function" condition="since:GIMP 2.4">
+<title>gimp_display_is_valid ()</title>
+<indexterm zone="gimp-display-is-valid" role="GIMP 2.4"><primary>gimp_display_is_valid</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_display_is_valid               (<link linkend="gint32">gint32</link> display_ID);</programlisting>
+<para>
+Returns TRUE if the display is valid.
+</para>
+<para>
+This procedure checks if the given display ID is valid and refers to
+an existing display.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The display to check.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Whether the display ID is valid.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-display-get-window-handle" role="function" condition="since:GIMP 2.4">
+<title>gimp_display_get_window_handle ()</title>
+<indexterm zone="gimp-display-get-window-handle" role="GIMP 2.4"><primary>gimp_display_get_window_handle</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_display_get_window_handle      (<link linkend="gint32">gint32</link> display_ID);</programlisting>
+<para>
+Get a handle to the native window for an image display.
+</para>
+<para>
+This procedure returns a handle to the native window for a given
+image display. For example in the X backend of GDK, a native window
+handle is an Xlib XID. A value of 0 is returned for an invalid
+display or if this function is unimplemented for the windowing
+system that is being used.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>display_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The display to get the window handle from.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The native window handle or 0.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-displays-flush" role="function">
+<title>gimp_displays_flush ()</title>
+<indexterm zone="gimp-displays-flush"><primary>gimp_displays_flush</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_displays_flush                 (void);</programlisting>
+<para>
+Flush all internal changes to the user interface
+</para>
+<para>
+This procedure takes no arguments and returns nothing except a
+success status. Its purpose is to flush all pending updates of image
+manipulations to the user interface. It should be called whenever
+appropriate.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-displays-reconnect" role="function">
+<title>gimp_displays_reconnect ()</title>
+<indexterm zone="gimp-displays-reconnect"><primary>gimp_displays_reconnect</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_displays_reconnect             (<link linkend="gint32">gint32</link> old_image_ID,
+                                                         <link linkend="gint32">gint32</link> new_image_ID);</programlisting>
+<para>
+Reconnect displays from one image to another image.
+</para>
+<para>
+This procedure connects all displays of the old_image to the
+new_image. If the old_image has no display or new_image already has
+a display the reconnect is not performed and the procedure returns
+without success. You should rarely need to use this function.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>old_image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The old image (must have at least one display).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The new image (must not have a display).
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

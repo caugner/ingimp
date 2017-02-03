@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpbrush">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpbrush.top_of_page">gimpbrush</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpbrush</refname>
+<refpurpose>Functions operating on a single brush.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpbrush.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-brush-new">gimp_brush_new</link>                      (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-brush-duplicate">gimp_brush_duplicate</link>                (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-brush-rename">gimp_brush_rename</link>                   (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *new_name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-brush-delete">gimp_brush_delete</link>                   (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-brush-get-info">gimp_brush_get_info</link>                 (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *mask_bpp,
+                                                         <link linkend="gint">gint</link> *color_bpp);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-brush-get-pixels">gimp_brush_get_pixels</link>               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *mask_bpp,
+                                                         <link linkend="gint">gint</link> *num_mask_bytes,
+                                                         <link linkend="guint8">guint8</link> **mask_bytes,
+                                                         <link linkend="gint">gint</link> *color_bpp,
+                                                         <link linkend="gint">gint</link> *num_color_bytes,
+                                                         <link linkend="guint8">guint8</link> **color_bytes);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-brush-get-spacing">gimp_brush_get_spacing</link>              (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *spacing);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-brush-set-spacing">gimp_brush_set_spacing</link>              (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> spacing);
+<link linkend="GimpBrushGeneratedShape">GimpBrushGeneratedShape</link> <link linkend="gimp-brush-get-shape">gimp_brush_get_shape</link>            (const <link linkend="gchar">gchar</link> *name);
+<link linkend="GimpBrushGeneratedShape">GimpBrushGeneratedShape</link> <link linkend="gimp-brush-set-shape">gimp_brush_set_shape</link>            (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="GimpBrushGeneratedShape">GimpBrushGeneratedShape</link> shape_in);
+<link linkend="gint">gint</link>                <link linkend="gimp-brush-get-spikes">gimp_brush_get_spikes</link>               (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gint">gint</link>                <link linkend="gimp-brush-set-spikes">gimp_brush_set_spikes</link>               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> spikes_in);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-get-angle">gimp_brush_get_angle</link>                (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-set-angle">gimp_brush_set_angle</link>                (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> angle_in);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-get-radius">gimp_brush_get_radius</link>               (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-set-radius">gimp_brush_set_radius</link>               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> radius_in);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-get-aspect-ratio">gimp_brush_get_aspect_ratio</link>         (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-set-aspect-ratio">gimp_brush_set_aspect_ratio</link>         (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> aspect_ratio_in);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-get-hardness">gimp_brush_get_hardness</link>             (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-brush-set-hardness">gimp_brush_set_hardness</link>             (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> hardness_in);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-brush-is-generated">gimp_brush_is_generated</link>             (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-brush-is-editable">gimp_brush_is_editable</link>              (const <link linkend="gchar">gchar</link> *name);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpbrush.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions operating on a single brush.
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpbrush.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-brush-new" role="function" condition="since:GIMP 2.2">
+<title>gimp_brush_new ()</title>
+<indexterm zone="gimp-brush-new" role="GIMP 2.2"><primary>gimp_brush_new</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_brush_new                      (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Creates a new brush
+</para>
+<para>
+This procedure creates a new, uninitialized brush</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The requested name of the new brush.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The actual new brush name.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-brush-duplicate" role="function" condition="since:GIMP 2.2">
+<title>gimp_brush_duplicate ()</title>
+<indexterm zone="gimp-brush-duplicate" role="GIMP 2.2"><primary>gimp_brush_duplicate</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_brush_duplicate                (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Duplicates a brush
+</para>
+<para>
+This procedure creates an identical brush by a different name</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the brush's copy.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-brush-rename" role="function" condition="since:GIMP 2.2">
+<title>gimp_brush_rename ()</title>
+<indexterm zone="gimp-brush-rename" role="GIMP 2.2"><primary>gimp_brush_rename</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_brush_rename                   (const <link linkend="gchar">gchar</link> *name,
+                                                         const <link linkend="gchar">gchar</link> *new_name);</programlisting>
+<para>
+Rename a brush
+</para>
+<para>
+This procedure renames a brush</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_name</parameter>&nbsp;:</term>
+<listitem><simpara> The new name of the brush.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The actual new name of the brush.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-brush-delete" role="function" condition="since:GIMP 2.2">
+<title>gimp_brush_delete ()</title>
+<indexterm zone="gimp-brush-delete" role="GIMP 2.2"><primary>gimp_brush_delete</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_brush_delete                   (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Deletes a brush
+</para>
+<para>
+This procedure deletes a brush</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-brush-get-info" role="function" condition="since:GIMP 2.2">
+<title>gimp_brush_get_info ()</title>
+<indexterm zone="gimp-brush-get-info" role="GIMP 2.2"><primary>gimp_brush_get_info</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_brush_get_info                 (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *mask_bpp,
+                                                         <link linkend="gint">gint</link> *color_bpp);</programlisting>
+<para>
+Retrieve information about the specified brush.
+</para>
+<para>
+This procedure retrieves information about the specified brush. This
+includes the brush name, and the brush extents (width and height).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The brush width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> The brush height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mask_bpp</parameter>&nbsp;:</term>
+<listitem><simpara> The brush mask bpp.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color_bpp</parameter>&nbsp;:</term>
+<listitem><simpara> The brush color bpp.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-brush-get-pixels" role="function" condition="since:GIMP 2.2">
+<title>gimp_brush_get_pixels ()</title>
+<indexterm zone="gimp-brush-get-pixels" role="GIMP 2.2"><primary>gimp_brush_get_pixels</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_brush_get_pixels               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height,
+                                                         <link linkend="gint">gint</link> *mask_bpp,
+                                                         <link linkend="gint">gint</link> *num_mask_bytes,
+                                                         <link linkend="guint8">guint8</link> **mask_bytes,
+                                                         <link linkend="gint">gint</link> *color_bpp,
+                                                         <link linkend="gint">gint</link> *num_color_bytes,
+                                                         <link linkend="guint8">guint8</link> **color_bytes);</programlisting>
+<para>
+Retrieve information about the specified brush.
+</para>
+<para>
+This procedure retrieves information about the specified brush. This
+includes the brush extents (width and height) and its pixels data.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The brush width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara> The brush height.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mask_bpp</parameter>&nbsp;:</term>
+<listitem><simpara> The brush mask bpp.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_mask_bytes</parameter>&nbsp;:</term>
+<listitem><simpara> Length of brush mask data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mask_bytes</parameter>&nbsp;:</term>
+<listitem><simpara> The brush mask data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color_bpp</parameter>&nbsp;:</term>
+<listitem><simpara> The brush color bpp.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_color_bytes</parameter>&nbsp;:</term>
+<listitem><simpara> Length of brush color data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color_bytes</parameter>&nbsp;:</term>
+<listitem><simpara> The brush color data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-brush-get-spacing" role="function" condition="since:GIMP 2.2">
+<title>gimp_brush_get_spacing ()</title>
+<indexterm zone="gimp-brush-get-spacing" role="GIMP 2.2"><primary>gimp_brush_get_spacing</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_brush_get_spacing              (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *spacing);</programlisting>
+<para>
+Get the brush spacing.
+</para>
+<para>
+This procedure returns the spacing setting for the specified brush.
+The return value is an integer between 0 and 1000 which represents
+percentage of the maximum of the width and height of the mask.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>spacing</parameter>&nbsp;:</term>
+<listitem><simpara> The brush spacing.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+<refsect2 id="gimp-brush-set-spacing" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_set_spacing ()</title>
+<indexterm zone="gimp-brush-set-spacing" role="GIMP 2.4"><primary>gimp_brush_set_spacing</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_brush_set_spacing              (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> spacing);</programlisting>
+<para>
+Set the brush spacing.
+</para>
+<para>
+This procedure modifies the spacing setting for the specified brush.
+The value should be a integer between 0 and 1000.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>spacing</parameter>&nbsp;:</term>
+<listitem><simpara> The brush spacing.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-get-shape" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_get_shape ()</title>
+<indexterm zone="gimp-brush-get-shape" role="GIMP 2.4"><primary>gimp_brush_get_shape</primary></indexterm><programlisting><link linkend="GimpBrushGeneratedShape">GimpBrushGeneratedShape</link> gimp_brush_get_shape            (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Get the shape of a generated brush.
+</para>
+<para>
+This procedure gets the shape value for a generated brush. If called
+for any other type of brush, it does not succeed. The current
+possibilities are Circle (GIMP_BRUSH_GENERATED_CIRCLE), Square
+(GIMP_BRUSH_GENERATED_SQUARE), and Diamond
+(GIMP_BRUSH_GENERATED_DIAMOND). Other shapes are likely to be added
+in the future.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The brush shape.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-set-shape" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_set_shape ()</title>
+<indexterm zone="gimp-brush-set-shape" role="GIMP 2.4"><primary>gimp_brush_set_shape</primary></indexterm><programlisting><link linkend="GimpBrushGeneratedShape">GimpBrushGeneratedShape</link> gimp_brush_set_shape            (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="GimpBrushGeneratedShape">GimpBrushGeneratedShape</link> shape_in);</programlisting>
+<para>
+Set the shape of a generated brush.
+</para>
+<para>
+This procedure sets the shape value for a generated brush. If called
+for any other type of brush, it does not succeed. The current
+possibilities are Circle (GIMP_BRUSH_GENERATED_CIRCLE), Square
+(GIMP_BRUSH_GENERATED_SQUARE), and Diamond
+(GIMP_BRUSH_GENERATED_DIAMOND). Other shapes are likely to be added
+in the future.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>shape_in</parameter>&nbsp;:</term>
+<listitem><simpara> The brush shape.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The brush shape actually assigned.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-get-spikes" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_get_spikes ()</title>
+<indexterm zone="gimp-brush-get-spikes" role="GIMP 2.4"><primary>gimp_brush_get_spikes</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_brush_get_spikes               (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Get the number of spikes for a generated brush.
+</para>
+<para>
+This procedure gets the number of spikes for a generated brush. If
+called for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The number of spikes on the brush.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-set-spikes" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_set_spikes ()</title>
+<indexterm zone="gimp-brush-set-spikes" role="GIMP 2.4"><primary>gimp_brush_set_spikes</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_brush_set_spikes               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> spikes_in);</programlisting>
+<para>
+Set the number of spikes for a generated brush.
+</para>
+<para>
+This procedure sets the number of spikes for a generated brush. If
+called for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>spikes_in</parameter>&nbsp;:</term>
+<listitem><simpara> The desired number of spikes.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The number of spikes actually assigned.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-get-angle" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_get_angle ()</title>
+<indexterm zone="gimp-brush-get-angle" role="GIMP 2.4"><primary>gimp_brush_get_angle</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_get_angle                (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Get the rotation angle of a generated brush.
+</para>
+<para>
+This procedure gets the angle of rotation for a generated brush. If
+called for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The rotation angle of the brush.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-set-angle" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_set_angle ()</title>
+<indexterm zone="gimp-brush-set-angle" role="GIMP 2.4"><primary>gimp_brush_set_angle</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_set_angle                (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> angle_in);</programlisting>
+<para>
+Set the rotation angle of a generated brush.
+</para>
+<para>
+This procedure sets the rotation angle for a generated brush. If
+called for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>angle_in</parameter>&nbsp;:</term>
+<listitem><simpara> The desired brush rotation angle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The brush rotation angle actually assigned.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-get-radius" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_get_radius ()</title>
+<indexterm zone="gimp-brush-get-radius" role="GIMP 2.4"><primary>gimp_brush_get_radius</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_get_radius               (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Get the radius of a generated brush.
+</para>
+<para>
+This procedure gets the radius value for a generated brush. If
+called for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The radius of the brush in pixels.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-set-radius" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_set_radius ()</title>
+<indexterm zone="gimp-brush-set-radius" role="GIMP 2.4"><primary>gimp_brush_set_radius</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_set_radius               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> radius_in);</programlisting>
+<para>
+Set the radius of a generated brush.
+</para>
+<para>
+This procedure sets the radius for a generated brush. If called for
+any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>radius_in</parameter>&nbsp;:</term>
+<listitem><simpara> The desired brush radius.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The brush radius actually assigned.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-get-aspect-ratio" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_get_aspect_ratio ()</title>
+<indexterm zone="gimp-brush-get-aspect-ratio" role="GIMP 2.4"><primary>gimp_brush_get_aspect_ratio</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_get_aspect_ratio         (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Get the aspect ratio of a generated brush.
+</para>
+<para>
+This procedure gets the aspect ratio of a generated brush. If called
+for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The aspect ratio of the brush.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-set-aspect-ratio" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_set_aspect_ratio ()</title>
+<indexterm zone="gimp-brush-set-aspect-ratio" role="GIMP 2.4"><primary>gimp_brush_set_aspect_ratio</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_set_aspect_ratio         (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> aspect_ratio_in);</programlisting>
+<para>
+Set the aspect ratio of a generated brush.
+</para>
+<para>
+This procedure sets the aspect ratio for a generated brush. If
+called for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>aspect_ratio_in</parameter>&nbsp;:</term>
+<listitem><simpara> The desired brush aspect ratio.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The brush aspect ratio actually assigned.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-get-hardness" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_get_hardness ()</title>
+<indexterm zone="gimp-brush-get-hardness" role="GIMP 2.4"><primary>gimp_brush_get_hardness</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_get_hardness             (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Get the hardness of a generated brush.
+</para>
+<para>
+This procedure gets the hardness of a generated brush. The hardness
+of a brush is the amount its intensity fades at the outside edge. If
+called for any other type of brush, the function does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The hardness of the brush.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-set-hardness" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_set_hardness ()</title>
+<indexterm zone="gimp-brush-set-hardness" role="GIMP 2.4"><primary>gimp_brush_set_hardness</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_brush_set_hardness             (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gdouble">gdouble</link> hardness_in);</programlisting>
+<para>
+Set the hardness of a generated brush.
+</para>
+<para>
+This procedure sets the hardness for a generated brush. If called
+for any other type of brush, it does not succeed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>hardness_in</parameter>&nbsp;:</term>
+<listitem><simpara> The desired brush hardness.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The brush hardness actually assigned.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-is-generated" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_is_generated ()</title>
+<indexterm zone="gimp-brush-is-generated" role="GIMP 2.4"><primary>gimp_brush_is_generated</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_brush_is_generated             (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Tests if brush is generated
+</para>
+<para>
+Returns TRUE if this brush is parametric, FALSE for other types</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the brush is generated.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-brush-is-editable" role="function" condition="since:GIMP 2.4">
+<title>gimp_brush_is_editable ()</title>
+<indexterm zone="gimp-brush-is-editable" role="GIMP 2.4"><primary>gimp_brush_is_editable</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_brush_is_editable              (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Tests if brush can be edited
+</para>
+<para>
+Returns TRUE if you have permission to change the brush</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The brush name.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the brush can be edited.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

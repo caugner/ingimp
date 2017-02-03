@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpcolor-GimpColorManaged">
+<refmeta>
+<refentrytitle role="top_of_page">GimpColorManaged</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPCOLOR Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpColorManaged</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="GimpColorManaged">GimpColorManaged</link>;
+                    <link linkend="GimpColorManagedInterface">GimpColorManagedInterface</link>;
+const <link linkend="guint8">guint8</link>*       <link linkend="gimp-color-managed-get-icc-profile">gimp_color_managed_get_icc_profile</link>  (<link linkend="GimpColorManaged">GimpColorManaged</link> *managed,
+                                                         <link linkend="gsize">gsize</link> *len);
+<link linkend="void">void</link>                <link linkend="gimp-color-managed-profile-changed">gimp_color_managed_profile_changed</link>  (<link linkend="GimpColorManaged">GimpColorManaged</link> *managed);
+
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="GimpColorManaged" role="struct"/>GimpColorManaged</title>
+<indexterm><primary>GimpColorManaged</primary></indexterm><programlisting>typedef struct _GimpColorManaged GimpColorManaged;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="GimpColorManagedInterface" role="struct"/>GimpColorManagedInterface</title>
+<indexterm><primary>GimpColorManagedInterface</primary></indexterm><programlisting>typedef struct {
+  GTypeInterface  base_iface;
+
+  /*  virtual functions  */
+  const guint8 * (* get_icc_profile) (GimpColorManaged *managed,
+                                      gsize            *len);
+
+  /*  signals  */
+  void           (* profile_changed) (GimpColorManaged *managed);
+} GimpColorManagedInterface;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="gimp-color-managed-get-icc-profile" role="function" condition="since:GIMP 2.4"/>gimp_color_managed_get_icc_profile ()</title>
+<indexterm role="GIMP 2.4"><primary>gimp_color_managed_get_icc_profile</primary></indexterm><programlisting>const <link linkend="guint8">guint8</link>*       gimp_color_managed_get_icc_profile  (<link linkend="GimpColorManaged">GimpColorManaged</link> *managed,
+                                                         <link linkend="gsize">gsize</link> *len);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>managed</parameter>&nbsp;:</term>
+<listitem><simpara> an object the implements the <link linkend="GimpColorManaged"><type>GimpColorManaged</type></link> interface
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara>     return location for the number of bytes in the profile data
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A pointer to a blob of data that represents an ICC
+              color profile.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2>
+<title><anchor id="gimp-color-managed-profile-changed" role="function" condition="since:GIMP 2.4"/>gimp_color_managed_profile_changed ()</title>
+<indexterm role="GIMP 2.4"><primary>gimp_color_managed_profile_changed</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_color_managed_profile_changed  (<link linkend="GimpColorManaged">GimpColorManaged</link> *managed);</programlisting>
+<para>
+Emits the "profile-changed" signal.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>managed</parameter>&nbsp;:</term>
+<listitem><simpara> an object the implements the <link linkend="GimpColorManaged"><type>GimpColorManaged</type></link> interface
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+
+<refsect1><refsect2 /><refsect2 /></refsect1>
+</refentry>

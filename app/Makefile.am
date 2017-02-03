@@ -32,9 +32,9 @@ SUBDIRS = \
 
 
 if ENABLE_GIMP_CONSOLE
-bin_PROGRAMS = gimp-2.4 gimp-console-2.4
+bin_PROGRAMS = ingimp-2.4 ingimp-console-2.4
 else
-bin_PROGRAMS = gimp-2.4
+bin_PROGRAMS = ingimp-2.4
 endif
 
 app_sources = \
@@ -52,7 +52,7 @@ app_sources = \
 	units.h		\
 	gimp-intl.h
 
-gimp_2_4_SOURCES = $(app_sources)
+ingimp_2_4_SOURCES = $(app_sources)
 
 
 EXTRA_DIST = \
@@ -98,7 +98,7 @@ AM_LDFLAGS = $(mwindows) $(munix) \
 	-u $(SYMPREFIX)gimp_coords_mix		\
 	-u $(SYMPREFIX)gimp_plug_in_manager_restore
 
-gimp_2_4_LDADD = \
+ingimp_2_4_LDADD = \
 	gui/libappgui.a			\
 	actions/libappactions.a		\
 	dialogs/libappdialogs.a		\
@@ -135,18 +135,19 @@ gimp_2_4_LDADD = \
 	$(DBUS_GLIB_LIBS)		\
 	$(RT_LIBS)			\
 	$(INTLLIBS)			\
-	$(GIMPICONRC)
+	$(GIMPICONRC)		\
+	$(LIBZ)
 
 
 if ENABLE_GIMP_CONSOLE
 
-gimp_console_2_4_SOURCES = $(app_sources)
+ingimp_console_2_4_SOURCES = $(app_sources)
 
-gimp_console_2_4_CPPFLAGS = \
+ingimp_console_2_4_CPPFLAGS = \
 	$(AM_CPPFLAGS)			\
 	-DGIMP_CONSOLE_COMPILATION
 
-gimp_console_2_4_LDADD = \
+ingimp_console_2_4_LDADD = \
 	widgets/widgets-enums.o		\
 	display/display-enums.o		\
 	display/gimpdisplayoptions.o	\
@@ -186,20 +187,20 @@ endif
 install-exec-hook:
 if DEFAULT_BINARY
 	cd $(DESTDIR)$(bindir) \
-	&& rm -f gimp$(EXEEXT) \
-	&& $(LN_S) gimp-$(GIMP_APP_VERSION)$(EXEEXT) gimp$(EXEEXT)
+	&& rm -f ingimp$(EXEEXT) \
+	&& $(LN_S) ingimp-$(GIMP_APP_VERSION)$(EXEEXT) ingimp$(EXEEXT)
 if ENABLE_GIMP_CONSOLE
 	cd $(DESTDIR)$(bindir) \
-	&& rm -f gimp-console$(EXEEXT) \
-	&& $(LN_S) gimp-console-$(GIMP_APP_VERSION)$(EXEEXT) gimp-console$(EXEEXT)
+	&& rm -f ingimp-console$(EXEEXT) \
+	&& $(LN_S) ingimp-console-$(GIMP_APP_VERSION)$(EXEEXT) ingimp-console$(EXEEXT)
 endif
 endif
 
 uninstall-local:
 if DEFAULT_BINARY
-	rm -f $(DESTDIR)$(bindir)/gimp$(EXEEXT)
+	rm -f $(DESTDIR)$(bindir)/ingimp$(EXEEXT)
 if ENABLE_GIMP_CONSOLE
-	rm -f $(DESTDIR)$(bindir)/gimp-console$(EXEEXT)
+	rm -f $(DESTDIR)$(bindir)/ingimp-console$(EXEEXT)
 endif
 endif
 
@@ -210,7 +211,7 @@ if ENABLE_GIMP_CONSOLE
 dist-check-gimp-console:
 else
 dist-check-gimp-console:
-	@echo "*** gimp-console must be enabled in order to make dist"
+	@echo "*** ingimp-console must be enabled in order to make dist"
 	@false
 endif
 
@@ -218,7 +219,7 @@ endif
 # hook to assure that the system gimprc and the gimprc manpage are
 # uptodate when a release is made
 #
-dist-dump-gimprc: gimp-console-$(GIMP_APP_VERSION)$(EXEEXT)
+dist-dump-gimprc: ingimp-console-$(GIMP_APP_VERSION)$(EXEEXT)
 	./$< --dump-gimprc-system > gimprc.tmp	\
 		&& sed -e "s/num-processors [0-9]*/num-processors 1/"	\
 		   gimprc.tmp > gimprc.tmp2				\

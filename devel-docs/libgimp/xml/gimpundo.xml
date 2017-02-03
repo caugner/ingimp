@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpundo">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpundo.top_of_page">gimpundo</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpundo</refname>
+<refpurpose>Control of undo/redo.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpundo.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-undo-group-start">gimp_image_undo_group_start</link>         (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-undo-group-end">gimp_image_undo_group_end</link>           (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-undo-is-enabled">gimp_image_undo_is_enabled</link>          (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-undo-disable">gimp_image_undo_disable</link>             (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-undo-enable">gimp_image_undo_enable</link>              (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-undo-freeze">gimp_image_undo_freeze</link>              (<link linkend="gint32">gint32</link> image_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-image-undo-thaw">gimp_image_undo_thaw</link>                (<link linkend="gint32">gint32</link> image_ID);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpundo.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Control of undo/redo.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpundo.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-image-undo-group-start" role="function">
+<title>gimp_image_undo_group_start ()</title>
+<indexterm zone="gimp-image-undo-group-start"><primary>gimp_image_undo_group_start</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_undo_group_start         (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Starts a group undo.
+</para>
+<para>
+This function is used to start a group undo--necessary for logically
+combining two or more undo operations into a single operation. This
+call must be used in conjunction with a <link linkend="gimp-image-undo-group-end"><function>gimp_image_undo_group_end()</function></link>
+call.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The ID of the image in which to open an undo group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-undo-group-end" role="function">
+<title>gimp_image_undo_group_end ()</title>
+<indexterm zone="gimp-image-undo-group-end"><primary>gimp_image_undo_group_end</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_undo_group_end           (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Finish a group undo.
+</para>
+<para>
+This function must be called once for each
+<link linkend="gimp-image-undo-group-start"><function>gimp_image_undo_group_start()</function></link> call that is made.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The ID of the image in which to close an undo group.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-undo-is-enabled" role="function">
+<title>gimp_image_undo_is_enabled ()</title>
+<indexterm zone="gimp-image-undo-is-enabled"><primary>gimp_image_undo_is_enabled</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_undo_is_enabled          (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Check if the image's undo stack is enabled.
+</para>
+<para>
+This procedure checks if the image's undo stack is currently enabled
+or disabled. This is useful when several plugins or scripts call
+each other and want to check if their caller has already used
+<link linkend="gimp-image-undo-disable"><function>gimp_image_undo_disable()</function></link> or <link linkend="gimp-image-undo-freeze"><function>gimp_image_undo_freeze()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if undo is enabled for this image.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-undo-disable" role="function">
+<title>gimp_image_undo_disable ()</title>
+<indexterm zone="gimp-image-undo-disable"><primary>gimp_image_undo_disable</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_undo_disable             (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Disable the image's undo stack.
+</para>
+<para>
+This procedure disables the image's undo stack, allowing subsequent
+operations to ignore their undo steps. This is generally called in
+conjunction with <link linkend="gimp-image-undo-enable"><function>gimp_image_undo_enable()</function></link> to temporarily disable an
+image undo stack. This is advantageous because saving undo steps can
+be time and memory intensive.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the image undo has been disabled.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-undo-enable" role="function">
+<title>gimp_image_undo_enable ()</title>
+<indexterm zone="gimp-image-undo-enable"><primary>gimp_image_undo_enable</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_undo_enable              (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Enable the image's undo stack.
+</para>
+<para>
+This procedure enables the image's undo stack, allowing subsequent
+operations to store their undo steps. This is generally called in
+conjunction with <link linkend="gimp-image-undo-disable"><function>gimp_image_undo_disable()</function></link> to temporarily disable an
+image undo stack.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the image undo has been enabled.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-undo-freeze" role="function">
+<title>gimp_image_undo_freeze ()</title>
+<indexterm zone="gimp-image-undo-freeze"><primary>gimp_image_undo_freeze</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_undo_freeze              (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Freeze the image's undo stack.
+</para>
+<para>
+This procedure freezes the image's undo stack, allowing subsequent
+operations to ignore their undo steps. This is generally called in
+conjunction with <link linkend="gimp-image-undo-thaw"><function>gimp_image_undo_thaw()</function></link> to temporarily disable an
+image undo stack. This is advantageous because saving undo steps can
+be time and memory intensive. <link linkend="gimp-image-undo-freeze"><function>gimp_image_undo_freeze()</function></link> /
+<link linkend="gimp-image-undo-thaw"><function>gimp_image_undo_thaw()</function></link> and <link linkend="gimp-image-undo-disable"><function>gimp_image_undo_disable()</function></link> /
+<link linkend="gimp-image-undo-enable"><function>gimp_image_undo_enable()</function></link> differ in that the former does not free up
+all undo steps when undo is thawed, so is more suited to interactive
+in-situ previews. It is important in this case that the image is
+back to the same state it was frozen in before thawing, else 'undo'
+behaviour is undefined.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the image undo has been frozen.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-image-undo-thaw" role="function">
+<title>gimp_image_undo_thaw ()</title>
+<indexterm zone="gimp-image-undo-thaw"><primary>gimp_image_undo_thaw</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_image_undo_thaw                (<link linkend="gint32">gint32</link> image_ID);</programlisting>
+<para>
+Thaw the image's undo stack.
+</para>
+<para>
+This procedure thaws the image's undo stack, allowing subsequent
+operations to store their undo steps. This is generally called in
+conjunction with <link linkend="gimp-image-undo-freeze"><function>gimp_image_undo_freeze()</function></link> to temporarily freeze an
+image undo stack. <link linkend="gimp-image-undo-thaw"><function>gimp_image_undo_thaw()</function></link> does NOT free the undo
+stack as <link linkend="gimp-image-undo-enable"><function>gimp_image_undo_enable()</function></link> does, so is suited for situations
+where one wishes to leave the undo stack in the same state in which
+one found it despite non-destructively playing with the image in the
+meantime. An example would be in-situ plugin previews. Balancing
+freezes and thaws and ensuring image consistancy is the
+responsibility of the caller.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the image undo has been thawed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

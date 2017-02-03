@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpBrowser">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpBrowser.top_of_page">GimpBrowser</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPWIDGETS Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpBrowser</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpBrowser.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpBrowser-struct">GimpBrowser</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-browser-new">gimp_browser_new</link>                    (void);
+<link linkend="void">void</link>                <link linkend="gimp-browser-add-search-types">gimp_browser_add_search_types</link>       (<link linkend="GimpBrowser">GimpBrowser</link> *browser,
+                                                         const <link linkend="gchar">gchar</link> *first_type_label,
+                                                         <link linkend="gint">gint</link> first_type_id,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="gimp-browser-set-widget">gimp_browser_set_widget</link>             (<link linkend="GimpBrowser">GimpBrowser</link> *browser,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="void">void</link>                <link linkend="gimp-browser-show-message">gimp_browser_show_message</link>           (<link linkend="GimpBrowser">GimpBrowser</link> *browser,
+                                                         const <link linkend="gchar">gchar</link> *message);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpBrowser.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkPaned">GtkPaned</link>
+                                 +----<link linkend="GtkHPaned">GtkHPaned</link>
+                                       +----GimpBrowser
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpBrowser.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpBrowser implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpBrowser.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="GimpBrowser-search">search</link>&quot;                                         : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="GimpBrowser.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="GimpBrowser.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpBrowser-struct" role="struct">
+<title>GimpBrowser</title>
+<indexterm zone="GimpBrowser-struct"><primary>GimpBrowser</primary></indexterm><programlisting>typedef struct _GimpBrowser GimpBrowser;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-browser-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_browser_new ()</title>
+<indexterm zone="gimp-browser-new" role="GIMP 2.4"><primary>gimp_browser_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_browser_new                    (void);</programlisting>
+<para>
+Create a new <link linkend="GimpBrowser"><type>GimpBrowser</type></link> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a newly created <link linkend="GimpBrowser"><type>GimpBrowser</type></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-browser-add-search-types" role="function" condition="since:GIMP 2.4">
+<title>gimp_browser_add_search_types ()</title>
+<indexterm zone="gimp-browser-add-search-types" role="GIMP 2.4"><primary>gimp_browser_add_search_types</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_browser_add_search_types       (<link linkend="GimpBrowser">GimpBrowser</link> *browser,
+                                                         const <link linkend="gchar">gchar</link> *first_type_label,
+                                                         <link linkend="gint">gint</link> first_type_id,
+                                                         ...);</programlisting>
+<para>
+Populates the <link linkend="GtkComboBox"><type>GtkComboBox</type></link> with search types.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>browser</parameter>&nbsp;:</term>
+<listitem><simpara>          a <link linkend="GimpBrowser"><type>GimpBrowser</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_type_label</parameter>&nbsp;:</term>
+<listitem><simpara> the label of the first search type
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_type_id</parameter>&nbsp;:</term>
+<listitem><simpara>    an integer that identifies the first search type
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>              a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated list of more labels and ids.
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-browser-set-widget" role="function" condition="since:GIMP 2.4">
+<title>gimp_browser_set_widget ()</title>
+<indexterm zone="gimp-browser-set-widget" role="GIMP 2.4"><primary>gimp_browser_set_widget</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_browser_set_widget             (<link linkend="GimpBrowser">GimpBrowser</link> *browser,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<para>
+Sets the widget to appear on the right side of the <parameter>browser</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>browser</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpBrowser"><type>GimpBrowser</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>widget</parameter>&nbsp;:</term>
+<listitem><simpara>  a <link linkend="GtkWidget"><type>GtkWidget</type></link>
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-browser-show-message" role="function" condition="since:GIMP 2.4">
+<title>gimp_browser_show_message ()</title>
+<indexterm zone="gimp-browser-show-message" role="GIMP 2.4"><primary>gimp_browser_show_message</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_browser_show_message           (<link linkend="GimpBrowser">GimpBrowser</link> *browser,
+                                                         const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+Displays <parameter>message</parameter> in the right side of the <parameter>browser</parameter>. Unless the right
+side already contains a <link linkend="GtkLabel"><type>GtkLabel</type></link>, the widget previously added with
+<link linkend="gimp-browser-set-widget"><function>gimp_browser_set_widget()</function></link> is removed and replaced by a <link linkend="GtkLabel"><type>GtkLabel</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>browser</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GimpBrowser"><type>GimpBrowser</type></link> widget
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara> text message
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+<refsect1 id="GimpBrowser.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GimpBrowser-search"><title>The <literal>&quot;search&quot;</literal> signal</title>
+<indexterm zone="GimpBrowser-search"><primary>GimpBrowser::search</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="GimpBrowser">GimpBrowser</link> *gimpbrowser,
+                                                        <link linkend="gchar">gchar</link>       *arg1,
+                                                        <link linkend="gint">gint</link>         arg2,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)        : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gimpbrowser</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

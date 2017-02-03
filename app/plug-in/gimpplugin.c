@@ -79,6 +79,7 @@
 
 #include "core/gimp.h"
 #include "core/gimpcontext.h"
+#include "core/gimpinteraction-logger.h"
 #include "core/gimpprogress.h"
 
 #include "gimpenvirontable.h"
@@ -422,6 +423,8 @@ gimp_plug_in_close (GimpPlugIn *plug_in,
   g_return_if_fail (plug_in->open);
 
   plug_in->open = FALSE;
+
+  guilog_plugin_closed(gimp_plug_in_get_proc_frame(plug_in)->procedure);
 
   if (plug_in->pid)
     {

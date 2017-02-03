@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="GimpProgressBar">
+<refmeta>
+<refentrytitle role="top_of_page" id="GimpProgressBar.top_of_page">GimpProgressBar</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpProgressBar</refname>
+<refpurpose>A widget providing a progress bar.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="GimpProgressBar.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="GimpProgressBar-struct">GimpProgressBar</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="gimp-progress-bar-new">gimp_progress_bar_new</link>               (void);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="GimpProgressBar.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkProgress">GtkProgress</link>
+                           +----<link linkend="GtkProgressBar">GtkProgressBar</link>
+                                 +----GimpProgressBar
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 id="GimpProgressBar.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GimpProgressBar implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 id="GimpProgressBar.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+A widget providing a progress bar that automatically redirects any progress
+calls to itself.
+</para>
+</refsect1>
+
+<refsect1 id="GimpProgressBar.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpProgressBar-struct" role="struct">
+<title>GimpProgressBar</title>
+<indexterm zone="GimpProgressBar-struct"><primary>GimpProgressBar</primary></indexterm><programlisting>typedef struct _GimpProgressBar GimpProgressBar;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-progress-bar-new" role="function" condition="since:GIMP 2.2">
+<title>gimp_progress_bar_new ()</title>
+<indexterm zone="gimp-progress-bar-new" role="GIMP 2.2"><primary>gimp_progress_bar_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          gimp_progress_bar_new               (void);</programlisting>
+<para>
+Creates a new <link linkend="GimpProgressBar"><type>GimpProgressBar</type></link> widget.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the new widget.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.2
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

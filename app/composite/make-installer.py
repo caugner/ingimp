@@ -527,7 +527,7 @@ def gimp_composite_cfile(fpout, name, function_table, requirements=[], cpu_featu
 
 ###########################################
 
-op = optparse.OptionParser(version="$Revision$")
+op = optparse.OptionParser(version="$Revision: 19950 $")
 op.add_option('-f', '--file', action='store',         type='string', dest='file',        default=None,
               help='the input object file')
 op.add_option('-t', '--test', action='store_true',                   dest='test',        default=False,

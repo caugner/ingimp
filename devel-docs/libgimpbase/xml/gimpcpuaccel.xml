@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpcpuaccel">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpcpuaccel.top_of_page">gimpcpuaccel</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpcpuaccel</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpcpuaccel.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="GimpCpuAccelFlags">GimpCpuAccelFlags</link>;
+<link linkend="GimpCpuAccelFlags">GimpCpuAccelFlags</link>   <link linkend="gimp-cpu-accel-get-support">gimp_cpu_accel_get_support</link>          (void);
+<link linkend="void">void</link>                <link linkend="gimp-cpu-accel-set-use">gimp_cpu_accel_set_use</link>              (<link linkend="gboolean">gboolean</link> use);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpcpuaccel.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpcpuaccel.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpCpuAccelFlags" role="enum">
+<title>enum GimpCpuAccelFlags</title>
+<indexterm zone="GimpCpuAccelFlags"><primary>GimpCpuAccelFlags</primary></indexterm><programlisting>typedef enum
+{
+  GIMP_CPU_ACCEL_NONE        = 0x0,
+
+  /* x86 accelerations */
+  GIMP_CPU_ACCEL_X86_MMX     = 0x80000000,
+  GIMP_CPU_ACCEL_X86_3DNOW   = 0x40000000,
+  GIMP_CPU_ACCEL_X86_MMXEXT  = 0x20000000,
+  GIMP_CPU_ACCEL_X86_SSE     = 0x10000000,
+  GIMP_CPU_ACCEL_X86_SSE2    = 0x08000000,
+  GIMP_CPU_ACCEL_X86_SSE3    = 0x02000000,
+
+  /* powerpc accelerations */
+  GIMP_CPU_ACCEL_PPC_ALTIVEC = 0x04000000
+} GimpCpuAccelFlags;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2 id="gimp-cpu-accel-get-support" role="function" condition="since:GIMP 2.4">
+<title>gimp_cpu_accel_get_support ()</title>
+<indexterm zone="gimp-cpu-accel-get-support" role="GIMP 2.4"><primary>gimp_cpu_accel_get_support</primary></indexterm><programlisting><link linkend="GimpCpuAccelFlags">GimpCpuAccelFlags</link>   gimp_cpu_accel_get_support          (void);</programlisting>
+<para>
+Query for CPU acceleration support.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="GimpCpuAccelFlags"><type>GimpCpuAccelFlags</type></link> as supported by the CPU.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-cpu-accel-set-use" role="function" condition="since:GIMP 2.4">
+<title>gimp_cpu_accel_set_use ()</title>
+<indexterm zone="gimp-cpu-accel-set-use" role="GIMP 2.4"><primary>gimp_cpu_accel_set_use</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_cpu_accel_set_use              (<link linkend="gboolean">gboolean</link> use);</programlisting>
+<para>
+This function is for internal use only.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>use</parameter>&nbsp;:</term>
+<listitem><simpara>  whether to use CPU acceleration features or not
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

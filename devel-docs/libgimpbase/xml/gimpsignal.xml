@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpbase-gimpsignal">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimpbase-gimpsignal.top_of_page">gimpsignal</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPBASE Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpsignal</refname>
+<refpurpose>Portable signal handling.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimpbase-gimpsignal.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                (<link linkend="GimpSignalHandlerFunc">*GimpSignalHandlerFunc</link>)            (<link linkend="gint">gint</link> signum);
+<link linkend="GimpSignalHandlerFunc">GimpSignalHandlerFunc</link> <link linkend="gimp-signal-private">gimp_signal_private</link>               (<link linkend="gint">gint</link> signum,
+                                                         <link linkend="GimpSignalHandlerFunc">GimpSignalHandlerFunc</link> handler,
+                                                         <link linkend="gint">gint</link> flags);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimpbase-gimpsignal.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Portable signal handling.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimpbase-gimpsignal.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpSignalHandlerFunc" role="function">
+<title>GimpSignalHandlerFunc ()</title>
+<indexterm zone="GimpSignalHandlerFunc"><primary>GimpSignalHandlerFunc</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpSignalHandlerFunc)            (<link linkend="gint">gint</link> signum);</programlisting>
+<para>
+A prototype for signal handler functions. Note that each function which
+takes or returns a variable of this type also accepts or may return
+special values defined by your system's signal.h header file (like
+<parameter>SIG_DFL</parameter> or <parameter>SIG_IGN</parameter>).
+</para><variablelist role="params">
+<varlistentry><term><parameter>signum</parameter>&nbsp;:</term>
+<listitem><simpara>The number of the signal. Useful if different signals are handled
+         by a single handler.
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-signal-private" role="function">
+<title>gimp_signal_private ()</title>
+<indexterm zone="gimp-signal-private"><primary>gimp_signal_private</primary></indexterm><programlisting><link linkend="GimpSignalHandlerFunc">GimpSignalHandlerFunc</link> gimp_signal_private               (<link linkend="gint">gint</link> signum,
+                                                         <link linkend="GimpSignalHandlerFunc">GimpSignalHandlerFunc</link> handler,
+                                                         <link linkend="gint">gint</link> flags);</programlisting>
+<para>
+This function furnishes a workalike for signal(2) but
+which internally invokes sigaction(2) after certain
+sa_flags are set; these primarily to ensure restarting
+of interrupted system calls. See sigaction(2)  It is a
+aid to transition and not new development: that effort
+should employ sigaction directly. [gosgood 18.04.2000]
+</para>
+<para>
+Cause <parameter>handler</parameter> to be run when <parameter>signum</parameter> is delivered.  We
+use sigaction(2) rather than signal(2) so that we can control the
+signal handler's environment completely via <parameter>flags</parameter>: some signal(2)
+implementations differ in their sematics, so we need to nail down
+exactly what we want. [austin 06.04.2000]</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>signum</parameter>&nbsp;:</term>
+<listitem><simpara> Selects signal to be handled see man 5 signal (or man 7 signal)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handler</parameter>&nbsp;:</term>
+<listitem><simpara> Handler that maps to signum. Invoked by O/S.
+          Handler gets signal that caused invocation. Corresponds
+          to the <parameter>sa_handler</parameter> field of the <parameter>sigaction</parameter> struct.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&nbsp;:</term>
+<listitem><simpara> Preferences. OR'ed SA_&lt;xxx&gt;. See man sigaction. Corresponds
+        to the <parameter>sa_flags</parameter> field of the <parameter>sigaction</parameter> struct.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A reference to the signal handling function which was
+         active before the call to <link linkend="gimp-signal-private"><function>gimp_signal_private()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libgimpbase-gimpsignal.see-also">
+<title>See Also</title>
+<para>
+signal(2), signal(5 or 7), sigaction(2).
+</para>
+</refsect1>
+
+</refentry>

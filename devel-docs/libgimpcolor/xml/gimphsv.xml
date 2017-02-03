@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimpcolor-GimpHSV">
+<refmeta>
+<refentrytitle role="top_of_page">GimpHSV</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMPCOLOR Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>GimpHSV</refname>
+<refpurpose>Definitions and Functions relating to HSV colors.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="GimpHSV">GimpHSV</link>;
+                    <link linkend="GimpHSL">GimpHSL</link>;
+<link linkend="void">void</link>                <link linkend="gimp-hsv-set">gimp_hsv_set</link>                        (<link linkend="GimpHSV">GimpHSV</link> *hsv,
+                                                         <link linkend="gdouble">gdouble</link> hue,
+                                                         <link linkend="gdouble">gdouble</link> saturation,
+                                                         <link linkend="gdouble">gdouble</link> value);
+<link linkend="void">void</link>                <link linkend="gimp-hsv-clamp">gimp_hsv_clamp</link>                      (<link linkend="GimpHSV">GimpHSV</link> *hsv);
+<link linkend="void">void</link>                <link linkend="gimp-hsva-set">gimp_hsva_set</link>                       (<link linkend="GimpHSV">GimpHSV</link> *hsva,
+                                                         <link linkend="gdouble">gdouble</link> hue,
+                                                         <link linkend="gdouble">gdouble</link> saturation,
+                                                         <link linkend="gdouble">gdouble</link> value,
+                                                         <link linkend="gdouble">gdouble</link> alpha);
+#define             <link linkend="GIMP-TYPE-HSV:CAPS">GIMP_TYPE_HSV</link>
+#define             <link linkend="GIMP-TYPE-HSL:CAPS">GIMP_TYPE_HSL</link>
+
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+Definitions and Functions relating to HSV colors.
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="GimpHSV" role="struct"/>GimpHSV</title>
+<indexterm><primary>GimpHSV</primary></indexterm><programlisting>typedef struct {
+  gdouble h, s, v, a;
+} GimpHSV;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="GimpHSL" role="struct"/>GimpHSL</title>
+<indexterm><primary>GimpHSL</primary></indexterm><programlisting>typedef struct {
+  gdouble h, s, l, a;
+} GimpHSL;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="gimp-hsv-set" role="function"/>gimp_hsv_set ()</title>
+<indexterm><primary>gimp_hsv_set</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_hsv_set                        (<link linkend="GimpHSV">GimpHSV</link> *hsv,
+                                                         <link linkend="gdouble">gdouble</link> hue,
+                                                         <link linkend="gdouble">gdouble</link> saturation,
+                                                         <link linkend="gdouble">gdouble</link> value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>hsv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>hue</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>saturation</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-hsv-clamp" role="function"/>gimp_hsv_clamp ()</title>
+<indexterm><primary>gimp_hsv_clamp</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_hsv_clamp                      (<link linkend="GimpHSV">GimpHSV</link> *hsv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>hsv</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="gimp-hsva-set" role="function"/>gimp_hsva_set ()</title>
+<indexterm><primary>gimp_hsva_set</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_hsva_set                       (<link linkend="GimpHSV">GimpHSV</link> *hsva,
+                                                         <link linkend="gdouble">gdouble</link> hue,
+                                                         <link linkend="gdouble">gdouble</link> saturation,
+                                                         <link linkend="gdouble">gdouble</link> value,
+                                                         <link linkend="gdouble">gdouble</link> alpha);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>hsva</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>hue</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>saturation</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>alpha</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="GIMP-TYPE-HSV:CAPS" role="macro"/>GIMP_TYPE_HSV</title>
+<indexterm><primary>GIMP_TYPE_HSV</primary></indexterm><programlisting>#define GIMP_TYPE_HSV       (gimp_hsv_get_type ())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="GIMP-TYPE-HSL:CAPS" role="macro"/>GIMP_TYPE_HSL</title>
+<indexterm><primary>GIMP_TYPE_HSL</primary></indexterm><programlisting>#define GIMP_TYPE_HSL       (gimp_hsl_get_type ())
+</programlisting>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+
+<refsect1><refsect2 /><refsect2 /></refsect1>
+</refentry>

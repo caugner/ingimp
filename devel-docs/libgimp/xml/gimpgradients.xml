@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpgradients">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpgradients.top_of_page">gimpgradients</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpgradients</refname>
+<refpurpose>Operations related to gradients.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpgradients.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-gradients-refresh">gimp_gradients_refresh</link>              (void);
+<link linkend="gchar">gchar</link>**             <link linkend="gimp-gradients-get-list">gimp_gradients_get_list</link>             (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_gradients);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-gradients-get-gradient">gimp_gradients_get_gradient</link>         (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-gradients-set-gradient">gimp_gradients_set_gradient</link>         (const <link linkend="gchar">gchar</link> *name);
+<link linkend="gdouble">gdouble</link>*            <link linkend="gimp-gradients-sample-uniform">gimp_gradients_sample_uniform</link>       (<link linkend="gint">gint</link> num_samples,
+                                                         <link linkend="gboolean">gboolean</link> reverse);
+<link linkend="gdouble">gdouble</link>*            <link linkend="gimp-gradients-sample-custom">gimp_gradients_sample_custom</link>        (<link linkend="gint">gint</link> num_samples,
+                                                         const <link linkend="gdouble">gdouble</link> *positions,
+                                                         <link linkend="gboolean">gboolean</link> reverse);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-gradients-get-gradient-data">gimp_gradients_get_gradient_data</link>    (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> sample_size,
+                                                         <link linkend="gboolean">gboolean</link> reverse,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gdouble">gdouble</link> **grad_data);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpgradients.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Operations related to gradients.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpgradients.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-gradients-refresh" role="function">
+<title>gimp_gradients_refresh ()</title>
+<indexterm zone="gimp-gradients-refresh"><primary>gimp_gradients_refresh</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_gradients_refresh              (void);</programlisting>
+<para>
+Refresh current gradients. This function always succeeds.
+</para>
+<para>
+This procedure retrieves all gradients currently in the user's
+gradient path and updates the gradient dialogs accordingly.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gradients-get-list" role="function">
+<title>gimp_gradients_get_list ()</title>
+<indexterm zone="gimp-gradients-get-list"><primary>gimp_gradients_get_list</primary></indexterm><programlisting><link linkend="gchar">gchar</link>**             gimp_gradients_get_list             (const <link linkend="gchar">gchar</link> *filter,
+                                                         <link linkend="gint">gint</link> *num_gradients);</programlisting>
+<para>
+Retrieve the list of loaded gradients.
+</para>
+<para>
+This procedure returns a list of the gradients that are currently
+loaded. You can later use the <link linkend="gimp-context-set-gradient"><function>gimp_context_set_gradient()</function></link> function
+to set the active gradient.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> An optional regular expression used to filter the list.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_gradients</parameter>&nbsp;:</term>
+<listitem><simpara> The number of loaded gradients.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The list of gradient names.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gradients-get-gradient" role="function" condition="deprecated:">
+<title>gimp_gradients_get_gradient ()</title>
+<indexterm zone="gimp-gradients-get-gradient" role="deprecated"><primary>gimp_gradients_get_gradient</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_gradients_get_gradient         (void);</programlisting>
+<warning><para><literal>gimp_gradients_get_gradient</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-context-get-gradient"><function>gimp_context_get_gradient()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the active gradient.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gradients-set-gradient" role="function" condition="deprecated:">
+<title>gimp_gradients_set_gradient ()</title>
+<indexterm zone="gimp-gradients-set-gradient" role="deprecated"><primary>gimp_gradients_set_gradient</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_gradients_set_gradient         (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<warning><para><literal>gimp_gradients_set_gradient</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-context-set-gradient"><function>gimp_context_set_gradient()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the gradient to set.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gradients-sample-uniform" role="function" condition="deprecated:">
+<title>gimp_gradients_sample_uniform ()</title>
+<indexterm zone="gimp-gradients-sample-uniform" role="deprecated"><primary>gimp_gradients_sample_uniform</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>*            gimp_gradients_sample_uniform       (<link linkend="gint">gint</link> num_samples,
+                                                         <link linkend="gboolean">gboolean</link> reverse);</programlisting>
+<warning><para><literal>gimp_gradients_sample_uniform</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use
+<link linkend="gimp-gradient-get-uniform-samples"><function>gimp_gradient_get_uniform_samples()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>num_samples</parameter>&nbsp;:</term>
+<listitem><simpara> The number of samples to take.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>reverse</parameter>&nbsp;:</term>
+<listitem><simpara> Use the reverse gradient.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Color samples: { R1, G1, B1, A1, ..., Rn, Gn, Bn, An }.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gradients-sample-custom" role="function" condition="deprecated:">
+<title>gimp_gradients_sample_custom ()</title>
+<indexterm zone="gimp-gradients-sample-custom" role="deprecated"><primary>gimp_gradients_sample_custom</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>*            gimp_gradients_sample_custom        (<link linkend="gint">gint</link> num_samples,
+                                                         const <link linkend="gdouble">gdouble</link> *positions,
+                                                         <link linkend="gboolean">gboolean</link> reverse);</programlisting>
+<warning><para><literal>gimp_gradients_sample_custom</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use <link linkend="gimp-gradient-get-custom-samples"><function>gimp_gradient_get_custom_samples()</function></link>
+instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>num_samples</parameter>&nbsp;:</term>
+<listitem><simpara> The number of samples to take.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>positions</parameter>&nbsp;:</term>
+<listitem><simpara> The list of positions to sample along the gradient.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>reverse</parameter>&nbsp;:</term>
+<listitem><simpara> Use the reverse gradient.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Color samples: { R1, G1, B1, A1, ..., Rn, Gn, Bn, An }.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-gradients-get-gradient-data" role="function" condition="deprecated:">
+<title>gimp_gradients_get_gradient_data ()</title>
+<indexterm zone="gimp-gradients-get-gradient-data" role="deprecated"><primary>gimp_gradients_get_gradient_data</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_gradients_get_gradient_data    (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> sample_size,
+                                                         <link linkend="gboolean">gboolean</link> reverse,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gdouble">gdouble</link> **grad_data);</programlisting>
+<warning><para><literal>gimp_gradients_get_gradient_data</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>
+This procedure is deprecated! Use
+<link linkend="gimp-gradient-get-uniform-samples"><function>gimp_gradient_get_uniform_samples()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The gradient name (\"\" means current active gradient).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>sample_size</parameter>&nbsp;:</term>
+<listitem><simpara> Size of the sample to return when the gradient is changed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>reverse</parameter>&nbsp;:</term>
+<listitem><simpara> Use the reverse gradient.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara> The gradient sample width (r,g,b,a).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>grad_data</parameter>&nbsp;:</term>
+<listitem><simpara> The gradient sample data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The gradient name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

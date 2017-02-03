@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="GIMP Thumbnail Library Reference Manual" link="index.html" author="" name="libgimpthumb">
+  <chapters>
+    <sub name="GIMP Thumbnail Library" link="libgimpthumb.html">
+      <sub name="GimpThumbnail" link="GimpThumbnail.html"/>
+      <sub name="gimpthumb-utils" link="libgimpthumb-gimpthumb-utils.html"/>
+      <sub name="gimpthumb-enums" link="libgimpthumb-gimpthumb-enums.html"/>
+      <sub name="gimpthumb-error" link="libgimpthumb-gimpthumb-error.html"/>
+    </sub>
+    <sub name="Index" link="libgimpthumb-index.html"/>
+    <sub name="Index of new symbols in GIMP 2.2" link="libgimpthumb-index-new-in-2-2.html"/>
+    <sub name="Index of new symbols in GIMP 2.4" link="libgimpthumb-index-new-in-2-4.html"/>
+    <sub name="Index of deprecated symbols" link="libgimpthumb-index-deprecated.html"/>
+  </chapters>
+  <functions>
+    <function name="GimpThumbnail" link="GimpThumbnail.html#GimpThumbnail-struct"/>
+    <function name="gimp_thumbnail_new ()" link="GimpThumbnail.html#gimp-thumbnail-new"/>
+    <function name="gimp_thumbnail_set_uri ()" link="GimpThumbnail.html#gimp-thumbnail-set-uri"/>
+    <function name="gimp_thumbnail_set_filename ()" link="GimpThumbnail.html#gimp-thumbnail-set-filename"/>
+    <function name="gimp_thumbnail_set_from_thumb ()" link="GimpThumbnail.html#gimp-thumbnail-set-from-thumb"/>
+    <function name="gimp_thumbnail_peek_image ()" link="GimpThumbnail.html#gimp-thumbnail-peek-image"/>
+    <function name="gimp_thumbnail_peek_thumb ()" link="GimpThumbnail.html#gimp-thumbnail-peek-thumb"/>
+    <function name="gimp_thumbnail_check_thumb ()" link="GimpThumbnail.html#gimp-thumbnail-check-thumb"/>
+    <function name="gimp_thumbnail_load_thumb ()" link="GimpThumbnail.html#gimp-thumbnail-load-thumb"/>
+    <function name="gimp_thumbnail_save_thumb ()" link="GimpThumbnail.html#gimp-thumbnail-save-thumb"/>
+    <function name="gimp_thumbnail_save_thumb_local ()" link="GimpThumbnail.html#gimp-thumbnail-save-thumb-local"/>
+    <function name="gimp_thumbnail_save_failure ()" link="GimpThumbnail.html#gimp-thumbnail-save-failure"/>
+    <function name="gimp_thumbnail_delete_failure ()" link="GimpThumbnail.html#gimp-thumbnail-delete-failure"/>
+    <function name="gimp_thumbnail_delete_others ()" link="GimpThumbnail.html#gimp-thumbnail-delete-others"/>
+    <function name="gimp_thumbnail_has_failed ()" link="GimpThumbnail.html#gimp-thumbnail-has-failed"/>
+    <function name="The &quot;image-filesize&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-filesize"/>
+    <function name="The &quot;image-height&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-height"/>
+    <function name="The &quot;image-mimetype&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-mimetype"/>
+    <function name="The &quot;image-mtime&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-mtime"/>
+    <function name="The &quot;image-num-layers&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-num-layers"/>
+    <function name="The &quot;image-state&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-state"/>
+    <function name="The &quot;image-type&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-type"/>
+    <function name="The &quot;image-uri&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-uri"/>
+    <function name="The &quot;image-width&quot; property" link="GimpThumbnail.html#GimpThumbnail--image-width"/>
+    <function name="The &quot;thumb-state&quot; property" link="GimpThumbnail.html#GimpThumbnail--thumb-state"/>
+    <function name="gimp_thumb_init ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-init"/>
+    <function name="gimp_thumb_find_thumb ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-find-thumb"/>
+    <function name="gimp_thumb_file_test ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-file-test"/>
+    <function name="gimp_thumb_name_from_uri ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-name-from-uri"/>
+    <function name="gimp_thumb_ensure_thumb_dir ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-ensure-thumb-dir"/>
+    <function name="gimp_thumb_get_thumb_dir ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-get-thumb-dir"/>
+    <function name="gimp_thumbs_delete_for_uri ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumbs-delete-for-uri"/>
+    <function name="gimp_thumb_name_from_uri_local ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-name-from-uri-local"/>
+    <function name="gimp_thumb_ensure_thumb_dir_local ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-ensure-thumb-dir-local"/>
+    <function name="gimp_thumb_get_thumb_dir_local ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumb-get-thumb-dir-local"/>
+    <function name="gimp_thumbs_delete_for_uri_local ()" link="libgimpthumb-gimpthumb-utils.html#gimp-thumbs-delete-for-uri-local"/>
+    <function name="enum GimpThumbFileType" link="libgimpthumb-gimpthumb-enums.html#GimpThumbFileType"/>
+    <function name="enum GimpThumbSize" link="libgimpthumb-gimpthumb-enums.html#GimpThumbSize"/>
+    <function name="enum GimpThumbState" link="libgimpthumb-gimpthumb-enums.html#GimpThumbState"/>
+    <function name="enum GimpThumbError" link="libgimpthumb-gimpthumb-error.html#GimpThumbError"/>
+    <function name="GIMP_THUMB_ERROR" link="libgimpthumb-gimpthumb-error.html#GIMP-THUMB-ERROR:CAPS"/>
+    <function name="gimp_thumb_error_quark ()" link="libgimpthumb-gimpthumb-error.html#gimp-thumb-error-quark"/>
+  </functions>
+</book>

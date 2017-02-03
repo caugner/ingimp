@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpvectors">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpvectors.top_of_page">gimpvectors</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpvectors</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpvectors.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gint32">gint32</link>              <link linkend="gimp-vectors-new">gimp_vectors_new</link>                    (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-import-from-file">gimp_vectors_import_from_file</link>       (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *filename,
+                                                         <link linkend="gboolean">gboolean</link> merge,
+                                                         <link linkend="gboolean">gboolean</link> scale,
+                                                         <link linkend="gint">gint</link> *num_vectors,
+                                                         <link linkend="gint32">gint32</link> **vectors_ids);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-import-from-string">gimp_vectors_import_from_string</link>     (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gint">gint</link> length,
+                                                         <link linkend="gboolean">gboolean</link> merge,
+                                                         <link linkend="gboolean">gboolean</link> scale,
+                                                         <link linkend="gint">gint</link> *num_vectors,
+                                                         <link linkend="gint32">gint32</link> **vectors_ids);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-is-valid">gimp_vectors_is_valid</link>               (<link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gint">gint</link>*               <link linkend="gimp-vectors-get-strokes">gimp_vectors_get_strokes</link>            (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> *num_strokes);
+<link linkend="gint32">gint32</link>              <link linkend="gimp-vectors-get-image">gimp_vectors_get_image</link>              (<link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-get-linked">gimp_vectors_get_linked</link>             (<link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gchar">gchar</link>*              <link linkend="gimp-vectors-get-name">gimp_vectors_get_name</link>               (<link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gint">gint</link>                <link linkend="gimp-vectors-get-tattoo">gimp_vectors_get_tattoo</link>             (<link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-get-visible">gimp_vectors_get_visible</link>            (<link linkend="gint32">gint32</link> vectors_ID);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-set-linked">gimp_vectors_set_linked</link>             (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gboolean">gboolean</link> linked);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-set-name">gimp_vectors_set_name</link>               (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-set-tattoo">gimp_vectors_set_tattoo</link>             (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> tattoo);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-set-visible">gimp_vectors_set_visible</link>            (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gboolean">gboolean</link> visible);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-remove-stroke">gimp_vectors_remove_stroke</link>          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-to-selection">gimp_vectors_to_selection</link>           (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="GimpChannelOps">GimpChannelOps</link> operation,
+                                                         <link linkend="gboolean">gboolean</link> antialias,
+                                                         <link linkend="gboolean">gboolean</link> feather,
+                                                         <link linkend="gdouble">gdouble</link> feather_radius_x,
+                                                         <link linkend="gdouble">gdouble</link> feather_radius_y);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-parasite-attach">gimp_vectors_parasite_attach</link>        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="GimpParasite">GimpParasite</link> *parasite);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-parasite-detach">gimp_vectors_parasite_detach</link>        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="GimpParasite">GimpParasite</link>*       <link linkend="gimp-vectors-parasite-find">gimp_vectors_parasite_find</link>          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-parasite-list">gimp_vectors_parasite_list</link>          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> *num_parasites,
+                                                         <link linkend="gchar">gchar</link> ***parasites);
+<link linkend="gint">gint</link>                <link linkend="gimp-vectors-stroke-new-from-points">gimp_vectors_stroke_new_from_points</link> (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="GimpVectorsStrokeType">GimpVectorsStrokeType</link> type,
+                                                         <link linkend="gint">gint</link> num_points,
+                                                         const <link linkend="gdouble">gdouble</link> *controlpoints,
+                                                         <link linkend="gboolean">gboolean</link> closed);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-stroke-close">gimp_vectors_stroke_close</link>           (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id);
+<link linkend="gdouble">gdouble</link>             <link linkend="gimp-vectors-stroke-get-length">gimp_vectors_stroke_get_length</link>      (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> precision);
+<link linkend="GimpVectorsStrokeType">GimpVectorsStrokeType</link> <link linkend="gimp-vectors-stroke-get-points">gimp_vectors_stroke_get_points</link>    (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gint">gint</link> *num_points,
+                                                         <link linkend="gdouble">gdouble</link> **controlpoints,
+                                                         <link linkend="gboolean">gboolean</link> *closed);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-stroke-get-point-at-dist">gimp_vectors_stroke_get_point_at_dist</link>
+                                                        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> dist,
+                                                         <link linkend="gdouble">gdouble</link> precision,
+                                                         <link linkend="gdouble">gdouble</link> *x_point,
+                                                         <link linkend="gdouble">gdouble</link> *y_point,
+                                                         <link linkend="gdouble">gdouble</link> *slope,
+                                                         <link linkend="gboolean">gboolean</link> *valid);
+<link linkend="gdouble">gdouble</link>*            <link linkend="gimp-vectors-stroke-interpolate">gimp_vectors_stroke_interpolate</link>     (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> precision,
+                                                         <link linkend="gint">gint</link> *num_coords,
+                                                         <link linkend="gboolean">gboolean</link> *closed);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-stroke-scale">gimp_vectors_stroke_scale</link>           (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> scale_x,
+                                                         <link linkend="gdouble">gdouble</link> scale_y);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-stroke-translate">gimp_vectors_stroke_translate</link>       (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gint">gint</link> off_x,
+                                                         <link linkend="gint">gint</link> off_y);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-stroke-flip">gimp_vectors_stroke_flip</link>            (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="GimpOrientationType">GimpOrientationType</link> flip_type,
+                                                         <link linkend="gdouble">gdouble</link> axis);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-stroke-flip-free">gimp_vectors_stroke_flip_free</link>       (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x1,
+                                                         <link linkend="gdouble">gdouble</link> y1,
+                                                         <link linkend="gdouble">gdouble</link> x2,
+                                                         <link linkend="gdouble">gdouble</link> y2);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-stroke-rotate">gimp_vectors_stroke_rotate</link>          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> center_x,
+                                                         <link linkend="gdouble">gdouble</link> center_y,
+                                                         <link linkend="gdouble">gdouble</link> angle);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-bezier-stroke-conicto">gimp_vectors_bezier_stroke_conicto</link>  (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0,
+                                                         <link linkend="gdouble">gdouble</link> x1,
+                                                         <link linkend="gdouble">gdouble</link> y1);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-bezier-stroke-cubicto">gimp_vectors_bezier_stroke_cubicto</link>  (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0,
+                                                         <link linkend="gdouble">gdouble</link> x1,
+                                                         <link linkend="gdouble">gdouble</link> y1,
+                                                         <link linkend="gdouble">gdouble</link> x2,
+                                                         <link linkend="gdouble">gdouble</link> y2);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-vectors-bezier-stroke-lineto">gimp_vectors_bezier_stroke_lineto</link>   (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0);
+<link linkend="gint">gint</link>                <link linkend="gimp-vectors-bezier-stroke-new-ellipse">gimp_vectors_bezier_stroke_new_ellipse</link>
+                                                        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0,
+                                                         <link linkend="gdouble">gdouble</link> radius_x,
+                                                         <link linkend="gdouble">gdouble</link> radius_y,
+                                                         <link linkend="gdouble">gdouble</link> angle);
+<link linkend="gint">gint</link>                <link linkend="gimp-vectors-bezier-stroke-new-moveto">gimp_vectors_bezier_stroke_new_moveto</link>
+                                                        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpvectors.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpvectors.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-vectors-new" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_new ()</title>
+<indexterm zone="gimp-vectors-new" role="GIMP 2.4"><primary>gimp_vectors_new</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_vectors_new                    (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Creates a new empty vectors object.
+</para>
+<para>
+Creates a new empty vectors object. Needs to be added to an image
+using <link linkend="gimp-image-add-vectors"><function>gimp_image_add_vectors()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> the name of the new vector object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the current vector object, 0 if no vector exists in the image.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-import-from-file" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_import_from_file ()</title>
+<indexterm zone="gimp-vectors-import-from-file" role="GIMP 2.4"><primary>gimp_vectors_import_from_file</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_import_from_file       (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *filename,
+                                                         <link linkend="gboolean">gboolean</link> merge,
+                                                         <link linkend="gboolean">gboolean</link> scale,
+                                                         <link linkend="gint">gint</link> *num_vectors,
+                                                         <link linkend="gint32">gint32</link> **vectors_ids);</programlisting>
+<para>
+Import paths from an SVG file.
+</para>
+<para>
+This procedure imports paths from an SVG file. SVG elements other
+than paths and basic shapes are ignored.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the SVG file to import.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>merge</parameter>&nbsp;:</term>
+<listitem><simpara> Merge paths into a single vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale</parameter>&nbsp;:</term>
+<listitem><simpara> Scale the SVG to image dimensions.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_vectors</parameter>&nbsp;:</term>
+<listitem><simpara> The number of newly created vectors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ids</parameter>&nbsp;:</term>
+<listitem><simpara> The list of newly created vectors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-import-from-string" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_import_from_string ()</title>
+<indexterm zone="gimp-vectors-import-from-string" role="GIMP 2.4"><primary>gimp_vectors_import_from_string</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_import_from_string     (<link linkend="gint32">gint32</link> image_ID,
+                                                         const <link linkend="gchar">gchar</link> *string,
+                                                         <link linkend="gint">gint</link> length,
+                                                         <link linkend="gboolean">gboolean</link> merge,
+                                                         <link linkend="gboolean">gboolean</link> scale,
+                                                         <link linkend="gint">gint</link> *num_vectors,
+                                                         <link linkend="gint32">gint32</link> **vectors_ids);</programlisting>
+<para>
+Import paths from an SVG string.
+</para>
+<para>
+This procedure works like <link linkend="gimp-vectors-import-from-file"><function>gimp_vectors_import_from_file()</function></link> but takes
+a string rather than reading the SVG from a file. This allows you to
+write scripts that generate SVG and feed it to GIMP.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>image_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>string</parameter>&nbsp;:</term>
+<listitem><simpara> A string that must be a complete and valid SVG document.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>length</parameter>&nbsp;:</term>
+<listitem><simpara> Number of bytes in string or -1 if the string is NULL terminated.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>merge</parameter>&nbsp;:</term>
+<listitem><simpara> Merge paths into a single vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale</parameter>&nbsp;:</term>
+<listitem><simpara> Scale the SVG to image dimensions.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_vectors</parameter>&nbsp;:</term>
+<listitem><simpara> The number of newly created vectors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>vectors_ids</parameter>&nbsp;:</term>
+<listitem><simpara> The list of newly created vectors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-is-valid" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_is_valid ()</title>
+<indexterm zone="gimp-vectors-is-valid" role="GIMP 2.4"><primary>gimp_vectors_is_valid</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_is_valid               (<link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Returns TRUE if the vectors object is valid.
+</para>
+<para>
+This procedure checks if the given vectors ID is valid and refers to
+an existing vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object to check.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Whether the vectors ID is valid.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-get-strokes" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_get_strokes ()</title>
+<indexterm zone="gimp-vectors-get-strokes" role="GIMP 2.4"><primary>gimp_vectors_get_strokes</primary></indexterm><programlisting><link linkend="gint">gint</link>*               gimp_vectors_get_strokes            (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> *num_strokes);</programlisting>
+<para>
+List the strokes associated with the passed path.
+</para>
+<para>
+Returns an Array with the stroke-IDs associated with the passed
+path.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_strokes</parameter>&nbsp;:</term>
+<listitem><simpara> The number of strokes returned.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> List of the strokes belonging to the path.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-get-image" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_get_image ()</title>
+<indexterm zone="gimp-vectors-get-image" role="GIMP 2.4"><primary>gimp_vectors_get_image</primary></indexterm><programlisting><link linkend="gint32">gint32</link>              gimp_vectors_get_image              (<link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Returns the vectors objects image.
+</para>
+<para>
+Returns the vectors objects image.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The vectors image.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-get-linked" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_get_linked ()</title>
+<indexterm zone="gimp-vectors-get-linked" role="GIMP 2.4"><primary>gimp_vectors_get_linked</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_get_linked             (<link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Gets the linked state of the vectors object.
+</para>
+<para>
+Gets the linked state of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the path is linked, FALSE otherwise.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-get-name" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_get_name ()</title>
+<indexterm zone="gimp-vectors-get-name" role="GIMP 2.4"><primary>gimp_vectors_get_name</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              gimp_vectors_get_name               (<link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Gets the name of the vectors object.
+</para>
+<para>
+Gets the name of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The name of the vectors object.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-get-tattoo" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_get_tattoo ()</title>
+<indexterm zone="gimp-vectors-get-tattoo" role="GIMP 2.4"><primary>gimp_vectors_get_tattoo</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_vectors_get_tattoo             (<link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Get the tattoo of the vectors object.
+</para>
+<para>
+Get the tattoo state of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The vectors tattoo.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-get-visible" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_get_visible ()</title>
+<indexterm zone="gimp-vectors-get-visible" role="GIMP 2.4"><primary>gimp_vectors_get_visible</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_get_visible            (<link linkend="gint32">gint32</link> vectors_ID);</programlisting>
+<para>
+Gets the visibility of the vectors object.
+</para>
+<para>
+Gets the visibility of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE if the path is visible, FALSE otherwise.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-set-linked" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_set_linked ()</title>
+<indexterm zone="gimp-vectors-set-linked" role="GIMP 2.4"><primary>gimp_vectors_set_linked</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_set_linked             (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gboolean">gboolean</link> linked);</programlisting>
+<para>
+Sets the linked state of the vectors object.
+</para>
+<para>
+Sets the linked state of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>linked</parameter>&nbsp;:</term>
+<listitem><simpara> Whether the path is linked.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-set-name" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_set_name ()</title>
+<indexterm zone="gimp-vectors-set-name" role="GIMP 2.4"><primary>gimp_vectors_set_name</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_set_name               (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Sets the name of the vectors object.
+</para>
+<para>
+Sets the name of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> the new name of the path.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-set-tattoo" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_set_tattoo ()</title>
+<indexterm zone="gimp-vectors-set-tattoo" role="GIMP 2.4"><primary>gimp_vectors_set_tattoo</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_set_tattoo             (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> tattoo);</programlisting>
+<para>
+Set the tattoo of the vectors object.
+</para>
+<para>
+Set the tattoo of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tattoo</parameter>&nbsp;:</term>
+<listitem><simpara> the new tattoo.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-set-visible" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_set_visible ()</title>
+<indexterm zone="gimp-vectors-set-visible" role="GIMP 2.4"><primary>gimp_vectors_set_visible</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_set_visible            (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gboolean">gboolean</link> visible);</programlisting>
+<para>
+Sets the visibility of the vectors object.
+</para>
+<para>
+Sets the visibility of the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>visible</parameter>&nbsp;:</term>
+<listitem><simpara> Whether the path is visible.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-remove-stroke" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_remove_stroke ()</title>
+<indexterm zone="gimp-vectors-remove-stroke" role="GIMP 2.4"><primary>gimp_vectors_remove_stroke</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_remove_stroke          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id);</programlisting>
+<para>
+remove the stroke from a vectors object.
+</para>
+<para>
+Remove the stroke from a vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-to-selection" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_to_selection ()</title>
+<indexterm zone="gimp-vectors-to-selection" role="GIMP 2.4"><primary>gimp_vectors_to_selection</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_to_selection           (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="GimpChannelOps">GimpChannelOps</link> operation,
+                                                         <link linkend="gboolean">gboolean</link> antialias,
+                                                         <link linkend="gboolean">gboolean</link> feather,
+                                                         <link linkend="gdouble">gdouble</link> feather_radius_x,
+                                                         <link linkend="gdouble">gdouble</link> feather_radius_y);</programlisting>
+<para>
+Transforms the specified vectors object into a selection
+</para>
+<para>
+This procedure renders the desired vectors object into the current
+selection of the image the vectors object belongs to.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object to render to the selection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>operation</parameter>&nbsp;:</term>
+<listitem><simpara> The desired operation with current selection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>antialias</parameter>&nbsp;:</term>
+<listitem><simpara> Antialias selection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>feather</parameter>&nbsp;:</term>
+<listitem><simpara> Feather selection.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>feather_radius_x</parameter>&nbsp;:</term>
+<listitem><simpara> Feather radius x.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>feather_radius_y</parameter>&nbsp;:</term>
+<listitem><simpara> Feather radius y.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-parasite-attach" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_parasite_attach ()</title>
+<indexterm zone="gimp-vectors-parasite-attach" role="GIMP 2.4"><primary>gimp_vectors_parasite_attach</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_parasite_attach        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="GimpParasite">GimpParasite</link> *parasite);</programlisting>
+<para>
+Add a parasite to a vectors object
+</para>
+<para>
+This procedure attaches a parasite to a vectors object. It has no
+return values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parasite</parameter>&nbsp;:</term>
+<listitem><simpara> The parasite to attach to a vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-parasite-detach" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_parasite_detach ()</title>
+<indexterm zone="gimp-vectors-parasite-detach" role="GIMP 2.4"><primary>gimp_vectors_parasite_detach</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_parasite_detach        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Removes a parasite from a vectors object
+</para>
+<para>
+This procedure detaches a parasite from a vectors object. It has no
+return values.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the parasite to detach from a vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-parasite-find" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_parasite_find ()</title>
+<indexterm zone="gimp-vectors-parasite-find" role="GIMP 2.4"><primary>gimp_vectors_parasite_find</primary></indexterm><programlisting><link linkend="GimpParasite">GimpParasite</link>*       gimp_vectors_parasite_find          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+Look up a parasite in a vectors object
+</para>
+<para>
+Finds and returns the parasite that was previously attached to a
+vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the parasite to find.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The found parasite.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-parasite-list" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_parasite_list ()</title>
+<indexterm zone="gimp-vectors-parasite-list" role="GIMP 2.4"><primary>gimp_vectors_parasite_list</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_parasite_list          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> *num_parasites,
+                                                         <link linkend="gchar">gchar</link> ***parasites);</programlisting>
+<para>
+List all parasites.
+</para>
+<para>
+Returns a list of all currently attached parasites.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_parasites</parameter>&nbsp;:</term>
+<listitem><simpara> The number of attached parasites.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parasites</parameter>&nbsp;:</term>
+<listitem><simpara> The names of currently attached parasites.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-new-from-points" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_new_from_points ()</title>
+<indexterm zone="gimp-vectors-stroke-new-from-points" role="GIMP 2.4"><primary>gimp_vectors_stroke_new_from_points</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_vectors_stroke_new_from_points (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="GimpVectorsStrokeType">GimpVectorsStrokeType</link> type,
+                                                         <link linkend="gint">gint</link> num_points,
+                                                         const <link linkend="gdouble">gdouble</link> *controlpoints,
+                                                         <link linkend="gboolean">gboolean</link> closed);</programlisting>
+<para>
+Adds a stroke of a given type to the vectors object.
+</para>
+<para>
+Adds a stroke of a given type to the vectors object. The coordinates
+of the control points can be specified. For now only strokes of the
+type GIMP_VECTORS_STROKE_TYPE_BEZIER are supported. The control
+points are specified as a pair of float values for the x- and
+y-coordinate. The Bezier stroke type needs a multiple of three
+control points. Each Bezier segment endpoint (anchor, A) has two
+additional control points (C) associated. They are specified in the
+order CACCACCAC...</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> type of the stroke (always GIMP_VECTORS_STROKE_TYPE_BEZIER for now).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_points</parameter>&nbsp;:</term>
+<listitem><simpara> The number of elements in the array, i.e. the number of controlpoints in the stroke * 2 (x- and y-coordinate).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>controlpoints</parameter>&nbsp;:</term>
+<listitem><simpara> List of the x- and y-coordinates of the control points.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closed</parameter>&nbsp;:</term>
+<listitem><simpara> Whether the stroke is to be closed or not.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The stroke ID of the newly created stroke.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-close" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_close ()</title>
+<indexterm zone="gimp-vectors-stroke-close" role="GIMP 2.4"><primary>gimp_vectors_stroke_close</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_stroke_close           (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id);</programlisting>
+<para>
+closes the specified stroke.
+</para>
+<para>
+Closes the specified stroke.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-get-length" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_get_length ()</title>
+<indexterm zone="gimp-vectors-stroke-get-length" role="GIMP 2.4"><primary>gimp_vectors_stroke_get_length</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>             gimp_vectors_stroke_get_length      (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> precision);</programlisting>
+<para>
+Measure the length of the given stroke.
+</para>
+<para>
+Measure the length of the given stroke.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>precision</parameter>&nbsp;:</term>
+<listitem><simpara> The precision used for the approximation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The length (in pixels) of the given stroke.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-get-points" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_get_points ()</title>
+<indexterm zone="gimp-vectors-stroke-get-points" role="GIMP 2.4"><primary>gimp_vectors_stroke_get_points</primary></indexterm><programlisting><link linkend="GimpVectorsStrokeType">GimpVectorsStrokeType</link> gimp_vectors_stroke_get_points    (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gint">gint</link> *num_points,
+                                                         <link linkend="gdouble">gdouble</link> **controlpoints,
+                                                         <link linkend="gboolean">gboolean</link> *closed);</programlisting>
+<para>
+returns the control points of a stroke.
+</para>
+<para>
+returns the control points of a stroke. The interpretation of the
+coordinates returned depends on the type of the stroke. For Gimp 2.4
+this is always a bezier stroke, where the coordinates are the
+control points.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_points</parameter>&nbsp;:</term>
+<listitem><simpara> The number of floats returned.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>controlpoints</parameter>&nbsp;:</term>
+<listitem><simpara> List of the control points for the stroke (x0, y0, x1, y1, ...).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closed</parameter>&nbsp;:</term>
+<listitem><simpara> Whether the stroke is closed or not.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> type of the stroke (always GIMP_VECTORS_STROKE_TYPE_BEZIER for now).
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-get-point-at-dist" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_get_point_at_dist ()</title>
+<indexterm zone="gimp-vectors-stroke-get-point-at-dist" role="GIMP 2.4"><primary>gimp_vectors_stroke_get_point_at_dist</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_stroke_get_point_at_dist
+                                                        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> dist,
+                                                         <link linkend="gdouble">gdouble</link> precision,
+                                                         <link linkend="gdouble">gdouble</link> *x_point,
+                                                         <link linkend="gdouble">gdouble</link> *y_point,
+                                                         <link linkend="gdouble">gdouble</link> *slope,
+                                                         <link linkend="gboolean">gboolean</link> *valid);</programlisting>
+<para>
+Get point at a specified distance along the stroke.
+</para>
+<para>
+This will return the x,y position of a point at a given distance
+along the stroke. The distance will be obtained by first digitizing
+the curve internally and then walking along the curve. For a closed
+stroke the start of the path is the first point on the path that was
+created. This might not be obvious. If the stroke is not long
+enough, a \"valid\" flag will be FALSE.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dist</parameter>&nbsp;:</term>
+<listitem><simpara> The given distance.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>precision</parameter>&nbsp;:</term>
+<listitem><simpara> The precision used for the approximation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x_point</parameter>&nbsp;:</term>
+<listitem><simpara> The x position of the point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y_point</parameter>&nbsp;:</term>
+<listitem><simpara> The y position of the point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>slope</parameter>&nbsp;:</term>
+<listitem><simpara> The slope (dy / dx) at the specified point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>valid</parameter>&nbsp;:</term>
+<listitem><simpara> Indicator for the validity of the returned data.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-interpolate" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_interpolate ()</title>
+<indexterm zone="gimp-vectors-stroke-interpolate" role="GIMP 2.4"><primary>gimp_vectors_stroke_interpolate</primary></indexterm><programlisting><link linkend="gdouble">gdouble</link>*            gimp_vectors_stroke_interpolate     (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> precision,
+                                                         <link linkend="gint">gint</link> *num_coords,
+                                                         <link linkend="gboolean">gboolean</link> *closed);</programlisting>
+<para>
+returns polygonal approximation of the stroke.
+</para>
+<para>
+returns polygonal approximation of the stroke.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>precision</parameter>&nbsp;:</term>
+<listitem><simpara> The precision used for the approximation.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num_coords</parameter>&nbsp;:</term>
+<listitem><simpara> The number of floats returned.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>closed</parameter>&nbsp;:</term>
+<listitem><simpara> Whether the stroke is closed or not.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> List of the coords along the path (x0, y0, x1, y1, ...).
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-scale" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_scale ()</title>
+<indexterm zone="gimp-vectors-stroke-scale" role="GIMP 2.4"><primary>gimp_vectors_stroke_scale</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_stroke_scale           (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> scale_x,
+                                                         <link linkend="gdouble">gdouble</link> scale_y);</programlisting>
+<para>
+scales the given stroke.
+</para>
+<para>
+Scale the given stroke.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale_x</parameter>&nbsp;:</term>
+<listitem><simpara> Scale factor in x direction.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale_y</parameter>&nbsp;:</term>
+<listitem><simpara> Scale factor in y direction.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-translate" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_translate ()</title>
+<indexterm zone="gimp-vectors-stroke-translate" role="GIMP 2.4"><primary>gimp_vectors_stroke_translate</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_stroke_translate       (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gint">gint</link> off_x,
+                                                         <link linkend="gint">gint</link> off_y);</programlisting>
+<para>
+translate the given stroke.
+</para>
+<para>
+Translate the given stroke.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>off_x</parameter>&nbsp;:</term>
+<listitem><simpara> Offset in x direction.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>off_y</parameter>&nbsp;:</term>
+<listitem><simpara> Offset in y direction.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-flip" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_flip ()</title>
+<indexterm zone="gimp-vectors-stroke-flip" role="GIMP 2.4"><primary>gimp_vectors_stroke_flip</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_stroke_flip            (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="GimpOrientationType">GimpOrientationType</link> flip_type,
+                                                         <link linkend="gdouble">gdouble</link> axis);</programlisting>
+<para>
+flips the given stroke.
+</para>
+<para>
+Rotates the given stroke around given center by angle (in degrees).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flip_type</parameter>&nbsp;:</term>
+<listitem><simpara> Flip orientation, either vertical or horizontal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>axis</parameter>&nbsp;:</term>
+<listitem><simpara> axis coordinate about which to flip, in pixels.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-flip-free" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_flip_free ()</title>
+<indexterm zone="gimp-vectors-stroke-flip-free" role="GIMP 2.4"><primary>gimp_vectors_stroke_flip_free</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_stroke_flip_free       (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x1,
+                                                         <link linkend="gdouble">gdouble</link> y1,
+                                                         <link linkend="gdouble">gdouble</link> x2,
+                                                         <link linkend="gdouble">gdouble</link> y2);</programlisting>
+<para>
+flips the given stroke about an arbitrary axis.
+</para>
+<para>
+Flips the given stroke about an arbitrary axis. Axis is defined by
+two coordinates in the image (in pixels), through which the flipping
+axis passes.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x1</parameter>&nbsp;:</term>
+<listitem><simpara> X coordinate of the first point of the flipping axis.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y1</parameter>&nbsp;:</term>
+<listitem><simpara> Y coordinate of the first point of the flipping axis.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x2</parameter>&nbsp;:</term>
+<listitem><simpara> X coordinate of the second point of the flipping axis.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y2</parameter>&nbsp;:</term>
+<listitem><simpara> Y coordinate of the second point of the flipping axis.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-stroke-rotate" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_stroke_rotate ()</title>
+<indexterm zone="gimp-vectors-stroke-rotate" role="GIMP 2.4"><primary>gimp_vectors_stroke_rotate</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_stroke_rotate          (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> center_x,
+                                                         <link linkend="gdouble">gdouble</link> center_y,
+                                                         <link linkend="gdouble">gdouble</link> angle);</programlisting>
+<para>
+rotates the given stroke.
+</para>
+<para>
+Rotates the given stroke around given center by angle (in degrees).</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>center_x</parameter>&nbsp;:</term>
+<listitem><simpara> X coordinate of the rotation center.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>center_y</parameter>&nbsp;:</term>
+<listitem><simpara> Y coordinate of the rotation center.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>angle</parameter>&nbsp;:</term>
+<listitem><simpara> angle to rotate about.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-bezier-stroke-conicto" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_bezier_stroke_conicto ()</title>
+<indexterm zone="gimp-vectors-bezier-stroke-conicto" role="GIMP 2.4"><primary>gimp_vectors_bezier_stroke_conicto</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_bezier_stroke_conicto  (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0,
+                                                         <link linkend="gdouble">gdouble</link> x1,
+                                                         <link linkend="gdouble">gdouble</link> y1);</programlisting>
+<para>
+Extends a bezier stroke with a conic bezier spline.
+</para>
+<para>
+Extends a bezier stroke with a conic bezier spline. Actually a cubic
+bezier spline gets added that realizes the shape of a conic bezier
+spline.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x0</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the control point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y0</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the control point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x1</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the end point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y1</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the end point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-bezier-stroke-cubicto" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_bezier_stroke_cubicto ()</title>
+<indexterm zone="gimp-vectors-bezier-stroke-cubicto" role="GIMP 2.4"><primary>gimp_vectors_bezier_stroke_cubicto</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_bezier_stroke_cubicto  (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0,
+                                                         <link linkend="gdouble">gdouble</link> x1,
+                                                         <link linkend="gdouble">gdouble</link> y1,
+                                                         <link linkend="gdouble">gdouble</link> x2,
+                                                         <link linkend="gdouble">gdouble</link> y2);</programlisting>
+<para>
+Extends a bezier stroke with a cubic bezier spline.
+</para>
+<para>
+Extends a bezier stroke with a cubic bezier spline.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x0</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the first control point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y0</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the first control point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x1</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the second control point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y1</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the second control point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x2</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the end point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y2</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the end point.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-bezier-stroke-lineto" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_bezier_stroke_lineto ()</title>
+<indexterm zone="gimp-vectors-bezier-stroke-lineto" role="GIMP 2.4"><primary>gimp_vectors_bezier_stroke_lineto</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_vectors_bezier_stroke_lineto   (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gint">gint</link> stroke_id,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0);</programlisting>
+<para>
+Extends a bezier stroke with a lineto.
+</para>
+<para>
+Extends a bezier stroke with a lineto.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stroke_id</parameter>&nbsp;:</term>
+<listitem><simpara> The stroke ID.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x0</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the lineto.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y0</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the lineto.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-bezier-stroke-new-ellipse" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_bezier_stroke_new_ellipse ()</title>
+<indexterm zone="gimp-vectors-bezier-stroke-new-ellipse" role="GIMP 2.4"><primary>gimp_vectors_bezier_stroke_new_ellipse</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_vectors_bezier_stroke_new_ellipse
+                                                        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0,
+                                                         <link linkend="gdouble">gdouble</link> radius_x,
+                                                         <link linkend="gdouble">gdouble</link> radius_y,
+                                                         <link linkend="gdouble">gdouble</link> angle);</programlisting>
+<para>
+Adds a bezier stroke describing an ellipse the vectors object.
+</para>
+<para>
+Adds a bezier stroke describing an ellipse the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x0</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the center.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y0</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the center.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>radius_x</parameter>&nbsp;:</term>
+<listitem><simpara> The radius in x direction.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>radius_y</parameter>&nbsp;:</term>
+<listitem><simpara> The radius in y direction.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>angle</parameter>&nbsp;:</term>
+<listitem><simpara> The angle the x-axis of the ellipse (radians, counterclockwise).
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The resulting stroke.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-vectors-bezier-stroke-new-moveto" role="function" condition="since:GIMP 2.4">
+<title>gimp_vectors_bezier_stroke_new_moveto ()</title>
+<indexterm zone="gimp-vectors-bezier-stroke-new-moveto" role="GIMP 2.4"><primary>gimp_vectors_bezier_stroke_new_moveto</primary></indexterm><programlisting><link linkend="gint">gint</link>                gimp_vectors_bezier_stroke_new_moveto
+                                                        (<link linkend="gint32">gint32</link> vectors_ID,
+                                                         <link linkend="gdouble">gdouble</link> x0,
+                                                         <link linkend="gdouble">gdouble</link> y0);</programlisting>
+<para>
+Adds a bezier stroke with a single moveto to the vectors object.
+</para>
+<para>
+Adds a bezier stroke with a single moveto to the vectors object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>vectors_ID</parameter>&nbsp;:</term>
+<listitem><simpara> The vectors object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x0</parameter>&nbsp;:</term>
+<listitem><simpara> The x-coordinate of the moveto.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y0</parameter>&nbsp;:</term>
+<listitem><simpara> The y-coordinate of the moveto.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The resulting stroke.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimpui">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimpui.top_of_page">gimpui</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimpui</refname>
+<refpurpose>Common user interface functions. This header includes all other GIMP User
+Interface Library headers.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimpui.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                <link linkend="gimp-ui-init">gimp_ui_init</link>                        (const <link linkend="gchar">gchar</link> *prog_name,
+                                                         <link linkend="gboolean">gboolean</link> preview);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="gimp-ui-get-display-window">gimp_ui_get_display_window</link>          (<link linkend="guint32">guint32</link> gdisp_ID);
+<link linkend="GdkWindow">GdkWindow</link>*          <link linkend="gimp-ui-get-progress-window">gimp_ui_get_progress_window</link>         (void);
+<link linkend="void">void</link>                <link linkend="gimp-window-set-transient">gimp_window_set_transient</link>           (<link linkend="GtkWindow">GtkWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="gimp-window-set-transient-for-display">gimp_window_set_transient_for_display</link>
+                                                        (<link linkend="GtkWindow">GtkWindow</link> *window,
+                                                         <link linkend="guint32">guint32</link> gdisp_ID);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimpui.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Common user interface functions. This header includes all other GIMP User
+Interface Library headers.
+
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimpui.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gimp-ui-init" role="function">
+<title>gimp_ui_init ()</title>
+<indexterm zone="gimp-ui-init"><primary>gimp_ui_init</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_ui_init                        (const <link linkend="gchar">gchar</link> *prog_name,
+                                                         <link linkend="gboolean">gboolean</link> preview);</programlisting>
+<para>
+This function initializes GTK+ with <link linkend="gtk-init"><function>gtk_init()</function></link> and initializes GDK's
+image rendering subsystem (GdkRGB) to follow the GIMP main program's
+colormap allocation/installation policy.
+</para>
+<para>
+GIMP's colormap policy can be determinded by the user with the
+gimprc variables <parameter>min_colors</parameter> and <parameter>install_cmap</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>prog_name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the plug-in which will be passed as argv[0] to
+            <link linkend="gtk-init"><function>gtk_init()</function></link>. It's a convention to use the name of the
+            executable and _not_ the PDB procedure name or something.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>preview</parameter>&nbsp;:</term>
+<listitem><simpara>   This parameter is unused and exists for historical
+            reasons only.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-ui-get-display-window" role="function" condition="since:GIMP 2.4">
+<title>gimp_ui_get_display_window ()</title>
+<indexterm zone="gimp-ui-get-display-window" role="GIMP 2.4"><primary>gimp_ui_get_display_window</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          gimp_ui_get_display_window          (<link linkend="guint32">guint32</link> gdisp_ID);</programlisting>
+<para>
+Returns the <link linkend="GdkWindow"><type>GdkWindow</type></link> of a display window. The purpose is to allow
+to make plug-in dialogs transient to the image display as explained
+with <link linkend="gdk-window-set-transient-for"><function>gdk_window_set_transient_for()</function></link>.
+</para>
+<para>
+You shouldn't have to call this function directly. Use
+<link linkend="gimp-window-set-transient-for-display"><function>gimp_window_set_transient_for_display()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gdisp_ID</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A reference to a <link linkend="GdkWindow"><type>GdkWindow</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. You should
+              unref the window using <link linkend="g-object-unref"><function>g_object_unref()</function></link> as soon as
+              you don't need it any longer.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-ui-get-progress-window" role="function" condition="since:GIMP 2.4">
+<title>gimp_ui_get_progress_window ()</title>
+<indexterm zone="gimp-ui-get-progress-window" role="GIMP 2.4"><primary>gimp_ui_get_progress_window</primary></indexterm><programlisting><link linkend="GdkWindow">GdkWindow</link>*          gimp_ui_get_progress_window         (void);</programlisting>
+<para>
+Returns the <link linkend="GdkWindow"><type>GdkWindow</type></link> of the window this plug-in's progress bar is
+shown in. Use it to make plug-in dialogs transient to this window
+as explained with <link linkend="gdk-window-set-transient-for"><function>gdk_window_set_transient_for()</function></link>.
+</para>
+<para>
+You shouldn't have to call this function directly. Use
+<link linkend="gimp-window-set-transient"><function>gimp_window_set_transient()</function></link> instead.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> A reference to a <link linkend="GdkWindow"><type>GdkWindow</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. You should
+              unref the window using <link linkend="g-object-unref"><function>g_object_unref()</function></link> as soon as
+              you don't need it any longer.
+
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-window-set-transient" role="function" condition="since:GIMP 2.4">
+<title>gimp_window_set_transient ()</title>
+<indexterm zone="gimp-window-set-transient" role="GIMP 2.4"><primary>gimp_window_set_transient</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_window_set_transient           (<link linkend="GtkWindow">GtkWindow</link> *window);</programlisting>
+<para>
+Indicates to the window manager that <parameter>window</parameter> is a transient dialog
+associated with the GIMP window that the plug-in has been
+started from. See also <link linkend="gimp-window-set-transient-for-display"><function>gimp_window_set_transient_for_display()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GtkWindow"><type>GtkWindow</type></link> that should become transient
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+<refsect2 id="gimp-window-set-transient-for-display" role="function" condition="since:GIMP 2.4">
+<title>gimp_window_set_transient_for_display ()</title>
+<indexterm zone="gimp-window-set-transient-for-display" role="GIMP 2.4"><primary>gimp_window_set_transient_for_display</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_window_set_transient_for_display
+                                                        (<link linkend="GtkWindow">GtkWindow</link> *window,
+                                                         <link linkend="guint32">guint32</link> gdisp_ID);</programlisting>
+<para>
+Indicates to the window manager that <parameter>window</parameter> is a transient dialog
+associated with the GIMP image window that is identified by it's
+display ID.  See <link linkend="gdk-window-set-transient-for"><function>gdk_window_set_transient_for()</function></link> for more information.
+</para>
+<para>
+Most of the time you will want to use the convenience function
+<link linkend="gimp-window-set-transient"><function>gimp_window_set_transient()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>   the <link linkend="GtkWindow"><type>GtkWindow</type></link> that should become transient
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>gdisp_ID</parameter>&nbsp;:</term>
+<listitem><simpara> display ID of the image window that should become the parent
+</simpara></listitem></varlistentry>
+</variablelist><para role="since">Since  GIMP 2.4
+</para></refsect2>
+
+</refsect1>
+
+
+
+<refsect1 id="libgimp-gimpui.see-also">
+<title>See Also</title>
+<para>
+<link linkend="gtk-init"><function>gtk_init()</function></link>, <link linkend="gdk-set-use-xshm"><function>gdk_set_use_xshm()</function></link>, <link linkend="gdk-rgb-set-min-colors"><function>gdk_rgb_set_min_colors()</function></link>,
+<link linkend="gdk-rgb-set-install"><function>gdk_rgb_set_install()</function></link>, <link linkend="gdk-rgb-get-visual"><function>gdk_rgb_get_visual()</function></link>, <link linkend="gdk-rgb-get-cmap"><function>gdk_rgb_get_cmap()</function></link>,
+<link linkend="gtk-widget-set-default-visual"><function>gtk_widget_set_default_visual()</function></link>, <link linkend="gtk-widget-set-default-colormap"><function>gtk_widget_set_default_colormap()</function></link>,
+<link linkend="gtk-preview-set-gamma"><function>gtk_preview_set_gamma()</function></link>.
+</para>
+</refsect1>
+
+</refentry>

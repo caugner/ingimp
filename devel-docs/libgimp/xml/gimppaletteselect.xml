@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+
+<refentry id="libgimp-gimppaletteselect">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgimp-gimppaletteselect.top_of_page">gimppaletteselect</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGIMP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>gimppaletteselect</refname>
+<refpurpose>Functions providing a palette selection dialog.</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv id="libgimp-gimppaletteselect.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                (<link linkend="GimpRunPaletteCallback">*GimpRunPaletteCallback</link>)           (const <link linkend="gchar">gchar</link> *palette_name,
+                                                         <link linkend="gboolean">gboolean</link> dialog_closing,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+const <link linkend="gchar">gchar</link>*        <link linkend="gimp-palette-select-new">gimp_palette_select_new</link>             (const <link linkend="gchar">gchar</link> *title,
+                                                         const <link linkend="gchar">gchar</link> *palette_name,
+                                                         <link linkend="GimpRunPaletteCallback">GimpRunPaletteCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="gimp-palette-select-destroy">gimp_palette_select_destroy</link>         (const <link linkend="gchar">gchar</link> *palette_callback);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-palettes-popup">gimp_palettes_popup</link>                 (const <link linkend="gchar">gchar</link> *palette_callback,
+                                                         const <link linkend="gchar">gchar</link> *popup_title,
+                                                         const <link linkend="gchar">gchar</link> *initial_palette);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-palettes-close-popup">gimp_palettes_close_popup</link>           (const <link linkend="gchar">gchar</link> *palette_callback);
+<link linkend="gboolean">gboolean</link>            <link linkend="gimp-palettes-set-popup">gimp_palettes_set_popup</link>             (const <link linkend="gchar">gchar</link> *palette_callback,
+                                                         const <link linkend="gchar">gchar</link> *palette_name);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="libgimp-gimppaletteselect.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+Functions providing a palette selection dialog.
+</para>
+</refsect1>
+
+<refsect1 id="libgimp-gimppaletteselect.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GimpRunPaletteCallback" role="function">
+<title>GimpRunPaletteCallback ()</title>
+<indexterm zone="GimpRunPaletteCallback"><primary>GimpRunPaletteCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*GimpRunPaletteCallback)           (const <link linkend="gchar">gchar</link> *palette_name,
+                                                         <link linkend="gboolean">gboolean</link> dialog_closing,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>palette_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dialog_closing</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palette-select-new" role="function">
+<title>gimp_palette_select_new ()</title>
+<indexterm zone="gimp-palette-select-new"><primary>gimp_palette_select_new</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        gimp_palette_select_new             (const <link linkend="gchar">gchar</link> *title,
+                                                         const <link linkend="gchar">gchar</link> *palette_name,
+                                                         <link linkend="GimpRunPaletteCallback">GimpRunPaletteCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>palette_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palette-select-destroy" role="function">
+<title>gimp_palette_select_destroy ()</title>
+<indexterm zone="gimp-palette-select-destroy"><primary>gimp_palette_select_destroy</primary></indexterm><programlisting><link linkend="void">void</link>                gimp_palette_select_destroy         (const <link linkend="gchar">gchar</link> *palette_callback);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>palette_callback</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palettes-popup" role="function">
+<title>gimp_palettes_popup ()</title>
+<indexterm zone="gimp-palettes-popup"><primary>gimp_palettes_popup</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_palettes_popup                 (const <link linkend="gchar">gchar</link> *palette_callback,
+                                                         const <link linkend="gchar">gchar</link> *popup_title,
+                                                         const <link linkend="gchar">gchar</link> *initial_palette);</programlisting>
+<para>
+Invokes the Gimp palette selection.
+</para>
+<para>
+This procedure opens the palette selection dialog.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>palette_callback</parameter>&nbsp;:</term>
+<listitem><simpara> The callback PDB proc to call when palette selection is made.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>popup_title</parameter>&nbsp;:</term>
+<listitem><simpara> Title of the palette selection dialog.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>initial_palette</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the palette to set as the first selected.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palettes-close-popup" role="function">
+<title>gimp_palettes_close_popup ()</title>
+<indexterm zone="gimp-palettes-close-popup"><primary>gimp_palettes_close_popup</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_palettes_close_popup           (const <link linkend="gchar">gchar</link> *palette_callback);</programlisting>
+<para>
+Close the palette selection dialog.
+</para>
+<para>
+This procedure closes an opened palette selection dialog.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>palette_callback</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the callback registered for this pop-up.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gimp-palettes-set-popup" role="function">
+<title>gimp_palettes_set_popup ()</title>
+<indexterm zone="gimp-palettes-set-popup"><primary>gimp_palettes_set_popup</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            gimp_palettes_set_popup             (const <link linkend="gchar">gchar</link> *palette_callback,
+                                                         const <link linkend="gchar">gchar</link> *palette_name);</programlisting>
+<para>
+Sets the current palette in a palette selection dialog.
+</para>
+<para>
+Sets the current palette in a palette selection dialog.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>palette_callback</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the callback registered for this pop-up.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>palette_name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the palette to set as selected.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> TRUE on success.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>
